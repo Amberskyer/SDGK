@@ -1,5 +1,5 @@
 'use strict';
-const svgCaptcha = require('svg-captcha');
+
 const Controller = require('../care/base_controller');
 
 /**

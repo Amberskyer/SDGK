@@ -6,7 +6,6 @@ module.exports = appInfo => {
 
     // use for cookie sign key, should change to your own and keep security
     config.keys = appInfo.name + '_HuaShi';
-    config.version = 'v1';
     config.apiHeader = 'http://122.204.161.106:9898/api/v1';
 
     // add your config here

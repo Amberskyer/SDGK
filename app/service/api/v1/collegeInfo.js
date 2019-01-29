@@ -1,11 +1,12 @@
 'use strict';
 const Service = require('../../../care/base_api_service');
 
-class CollegeService extends Service {
+class CollegeInfoService extends Service {
     constructor(ctx) {
         super(ctx);
-        this.tableId = 232;
+        this.tableId = 233;
     }
+
 
     async index(page, pageSize) {
         //获取数据
@@ -44,4 +45,4 @@ class CollegeService extends Service {
 
 }
 
-module.exports = CollegeService;
+module.exports = CollegeInfoService;

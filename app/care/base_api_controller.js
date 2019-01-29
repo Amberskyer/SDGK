@@ -15,6 +15,7 @@ class BaseApiController extends Controller {
      * @returns
      */
     async index() {
+
     }
 
     /**
