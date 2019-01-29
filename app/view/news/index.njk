@@ -1,0 +1,37 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+    <img id="captcha" src="/api/v1/captcha"/>
+
+    <ul>
+        {% for item in result1 %}
+            <li>{{ item.name }}</li>
+        {% else %}
+            <li>This would display if the 'item' collection were empty</li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for item in result2 %}
+            <li>{{ item.name }}</li>
+        {% else %}
+            <li>This would display if the 'item' collection were empty</li>
+        {% endfor %}
+    </ul>
+    <div style="min-height: 600px;">
+        <h1>{{ msg }}</h1>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+
+        document.querySelector("#captcha").onclick = function () {
+            document.querySelector('#captcha').setAttribute('src', '/api/v1/captcha?' + Math.random())
+        }
+
+        const cookieStr = document.cookie;
+        console.log({cookieStr});
+
+    </script>
+{% endblock %}
+

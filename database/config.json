@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "12345678",
+    "database": "koa2",
+    "host": "47.74.128.254",
+    "port": "3306",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "12345678",
+    "database": "koa2",
+    "host": "47.74.128.254",
+    "port": "3306",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "12345678",
+    "database": "koa2",
+    "host": "47.74.128.254",
+    "port": "3306",
+    "dialect": "mysql"
+  }
+}

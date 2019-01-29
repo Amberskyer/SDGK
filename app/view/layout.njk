@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/animate.css">
+    <title>高校志愿填报</title>
+</head>
+{% block body %}
+<body>
+
+{% block header %}
+    <!-- 公用头部 -->
+    <div class="top-header">
+        <div class="top">
+            <div class="container">
+                <div class="left">您好,
+                    <span><a href="#">[注册]</a> <a href="#">[登录]</a>
+                </span> <span><a>soorou</a>欢迎登录师大高考网！</span>
+                </div>
+                <ul class="right">
+                    <li class="program1">微信公众号</li>
+                    <li class="program2">手机APP</li>
+                    <li class="program3">
+                        <a href="/vip">开通VIP</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="container">
+                <div class="logo"><a href="/"><img title="师大高考" src="../public/image/logo.png"></a></div>
+                <ul class="navbar">
+                    <li>
+                        <a href='/' class="mian-a">
+                            <em>首页</em>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/colleges' class="mian-a">
+                            <em>信息查询</em>
+                        </a>
+                        <div>
+                            <a href="/colleges">找大学<i class="hot"></i></a>
+                            <a href="/jobs">搜职业</a>
+                            <a href="/majors">找专业</a>
+                            <a href="/rank">查位次</a>
+                            <a href="/batch-line">批次线</a>
+                            <a href="/college-bang">院校榜</a>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a href='/test-evaluation' class="mian-a">
+                            <em>测试评估</em>
+                        </a>
+                        <div>
+                            <a href="/test-evaluation">录取概率测试 <i class="hot"></i></a>
+                            <a href="/job-for-you">职业性格测试</a>
+                            <a href="/compare/college">院校专业对比</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href='/smart-simulate' class="mian-a">
+                            <em>志愿填报</em>
+                        </a>
+                        <div>
+                            <a href="/smart-simulate">智能模拟填报 <i class="hot"></i></a>
+                            <a href="/about-enroll">录取相关查询</a>
+                            <a href="/admission-plan">招生计划查询</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href='/news/gk' class="mian-a">
+                            <em>高考资讯</em>
+                        </a>
+                        <div>
+                            <a href="/news/gk">高招资讯</a>
+                            <a href="/news/college">院校资讯 <i class="hot"></i></a>
+                            <a href="/news/major">专业资讯</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="secher">
+                    <form>
+                        <input type="text" value="" placeholder="搜文章 / 找大学 / 查专业 / 搜课程" class="f14">
+                        <button type="submit"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 公用头部 End-->
+{% endblock %}
+
+{% block content %}
+
+    <!-- banner -->
+    <div class="banner">
+        <div class="bannerbox banner1"></div>
+    </div>
+    <!-- banner End-->
+
+    <!-- 立即推荐 -->
+    <div class="recommend">
+        <div class="tipsTit">输入分数，立即推荐适合你的学校、专业和志愿</div>
+        <span class="tipsMessge">用户167*****123  输入了<em>山东文科546分</em> 为他推荐了<em>123</em>能上的学校 <em>89</em>个适合的专业 <em>2345</em>适合的志愿</span>
+        <div class="recommendMain">
+            <form>
+                <select name="" id="">
+                    <option value="山东">山东</option>
+                    <option value="湖北">湖北</option>
+                    <option value="湖南">湖南</option>
+                    <option value="江西">江西</option>
+                </select>
+                <select name="" id="">
+                    <option value="文科">文科</option>
+                    <option value="理科">理科</option>
+                </select>
+                <input type="text" value="" placeholder="预估分数" class="f14">
+                <button type="submit">立即推荐</button>
+            </form>
+        </div>
+    </div>
+    <!-- 立即推荐 End-->
+
+    <!-- 主要功能按钮 -->
+    <div class="service-icons container">
+        <ul>
+            <a href="/colleges">
+                <li class="li1">
+                    <span></span>
+                    <h6>挑大学</h6>
+                    <p>全国2856所院校</p>
+                </li>
+            </a>
+            <a href="/majors">
+                <li class="li2">
+                    <span></span>
+                    <h6>找专业</h6>
+                    <p>详解1200多专业</p>
+                </li>
+            </a>
+            <a href="/jobs">
+                <li class="li3">
+                    <span></span>
+                    <h6>找职业</h6>
+                    <p>涵盖870个职业</p>
+                </li>
+            </a>
+            <a href="/rank">
+                <li class="li4">
+                    <span></span>
+                    <h6>查位次</h6>
+                    <p>图表形式展示位次排名</p>
+                </li>
+            </a>
+            <a href="/batch-line">
+                <li class="li5">
+                    <span></span>
+                    <h6>批次线</h6>
+                    <p>权威数据一手获取</p>
+                </li>
+            </a>
+            <a href="/about-enroll">
+                <li class="li6">
+                    <span></span>
+                    <h6>录取相关查询</h6>
+                    <p>多年录取相关查询</p>
+                </li>
+            </a>
+            <a href="/admission-plan">
+                <li class="li7">
+                    <span></span>
+                    <h6>招生计划查询</h6>
+                    <p>5年官方权威数据</p>
+                </li>
+            </a>
+            <a href="/test-evaluation">
+                <li class="li8">
+                    <span></span>
+                    <h6>录取概率测试</h6>
+                    <p>分类填报，每一分都有价值</p>
+                </li>
+            </a>
+            <a href="/smart-simulate">
+                <li class="li9">
+                    <span></span>
+                    <h6>智能模拟填报</h6>
+                    <p>高概率录取</p>
+                </li>
+            </a>
+            <a href="/compare/college">
+                <li class="li10">
+                    <span></span>
+                    <h6>院校专业对比</h6>
+                    <p>全方位数据对比</p>
+                </li>
+            </a>
+        </ul>
+    </div>
+    <!-- 主要功能按钮 End-->
+
+{% endblock %}
+
+{% block footer %}
+    <!-- footer -->
+    <div class="footer clearfix">
+        <div class="container links">
+            <div class="left-cols">
+                <div class="col">
+                    <ul>
+                        <li>新手帮助</li>
+                        <li><a href="/s/about">使用指南</a></li>
+                        <li><a href="/s/contact">常见问题</a></li>
+                        <li><a href="###">开通VIP</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li>关于我们</li>
+                        <li><a href="/s/about">公司介绍</a></li>
+                        <li><a href="/s/contact">联系我们</a></li>
+                        <li><a href="###">商务合作</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li>官方声明</li>
+                        <li><a href="/s/service">服务条款</a></li>
+                        <li><a href="/s/disclaimer">免责声明</a></li>
+                        <li>&nbsp;</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li>推荐功能</li>
+                        <li><a href="/services">录取概率测试</a> <i style="color:#ffed22" class="fa fa-diamond"></i></li>
+                        <li><a href="/s/faq">智能模拟填报</a></li>
+                        <li><a href="/s/guide">院校专业对比</a></li>
+                        <li>&nbsp;</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="right-cols">
+                <div class="col">
+                    <img src="http://static.gaokao.nercel.com/b06261536/images/qrcode_for_weixin.jpg">
+                    <p><a href="#">关注微信公众号</a></p>
+                </div>
+                <div class="col">
+                    <img src="http://static.gaokao.nercel.com/b06261536/images/qrcode_for_weibo.jpg">
+                    <p><a href="#">关注微博</a></p>
+                </div>
+                <div class="col ">
+                    <img src="http://static.gaokao.nercel.com/b06261536/images/app_qrcode.jpg">
+                    <p><a href="#">下载手机APP</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2019 师大高考 武汉华大国家数字化学习工程技术有限公司
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a target="_blank" href="http://www.miitbeian.gov.cn/">鄂ICP备15023035号-3</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a target="_blank" href="http://static.gaokao.nercel.com/b06261536/images/xu_ke_zheng.jpg">增值电信业务经营许可证B2-20171770</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011102001874">
+                <img style="width:15px;height:15px;" src="http://static.gaokao.nercel.com/b06261536/images/gongan.png">&nbsp;鄂公网安备
+                42011102001874号</a>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+</body>
+{% endblock %}
+
+{% block script %}
+<script>
+
+</script>
+{% endblock %}
+
+</html>

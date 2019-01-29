@@ -1,0 +1,394 @@
+body{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+    height: 100%;
+}
+html{ height:100%;}
+*{ 
+	padding:0px; 
+	margin:0px; 
+	font-family:'Microsoft YaHei';
+	list-style: none;
+	text-decoration: none;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-style: normal;
+}
+.container{
+    width: 1200px;
+    margin: 0px auto;
+}
+.top-header{
+    width: 100%;
+    height: 115px;
+    box-shadow: #a9a9a9 1px 1px 10px;
+}
+.top-header .top{
+    width: 100%;
+    height:30px;
+    background: #fbfbfb;
+    border-bottom: 1px solid #e8e8e8;
+}
+.top-header .top .container .left , .top-header .top .container .right{
+    font-size: 12px;
+    line-height: 30px;
+    color: #666;
+}
+.top-header .top .container .left{
+    float: left;
+}
+.top-header .top .container .left a{
+    color: #fdbe36
+}
+.top-header .top .container .right{
+    float: right;
+}
+.top-header .top .container .right li{
+    display: inline-block;
+    padding: 0px  0px 0px 24px;
+    cursor: pointer;
+    margin-left: 24px;
+}
+.top-header .top .container .right li:hover{
+    color: #268cc5;
+}
+.program1{
+    background: url(../image/webchat.png) no-repeat left;
+}
+.program2{
+    background: url(../image/iphone.png) no-repeat left;
+}
+.program3{
+    background: url(../image/vip.png) no-repeat left;
+}
+.top-header .nav{
+    height: 84px;
+    width: 100%;
+    background: #fff;
+}
+.logo{
+    display: inline-block;
+    width: 160px;
+    height: 55px;
+    margin: 15px 60px 14px 0;
+    vertical-align: top;
+}
+.navbar{
+    display: inline-block;
+    width: 600px;
+    vertical-align: top;
+}
+.navbar li{
+    float: left;
+    height: 84px;
+    width: 20%;
+}
+.navbar li .mian-a{
+    height: 84px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 84px;
+    color: #202020;
+}
+.navbar li a:hover{
+    color: #ff8a00;
+}
+.navbar .active .mian-a{
+    color: #ff8a00;
+}
+.navbar li a:hover em{
+    padding: 15px 5px;
+    border-bottom: 2px solid #ff8a00;
+}
+.navbar .active a em{
+    padding: 15px 5px;
+    border-bottom: 2px solid #ff8a00;
+}
+
+.navbar li div{
+    display: none;
+    width: 150%;
+    margin-left: -25%;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    padding: 10px 20px;
+    border-radius: 0 0 5px 5px 
+}
+.navbar li:hover div{
+    display: block;
+}
+.navbar li div a{
+    width: 100%;
+    display: block;
+    width: 100%;
+    line-height: 35px;
+    text-align: center;
+    color: #202020;
+    font-size: 15px;
+}
+.navbar li div .hot{
+    background:url(../image/hot.png) no-repeat right;
+    width: 32px;
+    height: 21px;
+    position: absolute;
+    margin-left: 10px;
+}
+.secher{
+    float: right;
+    width: 320px;
+    height: 37px;
+    border: 1px solid #0081cc;
+    margin: 22px 0;
+}
+.secher input{
+    height: 35px;
+    width: 279px;
+    padding: 0px 15px;
+    border: 0px;
+    float: left;
+}
+.secher button{
+    width: 39px;
+    height: 35px;
+    border: 0px;
+    background: #0081cc url(../image/secher.png) no-repeat center;
+}
+.banner{
+    width: 100%;
+    height: 490px;
+}
+.banner .bannerbox{
+    width: 100%;
+    height: 490px;
+}
+.banner .banner1{
+    background: url(../image/banner1.png) no-repeat top
+}
+
+
+html .footer {
+    background: #1B1B1B;
+}
+
+html .container {
+    width: 1200px;
+    margin: 0 auto;
+}
+html .footer .links {
+    min-height: 300px;
+    color: #ccc;
+    overflow: hidden;
+}
+html .footer .copyright {
+    height: 60px;
+    line-height: 60px;
+    background: #262626;
+    color: #868686;
+    text-align: center;
+}
+html .footer .links .right-cols {
+    float: right;
+    height: 170px;
+    width: 520px;
+    margin-top: 80px;
+}
+html .footer .links .left-cols .col {
+    width: 145px;
+    float: left;
+    margin-top: 80px;
+}
+html .footer .links .left-cols .col ul {
+    margin: 0;
+    padding: 0 0 0 60px;
+}
+html .footer .links .left-cols .col li:first-child {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    padding-bottom: 15px;
+}
+html .footer .links .right-cols .col {
+    float: left;
+    text-align: center;
+    width: 170px;
+    height: 170px;
+}
+html .footer .links .right-cols .col a{
+    color: #ccc;
+    font-size: 12px;
+}
+html .footer .links .left-cols .col ul li a{
+    color: #ccc;
+    font-size: 14px;
+    line-height: 30px;
+}
+html .footer .copyright a , html .footer .copyright{
+    font-size: 12px;
+    color: #ccc;
+}
+
+.recommend{
+    width: 1200px;
+    height: 220px;
+    border-radius: 110px;
+    background: #fff;
+    margin: -110px auto 0 auto;
+    box-shadow: #a9a9a9 1px 1px 10px;
+}
+.recommendMain , .tipsTit , .tipsMessge{
+    text-align: center;
+    display: block;
+}
+.tipsTit{
+    font-size: 22px;
+    color: #222426;
+    line-height: 60px;
+    padding-top: 25px;
+}
+.tipsMessge{
+    width: 70%;
+    background: #f5f4f8;
+    height: 35px;
+    font-size: 14px;
+    line-height: 35px;
+    border-radius: 18px;
+    margin: 0px auto;
+    color: #7e7e7e;
+    margin-bottom: 20px;
+}
+.tipsMessge em{
+    color: #fc8e00;
+}
+.recommendMain select , .recommendMain input{
+    width: 213px;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding: 0 14px;
+    vertical-align: top;
+    margin: 0px 5px;
+}
+.recommendMain button{
+    width: 150px;
+    height: 40px;
+    vertical-align: top;
+    background: #00b9ef;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
+    margin: 0px 5px;
+}
+.service-icons ul{
+    font-size: 0;
+    padding: 0 0 45px 0;
+}
+.service-icons ul li{
+    width: 20%;
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 45px;
+    cursor: pointer;
+}
+.service-icons ul li span{
+    display:block;
+    width: 86px;
+    margin: 0px auto;
+    height: 86px;
+    border: 1px solid #a4deff;
+    border-radius: 43px;
+    
+}
+.service-icons ul li:hover span{
+    animation:pulse  linear 0.5s infinite;
+    -moz-animation:pulse linear 0.5s infinite;
+    -webkit-animation:pulse linear 0.5s infinite;
+    -o-animation:pulse linear 0.5s infinite;
+}
+@-webkit-keyframes pulse {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  
+    50% {
+      -webkit-transform: scale3d(1.05, 1.05, 1.05);
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  @keyframes pulse {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  
+    50% {
+      -webkit-transform: scale3d(1.05, 1.05, 1.05);
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+
+.service-icons ul .li1 span{
+    background: url(../image/icon1.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul .li2 span{
+    background: url(../image/icon2.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul .li3 span{
+    background: url(../image/icon3.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul .li4 span{
+    background: url(../image/icon4.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul .li5 span{
+    background: url(../image/icon5.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul .li6 span{
+    background: url(../image/icon6.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul .li7 span{
+    background: url(../image/icon7.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul .li8 span{
+    background: url(../image/icon8.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul .li9 span{
+    background: url(../image/icon9.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul .li10 span{
+    background: url(../image/icon10.png) no-repeat center;
+    background-size: 99%;
+}
+.service-icons ul li h6{
+    font-size:18px;
+    color: #1d1d1d; 
+    line-height: 40px;
+    font-weight: normal
+}
+.service-icons ul li p{
+    font-size: 14px;
+    color: #666;
+}
