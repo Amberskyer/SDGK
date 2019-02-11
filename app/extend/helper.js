@@ -1,11 +1,11 @@
 module.exports = {
-    formatUser(user) {
-        return only(user, [ 'name', 'phone' ]);
-    },
+  formatUser(user) {
+    return only(user, [ 'name', 'phone' ]);
+  },
 
-    only(ctx , next){
+  only(ctx, next) {
 
-    }
+  },
 
 
 };
