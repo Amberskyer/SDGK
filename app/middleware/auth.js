@@ -1,3 +1,4 @@
+'use strict';
 const jwt = require('jsonwebtoken');
 module.exports = () => {
   return async function auth(ctx, next) {

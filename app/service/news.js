@@ -3,6 +3,7 @@ const Service = require('../care/base_service');
 
 
 class TopicService extends Service {
+  // eslint-disable-next-line no-useless-constructor
   constructor(ctx) {
     super(ctx);
   }

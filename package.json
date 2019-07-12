@@ -16,7 +16,9 @@
     "jsonwebtoken": "^8.4.0",
     "mysql2": "^1.6.4",
     "path": "^0.12.7",
-    "svg-captcha": "^1.3.12"
+    "request": "^2.88.0",
+    "svg-captcha": "^1.3.12",
+    "sequelize": "latest"
   },
   "devDependencies": {
     "autod": "^3.0.1",
