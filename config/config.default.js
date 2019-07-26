@@ -6,7 +6,7 @@ module.exports = appInfo => {
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_HuaShi';
-  config.apiHeader = 'http://122.204.161.106:9898/api/v1';
+  config.apiHeader = '';
 
   // add your config here
   config.middleware = [ 'errorHandler', 'auth' ];
@@ -41,13 +41,64 @@ module.exports = appInfo => {
     secret: 'HuaShi',
   };
 
+
+  config.mysql = {
+    clients: {
+      // clientId, 获取client实例，需要通过 app.mysql.get('clientId') 获取
+      sdgk: {
+        // host
+        host: '192.168.50.201',
+        // 端口号
+        port: '3306',
+        // 用户名
+        user: 'dev',
+        // 密码
+        password: 'dev',
+        // 数据库名
+        database: 'sdgk-dev',
+      },
+      zsgk: {
+        // host
+        host: '192.168.50.201',
+        // 端口号
+        port: '3306',
+        // 用户名
+        user: 'dev',
+        // 密码
+        password: 'dev',
+        // 数据库名
+        database: 'zsgk',
+      },
+      youzy: {
+        // host
+        host: '192.168.50.201',
+        // 端口号
+        port: '3306',
+        // 用户名
+        user: 'dev',
+        // 密码
+        password: 'dev',
+        // 数据库名
+        database: 'youzy',
+      },
+      // ...
+    },
+    // 所有数据库配置的默认值
+    default: {
+
+    },
+    // 是否加载到 app 上，默认开启
+    app: true,
+    // 是否加载到 agent 上，默认关闭
+    agent: false,
+  };
   /*   (important:)   数据库链接信息  */
   config.sequelize = {
     dialect: 'mysql',
-    database: 'koa2',
+    database: 'youzy',
     username: 'root',
-    password: '12345678',
-    host: '47.74.128.254',
+    password: '123456',
+    host: '127.0.0.1',
     port: 3306,
   };
 

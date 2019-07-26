@@ -11,8 +11,14 @@ exports.nunjucks = {
 
 /*   (info:)    引用egg-sequelize 插件   */
 exports.sequelize = {
-  enable: false,
+  enable: true,
   package: 'egg-sequelize',
+};
+
+/*   (info:)    mysql   */
+exports.mysql = {
+  enable: true,
+  package: 'egg-mysql',
 };
 
 /*   (info:)    参数校验   */
