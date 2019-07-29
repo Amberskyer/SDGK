@@ -7,82 +7,82 @@ module.exports = app => {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
     },
     school_id: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: true,
     },
     school_name: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     r_school_id: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: true,
     },
     r_school_name: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     province_id: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: true,
     },
     province_name: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     r_province_id: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: true,
     },
     r_province_name: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     year: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: true,
     },
     subject_type: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     status: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
-      defaultValue: '0'
+      defaultValue: '0',
     },
     json: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
     },
     num: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: true,
     },
     code: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     message: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     is_success: {
       type: DataTypes.STRING(255),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     tableName: 'school_admission_json',
     timestamps: false,
-    freezeTableName: true// 默认false修改表名为复数，true不修改表名，与数据库表名同步
+    freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
   });
 
   Model.associate = function() {
 
-  }
+  };
 
   return Model;
 };

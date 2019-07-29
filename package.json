@@ -6,6 +6,7 @@
   "dependencies": {
     "egg": "^2.2.1",
     "egg-cors": "^2.1.2",
+    "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.5.0",
     "egg-sequelize": "^4.3.1",
     "egg-validate": "^2.0.2",
@@ -15,10 +16,12 @@
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.4.0",
     "mysql2": "^1.6.4",
+    "node-xlsx": "^0.15.0",
     "path": "^0.12.7",
     "request": "^2.88.0",
+    "sequelize": "latest",
     "svg-captcha": "^1.3.12",
-    "sequelize": "latest"
+    "urlencode": "^1.1.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -28,14 +31,14 @@
     "egg-mock": "^3.14.0",
     "eslint": "^4.11.0",
     "eslint-config-egg": "^6.0.0",
-    "sequelize-cli": "^5.4.0",
+    "sequelize-cli": "^5.5.0",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-SDGK",
+    "start": "egg-scripts start --daemon --title=egg-server-SDGK  --port 7701",
     "stop": "egg-scripts stop --title=egg-server-SDGK",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",

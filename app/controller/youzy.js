@@ -5,6 +5,7 @@ const youzyEptService = require('../helper/youzyEpt.service');
 // const commonService = require('../helper/common.service');
 const { data: rSchoolJson } = require('../public/json/r_school');
 const { data: rProvinceJson } = require('../public/json/r_province');
+const fontArr = require('../public/json/font_word');
 
 
 class YouzyController extends Controller {
@@ -19,15 +20,15 @@ class YouzyController extends Controller {
     const { ctx } = this;
     // const interval = setInterval(this.loadSchoolMajorAdmission(), 1800);
 
-    await this.initSchoolAdmission();
+    await this.initSchoolMajorAdmission();
     // this.offsetNum = 0;
-    // await this.loadSchoolAdmission(this.offsetNum);
+    // await this.loadSchoolMajorAdmission(this.offsetNum);
     // this.offsetNum = 40;
-    // await this.loadSchoolAdmission(this.offsetNum);
+    // await this.loadSchoolMajorAdmission(this.offsetNum);
     // this.offsetNum = 80;
-    // await this.loadSchoolAdmission(this.offsetNum);
+    // await this.loadSchoolMajorAdmission(this.offsetNum);
     // this.offsetNum = 120;
-    // await this.loadSchoolAdmission(this.offsetNum);
+    // await this.loadSchoolMajorAdmission(this.offsetNum);
     // await this.aaa();
   }
 
@@ -702,11 +703,23 @@ class YouzyController extends Controller {
       number += '&#x' + value + ';';
     });
     return this.decodeSr(number);
-    // return number;
+  }
+
+  cnDeCrypt(zlVjhiyMm1) {
+    let YB2 = '';
+    zlVjhiyMm1.split('\x7c').forEach(function($lvd3) {
+      if ($lvd3.search(/【(.*?)】/) !== -1) {
+        YB2 += $lvd3.replace('\u3010', '').replace('\u3011', '');
+      } else {
+        $lvd3 = $lvd3.replace(/[g-t]/ig, '');
+        YB2 += '\x26\x23\x78' + $lvd3 + '\x3b';
+      }
+    });
+    return this.decodeWord(YB2);
   }
 
   decodeSr(str) {
-    const fontArr = [
+    const fontNumArr = [
       {
         name: '&#xa8f2e;',
         value: '0',
@@ -748,7 +761,7 @@ class YouzyController extends Controller {
         value: '9',
       },
     ];
-    fontArr.forEach(item => {
+    fontNumArr.forEach(item => {
       str = str.replace(item.name, item.value);
       str = str.replace(item.name, item.value);
       str = str.replace(item.name, item.value);
@@ -759,26 +772,71 @@ class YouzyController extends Controller {
     return str;
   }
 
+  decodeWord(str) {
+    // const fontArr = [
+    //   {
+    //     name: '&#xa8f2e;',
+    //     value: '0',
+    //   },
+    //   {
+    //     name: '&#xc15f9;',
+    //     value: '1',
+    //   },
+    //   {
+    //     name: '&#x7d3ae;',
+    //     value: '2',
+    //   },
+    //   {
+    //     name: '&#xf8b41;',
+    //     value: '3',
+    //   },
+    //   {
+    //     name: '&#xc2e7a;',
+    //     value: '4',
+    //   },
+    //   {
+    //     name: '&#xe7f11;',
+    //     value: '5',
+    //   },
+    //   {
+    //     name: '&#x6f732;',
+    //     value: '6',
+    //   },
+    //   {
+    //     name: '&#xaa86e;',
+    //     value: '7',
+    //   },
+    //   {
+    //     name: '&#xfc6a6;',
+    //     value: '8',
+    //   },
+    //   {
+    //     name: '&#x72ef1;',
+    //     value: '9',
+    //   },
+    // ];
+    fontArr.forEach(item => {
+      item.name = item.name.toLowerCase();
+      const patt1 = new RegExp(`&#x${item.name};`, 'g');
+      str = str.replace(patt1, item.value);
+      // str = str.replace(`&#x${item.name};`, item.value);
+      // console.log(str, item.name);
+    });
+    return str;
+  }
+
   async jiemiSchoolData(result) {
     for (let index = 0; index < result.length; index++) {
       const element = result[index];
-      if (element.maxScore !== 0) {
-        element.maxScore = this.showNumber(element.maxScore.substring(0, element.maxScore.length - 1), 14, 14, 'value|number|myNumbers|function|var|showNumber|forEach|split|ig|x|return|replace|g|t'.split('|'), 0, {});
-      }
-      if (element.avgScore !== 0) {
-        element.avgScore = this.showNumber(element.avgScore.substring(0, element.avgScore.length - 1), 14, 14, 'value|number|myNumbers|function|var|showNumber|forEach|split|ig|x|return|replace|g|t'.split('|'), 0, {});
-      }
-      if (element.minScore !== 0) {
-        element.minScore = this.showNumber(element.minScore.substring(0, element.minScore.length - 1), 14, 14, 'value|number|myNumbers|function|var|showNumber|forEach|split|ig|x|return|replace|g|t'.split('|'), 0, {});
-      }
-      if (element.lowSort !== 0) {
-        element.lowSort = this.showNumber(element.lowSort.substring(0, element.lowSort.length - 1), 14, 14, 'value|number|myNumbers|function|var|showNumber|forEach|split|ig|x|return|replace|g|t'.split('|'), 0, {});
-      }
-      if (element.enterNum !== 0) {
-        element.enterNum = this.showNumber(element.enterNum.substring(0, element.enterNum.length - 1), 14, 14, 'value|number|myNumbers|function|var|showNumber|forEach|split|ig|x|return|replace|g|t'.split('|'), 0, {});
-      }
+      if (element.maxScore !== 0) { element.maxScore = this.showNumber(element.maxScore.substring(0, element.maxScore.length - 1)); }
+      if (element.avgScore !== 0) { element.avgScore = this.showNumber(element.avgScore.substring(0, element.avgScore.length - 1)); }
+      if (element.minScore !== 0) { element.minScore = this.showNumber(element.minScore.substring(0, element.minScore.length - 1)); }
+      if (element.lowSort !== 0) { element.lowSort = this.showNumber(element.lowSort.substring(0, element.lowSort.length - 1)); }
+      if (element.enterNum !== 0) { element.enterNum = this.showNumber(element.enterNum.substring(0, element.enterNum.length - 1)); }
+      if (element.professionName !== '') { element.professionName = this.cnDeCrypt(element.professionName.substring(0, element.professionName.length - 1)); }
+      if (element.professionCode !== '') { element.professionCode = this.cnDeCrypt(element.professionCode.substring(0, element.professionCode.length - 1)); }
     }
-    console.log('result', result);
+    // console.log('result', result);
     return result;
   }
 
@@ -805,8 +863,136 @@ class YouzyController extends Controller {
     await ctx.model.SchoolMajorAdmissionJson.bulkCreate(schoolMajorAdmissionJson);
   }
 
-  async loadSchoolMajorAdmission() {
+  async loadSchoolMajorAdmission(offsetNum) {
     const { ctx } = this;
+
+    const provList = [
+      {
+        name: '安徽',
+        value: 34,
+      },
+      {
+        name: '北京',
+        value: 11,
+      },
+      {
+        name: '重庆',
+        value: 50,
+      },
+      {
+        name: '福建',
+        value: 35,
+      },
+      {
+        name: '广东',
+        value: 44,
+      },
+      {
+        name: '广西',
+        value: 45,
+      },
+      {
+        name: '甘肃',
+        value: 62,
+      },
+      {
+        name: '贵州',
+        value: 52,
+      },
+      {
+        name: '河北',
+        value: 13,
+      },
+      {
+        name: '河南',
+        value: 41,
+      },
+      {
+        name: '海南',
+        value: 46,
+      },
+      {
+        name: '湖北',
+        value: 42,
+      },
+      {
+        name: '湖南',
+        value: 43,
+      },
+      {
+        name: '黑龙江',
+        value: 23,
+      },
+      {
+        name: '吉林',
+        value: 22,
+      },
+      {
+        name: '江苏',
+        value: 32,
+      },
+      {
+        name: '江西',
+        value: 36,
+      },
+      {
+        name: '辽宁',
+        value: 21,
+      },
+      {
+        name: '内蒙古',
+        value: 15,
+      },
+      {
+        name: '宁夏',
+        value: 64,
+      },
+      {
+        name: '青海',
+        value: 63,
+      },
+      {
+        name: '上海',
+        value: 31,
+      },
+      {
+        name: '四川',
+        value: 51,
+      },
+      {
+        name: '山东',
+        value: 37,
+      },
+      {
+        name: '山西',
+        value: 14,
+      },
+      {
+        name: '陕西',
+        value: 61,
+      },
+      {
+        name: '天津',
+        value: 12,
+      },
+      {
+        name: '新疆',
+        value: 65,
+      },
+      {
+        name: '云南',
+        value: 53,
+      },
+      {
+        name: '浙江',
+        value: 33,
+      },
+      {
+        name: '西藏',
+        value: 54,
+      },
+    ];
+
     const schoolProvinceArr = await ctx.model.SchoolMajorAdmissionJson.findAll({
       where: {
         // id:{
@@ -815,19 +1001,28 @@ class YouzyController extends Controller {
         // isHave: {
         // 	$ne:456
         // },
-        status: 0,
+        status: 1,
+        // id: 1,
       },
       order: [[ 'id' ]],
-      limit: 18,
+      limit: 40,
+      offset: offsetNum,
     });
     if (schoolProvinceArr) {
       let loadNum = 0;
       for (let i = 0; i < schoolProvinceArr.length; i++) {
         const item = schoolProvinceArr[i];
 
+        let provItem = null;
+        provList.forEach(itemProv => {
+          if (itemProv.name === item.province_name) {
+            provItem = itemProv.value;
+          }
+        });
+
         const url = 'https://www.youzy.cn/Data/ScoreLines/Fractions/Professions/Query';
         const data = {
-          ucode: '43_' + item.school_id + '_0_0',
+          ucode: provItem + '_' + item.school_id + '_0_0',
           courseType: item.subject_type === 'WEN' ? 0 : 1,
         };
         const text = JSON.stringify(data);
@@ -891,13 +1086,11 @@ class YouzyController extends Controller {
                     + ';Youzy2CCurrentScore=' + urlencode(JSON.stringify(Youzy2CCurrentScore));
         const referer = `https://www.youzy.cn/tzy/search/colleges/homepage/cfrationIndex?cid=${item.school_id}`;
 
-        console.log({ cookie });
-        ctx.body = cookie;
 
         const schoolProvinceResult = await ctx.basePost(url, params, cookie, referer);
         if (schoolProvinceResult && schoolProvinceResult.result) {
           const result = await ctx.model.SchoolMajorAdmissionJson.update({
-            status: 1,
+            status: 600,
             json: JSON.stringify(schoolProvinceResult.result),
             num: schoolProvinceResult.result.length,
             code: schoolProvinceResult.code,
@@ -910,8 +1103,8 @@ class YouzyController extends Controller {
           });
           if (result) {
             loadNum++;
-            if (loadNum === 18) {
-              await this.loadSchoolMajorAdmission();
+            if (loadNum === 40) {
+              await this.loadSchoolMajorAdmission(offsetNum);
             }
           }
         } else {
@@ -919,7 +1112,7 @@ class YouzyController extends Controller {
         }
       }
     } else {
-      this.loadSchoolMajorAdmission();
+      this.loadSchoolMajorAdmission(offsetNum);
     }
   }
 
@@ -929,9 +1122,9 @@ class YouzyController extends Controller {
     const { ctx } = this;
     const schoolProvinceArr = await ctx.model.SchoolMajorAdmissionJson.findAll({
       where: {
-        status: 1,
+        status: 600,
+        // id: 3,
       },
-      order: [[ 'id' ]],
       limit: 35,
     });
     let loadNum = 0;
@@ -955,40 +1148,43 @@ class YouzyController extends Controller {
             r_province_name: item.r_province_name,
 
             year: itemJson.year,
-
-            batch_id: itemJson.batch,
-            batch_name: itemJson.batchName,
-            subject_type_name: parseInt(itemJson.course) === 0 ? '理科' : '文科',
-            r_subject_type: parseInt(itemJson.course) === 0 ? 'LI' : 'WEN',
-
+            min_score_rank: itemJson.lowSort,
+            max_score_rank: itemJson.maxSort,
             min_score: itemJson.minScore,
             max_score: itemJson.maxScore,
             avg_score: itemJson.avgScore,
 
-
             count: itemJson.enterNum,
-            min_score_rank: itemJson.lowSort,
 
-            prov_score: itemJson.prvControlLines,
+            major_code: itemJson.majorCode,
+            profession_code: itemJson.professionCode,
+            profession_name: itemJson.professionName,
+
+            batch: itemJson.batch,
+            batch_name: itemJson.batchName,
+            subject_type: itemJson.courseType,
+
+            province_score: itemJson.proscore,
+            dual_class_name: itemJson.dual_class_name,
           });
         });
       }
       loadNum++;
     }
-    console.log(schoolMajorAdmissionArr);
-    // await ctx.model.SchoolMajorAdmission.bulkCreate(schoolMajorAdmissionArr);
-    // await ctx.model.SchoolMajorAdmissionJson.update({
-    //   status: 600,
-    // }, {
-    //   where: {
-    //     id: {
-    //       $in: idsArr,
-    //     },
-    //   },
-    // });
-    // if (loadNum === 35) {
-    //   this.initSchoolMajorAdmission();
-    // }
+    // console.log(schoolMajorAdmissionArr);
+    await ctx.model.SchoolMajorAdmission.bulkCreate(schoolMajorAdmissionArr);
+    await ctx.model.SchoolMajorAdmissionJson.update({
+      status: 888,
+    }, {
+      where: {
+        id: {
+          $in: idsArr,
+        },
+      },
+    });
+    if (loadNum === 35) {
+      this.initSchoolMajorAdmission();
+    }
   }
 }
 

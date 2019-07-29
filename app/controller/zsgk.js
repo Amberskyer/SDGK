@@ -13,7 +13,7 @@ class ZsgkController extends Controller {
   async init() {
     console.log('开始');
     // const interval = setInterval(this.loadSchoolMajorAdmission(), 1800);
-    this.loadSchoolMajorAdmission();
+    await this.initSchoolMajorAdmission();
   }
 
   async loadSchool() {
@@ -368,6 +368,7 @@ class ZsgkController extends Controller {
 
             year: itemJson.year,
             min_score: itemJson.min,
+            avg_score: itemJson.average,
             max_score: itemJson.max,
             batch_name: itemJson.local_batch_name,
             prov_score: itemJson.proscore,
@@ -470,6 +471,69 @@ class ZsgkController extends Controller {
       }
     } else {
       this.loadSchoolMajorAdmission();
+    }
+  }
+
+  async initSchoolMajorAdmission() {
+    super.initSchoolMajorAdmission();
+    const { ctx } = this;
+    const schoolProvinceArr = await ctx.model.SchoolMajorAdmissionJson.findAll({
+      where: {
+        status: 2,
+      },
+      order: [[ 'id' ]],
+      limit: 50,
+    });
+    let loadNum = 0;
+    const schoolMajorAdmissionArr = [];
+    const idsArr = [];
+    for (let i = 0; i < schoolProvinceArr.length; i++) {
+      const item = schoolProvinceArr[i];
+      idsArr.push(item.id);
+      if (item.json) {
+        const schoolProvinceItem = JSON.parse(item.json);
+        schoolProvinceItem.forEach(itemJson => {
+          schoolMajorAdmissionArr.push({
+            school_id: item.school_id,
+            r_school_id: item.r_school_id,
+            school_name: item.school_name,
+            r_school_name: item.r_school_name,
+            province_id: item.province_id,
+            r_province_id: item.r_province_id,
+            province_name: item.province_name,
+            r_province_name: item.r_province_name,
+
+            year: itemJson.year,
+            min_score: itemJson.min,
+            min_score_rank: itemJson.min_section,
+            max_score: itemJson.max,
+            avg_score: itemJson.average,
+
+            major_id: itemJson.special_id,
+            major_name: itemJson.spname,
+
+            batch_name: itemJson.local_batch_name,
+            subject_type_name: itemJson.local_type_name,
+
+            province_score: itemJson.proscore,
+            dual_class_name: itemJson.dual_class_name,
+          });
+        });
+      }
+      loadNum++;
+    }
+    await ctx.model.SchoolMajorAdmission.bulkCreate(schoolMajorAdmissionArr);
+    await ctx.model.SchoolMajorAdmissionJson.update({
+      status: 600,
+    }, {
+      where: {
+        id: {
+          $in: idsArr,
+        },
+      },
+    });
+    if (loadNum === 50) {
+      this.initSchoolMajorAdmission();
     }
   }
 
