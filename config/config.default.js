@@ -95,7 +95,7 @@ module.exports = appInfo => {
   /*   (important:)   数据库链接信息  */
   config.sequelize = {
     dialect: 'mysql',
-    database: 'youzy',
+    database: 'zsgk',
     username: 'root',
     password: '123456',
     host: '127.0.0.1',

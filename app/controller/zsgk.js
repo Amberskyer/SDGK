@@ -13,7 +13,7 @@ class ZsgkController extends Controller {
   async init() {
     console.log('开始');
     // const interval = setInterval(this.loadSchoolMajorAdmission(), 1800);
-    await this.initSchoolMajorAdmission();
+    await this.initSchoolAdmission();
   }
 
   async loadSchool() {
@@ -342,7 +342,7 @@ class ZsgkController extends Controller {
     const { ctx } = this;
     const schoolProvinceArr = await ctx.model.SchoolAdmissionJson.findAll({
       where: {
-        status: 1,
+        status: 600,
       },
       order: [[ 'id' ]],
       limit: 35,
@@ -380,7 +380,7 @@ class ZsgkController extends Controller {
     }
     await ctx.model.SchoolAdmission.bulkCreate(schoolAdmissionArr);
     await ctx.model.SchoolAdmissionJson.update({
-      status: 600,
+      status: 666,
     }, {
       where: {
         id: {
