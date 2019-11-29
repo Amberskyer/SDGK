@@ -8,28 +8,27 @@ module.exports = {
     const { app } = this;
     const apiHeader = app.config.apiHeader;
     // const authorization = this.session.token;
-    data = this.helper.formatParamsType(data);
-    console.log(data);
+    // data = this.helper.formatParamsType(data);
     // console.log(referer);
     const result = await app.curl(apiHeader + url, {
       method: 'post',
       dataType: 'json',
-      contentType: 'json',
+      contentType: 'application/x-www-form-urlencoded',
       data,
       headers: {
         Cookie: cookie,
-        Referer: referer,
         DNT: 1,
-        Host: 'www.youzy.cn',
-        Origin: 'https://www.youzy.cn',
+        Host: 'kns.cnki.net',
+        Origin: 'https://kns.cnki.net',
+        Referer: referer,
       },
     }).then(async res => {
       return res;
-    }).catch(function() {
-      return [];
+    }).catch(function(err) {
+      console.log({ err });
+      return err;
     });
-    console.log({ result });
-    return await this.initResult(this, result);
+    return result;
   },
 
   async basePut(url = '', data = {}) {
@@ -51,23 +50,25 @@ module.exports = {
     return await this.initResult(this, result);
   },
 
-  async baseGet(url = '', data = {}, activeFormat) {
+  async baseGet(url = '', data = {}, cookie, referer) {
     const { app } = this;
     const apiHeader = app.config.apiHeader;
-    const authorization = this.session.token;
-    if (activeFormat !== false) {
-      data = this.helper.formatParamsType(data);
-    }
     const result = await app.curl(apiHeader + url, {
       dataType: 'json',
       data,
-      headers: { authorization },
+      headers: {
+        Cookie: cookie,
+        DNT: 1,
+        Host: 'kns.cnki.net',
+      },
     }).then(function(res) {
+      console.log(res);
       return res;
-    }).catch(function() {
-      return [];
+    }).catch(function(err) {
+      console.log(err);
+      return err;
     });
-    return await this.initResult(this, result);
+    return result;
   },
 
   async baseDelete(url = '', data = {}) {

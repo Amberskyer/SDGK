@@ -11,7 +11,7 @@ exports.nunjucks = {
 
 /*   (info:)    引用egg-sequelize 插件   */
 exports.sequelize = {
-  enable: true,
+  enable: false,
   package: 'egg-sequelize',
 };
 
