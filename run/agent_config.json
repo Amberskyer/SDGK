@@ -184,11 +184,11 @@
           "database": "youzy"
         },
         "jyrc": {
-          "host": "122.204.161.106",
+          "host": "127.0.0.1",
           "port": "3306",
-          "user": "dsjdev",
+          "user": "root",
           "password": "<String len: 6>",
-          "database": "data-center-dev2"
+          "database": "zhiwang"
         },
         "information_schema": {
           "host": "122.204.161.106",
@@ -233,6 +233,7 @@
         "egg-mysql": "^3.0.0",
         "egg-scripts": "^2.5.0",
         "egg-sequelize": "^4.3.1",
+        "egg-sequelize-auto": "^0.1.1",
         "egg-validate": "^2.0.2",
         "egg-view-nunjucks": "^2.2.0",
         "egg-view-vue-ssr": "^3.3.0",

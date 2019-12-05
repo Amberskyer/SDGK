@@ -81,6 +81,18 @@ module.exports = appInfo => {
         // 数据库名
         database: 'youzy',
       },
+      jyrc: {
+        // host
+        host: '127.0.0.1',
+        // 端口号
+        port: '3306',
+        // 用户名
+        user: 'root',
+        // 密码
+        password: '123456',
+        // 数据库名
+        database: 'zhiwang',
+      },
       // jyrc: {
       //   // host
       //   host: '122.204.161.106',
@@ -91,20 +103,8 @@ module.exports = appInfo => {
       //   // 密码
       //   password: 'dsjdev',
       //   // 数据库名
-      //   database: 'jyrc',
+      //   database: 'data-center-dev2',
       // },
-      jyrc: {
-        // host
-        host: '122.204.161.106',
-        // 端口号
-        port: '3306',
-        // 用户名
-        user: 'dsjdev',
-        // 密码
-        password: 'dsjdev',
-        // 数据库名
-        database: 'data-center-dev2',
-      },
       information_schema: {
         // host
         host: '122.204.161.106',

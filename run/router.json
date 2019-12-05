@@ -6,8 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/xgk",
-    "regexp": "/^\\/xgk(?:\\/(?=$))?$/",
+    "path": "/drm",
+    "regexp": "/^\\/drm(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
