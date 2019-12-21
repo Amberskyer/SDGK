@@ -12,7 +12,7 @@ class CompareController extends Controller {
   constructor(ctx) {
     super(ctx);
     this.schoolList = null;
-    this.cookie = 'Ecp_notFirstLogin=5DtZoa; Ecp_ClientId=8190905104000826551; RsPerPage=20; cnkiUserKey=7375b9b3-9b88-6b5b-9832-d5692a8e0d33; KNS_DisplayModel=custommode@SCDB; _pk_ref=%5B%22%22%2C%22%22%2C1575334441%2C%22https%3A%2F%2Fwww.cnki.net%2F%22%5D; _pk_ses=*; ASP.NET_SessionId=oikcjqnp03vlajy0j5tmyzwh; LID=WEEvREdxOWJmbC9oM1NjYkZCbDdrNTR0TnFkUlRtdFBvMVM3MnNjUnQxNDc=$R1yZ0H6jyaa0en3RxVUd8df-oHi7XMMDo7mtKT6mSmEvTuk11l2gFA!!; SID_kcms=124116; Ecp_session=1; SID_klogin=125142; Ecp_LoginStuts={"IsAutoLogin":false,"UserName":"K10140","ShowName":"%E5%8D%8E%E4%B8%AD%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6","UserType":"bk","BUserName":"","BShowName":"","BUserType":"","r":"5DtZoa"}; SID_kns_new=123116; SID_kns=123110; KNS_SortType=; c_m_LinID=LinID=WEEvREdxOWJmbC9oM1NjYkZCbDdrNTR0TnFkUlRtdFBvMVM3MnNjUnQxNDc=$R1yZ0H6jyaa0en3RxVUd8df-oHi7XMMDo7mtKT6mSmEvTuk11l2gFA!!&ot=12/03/2019 09:43:48; c_m_expire=2019-12-03 09:43:48';
+    this.cookie = 'Ecp_ClientId=5191129184101813420; RsPerPage=20; cnkiUserKey=309e9733-3a0f-66e0-9ca0-cd912b92bd7f; KNS_DisplayModel=custommode@SCDB; Ecp_IpLoginFail=191205171.113.249.170; ASP.NET_SessionId=bvmm21anmu1se4asi3b0qadx; SID_kns=123108; SID_klogin=125142; KNS_SortType=; SID_krsnew=125131; _pk_ref=%5B%22%22%2C%22%22%2C1575545669%2C%22https%3A%2F%2Fwww.cnki.net%2F%22%5D; _pk_ses=*';
     this.lunwenKeyArr = [ 'biao_ti', 'yu_zhong', 'fa_biao_tu_jing', 'hui_yi_ming', 'kan_wu_hui_yi_ri_qi',
       'kan_wu_hui_yi_ming', 'chu_ban_nian_fen', 'qi_shi_ye_ma', 'zhong_zhi_ye_ma', 'ye_shu',
       'di_yi_zuo_zhe', 'di_yi_zuo_zhe_dan_wei', 'tong_xun_zuo_zhe', 'tong_xun_zuo_zhe_dan_wei', 'qi_ta_zuo_zhe',
@@ -45,15 +45,16 @@ class CompareController extends Controller {
     const { ctx, app } = this;
     const jyrc = app.mysql.get('jyrc');
     const cookie = this.cookie;
-    const { name: xing_ming, school: xue_xiao } = ctx.request.query;
-    const pearsonResult = await jyrc.insert('tb_100000_yan_jiu_ren_yuan', {
-      xing_ming, xue_xiao, status: 0,
-    });
-    const person_id = pearsonResult.insertId;
+    // const { name: xing_ming, school: xue_xiao } = ctx.request.query;
+    const pearsonResult = await jyrc.get('tb_100000_yan_jiu_ren_yuan', { status: 0 });
+    const person_id = pearsonResult.id;
+    console.log({ person_id });
+
     await initItem();
 
     async function initItem() {
       const teacher = await jyrc.get('tb_100000_yan_jiu_ren_yuan', { id: person_id, status: 0 });
+      console.log(teacher);
       if (!teacher) {
         return;
       }
@@ -79,9 +80,13 @@ class CompareController extends Controller {
         __: 'Wed Sep 04 2019 11:45:21 GMT+0800 (中国标准时间)',
       };
       const referer = 'https://kns.cnki.net/kns/brief/result.aspx?dbprefix=SCDB&crossDbcodes=CJFQ,CDFD,CMFD,CPFD,IPFD,CCND,CCJD';
+
+      console.log('见来了');
       await ctx.basePost(url, params, cookie, referer);
+      console.log('见来了');
       const url2 = 'https://kns.cnki.net/kns/brief/brief.aspx?pagename=ASP.brief_result_aspx&isinEn=1&dbPrefix=SCDB&dbCatalog=%e4%b8%ad%e5%9b%bd%e5%ad%a6%e6%9c%af%e6%96%87%e7%8c%ae%e7%bd%91%e7%bb%9c%e5%87%ba%e7%89%88%e6%80%bb%e5%ba%93&ConfigFile=SCDB.xml&research=off&t=1568165876825&keyValue=&S=1&sorttype=&DisplayMode=custommode';// // const referer = 'https://kns.cnki.net/kns/brief/brief.aspx?pagename=ASP.brief_result_aspx&isinEn=1&dbPrefix=SCDB&dbCatalog=%e4%b8%ad%e5%9b%bd%e5%ad%a6%e6%9c%af%e6%96%87%e7%8c%ae%e7%bd%91%e7%bb%9c%e5%87%ba%e7%89%88%e6%80%bb%e5%ba%93&ConfigFile=SCDB.xml&research=off&t=1567582977022&keyValue=&S=1&sorttype=';
       const result = await ctx.baseGet(url2, {}, cookie, null);
+      console.log(result);
       if (result.status === 200) {
         const $ = cheerio.load(result.data);
         let totalNum = $('#lbPagerTitle')[0].next.data;
@@ -106,6 +111,7 @@ class CompareController extends Controller {
     }
 
     await this.initLunwenHtml(person_id);
+
   }
 
 
@@ -527,6 +533,8 @@ class CompareController extends Controller {
           .replace(/\s*/g, ''),
         zhong_zhi_ye_ma: $('.dllink-down .info .total .h').eq(0).text()
           .replace(/\s*/g, ''),
+        ye_shu: $('.dllink-down .info .total .h').eq(1).text()
+          .replace(/\s*/g, ''),
         suo_huo_xiang_mu_zi_zhu: $('#catalog_FUND').parent().text()
           .replace(/\s*/g, ''),
         guan_jian_ci: $('#catalog_KEYWORD').parent().text()
@@ -597,7 +605,8 @@ class CompareController extends Controller {
       await initBymxInfo();
     }
 
-    await this.toExcel(person_id);
+    // await this.init();
+    // await this.toExcel(person_id);
   }
 
   async toExcel(person_id) {
@@ -605,13 +614,13 @@ class CompareController extends Controller {
     const { ctx, app } = this;
     const jyrc = app.mysql.get('jyrc');
 
+    const teacher = await jyrc.get('tb_100000_yan_jiu_ren_yuan', { id: 4838 });
     const lunWenData = await jyrc.select('lun_wen_detail', {
       where: {
-        person_id,
+        person_id: teacher.id,
       },
     });
 
-    const teacher = await jyrc.get('tb_100000_yan_jiu_ren_yuan', { id: person_id });
 
     const excelDataArr = [];
     lunWenData.forEach(item => {
@@ -640,9 +649,17 @@ class CompareController extends Controller {
     fs.writeFileSync(`./论文/${teacher.xing_ming}-${teacher.xue_xiao}.xlsx`, buffer, { flag: 'w' });
 
     // 将文件内容插入新的文件中
-    ctx.attachment('论文.xlsx');
-    ctx.set('Content-Type', 'application/octet-stream');
-    ctx.body = buffer;
+    // ctx.attachment('论文.xlsx');
+    // ctx.set('Content-Type', 'application/octet-stream');
+    // ctx.body = buffer;
+    await jyrc.update('tb_100000_yan_jiu_ren_yuan', {
+      status: 22,
+    }, {
+      where: {
+        id: teacher.id,
+      },
+    });
+    // await this.toExcel();
   }
 
 }

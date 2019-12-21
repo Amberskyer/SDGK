@@ -86,28 +86,28 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "D:\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-jsonp\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-schedule\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-view\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-mysql\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-validate\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\locales",
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\config\\locales"
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-jsonp\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-schedule\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-view\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-mysql\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg-validate\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\locales",
+        "D:\\GitHub\\AmberEgg\\config\\locales"
       ],
       "queryField": "locale",
       "cookieField": "locale",
@@ -117,14 +117,14 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\lib\\event-sources\\default",
-        "development": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\lib\\event-sources\\development"
+        "default": "D:\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\lib\\event-sources\\default",
+        "development": "D:\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\lib\\event-sources\\development"
       }
     },
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\logs\\SDGK\\egg-schedule.log"
+        "file": "D:\\GitHub\\AmberEgg\\logs\\SDGK\\egg-schedule.log"
       }
     },
     "schedule": {
@@ -164,7 +164,7 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\app\\public",
+      "dir": "D:\\GitHub\\AmberEgg\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
@@ -173,7 +173,7 @@
     },
     "view": {
       "root": [
-        "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\app\\view"
+        "D:\\GitHub\\AmberEgg\\app\\view"
       ],
       "cache": false,
       "defaultExtension": ".njk",
@@ -197,54 +197,12 @@
       "app": true,
       "agent": false,
       "clients": {
-        "sdgk": {
-          "host": "192.168.50.201",
-          "port": "3306",
-          "user": "dev",
-          "password": "<String len: 3>",
-          "database": "sdgk-dev"
-        },
-        "zsgk": {
-          "host": "192.168.50.201",
-          "port": "3306",
-          "user": "dev",
-          "password": "<String len: 3>",
-          "database": "zsgk"
-        },
-        "youzy": {
-          "host": "192.168.50.201",
-          "port": "3306",
-          "user": "dev",
-          "password": "<String len: 3>",
-          "database": "youzy"
-        },
         "jyrc": {
           "host": "127.0.0.1",
           "port": "3306",
           "user": "root",
-          "password": "<String len: 6>",
+          "password": "<String len: 9>",
           "database": "zhiwang"
-        },
-        "information_schema": {
-          "host": "122.204.161.106",
-          "port": "3306",
-          "user": "dsjdev",
-          "password": "<String len: 6>",
-          "database": "information_schema"
-        },
-        "nfsawards": {
-          "host": "122.204.161.106",
-          "port": "3306",
-          "user": "dsjdev",
-          "password": "<String len: 6>",
-          "database": "nfsawards"
-        },
-        "xgk": {
-          "host": "127.0.0.1",
-          "port": "3306",
-          "user": "root",
-          "password": "<String len: 6>",
-          "database": "xgk"
         }
       }
     },
@@ -321,9 +279,9 @@
       "author": "",
       "license": "MIT"
     },
-    "baseDir": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg",
+    "baseDir": "D:\\GitHub\\AmberEgg",
     "HOME": "C:\\Users\\Ambersky_keke",
-    "rundir": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\run",
+    "rundir": "D:\\GitHub\\AmberEgg\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -354,7 +312,7 @@
       "returnRawBody": true
     },
     "logger": {
-      "dir": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\logs\\SDGK",
+      "dir": "D:\\GitHub\\AmberEgg\\logs\\SDGK",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -438,14 +396,7 @@
     "jwt": {
       "secret": "<String len: 6>"
     },
-    "sequelize": {
-      "dialect": "mysql",
-      "database": "zsgk",
-      "username": "root",
-      "password": "<String len: 6>",
-      "host": "127.0.0.1",
-      "port": 3306
-    },
+    "sequelize": {},
     "coreMiddlewares": "~config~coreMiddleware",
     "appMiddlewares": "~config~middleware",
     "appMiddleware": "~config~middleware",
@@ -470,8 +421,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -483,8 +434,8 @@
         "session"
       ],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security",
       "version": "2.4.2"
     },
     "jsonp": {
@@ -496,8 +447,8 @@
         "security"
       ],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-jsonp",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -509,8 +460,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-onerror",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -520,8 +471,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-i18n",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-i18n",
       "version": "2.0.0"
     },
     "watcher": {
@@ -531,8 +482,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-watcher",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -542,8 +493,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-schedule",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-schedule",
       "version": "3.6.0"
     },
     "multipart": {
@@ -555,8 +506,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-multipart",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart",
       "version": "2.4.0"
     },
     "development": {
@@ -570,8 +521,8 @@
       "env": [
         "local"
       ],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-development",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-development",
       "version": "2.4.1"
     },
     "logrotator": {
@@ -583,8 +534,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-logrotator",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator",
       "version": "3.0.5"
     },
     "static": {
@@ -594,8 +545,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-static",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-static",
       "version": "2.1.1"
     },
     "view": {
@@ -605,8 +556,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-view",
+      "from": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-view",
       "version": "2.1.1"
     },
     "nunjucks": {
@@ -619,8 +570,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks",
+      "from": "D:\\GitHub\\AmberEgg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks",
       "version": "2.2.0"
     },
     "mysql": {
@@ -630,8 +581,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-mysql",
+      "from": "D:\\GitHub\\AmberEgg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-mysql",
       "version": "3.0.0"
     },
     "validate": {
@@ -641,8 +592,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\config\\plugin.js",
-      "path": "C:\\Users\\Ambersky_keke\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-validate",
+      "from": "D:\\GitHub\\AmberEgg\\config\\plugin.js",
+      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg-validate",
       "version": "2.0.2"
     }
   }

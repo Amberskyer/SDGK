@@ -45,42 +45,42 @@ module.exports = appInfo => {
   config.mysql = {
     clients: {
       // clientId, 获取client实例，需要通过 app.mysql.get('clientId') 获取
-      sdgk: {
-        // host
-        host: '192.168.50.201',
-        // 端口号
-        port: '3306',
-        // 用户名
-        user: 'dev',
-        // 密码
-        password: 'dev',
-        // 数据库名
-        database: 'sdgk-dev',
-      },
-      zsgk: {
-        // host
-        host: '192.168.50.201',
-        // 端口号
-        port: '3306',
-        // 用户名
-        user: 'dev',
-        // 密码
-        password: 'dev',
-        // 数据库名
-        database: 'zsgk',
-      },
-      youzy: {
-        // host
-        host: '192.168.50.201',
-        // 端口号
-        port: '3306',
-        // 用户名
-        user: 'dev',
-        // 密码
-        password: 'dev',
-        // 数据库名
-        database: 'youzy',
-      },
+      // sdgk: {
+      //   // host
+      //   host: '192.168.50.201',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'dev',
+      //   // 密码
+      //   password: 'dev',
+      //   // 数据库名
+      //   database: 'sdgk-dev',
+      // },
+      // zsgk: {
+      //   // host
+      //   host: '192.168.50.201',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'dev',
+      //   // 密码
+      //   password: 'dev',
+      //   // 数据库名
+      //   database: 'zsgk',
+      // },
+      // youzy: {
+      //   // host
+      //   host: '192.168.50.201',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'dev',
+      //   // 密码
+      //   password: 'dev',
+      //   // 数据库名
+      //   database: 'youzy',
+      // },
       jyrc: {
         // host
         host: '127.0.0.1',
@@ -89,7 +89,7 @@ module.exports = appInfo => {
         // 用户名
         user: 'root',
         // 密码
-        password: '123456',
+        password: '123456789',
         // 数据库名
         database: 'zhiwang',
       },
@@ -105,42 +105,42 @@ module.exports = appInfo => {
       //   // 数据库名
       //   database: 'data-center-dev2',
       // },
-      information_schema: {
-        // host
-        host: '122.204.161.106',
-        // 端口号
-        port: '3306',
-        // 用户名
-        user: 'dsjdev',
-        // 密码
-        password: 'dsjdev',
-        // 数据库名
-        database: 'information_schema',
-      },
-      nfsawards: {
-        // host
-        host: '122.204.161.106',
-        // 端口号
-        port: '3306',
-        // 用户名
-        user: 'dsjdev',
-        // 密码
-        password: 'dsjdev',
-        // 数据库名
-        database: 'nfsawards',
-      },
-      xgk: {
-        // host
-        host: '127.0.0.1',
-        // 端口号
-        port: '3306',
-        // 用户名
-        user: 'root',
-        // 密码
-        password: '123456',
-        // 数据库名
-        database: 'xgk',
-      },
+      // information_schema: {
+      //   // host
+      //   host: '122.204.161.106',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'dsjdev',
+      //   // 密码
+      //   password: 'dsjdev',
+      //   // 数据库名
+      //   database: 'information_schema',
+      // },
+      // nfsawards: {
+      //   // host
+      //   host: '122.204.161.106',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'dsjdev',
+      //   // 密码
+      //   password: 'dsjdev',
+      //   // 数据库名
+      //   database: 'nfsawards',
+      // },
+      // xgk: {
+      //   // host
+      //   host: '127.0.0.1',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'root',
+      //   // 密码
+      //   password: '123456',
+      //   // 数据库名
+      //   database: 'xgk',
+      // },
       // ...
     },
     // 所有数据库配置的默认值
@@ -154,12 +154,12 @@ module.exports = appInfo => {
   };
   /*   (important:)   数据库链接信息  */
   config.sequelize = {
-    dialect: 'mysql',
-    database: 'zsgk',
-    username: 'root',
-    password: '123456',
-    host: '127.0.0.1',
-    port: 3306,
+    // dialect: 'mysql',
+    // database: 'zsgk',
+    // username: 'root',
+    // password: '123456',
+    // host: '127.0.0.1',
+    // port: 3306,
   };
 
 

@@ -12,7 +12,7 @@ module.exports = app => {
   // router.get('/toExcel', controller.toExcel.index);// 主页=>index
   // router.get('/initIes', controller.transform.initIes);// 主页=>index
   // router.get('/initPaperJournal', controller.transform.initPaperJournal);// 主页=>index
-  router.get('/drm', controller.drm.init);// 主页=>index
+  router.get('/drm', controller.drm.toExcel);// 主页=>index
   // router.get('/yzy', controller.youzy.init);// 主页=>index
   // router.get('/zsgk', controller.zsgk.init);// 主页=>index
   // router.get('/zw', controller.zw.init);// 主页=>index

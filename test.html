@@ -1,1197 +1,300 @@
-﻿
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>概览页</title>
-    <meta content="no-cache" http-equiv="pragma" />
-    <link rel="stylesheet" type="text/css" href="//piccache.cnki.net/kdn/nvsmkns/css/gb_min/BriefComp.min.css?v=" />
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/nvsmkns/script/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="//piccache.cnki.net/kdn/nvsmkns/script/min/gb.BriefPage.min.js?v=D59787997F3B8FCE" ></script>
-
-</head>
-<body leftmargin="0" onload="BriefOnload();" topmargin="0" onkeydown="grabEvent(event);">
-<script type="text/javascript" src="//piccache.cnki.net/kdn/nvsmkns/script/WideScreen.js"></script>
-<form name="ctl00" method="post" action="brief.aspx?pagename=ASP.brief_result_aspx&amp;isinEn=1&amp;dbPrefix=SCDB&amp;dbCatalog=%u4e2d%u56fd%u5b66%u672f%u6587%u732e%u7f51%u7edc%u51fa%u7248%u603b%u5e93&amp;ConfigFile=SCDB.xml&amp;research=off&amp;t=1568165876825&amp;keyValue=&amp;S=1&amp;sorttype=&amp;DisplayMode=custommode" id="ctl00">
-    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwMjEzMjM0NDQPFgIeE1ZhbGlkYXRlUmVxdWVzdE1vZGUCAWRkFUnlzL67PJ732+B92mn+7Gnt2TiRI1Jktu/5SQeLy1w=" />
-
-    <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAIdIRdFWpKA4BYUdQL6KgtZbgvJz/EQj5rQumcYDL2xlhbi/alS8mbfX8EEY1efJIm0syhzU+O3mZ5ahqVI454K" />
-    <input type="hidden" id="SqlValue" name="SqlValue" value="C663DAE25B9B084F881BFC9FC82242B8FA88FE3AA4253DB45991F0FCD6091CAB8FDC2FE99EFBFB5E7876EA599E243ED5484C3DDFD3931B2DA6054A409507618A0FC526418D51BD1E951226EBF0FB5B9E94368A189FBC5F5CCBB214BA235A8360EDF79215CBAC7BCFE5B53BBDCD5FCCCDCB6ABE04002A474F5B59F5E83BBABF276F3A0811103885ED5D461BF5AF0DE0AD56C5E105FAE91EB092B6C5E09674AED53F77CE5482327971EB342AC0BAA5DA5CDE382FF6880C4450C3D686CF308665B37D53312EFCA8AF4758B845EF5D7170BF148FD36D0F239676AE1C61B7CC72B233DA861C558CE047AB4B1F92E927BA82925B8D3768FF5F064A7FB5D0690D7F711D85C6E1DB41AA03B50D3AADBE106E83BACBBE9F561CC875A39F752443B3D90B59B24FBFAA7B6BCD6EF8A97AB4E9DA1958269DEA238DB12CE43D03DE01E90F9175691B350ABE1AF7524846FA173D7857DCAA201D40622709B9FAA644E7110B19AB680B62C4F7DA7F502B1B3F5E31278384A2215CA72FA26FCEB8A369BBD4F145FE5792971AA8FDC91DF01E82E5A4D145C8390D043023BACDD0CE6511A45F6019531297801636A6D7087F94927312A70D3BD7C0DC254D554DF455B5EE410B925D49E17350E887F4AB28ABD37CBFEDE5F12778B6BBCDBEDD8E41CA38AE4319786E5ACD99E5D1DA8CA9CD82790A2C604F2602ADC7DCA72A2220D4F38D95ABDF5B69B25F6162790C53B024D5328EFB1E92F1C38AD2AA7E0E99015F855A2421897D571F1DD53D600045B293EA2E4793EED77649CCDF0372F8F9AEE3B18343EB00AD4454594C2D7A369C860C97F5947965357467748938361EF1DC7546B307075B31D3286174DE86E4AF1036796D2494693A440851BF6A7B531D0F4659B6D1C5755B2DA601A4EB75889F3F00608F28460FB12F17BF652ED678FBC89A664EC7AE403532FCE192211DF6F2BA79D8E0A72B93E6959552D2776A6481ACFEC375492A1B154F52700DD2BB480A103AE1EEF98872011B170311FE47D04900F1BA17153EEC986DA6FCD6A5ADA11CDAF79AAFA4083A2A8124F82BAB83EC4858DD03D23A355B62B9620242F11553E9EFDF64EAC361BAACDCA258D54A1F38F9B7DAFC0E75A0F67DBB45A673B5B3503F100F899084E4F6E7AB1C4A88F3008A765C52FF64A0E1F49E250BC6FA0A60A7FB756FD8D9A0F50832DE61B3C4E5D7927E4874D2B048395A8C255BFCC6E58370DC59029605031EB920ADC67B9D4C4FCEA4883756F6C6F4363D6AE0145B656942C4CB5724FC37C7C42DB2D7798702091B77054A6EA64037AD4F8EF1B597360844AE2F087ADF6F4DABAA5C476B5D86742351B5D4AF7235F0DCE01E7929AE9298CCB7358897F2AF31108662B6668A09171C9FDBA0FFD08AED075BDFE9F3954AFA7AC9F33EF0B2692B345547DB0E0B9B980347384633B28278B15442ED2E545A94AA321E7DBCF1EE36034E184C6981D8BBA7500B82E085DCD2DC066DC33EADB6A4D40BA15FF23DEA219181DC005F399F3A42E7F38A1C5E99FC40049332D3FF757C376824FD2E209059FE5CABCA0EC88CC69AFBD09F0952E5C80C90BBE02A521C2C50ACFE8596E105F1D8900ABBD1A0F307ADC0BB2280DCD14B8FDBC69E4F5101A334D80803C521311CE18D34D913DEFDFF6F7808F8B93A34ED04E3FB867EABBD739DFC5F004797767615525DD5D6050F6366E424F26423BA7C5751E0C06A8C7B1DC45E6EC43FBA8E9A2784E1474CC8EBE3DEC8817DF81FB26C8BC3FFF26FE095F1D0EAABBDB4AC81E00D1783613CCE43D79DFAFD34D1A4229F41C49441A16B254BF98705CEFD6F480B3BD2AA9C7EA3198D0552EE1B533860EC010559BE5672E615178B8BC13B2D992449D32BA73C2998DC74840BBD8BC64BC32D50B1C4423A3A6191EADE371BA9814D12938A7213F3EFDB7728B64233CBBA83E229654B6E4CD8FD8B680FC4EE25BE7B51DC41DF8C9D4B18F3F1C55729DA9136C396612291DDF32DF54DD08ABC973D5DE11F3638B8BD878CA8CE957A132B8CDFAF667414B94D128CBA6BE96B25DFE63D2671FBED91C6A689B3500F44CC79DFDF8E51F5529205E66FDDACEF93F36333AF16AAA1DD6751B3823B7B8E2D2669EED2BC84295D69CB0603643C2DE10029323EEF6D73EEE0AFF8CBAA96507F" />
-    <input type="hidden" id="txtValue" value="" />
-    <input type="hidden" id="LoginState" value="0" />
-    <input type="hidden" id="userid" value="WEEvREdxOWJmbC9oM1NjYkZCbDdrNTR0TnFkUlRtdFBvMVM3MnNjUnQxNDc=$R1yZ0H6jyaa0en3RxVUd8df-oHi7XMMDo7mtKT6mSmEvTuk11l2gFA!!" />
-    <input type="hidden" id="resultcount" name="resultcount" value="15" />
-    <input type="hidden" id="crrsUrl" name="crrsUrl" value="/CRRS/" />
-    <input type="hidden" id="krsUrl" name="krsUrl" value="/KRS" />
-    <input id="crrsPath" type="hidden" name="crrsPath" value='/CRRS/' />
-    <input id="bathPath" type="hidden" name="bathPath" value='/kns' />
-    <input id="dbCode" type="hidden" name="dbCode" value='SCDB' />
-    <input id="deliveryPath" type="hidden" name="deliveryPath" value='' />
-    <input id="mycnkiUrl" type="hidden" name="mycnkiUrl" value='/KMycnki/Mycnki/index/' />
-    <input id="kredisServerPath" type="hidden" name="kredisServerPath" value='' />
-    <input id="heatjson" type="hidden" name="heatjson" value='' />
-    <input id="addfavjson" type="hidden" name="addfavjson" value='' />
-    <input id="fengmianPath" type="hidden" name="fengmianPath" value='//c61.cnki.net' />
-    <input id="crfdpicPath" type="hidden" name="crfdpicPath" value='http://gongjushu.cnki.net/CRFDPIC/' />
-    <script type="text/javascript">
-        function ShowGroup(p1, p2, p3) {
-            return parent.ShowGroup(p1, p2, p3);
-        }
-
-
-        $(document).ready(function () {
-
-            qkInfoCall();
-            setAuShow();
-            // GetHeat();
-
-            window.parent.HideWaitDiv();
-            SetFrameHeight();
-            isHasAddFav();
-
-            try{
-                parent.window.adsContainer.loadAds(parent.document.getElementById("txt_1_value1").value);
-            }
-            catch(e){}
-        });
-
-    </script>
-    <script language="JavaScript">
-        <!--
-        function OnChangePagenum(pagenum)
-        {
-            return false;
-        }
-        //-->
-    </script>
-
-    <script language="JavaScript">
-        <!--
-        function updateCounter() {
-        }
-        function numMarked() {
-            company =	"cnki";
-            cookie = new String(getCookie("FileNameS"));
-            if ((cookie.substring(0,cookie.indexOf(":")) != company) || cookie.length <= 5) {
-                return 0;
-            }
-            a=cookie.split(",");
-            return a.length;
-        }
-        function getErrorMsg(count) {
-            count = count || '50';
-            var msg = '';
-            if (!window.localStorage || !window.sessionStorage) {
-                msg = '如要选择更多，请您升级浏览器到最新版本。';
-            } else {
-                msg = '不能超过'+count+'个,若要重新选择,请按清除按钮,再进行选取操作';
-            }
-            return msg;
-        }
-        function ClickOpen(url) {
-            if (numMarked() == 0){
-                alert('请先选取文献');
-                return;}
-            windowOpener(url);
-        }
-        function checkAll(form,stype) {
-            var limit = 500;
-            if(!window.localStorage || !window.sessionStorage){ limit = 50;};
-            e	= document.forms[0].elements;
-            for (i=0;	i<e.length;	i++) {
-                if (e[i].type	== "checkbox"	 &&	e[i].name == "FileNameS")	{
-                    if (numMarked()>= limit) {
-                        this.checked=false;
-                        alert(getErrorMsg(limit));
-                        return false;
-                    }	else {
-                        if (e[i].checked==false) {
-                            if(document.cookie.length + e[i].value.length > 4096 ){
-                                alert(getErrorMsg(limit));
-                                return false;}
-                            addToCookie(e[i].value);
-                            e[i].checked=true;
-                        }
-                    }
-                }
-            }
-            updateCounter();
-            return true;
-        }
-        function clearAllMarks(form) {
-            e	= document.forms[0].elements;
-            for (i=0;	i<e.length;	i++) {
-                if (e[i].type	== "checkbox"	&&	e[i].name == "FileNameS" ) {
-                    removeFromCookie(e[i].value);
-                    e[i].checked=false;
-                }
-            }
-            updateCounter();
-        }
-        function getCookie(Name,stype) {
-            if (window.localStorage || window.sessionStorage) {   if(stype=='2') return window.sessionStorage.getItem(Name);    return window.localStorage.getItem(Name);}var search = Name	+ "=";
-            if (document.cookie.length > 0) {
-                offset = document.cookie.indexOf(search);
-                if (offset !=	-1)	{
-                    offset +=	search.length;
-                    end =	document.cookie.indexOf(";", offset);
-                    if (end == -1)
-                        end =	document.cookie.length;
-                    return unescape(document.cookie.substring(offset,	end));
-                }
-            }
-        }
-        function setCookie(name, value,stype) {
-            if (window.localStorage || window.sessionStorage){
-                if(stype == '2'){  window.sessionStorage.setItem(name, value );}
-                else{  localStorage.setItem(name, value );}
-                return true;
-            }
-            var cookieValue = name + "=" + escape(value)+";"+"path=/";
-            if(cookieValue.length  > 4096 ){
-                return false;}
-            document.cookie =	cookieValue ;
-            return true;}
-        function getTableNameFileNames(s){
-            if (!s || s.length <= 0) {  return ''; }
-            var tempArr = s.split('!');
-            if (tempArr.length == 4) {
-                return tempArr[0] + '!' + tempArr[1];}
-            return '';}
-        function handlerRegexSpcileChar(input) {
-            if (input) {
-                return input.replace(/[\(|\)|\+|\.|\*]/g, function (m) { return '\\' + m;});
-            }
-            return input;
-        }
-        function addToCookie(v) {
-            company =	"cnki";
-            cookie= new String(getCookie("FileNameS"));
-            if ((cookie.length > 0) && ((cookie.substring(0,cookie.indexOf(':')) == company))){
-                var tableFileNames = getTableNameFileNames(v);
-                tableFileNames = handlerRegexSpcileChar(tableFileNames);
-                var re = new RegExp(tableFileNames + '[^,]*', 'ig');
-                if (re.test(cookie)) return;
-                if (cookie.length	- 1	== cookie.indexOf(':'))	{
-                    setCookie("FileNameS", cookie+v);
-                }	else {
-                    setCookie("FileNameS",	cookie+","+v);
-                }
-            }	else {
-                setCookie("FileNameS", company + ":" + v);
-            }
-        }
-        function removeFromCookie(v) {
-            var company =	"cnki";
-            var cookie = new String(getCookie("FileNameS"));
-            if (cookie.substring(0,cookie.indexOf(':')) == company) {
-                cookie = cookie.substring(cookie.indexOf(':')+1,cookie.length);
-                var deleteV = function (input, value) {
-                    re = new RegExp("^"+handlerRegexSpcileChar(value)+"$");
-                    input=input.replace(re,	"");
-                    re = new RegExp("^"+handlerRegexSpcileChar(value)+",");
-                    input=input.replace(re,	"");
-                    re = new RegExp(","+handlerRegexSpcileChar(value)+"$");
-                    input=input.replace(re,	"");
-                    re = new RegExp(","+handlerRegexSpcileChar(value)+",");
-                    input=input.replace(re,	",");
-                    return input;
-                }
-                var tableFileNames = getTableNameFileNames(v);
-                tableFileNames = handlerRegexSpcileChar(tableFileNames);
-                if (tableFileNames && tableFileNames.length <= 0){ return; }
-                var re = new RegExp(tableFileNames + '[^,]*', 'ig');
-                var tempMaths = cookie.match(re);
-                if (tempMaths && tempMaths.length > 0) {
-                    for (var i = 0; i < tempMaths.length; i++){
-                        cookie = deleteV(cookie, tempMaths[i]);
-                    }
-                }
-            }	else { cookie =	""; }
-            if (cookie!="")	{ setCookie("FileNameS", company + ":" + cookie);}
-            else { setCookie("FileNameS", company +	":");}
-        }
-        function checkMark(c)	{
-            var limit = 500;
-            if(!window.localStorage || !window.sessionStorage){ limit = 50;};
-            if (c.checked	== true) {
-                if (numMarked()>=limit) {
-                    alert(getErrorMsg(limit));
-                    c.checked=false;
-                }	else {
-                    if(document.cookie.length + c.value.length > 4096 ){
-                        c.checked=false;
-                        alert(getErrorMsg(limit));
-                        return false;}
-                    addToCookie(c.value);
-                }
-            }else	{
-                removeFromCookie(c.value);
-            }
-            updateCounter();
-        }
-        //-->
-    </script>
-    <script language=javascript >
-        var newWindow	= null
-        var newWindow2 = null
-        function windowOpener(loadpos)
-        {
-            newWindow	= window.open(loadpos,"_blank","toolbar=yes,resizable=yes,scrollbars=yes,dependent,location=yes,status=yes,menubar=yes,width=550,height=450");
-            newWindow.focus();
-        }
-        function windowOpener2(loadpos)
-        {
-            newWindow2 = window.open(loadpos,"","toolbar=yes,resizable=yes,scrollbars=yes,dependent,location=yes,status=yes,menubar=yes,width=550,height=450");
-        }
-    </script>
-    <table cellspacing='0' cellpadding='0'  border='0' bgcolor=''  bgcolor='#F4F5F6' width='100%'><tr><td><table id='J_ORDER' border=0 cellspacing=0 cellpadding=0 	width=100%	align=left  class='divsearch1'><tr><td><table border=0 cellspacing=4	cellpadding=2 class='taxis'><tr><td align='left'><span class="groupsorttitle">排序:</span><span class='Btn5'><a    href="/kns/brief/brief.aspx?pagename=ASP.brief_result_aspx&isinEn=1&dbPrefix=SCDB&dbCatalog=%e4%b8%ad%e5%9b%bd%e5%ad%a6%e6%9c%af%e6%96%87%e7%8c%ae%e7%bd%91%e7%bb%9c%e5%87%ba%e7%89%88%e6%80%bb%e5%ba%93&ConfigFile=SCDB.xml&research=off&t=1568165876825&keyValue=&S=1&DisplayMode=custommode&sorttype=(FFD%2c%27RANK%27)+desc&queryid=17">相关度</a></span><span class='Btn5'><a class='cur'  href="/kns/brief/brief.aspx?pagename=ASP.brief_result_aspx&isinEn=1&dbPrefix=SCDB&dbCatalog=%e4%b8%ad%e5%9b%bd%e5%ad%a6%e6%9c%af%e6%96%87%e7%8c%ae%e7%bd%91%e7%bb%9c%e5%87%ba%e7%89%88%e6%80%bb%e5%ba%93&ConfigFile=SCDB.xml&research=off&t=1568165876825&keyValue=&S=1&DisplayMode=custommode&sorttype=(%e5%8f%91%e8%a1%a8%e6%97%b6%e9%97%b4%2c%27TIME%27)&queryid=17" title='只在800万条记录以内有效'>发表时间<img src='../images/gb/icon-d.gif' /></a></span><span class='Btn5'><a    href="/kns/brief/brief.aspx?pagename=ASP.brief_result_aspx&isinEn=1&dbPrefix=SCDB&dbCatalog=%e4%b8%ad%e5%9b%bd%e5%ad%a6%e6%9c%af%e6%96%87%e7%8c%ae%e7%bd%91%e7%bb%9c%e5%87%ba%e7%89%88%e6%80%bb%e5%ba%93&ConfigFile=SCDB.xml&research=off&t=1568165876825&keyValue=&S=1&DisplayMode=custommode&sorttype=(%e8%a2%ab%e5%bc%95%e9%a2%91%e6%ac%a1%2c%27INTEGER%27)+desc&queryid=17">被引</a></span><span class='Btn5'><a    href="/kns/brief/brief.aspx?pagename=ASP.brief_result_aspx&isinEn=1&dbPrefix=SCDB&dbCatalog=%e4%b8%ad%e5%9b%bd%e5%ad%a6%e6%9c%af%e6%96%87%e7%8c%ae%e7%bd%91%e7%bb%9c%e5%87%ba%e7%89%88%e6%80%bb%e5%ba%93&ConfigFile=SCDB.xml&research=off&t=1568165876825&keyValue=&S=1&DisplayMode=custommode&sorttype=(%e4%b8%8b%e8%bd%bd%e9%a2%91%e6%ac%a1%2c%27INTEGER%27)+desc&queryid=17">下载</a></span></td><td align="right" style='width:30%;'><div class='Ch-En'><a class='Ch' href='javascript:void(0)' onclick=parent.ChEhSearch('c',this)><i class='icon'></i>中文文献</a><a class='En'  href='javascript:void(0)' onclick=parent.ChEhSearch('e',this)><i class='icon'></i>外文文献</a><a style='display:none;' class=''  href='javascript:void(0)' onclick=parent.ChEhSearch('a',this)><i class='icon'></i>中英文文献</a></div><div class='DivDisplayMode'><span class='ZYcur'><a onclick="DisplayModeRadioBLOnChange('listmode'); return false;" href="javascript:void(0);">切换到列表</a></span></div>
-        <div  id='id_grid_display_num'  class='class_grid_display_num'>
-            每页显示：<a href="/kns/brief/brief.aspx?pagename=ASP.brief_result_aspx&isinEn=1&dbPrefix=SCDB&dbCatalog=%e4%b8%ad%e5%9b%bd%e5%ad%a6%e6%9c%af%e6%96%87%e7%8c%ae%e7%bd%91%e7%bb%9c%e5%87%ba%e7%89%88%e6%80%bb%e5%ba%93&ConfigFile=SCDB.xml&research=off&t=1568165876825&keyValue=&S=1&DisplayMode=custommode&queryid=17&skuakuid=17&turnpage=1&recordsperpage=10">10</a> <a href="/kns/brief/brief.aspx?pagename=ASP.brief_result_aspx&isinEn=1&dbPrefix=SCDB&dbCatalog=%e4%b8%ad%e5%9b%bd%e5%ad%a6%e6%9c%af%e6%96%87%e7%8c%ae%e7%bd%91%e7%bb%9c%e5%87%ba%e7%89%88%e6%80%bb%e5%ba%93&ConfigFile=SCDB.xml&research=off&t=1568165876825&keyValue=&S=1&DisplayMode=custommode&queryid=17&skuakuid=17&turnpage=1&recordsperpage=20"><font class='numNow'>20</font></a> <a href="/kns/brief/brief.aspx?pagename=ASP.brief_result_aspx&isinEn=1&dbPrefix=SCDB&dbCatalog=%e4%b8%ad%e5%9b%bd%e5%ad%a6%e6%9c%af%e6%96%87%e7%8c%ae%e7%bd%91%e7%bb%9c%e5%87%ba%e7%89%88%e6%80%bb%e5%ba%93&ConfigFile=SCDB.xml&research=off&t=1568165876825&keyValue=&S=1&DisplayMode=custommode&queryid=17&skuakuid=17&turnpage=1&recordsperpage=50">50</a></div></td></tr></table></td></tr><tr><td><table class='pageBar_top' border=0 cellspacing=0	cellpadding=0 	width=100%	align=left ><tr><td align=left ><div class='SavePoint'><input type=checkbox name='selectCheckbox' id='selectCheckbox' onclick="if(this.checked){this.checked = checkAll('this.form');}else{clearAllMarks(this.form);}" ><span class='cout'>已选文献：<em title='点击查看所选文献' id='selectCount' name='selectCount' onclick='if( zeroSelectTip()){saveAs();} return false;'>0</em><a href='javascript:void(0);' onclick='ClearAll(false);' class='zero'>清除</a></span><a href='javascript:void(0);' onclick='if( zeroSelectTip()){exportBatch();} return false;' title='批量下载所选文献'> 批量下载</a><a href='javascript:void(0);' onclick='if( zeroSelectTip()){exportArtical(0);} return false;' title='生成、导出所选文献不同的引文格式'> 导出/参考文献</a><div id='analysisBox' class='imiSel'><span class='imiSelCho'>计量可视化分析</span><ul class='imiSelDp' style='display:none;'><li><a href='javascript:void(0);' onclick='anisysartical(1); return false;' title='对已选文献进行分析'>已选文献分析</a></li><li><a href='javascript:void(0);' onclick='anisysresult();return false;' title='对全部检索结果集进行分析'>全部检索结果分析</a></li></ul></div></div></td><td align=right><div class='pageBar_min'><div class='pagerTitleCell'><span id="lbPagerTitle" name="lbPagerTitle" class="pagerTitle"></span>&nbsp;找到&nbsp;15&nbsp;条结果&nbsp;</div></div></td></tr></table>
-
-
-    </td></tr></table></td></tr><tr><td><table class="GridTableContent"   align=left bgColor=#969799  Border=0  CellPadding=0  CellSpacing=0  Width=100%>
-        <tr>
-            <td><div class="GridContent"><ul>
-                <li>
-                    <div class="GridSingleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFDLAST2019!JSJY201906035!1!17"  onclick="checkMark(this)"  >1</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=1&recid=&FileName=JSJY201906035&DbName=CJFDLAST2019&DbCode=CJFQ&yx=Y&pr=&URLID=51.1307.TP.20190129.1009.016&bsm=QK0201;' target='_blank'>基于多类迭代局部搜索的自动化排课算法</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%ae%8b%e5%a9%b7&scode=41987912&acode=41987912' target="knet">宋婷</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%90%b4%e8%b6%85&scode=17330688&acode=17330688' target="knet">吴超</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%bc%a0%e9%be%9a%e9%92%8a&scode=41987913&acode=41987913' target="knet">张龚钊</a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=JSJY&UnitCode=&NaviLink=%e8%ae%a1%e7%ae%97%e6%9c%ba%e5%ba%94%e7%94%a8'>计算机应用</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=JSJY*2019*06'>
-       2019年06期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 针对局部搜索算法容易陷入局部最优,无法自适应多种约束条件下排课的问题,提出一种基于多类迭代局部搜索的自动化排课算法。首先,通过多类分类器依据排课问题特征对排课问题进行分类,指导迭代局部搜索的邻域选择及参数设置。然后,在迭代局部搜索的过程中,使用基于序列的贪婪算法获得可行解。最后,采用以问题特性为导向的双温控制模拟退火算法在邻域中搜索局部最优解,并通过特定的扰动策略对当前最优解进行扰动后作为新的初始解进行迭代,最终达到全局最优。该算法在两个国际著名的数据集,即第二届国际时间 </p>
-                                <div class='DetailNum'>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>276</a></span>
-
-                                    <label> 发表时间：2019-01-29 10:10</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYrgTe0UENtBXe49kYaJHMQJDcEhlVaRkSsRjQj9GShp0TttyRqJ0LWJVYXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFDLAST2019"	target=_blank class="briefDl_D" title='下载_6页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dJSJY201906035' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridDoubleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFDLAST2018!JYXX201723012!2!17"  onclick="checkMark(this)"  >2</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=2&recid=&FileName=JYXX201723012&DbName=CJFDLAST2018&DbCode=CJFQ&yx=&pr=CJFR2017;CFJD2017;&URLID=&bsm=R03;S;QK0102;QS0102;' target='_blank'>基于学习行为记录与分析的电子书学习系统研究</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e6%88%b4%e8%8b%97&scode=38335625&acode=38335625' target="knet">戴苗</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e7%bd%97%e8%88%aa&scode=21333246&acode=21333246' target="knet">罗航</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e7%8e%8b%e5%8d%8e%e9%91%ab&scode=38335626&acode=38335626' target="knet">王华鑫</a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=JYXX&UnitCode=&NaviLink=%e4%b8%ad%e5%9b%bd%e6%95%99%e8%82%b2%e4%bf%a1%e6%81%af%e5%8c%96'>中国教育信息化</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=JYXX*2017*23'>
-       2017年23期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 通过电子书学习系统可以捕获到大量的学习行为数据,如何从海量数据中快速有效获取有价值的信息并有效利用这些大数据是目前教育信息化领域亟需研究的问题。该研究设计了一种基于云平台之上的电子书学习系统,该系统实现了对学习者行为数据的完备收集、分析和可视化呈现。文章给出了电子书学习系统的需求分析和设计框架,并详细阐述了各模块的功能。 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e5%9f%ba%e4%ba%8e%e5%ad%a6%e4%b9%a0%e8%a1%8c%e4%b8%ba%e8%ae%b0%e5%bd%95%e4%b8%8e%e5%88%86%e6%9e%90%e7%9a%84%e7%94%b5%e5%ad%90%e4%b9%a6%e5%ad%a6%e4%b9%a0%e7%b3%bb%e7%bb%9f%e7%a0%94%e7%a9%b6&scode=JYXX201723012', 'aaa','status=yes,scrollbars=yes',event)">1</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>82</a></span>
-
-                                    <label> 发表时间：2017-12-05</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYUBHOIF2NMV3LoZmQIJHZKd1NEt2Y1RmWutCVysyduF0N3UzMxYVYxRkUXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFDLAST2018"	target=_blank class="briefDl_D" title='下载_4页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dJYXX201723012' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridSingleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFDLAST2017!SHGJ201710006!3!17"  onclick="checkMark(this)"  >3</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=3&recid=&FileName=SHGJ201710006&DbName=CJFDLAST2017&DbCode=CJFQ&yx=&pr=CJFR2017;&URLID=&bsm=QS0101;R01;' target='_blank'>指向深度融合:基于标准发展教师TPACK</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%be%90%e7%ab%a0%e9%9f%ac&scode=07647131&acode=07647131' target="knet">徐章韬</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=SHGJ&UnitCode=&NaviLink=%e6%95%99%e8%82%b2%e5%8f%91%e5%b1%95%e7%a0%94%e7%a9%b6'>教育发展研究</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=SHGJ*2017*10'>
-       2017年10期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 信息技术与教育教学深度融合的关键在于教师,在于教师的TPACK。基于数学教师TPACK标准和指标,文章分析了信息技术与学科教学进行深度融合时需要什么样的TPACK,以及应依托哪些信息技术而发展TPACK。依据标准,信息技术使教师的PCK获得了新生。这样,就能改变信息技术与教育教学融合的现状,实现信息技术与学科教学的深度融合。 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e6%8c%87%e5%90%91%e6%b7%b1%e5%ba%a6%e8%9e%8d%e5%90%88%3a%e5%9f%ba%e4%ba%8e%e6%a0%87%e5%87%86%e5%8f%91%e5%b1%95%e6%95%99%e5%b8%88TPACK&scode=SHGJ201710006', 'aaa','status=yes,scrollbars=yes',event)">1</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>639</a></span>
-
-                                    <label> 发表时间：2017-05-25</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYypGMDZWWhpWTHBVN28mMltUW4h1cyc0arBFT4ljanhzN2UzMxYVYxRkUXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFDLAST2017"	target=_blank class="briefDl_D" title='下载_6页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dSHGJ201710006' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridDoubleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFDLAST2015!WLXB201508052!4!17"  onclick="checkMark(this)"  >4</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=4&recid=&FileName=WLXB201508052&DbName=CJFDLAST2015&DbCode=CJFQ&yx=Y&pr=&URLID=11.1958.o4.20150304.1036.021&bsm=QK0101;' target='_blank'>基于扩展度的复杂网络传播影响力评估算法</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%97%b5%e7%a3%8a&scode=31132501&acode=31132501' target="knet">闵磊</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e6%99%ba&scode=28696028&acode=28696028' target="knet">刘智</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%94%90%e5%90%91%e9%98%b3&scode=07642256&acode=07642256' target="knet">唐向阳</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e4%b8%89(%e5%a5%b3%e7%89%99)&scode=22037794&acode=22037794' target="knet">刘三(女牙)</a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=WLXB&UnitCode=&NaviLink=%e7%89%a9%e7%90%86%e5%ad%a6%e6%8a%a5'>物理学报</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=WLXB*2015*08'>
-       2015年08期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 对网络中节点的传播影响力进行评估具有十分重要的意义,有助于促进有益或抑制有害信息的传播.目前,多种中心性指标可用于对节点的传播影响力进行评估,然而它们一般只有当传播率处于特定范围时才能取得理想的结果.例如,度值中心性指标在传播率较小时较为合适,而半局部中心性和接近中心性指标则适用于稍大一些的传播率.为了解决各种评估指标对传播率敏感的问题,提出了一种基于扩展度的传播影响力评估算法.算法利用邻居节点度值叠加的方式对节点度的覆盖范围进行了扩展,使不同的扩展层次对应于不同的传播率 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e5%9f%ba%e4%ba%8e%e6%89%a9%e5%b1%95%e5%ba%a6%e7%9a%84%e5%a4%8d%e6%9d%82%e7%bd%91%e7%bb%9c%e4%bc%a0%e6%92%ad%e5%bd%b1%e5%93%8d%e5%8a%9b%e8%af%84%e4%bc%b0%e7%ae%97%e6%b3%95&scode=WLXB201508052', 'aaa','status=yes,scrollbars=yes',event)">15</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>552</a></span>
-
-                                    <label> 发表时间：2015-03-04 10:36</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYWhTSUlkVHNFZZVWVMtSZ1c3bzFmWvJDNTREUOZWNNRnYodlTktGWwQkUXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFDLAST2015"	target=_blank class="briefDl_D" title='下载_11页'></a>
-
-
-
-
-                                    <a target="online_open" class="kreader" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dCJFDLAST2015%26filename%3dWLXB201508052%26dbCode%3dCJFQ%26sfield%3dCJFQ' title="阅读"></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridSingleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2014!JSJX201408015!5!17"  onclick="checkMark(this)"  >5</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=5&recid=&FileName=JSJX201408015&DbName=CJFD2014&DbCode=CJFQ&yx=&pr=&URLID=&bsm=QK0101;' target='_blank'>基于向量的几何可读自动证明</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e8%91%9b%e5%bc%ba&scode=07179283&acode=07179283' target="knet">葛强</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%bc%a0%e6%99%af%e4%b8%ad&scode=10673958&acode=10673958' target="knet">张景中</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%bd%ad%e7%bf%95%e6%88%90&scode=10555625&acode=10555625' target="knet">彭翕成</a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=JSJX&UnitCode=&NaviLink=%e8%ae%a1%e7%ae%97%e6%9c%ba%e5%ad%a6%e6%8a%a5'>计算机学报</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=JSJX*2014*08'>
-       2014年08期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 几何定理机器证明已经成功发展了多种新方法,但其中对中学几何中向量的机器证明研究没有抓住其回路的基本特征.文中以向量的回路为出发点,提出了基于回路的向量可读证明新方法,开发了机器证明新程序.该程序对常见的构造类型欧氏几何题目能快速作图,并依据题目类型的不同,分别用不同的向量方法对其进行自动推理,证明结果简短可读.经过大量实例测试,证明将向量用于几何自动推理是可行和高效的.与《超级画板》等中的证明器相比,文中算法在自动推理能力和证明过程可读性方面有较大提高.文中给出的基于向量 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e5%9f%ba%e4%ba%8e%e5%90%91%e9%87%8f%e7%9a%84%e5%87%a0%e4%bd%95%e5%8f%af%e8%af%bb%e8%87%aa%e5%8a%a8%e8%af%81%e6%98%8e&scode=JSJX201408015', 'aaa','status=yes,scrollbars=yes',event)">1</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>249</a></span>
-
-                                    <label> 发表时间：2014-08-15</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYVdFU4U2NvczNYhmS3kFUqF3c3MlSYV0QxwEZ3kTcoFnQttyRqJ0LWJVYXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2014"	target=_blank class="briefDl_D" title='下载_11页'></a>
-
-
-
-
-                                    <a target="online_open" class="kreader" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dCJFD2014%26filename%3dJSJX201408015%26dbCode%3dCJFQ%26sfield%3dCJFQ' title="阅读"></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridDoubleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2014!JYXX201415005!6!17"  onclick="checkMark(this)"  >6</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=6&recid=&FileName=JYXX201415005&DbName=CJFD2014&DbCode=CJFQ&yx=&pr=CJFR2014;CFJD2014;&URLID=&bsm=R03;S;QK0102;QS0102;' target='_blank'>学科工具开发的现实意义与前景展望——以数学学科工具为例</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%be%90%e7%ab%a0%e9%9f%ac&scode=07647131&acode=07647131' target="knet">徐章韬</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=JYXX&UnitCode=&NaviLink=%e4%b8%ad%e5%9b%bd%e6%95%99%e8%82%b2%e4%bf%a1%e6%81%af%e5%8c%96'>中国教育信息化</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=JYXX*2014*15'>
-       2014年15期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 由于有了学科工具,信息技术能深度改变知识的表征方式,使高深的教学题材能为各种层次的学习者所接受。学科工具推动了学科教育的发展。开发学科工具对信息技术与教育的深度、全方面融合具有基础性的作用。 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e5%ad%a6%e7%a7%91%e5%b7%a5%e5%85%b7%e5%bc%80%e5%8f%91%e7%9a%84%e7%8e%b0%e5%ae%9e%e6%84%8f%e4%b9%89%e4%b8%8e%e5%89%8d%e6%99%af%e5%b1%95%e6%9c%9b%e2%80%94%e2%80%94%e4%bb%a5%e6%95%b0%e5%ad%a6%e5%ad%a6%e7%a7%91%e5%b7%a5%e5%85%b7%e4%b8%ba%e4%be%8b&scode=JYXX201415005', 'aaa','status=yes,scrollbars=yes',event)">2</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>186</a></span>
-
-                                    <label> 发表时间：2014-08-05</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYkNUcuRFRTZDdBhFUXpHNsBVWZRkMuh0SIJ0RI50b0wkN2UzMxYVYxRkUXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2014"	target=_blank class="briefDl_D" title='下载_3页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dJYXX201415005' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridSingleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2013!JSJA201308042!7!17"  onclick="checkMark(this)"  >7</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=7&recid=&FileName=JSJA201308042&DbName=CJFD2013&DbCode=CJFQ&yx=&pr=&URLID=&bsm=QK0201;' target='_blank'>面向平面几何命题理解的融合算法研究</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%bb%84%e7%84%95&scode=24885627&acode=24885627' target="knet">黄焕</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e6%b8%85%e5%a0%82&scode=07631199&acode=07631199' target="knet">刘清堂</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=JSJA&UnitCode=&NaviLink=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%a7%91%e5%ad%a6'>计算机科学</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=JSJA*2013*08'>
-       2013年08期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 随着初等几何命题可视化机器证明的发展,如何让几何教学辅助软件能够直接理解几何命题的含义,自动生成对应的几何图形并进行推理证明,成为当前研究的一个新问题。现有的几何命题理解方法虽然在一定程度上实现了几何命题向形式化命令的转化,但是这些方法均没有考虑几何命题中分句间的逻辑关系,无法解决分句间形式化命令的冗余和冲突问题,导致后期自动作图和推理的准确率不高。针对这一问题,在前期工作的基础上提出了一个几何命题分句间形式化命令融合算法,并将该融合算法集成应用于已有的自然语言几何作图接 </p>
-                                <div class='DetailNum'>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>131</a></span>
-
-                                    <label> 发表时间：2013-08-15</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYmFkTyAlMzUGd1BXVwg3dyg3VHNTcYhXYkJESmRUVYp3KttyRqJ0LWJVYXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2013"	target=_blank class="briefDl_D" title='下载_5页'></a>
-
-
-
-
-                                    <a target="online_open" class="kreader" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dCJFD2013%26filename%3dJSJA201308042%26dbCode%3dCJFQ%26sfield%3dCJFQ' title="阅读"></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridDoubleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFDLAST2018!SXYB201302004!8!17"  onclick="checkMark(this)"  >8</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=8&recid=&FileName=SXYB201302004&DbName=CJFDLAST2018&DbCode=CJFQ&yx=&pr=CFJD2013;&URLID=&bsm=S;QS0101;' target='_blank'>算法化视角下中学数学教学内容的知识分析</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%be%90%e7%ab%a0%e9%9f%ac&scode=07647131&acode=07647131' target="knet">徐章韬</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=SXYB&UnitCode=&NaviLink=%e6%95%b0%e5%ad%a6%e6%95%99%e8%82%b2%e5%ad%a6%e6%8a%a5'>数学教育学报</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=SXYB*2013*02'>
-       2013年02期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 从算法化的视角对中学数学教学内容作深入的知识分析,可以沟通知识间的内在关联性,看到知识产生的内在合理性,增强知识的可接受性.这样一种知识分析法有助于教师获得对知识深层意义的理解,发展教育教学上的见解,为教师的专业发展提供底层的技术支持. </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e7%ae%97%e6%b3%95%e5%8c%96%e8%a7%86%e8%a7%92%e4%b8%8b%e4%b8%ad%e5%ad%a6%e6%95%b0%e5%ad%a6%e6%95%99%e5%ad%a6%e5%86%85%e5%ae%b9%e7%9a%84%e7%9f%a5%e8%af%86%e5%88%86%e6%9e%90&scode=SXYB201302004', 'aaa','status=yes,scrollbars=yes',event)">8</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>476</a></span>
-
-                                    <label> 发表时间：2013-04-15</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYCdXdvBXepNlSnJFUpFGT0cnQi5mTylkT0oUbqtGTot0d3UzMxYVYxRkUXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFDLAST2018"	target=_blank class="briefDl_D" title='下载_5页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dSXYB201302004' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridSingleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2013!ZDJY201301020!9!17"  onclick="checkMark(this)"  >9</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=9&recid=&FileName=ZDJY201301020&DbName=CJFD2013&DbCode=CJFQ&yx=&pr=CJFR2013;CFJD2013;&URLID=&bsm=QS0101;S;' target='_blank'>信息技术支持下的学科教学知识之课例研究</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%be%90%e7%ab%a0%e9%9f%ac&scode=07647131&acode=07647131' target="knet">徐章韬</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e9%83%91&scode=25996887&acode=25996887' target="knet">刘郑</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e8%a7%82%e6%b5%b7&scode=22558482&acode=22558482' target="knet">刘观海</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=ZDJY&UnitCode=&NaviLink=%e4%b8%ad%e5%9b%bd%e7%94%b5%e5%8c%96%e6%95%99%e8%82%b2'>中国电化教育</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=ZDJY*2013*01'>
-       2013年01期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 信息技术支持下的学科教学知识(TPACK)是学科教学知识(PCK)在信息化时代的发展,是整合信息技术与学科课程的教学知识基础。为了推动信息技术与学科课程的有机整合,寻求学科教育信息化之路的本土经验,该文首先介绍了立体几何智能教育平台和信息技术支持下的学科教学知识,然后以"课例研究"为载体,分析了基于立体几何智能教育平台开展教学活动时,教学所需要的学科教学知识。"课例研究"表明,深入学科的信息技术平台,确定的主题,"TCK-TPK-TPACK"确定的路径,是一种值得尝试的本 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e4%bf%a1%e6%81%af%e6%8a%80%e6%9c%af%e6%94%af%e6%8c%81%e4%b8%8b%e7%9a%84%e5%ad%a6%e7%a7%91%e6%95%99%e5%ad%a6%e7%9f%a5%e8%af%86%e4%b9%8b%e8%af%be%e4%be%8b%e7%a0%94%e7%a9%b6&scode=ZDJY201301020', 'aaa','status=yes,scrollbars=yes',event)">35</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>2556</a></span>
-
-                                    <label> 发表时间：2013-01-10</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYOd3YVhXSChjUwYzVqRlSQR1aXZGTkpVMohHa2pHTot0d3UzMxYVYxRkUXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2013"	target=_blank class="briefDl_D" title='下载_6页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dZDJY201301020' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridDoubleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2012!DHJY201212020!10!17"  onclick="checkMark(this)"  >10</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=10&recid=&FileName=DHJY201212020&DbName=CJFD2012&DbCode=CJFQ&yx=&pr=CJFR2012;CFJD2012;&URLID=&bsm=QS0101;R03;S;' target='_blank'>基于立体几何智能教育平台的TCK:功用、存在方式及教育意义</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%be%90%e7%ab%a0%e9%9f%ac&scode=07647131&acode=07647131' target="knet">徐章韬</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e9%83%91&scode=25996887&acode=25996887' target="knet">刘郑</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e8%a7%82%e6%b5%b7&scode=22558482&acode=22558482' target="knet">刘观海</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=DHJY&UnitCode=&NaviLink=%e7%94%b5%e5%8c%96%e6%95%99%e8%82%b2%e7%a0%94%e7%a9%b6'>电化教育研究</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=DHJY*2012*12'>
-       2012年12期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 技术支持下的内容知识(Technological Content Knowledge,简称TCK)是利用信息技术开展教学活动的知识基础。立体几何智能教育平台是深入学科的三维动态几何软件,基于立体几何智能教育平台的TCK是利用这一平台实施立体几何教学活动的知识基础。采取一种"自下而上"的模式:首先,研究课堂教学中的TCK的存在方式;其次,逐步归纳总结其中成熟的TCK,以"对话"的方式进入校本教材;最后,期望上述工作能为TCK进入国家审定的教科书提供借鉴,推动立体几何课程的信 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e5%9f%ba%e4%ba%8e%e7%ab%8b%e4%bd%93%e5%87%a0%e4%bd%95%e6%99%ba%e8%83%bd%e6%95%99%e8%82%b2%e5%b9%b3%e5%8f%b0%e7%9a%84TCK%3a%e5%8a%9f%e7%94%a8%e3%80%81%e5%ad%98%e5%9c%a8%e6%96%b9%e5%bc%8f%e5%8f%8a%e6%95%99%e8%82%b2%e6%84%8f%e4%b9%89&scode=DHJY201212020', 'aaa','status=yes,scrollbars=yes',event)">7</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>411</a></span>
-
-                                    <label> 发表时间：2012-12-01</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlY59GSJlFWNRzNzxkNIpUMwEnT3IWaxNDaRd2QVFHTot0d3UzMxYVYxRkUXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2012"	target=_blank class="briefDl_D" title='下载_6页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dDHJY201212020' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridSingleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2012!KJJF201207008!11!17"  onclick="checkMark(this)"  >11</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=11&recid=&FileName=KJJF201207008&DbName=CJFD2012&DbCode=CJFQ&yx=&pr=CFJD2012;&URLID=&bsm=S;QS0101;' target='_blank'>基于立体几何智能教育平台的教学资源开发</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%be%90%e7%ab%a0%e9%9f%ac&scode=07647131&acode=07647131' target="knet">徐章韬</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e9%83%91&scode=25996887&acode=25996887' target="knet">刘郑</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e8%a7%82%e6%b5%b7&scode=22558482&acode=22558482' target="knet">刘观海</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=KJJF&UnitCode=&NaviLink=%e8%af%be%e7%a8%8b%c2%b7%e6%95%99%e6%9d%90%c2%b7%e6%95%99%e6%b3%95'>课程·教材·教法</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=KJJF*2012*07'>
-       2012年07期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 立体几何智能教育平台是我国自主研发的,面向学科的三维动态几何软件。基于这个平台开发教学资源应遵循一定的原则和开发路径。其原则是:依据课程标准,确定在信息技术的支持下,课程内容整合的着力点,学生心理发展的着力点,教师专业发展的着力点。其路径是:先拟定教学资源开发的整体框架,然后再按一定的模式对每一模块进行细化、充实、调整。教学资源的开发可以作为推动教师专业发展的一个抓手。 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e5%9f%ba%e4%ba%8e%e7%ab%8b%e4%bd%93%e5%87%a0%e4%bd%95%e6%99%ba%e8%83%bd%e6%95%99%e8%82%b2%e5%b9%b3%e5%8f%b0%e7%9a%84%e6%95%99%e5%ad%a6%e8%b5%84%e6%ba%90%e5%bc%80%e5%8f%91&scode=KJJF201207008', 'aaa','status=yes,scrollbars=yes',event)">2</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>344</a></span>
-
-                                    <label> 发表时间：2012-07-01</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYOtycHZmNpxGT4p2Ki90UnF2d2Q1akR0cyhHWKp0ahdEe3UzMxYVYxRkUXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2012"	target=_blank class="briefDl_D" title='下载_5页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dKJJF201207008' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridDoubleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2012!JSJA2012S1134!12!17"  onclick="checkMark(this)"  >12</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=12&recid=&FileName=JSJA2012S1134&DbName=CJFD2012&DbCode=CJFQ&yx=&pr=&URLID=&bsm=QK0201;' target='_blank'>面向平面几何的自然语言作图研究</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%83%ad%e6%b5%b7%e7%87%95&scode=26076151&acode=26076151' target="knet">郭海燕</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e6%b8%85%e5%a0%82&scode=07631199&acode=07631199' target="knet">刘清堂</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%bb%84%e7%84%95&scode=24885627&acode=24885627' target="knet">黄焕</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e8%91%9b%e5%bc%ba&scode=24136871&acode=24136871' target="knet">葛强</a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=JSJA&UnitCode=&NaviLink=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%a7%91%e5%ad%a6'>计算机科学</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=JSJA*2012*S1'>
-       2012年S1期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 在计算机几何作图软件日趋成熟的情况下,如何让用自然语言描述的几何命题自动生成几何图形一直是几何作图软件研究中的难题。结合已有几何作图软件的需求,通过对几何自然语言的研究,建立了一套有效可行的语言理解模型,设计并开发了由几何自然语言向几何作图命令转换的接口,实现了将自然语言描述的几何命题自动转换为几何作图命令并生成几何图形的功能。测试结果表明,其转换正确率在84.17%以上。 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e9%9d%a2%e5%90%91%e5%b9%b3%e9%9d%a2%e5%87%a0%e4%bd%95%e7%9a%84%e8%87%aa%e7%84%b6%e8%af%ad%e8%a8%80%e4%bd%9c%e5%9b%be%e7%a0%94%e7%a9%b6&scode=JSJA2012S1134', 'aaa','status=yes,scrollbars=yes',event)">2</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>188</a></span>
-
-                                    <label> 发表时间：2012-06-15</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYyATQN10VC9kSndnRGZESXxmSsFEUXdHcN9iRsl2c5kWOttyRqJ0LWJVYXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2012"	target=_blank class="briefDl_D" title='下载_4页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dJSJA2012S1134' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridSingleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2011!ZDJY201105025!13!17"  onclick="checkMark(this)"  >13</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=13&recid=&FileName=ZDJY201105025&DbName=CJFD2011&DbCode=CJFQ&yx=&pr=CJFR2011;CFJD2011;&URLID=&bsm=QS0101;S;' target='_blank'>中学立体几何智能教育软件的设计与实现</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e5%88%98%e9%83%91&scode=25996887&acode=25996887' target="knet">刘郑</a>; <a class='KnowledgeNetLink' href='/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=%e4%bd%9c%e8%80%85&skey=%e9%99%88%e7%9f%9b&scode=25996888&acode=25996888' target="knet"><font class=Mark>陈矛</font></a>，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=ZDJY&UnitCode=&NaviLink=%e4%b8%ad%e5%9b%bd%e7%94%b5%e5%8c%96%e6%95%99%e8%82%b2'>中国电化教育</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=ZDJY*2011*05'>
-       2011年05期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 立体几何一直是中学几何教学的重点和难点,由于开发难度较大,国内外的几何教育软件大都只具备平面几何功能而缺少立体几何相关的功能。本文尝试利用作者设计和实现的立体几何教育软件解决教师和学生在教学中遇到的困难。文中首先给出了智能教育平台的概念,然后介绍了根据智能教育平台概念而开发的中学立体几何智能教育软件的设计框架和功能结构,接下来针对各个功能模块给出了具体说明,最后给出了一些案例演示了如何将本软件应用于中学立体几何的教学。 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e4%b8%ad%e5%ad%a6%e7%ab%8b%e4%bd%93%e5%87%a0%e4%bd%95%e6%99%ba%e8%83%bd%e6%95%99%e8%82%b2%e8%bd%af%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1%e4%b8%8e%e5%ae%9e%e7%8e%b0&scode=ZDJY201105025', 'aaa','status=yes,scrollbars=yes',event)">13</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>610</a></span>
-
-                                    <label> 发表时间：2011-05-10</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYItUQ4VTWl90KzxkNRZFaGhDbvcTUkdDUT9SMNlWTZRTe3UzMxYVYxRkUXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2011"	target=_blank class="briefDl_D" title='下载_7页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dZDJY201105025' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridDoubleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2007!JFYZ200712020!14!17"  onclick="checkMark(this)"  >14</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=14&recid=&FileName=JFYZ200712020&DbName=CJFD2007&DbCode=CJFQ&yx=&pr=&URLID=&bsm=QK0201;' target='_blank'>求解不等圆Packing问题的一个启发式算法</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <font class=Mark>陈矛</font>;黄文奇;，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=JFYZ&UnitCode=&NaviLink=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%a0%94%e7%a9%b6%e4%b8%8e%e5%8f%91%e5%b1%95'>计算机研究与发展</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=JFYZ*2007*12'>
-       2007年12期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> 求解具有NP难度的圆形packing问题具有很高的理论与实用价值.现提出一个启发式方法,求解了货运中常遇到的矩形区域内的不等圆packing问题.此算法首先将待布局圆按半径大小降序排列,然后用占角动作来逐个放置.通过试探性地放入一个或多个待布局圆,给出了占角动作的度以及更全局的有限枚举策略来评价占角动作的优度.在放置每一个圆时,以贪心的方式选取当前具有最大优度的占角动作来放置.最后用测试算例验证了算法的高效性. </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e6%b1%82%e8%a7%a3%e4%b8%8d%e7%ad%89%e5%9c%86Packing%e9%97%ae%e9%a2%98%e7%9a%84%e4%b8%80%e4%b8%aa%e5%90%af%e5%8f%91%e5%bc%8f%e7%ae%97%e6%b3%95&scode=JFYZ200712020', 'aaa','status=yes,scrollbars=yes',event)">13</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>309</a></span>
-
-                                    <label> 发表时间：2007-12-15</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYvQFcyk0ZVZEcVt2cSN3cwxmUVZ0Tn5mcjFXMyZnRiFXaHZzRqJ0LWJVYXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2007"	target=_blank class="briefDl_D" title='下载_6页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dJFYZ200712020' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="GridSingleRow">
-                        <div class="GridLeftColumn">
-                            <input type=checkbox name=FileNameS  value="CJFD2007!JFYZ200709003!15!17"  onclick="checkMark(this)"  >15</br></div>
-                        <div class="GridRightColumn">
-                            <div class="GridTitleDiv">
-                                <h3 class="title_c"><a href='/kns/detail/detail.aspx?QueryID=17&CurRec=15&recid=&FileName=JFYZ200709003&DbName=CJFD2007&DbCode=CJFQ&yx=&pr=&URLID=&bsm=QK0201;' target='_blank'>求解HP模型蛋白质折叠问题的改进PERM算法</a>
-
-
-
-
-
-
-
-                                </h3>
-                            </div>
-                            <div class="GridContentDiv">
-                                <div class="detailinfo_c">
-                                    <span class="author"> <font class=Mark>陈矛</font>;黄文奇;吕志鹏;，</span>
-                                    <span class="orgniz"> </span>
-                                    <span class="journal">
-
-
-      <a  target=_blank href='/kns/NaviBridge.aspx?bt=1&DBCode=CJFD&BaseID=JFYZ&UnitCode=&NaviLink=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%a0%94%e7%a9%b6%e4%b8%8e%e5%8f%91%e5%b1%95'>计算机研究与发展</a>
-
-
-
-
-      </span>
-                                    <span class="pubdate">
-			    <a target=_blank href='/kns/NaviBridge.aspx?LinkType=IssueLink&DBCode=cjfd&TableName=cjfdyearinfo&ShowField=cname&Field=BaseID*year*issue&Value=JFYZ*2007*09'>
-       2007年09期 </a>， </span>
-                                    <span class="database"> 期刊 </span>
-                                </div>
-                                <p class="abstract_c"> pERM是一种用来求解基于HP模型的蛋白质折叠问题的高效算法.在介绍PERM算法核心思想的基础上,对影响算法效率的因素做了改进:重新定义了权重和权重预测公式,并对选择动作时不同情况下的权重计算公式进行了统一,得到了改进的PERM算法.对当前文献中的多个典型算例进行了测试,并与Monte Carlo算法和PERM进行了比较.结果表明,改进后的PERM算法在计算速度上比PERM有明显提高,在速度和优度上远高于Monte Carlo算法.特别是对链长为46的算例,找到了比文献中 </p>
-                                <div class='DetailNum'> <label>被引频次：<a class='KnowledgeNetLink' onClick="TPI_openwindow('/kns/popup/knetsearchNew.aspx?sdb=CJFQ&sfield=cite&skey=%e6%b1%82%e8%a7%a3HP%e6%a8%a1%e5%9e%8b%e8%9b%8b%e7%99%bd%e8%b4%a8%e6%8a%98%e5%8f%a0%e9%97%ae%e9%a2%98%e7%9a%84%e6%94%b9%e8%bf%9bPERM%e7%ae%97%e6%b3%95&scode=JFYZ200709003', 'aaa','status=yes,scrollbars=yes',event)">17</a></label>
-                                    <span class="downloadCount"><a href='javascript:void(0);' onclick='SubCountDownLoad(0,this)' ><label>下载频次：</label>226</a></span>
-
-                                    <label> 发表时间：2007-09-15</label>    </div>
-                                <div class="fenxiang">
-
-
-
-                                    <a href="../download.aspx?filename=6VkSkRVSLFWaJNlQtlTUpNHZFpXdFN2SnVFODRDdtR0QXdWciBXSJtGZGtmVCdEZ50WbSRXSvtUZMZlYxsiYmJ1VK1WUN9idQhVZ1k2U0MFdGZVYz1maBBlMBNkVHZzRqJ0LWJVYXdUUvNTUUNDNHBTQjpnRDR3K&tablename=CJFD2007"	target=_blank class="briefDl_D" title='下载_6页'></a>
-
-
-
-
-                                    <a class="kreader kreader1 xml"  target="online_open" href='/kns/ReadRedirectPage.aspx?flag=html&domain=%2fKXReader%2fDetail%3fdbcode%3dCJFQ%26filename%3dJFYZ200709003' title="HTML阅读"  ></a>
-
-                                    <a href='javascript:void(0);' onclick='AddFavToKpc(this); return false;' title='收藏' class='star'> 收藏</a>
-                                </div>
-                            </div></div>
-                        <div style=" clear: both; height:1px; margin-top:-1px;overflow:hidden;"></div>
-                    </div>
-                </li>
-            </ul>
-            </div></td>
-        </tr>
-
-    </table>
-
-
-    </td></tr><tr><td><table class='pageBar_bottom' border=0 cellspacing=0	cellpadding=0 	width=100%	align=left ><tr><td align=left  colspan=10><div class='TitleLeftCell'><div class='pagerTitleCell'><span id="lbPagerTitle" name="lbPagerTitle" class="pagerTitle"></span>&nbsp;找到&nbsp;15&nbsp;条结果&nbsp;</div></div></td></tr></table>
-
-
-    </td></tr></table>
-    <input name="tpagemode" type="hidden" id="tpagemode" value="L" />
-</form>
-<script type="text/javascript">
-    try{}catch(e){}
-    ChangeDownloadImg();
-    RevertUserSelect();
-    briefTableListJSEvent();
-    BindOnlick_ShowWait();
-    BindTurnPage_TitleTip();
-    parent.$("#zyzklist").hide();
-    //外文推荐
-    // recWWJDAddToTable();20170921,增加中英文混合检索，不需要再加载外文推荐
-    var analysisURL = "/KVisual/ArticleAnalysis/index";
-    modifySql();
-    function modifySql() {
-        var param = "";
-        if (param == null || param == "") {
-            var obj = parent.document.getElementById("sql");
-            if (obj) {
-                obj.value = "C663DAE25B9B084F881BFC9FC82242B8FA88FE3AA4253DB45991F0FCD6091CAB8FDC2FE99EFBFB5E7876EA599E243ED5484C3DDFD3931B2DA6054A409507618A0FC526418D51BD1E951226EBF0FB5B9E94368A189FBC5F5CCBB214BA235A8360EDF79215CBAC7BCFE5B53BBDCD5FCCCDCB6ABE04002A474F5B59F5E83BBABF276F3A0811103885ED5D461BF5AF0DE0AD56C5E105FAE91EB092B6C5E09674AED53F77CE5482327971EB342AC0BAA5DA5CDE382FF6880C4450C3D686CF308665B37D53312EFCA8AF4758B845EF5D7170BF148FD36D0F239676AE1C61B7CC72B233DA861C558CE047AB4B1F92E927BA82925B8D3768FF5F064A7FB5D0690D7F711D85C6E1DB41AA03B50D3AADBE106E83BACBBE9F561CC875A39F752443B3D90B59B24FBFAA7B6BCD6EF8A97AB4E9DA1958269DEA238DB12CE43D03DE01E90F9175691B350ABE1AF7524846FA173D7857DCAA201D40622709B9FAA644E7110B19AB680B62C4F7DA7F502B1B3F5E31278384A2215CA72FA26FCEB8A369BBD4F145FE5792971AA8FDC91DF01E82E5A4D145C8390D043023BACDD0CE6511A45F6019531297801636A6D7087F94927312A70D3BD7C0DC254D554DF455B5EE410B925D49E17350E887F4AB28ABD37CBFEDE5F12778B6BBCDBEDD8E41CA38AE4319786E5ACD99E5D1DA8CA9CD82790A2C604F2602ADC7DCA72A2220D4F38D95ABDF5B69B25F6162790C53B024D5328EFB1E92F1C38AD2AA7E0E99015F855A2421897D571F1DD53D600045B293EA2E4793EED77649CCDF0372F8F9AEE3B18343EB00AD4454594C2D7A369C860C97F5947965357467748938361EF1DC7546B307075B31D3286174DE86E4AF1036796D2494693A440851BF6A7B531D0F4659B6D1C5755B2DA601A4EB75889F3F00608F28460FB12F17BF652ED678FBC89A664EC7AE403532FCE192211DF6F2BA79D8E0A72B93E6959552D2776A6481ACFEC375492A1B154F52700DD2BB480A103AE1EEF98872011B170311FE47D04900F1BA17153EEC986DA6FCD6A5ADA11CDAF79AAFA4083A2A8124F82BAB83EC4858DD03D23A355B62B9620242F11553E9EFDF64EAC361BAACDCA258D54A1F38F9B7DAFC0E75A0F67DBB45A673B5B3503F100F899084E4F6E7AB1C4A88F3008A765C52FF64A0E1F49E250BC6FA0A60A7FB756FD8D9A0F50832DE61B3C4E5D7927E4874D2B048395A8C255BFCC6E58370DC59029605031EB920ADC67B9D4C4FCEA4883756F6C6F4363D6AE0145B656942C4CB5724FC37C7C42DB2D7798702091B77054A6EA64037AD4F8EF1B597360844AE2F087ADF6F4DABAA5C476B5D86742351B5D4AF7235F0DCE01E7929AE9298CCB7358897F2AF31108662B6668A09171C9FDBA0FFD08AED075BDFE9F3954AFA7AC9F33EF0B2692B345547DB0E0B9B980347384633B28278B15442ED2E545A94AA321E7DBCF1EE36034E184C6981D8BBA7500B82E085DCD2DC066DC33EADB6A4D40BA15FF23DEA219181DC005F399F3A42E7F38A1C5E99FC40049332D3FF757C376824FD2E209059FE5CABCA0EC88CC69AFBD09F0952E5C80C90BBE02A521C2C50ACFE8596E105F1D8900ABBD1A0F307ADC0BB2280DCD14B8FDBC69E4F5101A334D80803C521311CE18D34D913DEFDFF6F7808F8B93A34ED04E3FB867EABBD739DFC5F004797767615525DD5D6050F6366E424F26423BA7C5751E0C06A8C7B1DC45E6EC43FBA8E9A2784E1474CC8EBE3DEC8817DF81FB26C8BC3FFF26FE095F1D0EAABBDB4AC81E00D1783613CCE43D79DFAFD34D1A4229F41C49441A16B254BF98705CEFD6F480B3BD2AA9C7EA3198D0552EE1B533860EC010559BE5672E615178B8BC13B2D992449D32BA73C2998DC74840BBD8BC64BC32D50B1C4423A3A6191EADE371BA9814D12938A7213F3EFDB7728B64233CBBA83E229654B6E4CD8FD8B680FC4EE25BE7B51DC41DF8C9D4B18F3F1C55729DA9136C396612291DDF32DF54DD08ABC973D5DE11F3638B8BD878CA8CE957A132B8CDFAF667414B94D128CBA6BE96B25DFE63D2671FBED91C6A689B3500F44CC79DFDF8E51F5529205E66FDDACEF93F36333AF16AAA1DD6751B3823B7B8E2D2669EED2BC84295D69CB0603643C2DE10029323EEF6D73EEE0AFF8CBAA96507F%";
-            }
-        }
-    }
-    //绑定分析
-    $("#analysisBox").hoverDelay({
-        hoverDuring: 200,
-        outDuring: 0,
-        hoverEvent: function () {
-            var $this = $(this);
-            //显示数字
-            var fileNameS = new FileNameS();
-            var pcnt = fileNameS.Count();
-            var rcnt = 643822;
-            var ptext = pcnt > -10 ? "<span>(" + pcnt + ")</span>" : "";//始终为真
-            var rtext = rcnt > -10 ? "<span>(" + rcnt + ")</span>" : "";
-            $this.find("a").eq(0).html("已选文献分析" + ptext);
-            //$this.find("a").eq(1).html("检索结果");
-            $this.find(".imiSelDp").show();
-        },
-        outEvent: function () {
-            $(this).find(".imiSelDp").hide();
-        }
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>E-Learning学习资源的交互设计研究 - 中国知网
+    </title>
+    <link rel="stylesheet" type="text/css" href="//piccache.cnki.net/kdn/KCMS/detail/resource/gb/css_min/Global.min.css?v=FBC16D09D6F9935E">
+    <link rel="stylesheet" type="text/css" href="//piccache.cnki.net/kdn/KCMS/detail/resource/gb/css_min/knetdetail.min.css?v=FBC16D09D6F9935E1123121">
+    <link rel="stylesheet" type="text/css" href="//piccache.cnki.net/kdn/KCMS/detail/resource/gb/css/ecplogin.min.css?v=FBC16D09D6F9935E">
+    <link rel="stylesheet" type="text/css" href="//piccache.cnki.net/kdn/KCMS/detail/resource/gb/css_min/picModule.min.css?v=FBC16D09D6F9935E"><script type="text/javascript" src="/kcms/detail/js/getLink.aspx"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/resource/gb/js/min/rs.min.js?v=FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/jquery.PrintArea.min.js?v=FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/Common.min.js?v=FBC16D09D6F9935E0129"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/highcharts.min.js?v=FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/json2.min.js?v=FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/raphael.amd.js?v=FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/CnkiFlashEmbed.min.js?v=FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/jquery.mousewheel.min.js?v=FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/NiceDCenter.min.js?v=FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/Kajax.min.js?v=21FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/CatalogFun.min.js?v=FBC16D09D6F9935E102712"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/detail.min.js?v=FBC16D09D6F9935E12"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/recommendpic.min.js?v=FBC16D09D6F9935E"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/kns/script/jQuery-1.11.3.min.js"></script><script src="//ishufang.cnki.net/a/quote/ad.js"></script></head>
+<body><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/WideScreen.min.js"></script><input id="loginuserid" type="hidden" value=""><input id="listv" type="hidden" value=""><input id="paramdbcode" type="hidden" value="CJFQ"><input id="paramdbname" type="hidden" value="CJFD2012"><input id="paramfilename" type="hidden" value="xdyc201201014"><input id="paramcitingtimes" type="hidden" value="70"><input id="deliveryType" type="hidden" value=""><input id="deliveryUid" type="hidden" value=""><input id="deliveryUname" type="hidden" value=""><input id="deliveryCoutent" type="hidden" value="#"><input id="deliveryTable" type="hidden" value=""><input id="SingePointShow" type="hidden" value=""><script type="text/javascript" src="//piccache.cnki.net/kdn/kns/script/jQuery-1.11.3.min.js"></script><script type="text/javascript" src="&#xA;        //login.cnki.net/TopLogin/api/loginapi/get?type=top&amp;localCSS=&amp;returnurl=http%3a%2f%2fkns.cnki.net%2fKCMS%2fdetail%2fdetail.aspx%3fdbcode%3dCJFQ%26dbname%3dCJFD2012%26filename%3dXDYC201201014%26uid%3d%26v%3d"></script><div id="headerBox"></div>
+<div class="line-box">
+    <h1><span id="catalog_Ptitle"></span><span class="kcmslogo"></span></h1>
+</div><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/CnkiFlashEmbed.js?v=FBC16D09D6F9123"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/jquery.mousewheel.js?v=FBC16D09D6F99123"></script><div id="mainArea" class="wxwrap">
+    <div class="wxwrap">
+        <div class="searchtop"><span class="showPlaceholder"><input id="searchinput" name="searchinput" type="text" onkeypress="setPlaceholder(this);" onpaste="return setPlaceholder(this);" onkeyup="setPlaceholder(this);"><label for="searchinput" class="placeholder" id="searchtext">请输入搜索内容</label></span><input id="searchbtn" type="button" value="检索" onclick="submitSearch()"></div>
+    </div><script>
+    $("#searchinput").keypress(function (event) {
+        if (event.keyCode == 13)
+            submitSearch();
     });
-    //排序方式缓存  add by LH 2017-7-26
-    $("#J_ORDER .Btn5 a").click(function() {
-        SetSortTypeCookie(this);
-    });
-    function SetSortTypeCookie(elm) {
-        var sorttype = GetQueryStringByName($(elm).attr("href"), "sorttype");
-        var Days = 7;
-        var exp = new Date();
-        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-        var dbcode = GetQueryStringByName(window.location.href, "dbPrefix");
-        document.cookie = "KNS_SortType" + "=" + escape(dbcode+"!"+sorttype) + ";expires=" + exp.toGMTString() + ";path=/";
-    }
-    window.document.onclick = parent.OnclickForHideMoredo;
-
-</script>
-<style type="text/css">
-    .flyingAdd
-    {
-        left: -100px;
-        top: 0px;
-        position: absolute;
-        width: 50px;
-        text-align: center;
-        height: 50px;
-        font-size: 50px;
-        color: #999;
-        z-index: 50000;
-    }
-    /*等待*/
-    .loading {
-        position: absolute;
-        width: 232px;
-        height: 32px;
-        z-index: 300;
-        background: url(../images/gb/loading.gif) no-repeat scroll center center transparent;
-    }
-</style>
-<div style="left: -1000px; top: -100px; opacity: 1; font-size: 50px;" class="flyingAdd">
-    <img src="../images/gb/checkboxbook.png" alt="" />
+</script><script>$("#catalog_Ptitle").html("期刊");</script><div class="wxside">
+    <div id="CatalogSide" class="wxside kcmsCatalog">
+        <div class="clHd">知识节点</div>
+        <div class="clBd">
+            <dl>
+                <dt id="lcatalog_Ptitle" onclick="TurnToTitle('catalog_Ptitle')"><a><i></i>基本信息
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_ABSTRACT" onclick="TurnToTitle('catalog_ABSTRACT')"><a><i></i>摘要
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_FUND" onclick="TurnToTitle('catalog_FUND')"><a><i></i>基金
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_KEYWORD" onclick="TurnToTitle('catalog_KEYWORD')"><a><i></i>关键词
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_ZTCLS" onclick="TurnToTitle('catalog_ZTCLS')"><a><i></i>分类号
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_divimg" data-tit="文内图片" class="leftBar_Img" style="display:none;" onclick="TurnToTitle('catalog_divimg')"><a><i></i>文内图片
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_divzqcl" class="leftBar_Img" style="display:none;" onclick="TurnToTitle('catalog_divzqcl')"><a><i></i>附加材料
+                </a></dt>
+            </dl>
+        </div>
+        <div class="clHd">
+            知识网络
+            <input id="catalogIds" type="hidden" value=""></div>
+        <div class="clBd">
+            <dl>
+                <dt id="lcatalog_ref" data-tit="引文网络" onclick="TurnToTitle('catalog_ref')"><a><i></i>引文网络
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_func601" data-tit="关联作者" onclick="GetAndShowFiles(this);"><a><i></i>关联作者
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_func604" data-tit="相似文献" onclick="GetAndShowFiles(this);"><a><i></i>相似文献
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_func605" data-tit="读者推荐" onclick="GetAndShowFiles(this);"><a><i></i>读者推荐
+                </a></dt>
+            </dl>
+            <dl style="display:none;">
+                <dt id="lcatalog_func602" data-tit="主题指数" onclick="GetAndShowFiles(this);"><a><i></i>主题指数
+                </a></dt>
+            </dl>
+            <dl>
+                <dt id="lcatalog_func603" data-tit="相关基金文献" onclick="GetAndShowFiles(this);"><a><i></i>相关基金文献
+                </a></dt>
+            </dl>
+        </div>
+    </div>
 </div>
-<script type="text/javascript">
-    LoadScript('/KRS/scripts/Recommend.js');
-    LoadScript('//piccache.cnki.net/kdn/nvsmkns/script/piwikCommon70.js');
-</script>
+    <div class="wxmain">
+        <div class="wxTitle">
+            <h2 class="title">E-Learning学习资源的交互设计研究</h2><a class="btn-note" target="_blank" href="&#xA;            http://x.cnki.net/search/common/testlunbo?dbcode=CJFQ&amp;tablename=CJFD2012&amp;filename=xdyc201201014&amp;filesourcetype=1&#xA;          "><img src="//piccache.cnki.net/kdn/kcms/detail/resource/gb/images/note-btn.gif"></a><div class="author"><span><a onclick="&#xA;                          TurnPageToKnet('au','杨彦军','');&#xA;                        ">杨彦军</a></span><span><a onclick="&#xA;                          TurnPageToKnet('au','郭绍青','09140516');&#xA;                        ">郭绍青</a></span></div>
+            <div class="orgn"><span><a onclick="&#xA;                    TurnPageToKnet('in','西北师范大学教育技术与传播学院','0012645')&#xA;                  ">西北师范大学教育技术与传播学院</a></span></div>
+            <div class="link"><a class="icon icon-output" href="javascript:void(0);" onclick="&#xA;        SubTurnExport('//kns.cnki.net/kns/ViewPage/viewsave.aspx','CJFD2012!XDYC201201014!1!0')&#xA;      "><i></i>导出/参考文献
+            </a><span class="shareBoard" onmouseover="$('#sharedet').show();$('#this').addClass('shareBoardCUR')" onmouseout="$('#sharedet').hide();$('#this').removeClass('shareBoardCUR')"><a class="icon icon-share" href="#"><i></i>分享<em></em></a><script> document.write(ShareAstr('shareHide'));</script></span><a class="icon icon-track" href="javascript:void(0);" id="RefTrack" onclick="RefTrack()"><i></i><label>创建引文跟踪</label></a><a class="icon icon-favor" href="javascript:void(0);" id="addfavtokpc" onclick="AddFavToKpc()"><i></i><label>收藏</label></a><a class="icon icon-print" href="javascript:void(0);" onclick="window.print();"><i></i>打印
+            </a><a class="icon icon-comment" title="评论" href="#" style="display:none;"><i></i>评论
+            </a><span class="otherversions" style="display:none"></span></div>
+        </div>
+        <div id="datapupart"></div>
+        <div class="wxInfo">
+            <div class="wxBaseinfo">
+                <p><label id="catalog_ABSTRACT">摘要：</label><span id="ChDivSummary" name="ChDivSummary">E-Learning学习资源交互设计是E-Learning研究的重要任务之一。当前E-Learning学习资源交互设计研究主要集中在多媒体课件、网络课程和网络学习系统三个方面,体现出对交互设计内涵认识含混、交互设计缺乏科学依据、各项设计工作缺乏系统性等问题。E-Learning学习资源的设计,关键是要解决资源的结构化程度与资源的交互性之间的关系问题。E-Learning学习资源交互设计应当以认知负荷理论、多媒体学习理论等作为交互设计的认知理论依据,以系统观来指导教学交互各层次的交互设计,在交互设计中应当坚持一体化设计、有限交互、通道平衡等基本原则。</span><span><a id="ChDivSummaryMore" onclick="MoerSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="display:none">更多</a><a id="ChDivSummaryReset" onclick="ResetSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="display:none">还原</a></span><br></p><script type="text/javascript">
+                AbstractFilter('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset');
+            </script><p><label id="catalog_FUND">基金：</label><a onclick="&#xA;                      TurnPageToKnet('fu','甘肃省教育信息化专项课题“利用网络环境建立城乡互动教师专业化能力协同发展模式研究(甘财教〔2007〕123号)”阶段性研究成果','F0');&#xA;                    ">甘肃省教育信息化专项课题“利用网络环境建立城乡互动教师专业化能力协同发展模式研究(甘财教〔2007〕123号)”阶段性研究成果；
+            </a></p>
+                <p><label id="catalog_KEYWORD">关键词：</label><a onclick="&#xA;                      TurnPageToKnet('kw','E-Learning','')&#xA;                    ">E-Learning;
+                </a><a onclick="&#xA;                      TurnPageToKnet('kw','学习资源','')&#xA;                    ">学习资源;
+                </a><a onclick="&#xA;                      TurnPageToKnet('kw','交互设计','')&#xA;                    ">交互设计;
+                </a><a onclick="&#xA;                      TurnPageToKnet('kw','理论依据','')&#xA;                    ">理论依据;
+                </a><a onclick="&#xA;                      TurnPageToKnet('kw','设计原则','')&#xA;                    ">设计原则;
+                </a></p>
+                <p><label id="catalog_ZTCLS">分类号：</label>G434</p>
+                <p><label id="catalog_divimg" style="display:none ;">文内图片：</label><div id="imgdiv" class="imgcont"></div>
+                </p>
+                <div id="zqfilelist"></div>
+                <div class="dllink-box">
+                    <div class="dllink-box-left">
+                        <div class="dllink" id="DownLoadParts"><a target="_blank" class="icon icon-dlcrsp xml" href="/KXReader/Detail?dbcode=CJFQ&amp;filename=XDYC201201014&amp;uid=">
+                            HTML阅读
+                        </a><a onclick="WriteKrsDownLog()" target="_blank" class="icon icon-dlcaj" id="cajDown" name="cajDown" href="/kns/download.aspx?filename=sp3aix2SxYndrY1Nzk1LylTSBF1L6Jkb1l0bORzVPFEShJzTZZ1KDl3YRp3YElTTnpFWU1UZSpGb4R3cphUW4VDNmFHVxkTOwJmeNRkbytSSKZ2UwY2SL5GciV1VZtiWslnY3ZEc282cVhUOJVjNsdETygXYa1ma&amp;tablename=CJFD2012">
+                            CAJ下载
+                        </a><a onclick="WriteKrsDownLog()" target="_blank" class="icon icon-dlpdf" id="pdfDown" name="pdfDown" href="/kns/download.aspx?filename=sp3aix2SxYndrY1Nzk1LylTSBF1L6Jkb1l0bORzVPFEShJzTZZ1KDl3YRp3YElTTnpFWU1UZSpGb4R3cphUW4VDNmFHVxkTOwJmeNRkbytSSKZ2UwY2SL5GciV1VZtiWslnY3ZEc282cVhUOJVjNsdETygXYa1ma&amp;tablename=CJFD2012&amp;dflag=pdfdown&#xA;                    ">
+                            PDF下载
+                        </a></div>
+                        <div class="dllink-down">
+                            <div class="info">
+                                <div class="total"><span class="a"><label>下载：</label><b>2595</b></span><span class="h"><label>页码：</label><b>62-67</b></span><span class="h"><label>页数：</label><b>6</b></span><span class="h"><label>大小：</label><b>1304K</b></span></div>
+                                <div class="hotspotCen" style="display:none;"><label>热点关注度：</label><div class="hotspot"><span value="" style="width:0%;" class="HotSpotPower"></span></div><span class="HotSpotValue" id="HotValue">0</span><b class="h">（注：最近下载、浏览的数量值）</b></div>
+                            </div>
+                            <div class="qr-code"><img alt="" src="//app.cnki.net/Parts/QRCode/Get?source=KCMS&amp;text=http%3a%2f%2fm.cnki.net%2fcnkiday%2fappdownzwj.html%3ftype%3dCJFD%26id%3dXDYC201201014"><p class="text"><b>手机阅读本文</b><span>下载安装手机APP</span><span>扫码同步阅读本文</span></p><i class="icon-trangle"></i><div class="tip-pop">
+                                <div class="inner">
+                                    <h6>即刻使用手机阅读</h6>
+                                    <div class="f-left first"><img alt="" src="/kcms/Detail/resource/gb/images/icon-qrcode-download.jpg"><span>第一步</span><p>扫描二维码下载</p>
+                                        <p>"移动知网-全球学术快报"客户端</p>
+                                    </div>
+                                    <div class="f-left second"><img alt="" src="/kcms/Detail/resource/gb/images/icon-pop-sample.jpg"><span>第二步</span><p>打开“全球学术快报”</p>
+                                        <p>点击首页右上角的扫描图标</p>
+                                    </div>
+                                    <div class="f-left third"><img alt="" src="//app.cnki.net/Parts/QRCode/Get?source=KCMS&amp;text=http%3a%2f%2fm.cnki.net%2fcnkiday%2fappdownzwj.html%3ftype%3dCJFD%26id%3dXDYC201201014"><span>第三步</span><p>扫描二维码</p>
+                                        <p>手机同步阅读本篇文献</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ad" id="recommend"></div><script>
+                    try {  window.adsContainer.loadAds('','现代远程教育研究');   } catch (e) { }
+                </script></div>
+            </div>
+            <div class="wxsour">
+                <div class="cover"><a id="jpic" onclick="getKns55NaviLink('','CJFQ','CJFQbaseinfo','XDYC');"></a><i></i></div>
+                <div class="sourinfo">
+                    <p class="title"><a onclick="getKns55NaviLink('','CJFQ','CJFQbaseinfo','XDYC');">现代远程教育研究</a></p>
+                    <p><a onclick="getKns55NaviLink('','CJFQ','CJFQbaseinfo','XDYC');">Modern Distance Education Research</a></p>
+                    <p><a onclick="getKns55NaviLinkIssue('','CJFQ','CJFQyearinfo','XDYC','2012','01')">2012年01期
+                    </a></p>
+                    <p>
+                        ISSN：1009-5195</p><span id="bqsm"></span></div>
+                <div class="sourlink"><span id="mlyll"></span><a target="_blank" class="icon icon-subm" href="&#xA;                  http://XDYC.cbpt.cnki.net&#xA;                "><i></i>给本刊投稿
+                </a><a target="_blank" class="icon icon-ediemail" href="&#xA;                  mailto:XDYC@chinajournal.net.cn&#xA;                "><i></i>编辑部邮箱
+                </a></div><script type="text/javascript">
+                RegDujia('CJFQ','XDYC','2012','01','jpic');
+            </script></div>
+        </div>
+        <div class="wxMod" id="catalog_ref" style="display:none">
+            <h2 id="MapTitle" class="hd hdTab"><a class="active" href="javascript:void(0)" onclick="showRefChart(this)">引文网络</a><a href="javascript:void(0)" onclick="showFlash(this)">参考引证图谱</a></h2>
+        </div>
+        <div class="wxMod" id="ref_nodata" style="display:none">
+            <h3 class="title2">
+                引文网络
+                <b class="titleTotle">未找到相关数据</b></h3>
+        </div>
+        <div id="MapArea" style="display:none">
+            <div class="MapAreaLeft">
+                <div class="map">
+                    <div class="jdwx" title="">节点文献</div>
+                    <div class="gywx"><a id="rl5" name="rl" title="（也称同引文献）与本文有相同参考文献的文献，与本文有共同研究背景或依据">共引文献</a><span id="rc5">(0)</span></div>
+                    <div class="tbywx"><a id="rl6" name="rl" title="与本文同时被作为参考文献引用的文献，与本文共同作为进一步研究的基础">同被引文献</a><span id="rc6">(0)</span></div>
+                    <div class="rjckwx"><a id="rl2" name="rl" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="rc2">(0)</span></div>
+                    <div class="ckwx"><a id="rl1" name="rl" title="反映本文研究工作的背景和依据">参考文献</a><span id="rc1">(0)</span></div>
+                    <div class="yzwx"><a id="rl3" name="rl" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="rc3">(0)</span></div>
+                    <div class="rjyzwx"><a id="rl4" name="rl" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="rc4">(0)</span></div>
+                </div>
+                <div class="time"><span onmouseover="TimeAxisMoveRight('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster();" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivLeft"></span><div class="year" id="AxisFrameDivLeft"></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightEnable" title="显示后面的年份" id="ArrowRight_AxisFrameDivLeft"></span><div class="TimeMiddle" id="AxisFrameDivCurrent" style="height: 55px;"></div><span onmouseover="TimeAxisMoveRight('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivRight"></span><div class="year" id="AxisFrameDivRight"></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightEnable" title="显示后面的年份" id="ArrowRight_AxisFrameDivRight"></span><span style="display: none; visibility: hidden;" class="ArrowLeftEnable" alt=""></span><div class="clear"></div>
+                </div>
+                <div id="NodeValueDiv1" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+                    <ul>
+                        <li><a id="NodeValueDiv1ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv1ReferType1Level1"></span></li>
+                        <li><a id="NodeValueDiv1ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv1ReferType2Level2"></span></li>
+                    </ul>
+                </div>
+                <div id="NodeValueDiv2" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+                    <ul>
+                        <li><a id="NodeValueDiv2ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv2ReferType4Level1"></span></li>
+                        <li><a id="NodeValueDiv2ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv2ReferType16Level2"></span></li>
+                    </ul>
+                </div>
+                <div id="NodeValueDiv3" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+                    <ul>
+                        <li><a id="NodeValueDiv3ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv3ReferType1Level1"></span></li>
+                        <li><a id="NodeValueDiv3ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv3ReferType2Level2"></span></li>
+                        <li><a id="NodeValueDiv3ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv3ReferType4Level1"></span></li>
+                        <li><a id="NodeValueDiv3ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv3ReferType16Level2"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div><script type="text/javascript">
+        SetRefChartDataEx('CJFQ','xdyc201201014','CJFD2012','2012');
+    </script><iframe id="frame1" name="frame1" scrolling="no" height="0" frameborder="no" width="100%"></iframe>
+        <div id="func607" class="wxMod"></div>
+        <iframe id="framecatalog_CkFiles" name="framecatalog_CkFiles" width="100%" height="0" frameborder="no" scrolling="no" src=""></iframe>
+        <iframe id="framecatalog_YzFiles" name="framecatalog_YzFiles" width="100%" height="0" frameborder="no" scrolling="no" src=""></iframe>
+        <div id="func601" class="wxMod"></div>
+        <div id="func614" class="wxMod"></div>
+        <div id="func604" class="wxMod"></div>
+        <div id="func605" class="wxMod"></div>
+        <div id="func602" class="wxMod"></div>
+        <div id="func603" class="wxMod"></div>
+    </div>
+</div><script type="text/javascript">
+    GetInfo('XDYC','2012','01','现代远程教育研究');
 
-</body>
+    try{ GetImgPath('xdyc201201014');}catch(err){};
+
+
+    GetZqInfo('xdyc201201014','CJFD2012','CJFQ');
+
+    GetSfZhengShu('xdyc201201014','CJFD2012','CJFQ','XDYC');
+    function LoadFilesFromId(oid)
+    {
+        if(!oid) return;
+        switch (oid)
+        {
+            case "catalog_func607":
+                WriteToPage('xdyc201201014','CJFD2012','CJFQ','CJFQ','607');
+
+                LoadFile('framecatalog_CkFiles','/kcms/detail/frame/list.aspx?filename=xdyc201201014&dbcode=CJFQ&dbname=CJFD2012&reftype=1');
+
+                LoadFile('framecatalog_YzFiles','/kcms/detail/frame/list.aspx?filename=xdyc201201014&dbcode=CJFQ&dbname=CJFD2012&reftype=3');
+
+                break;
+            case "catalog_func601":
+                WriteToPage('xdyc201201014','CJFD2012','CJFQ','CJFQ','601');
+                break;
+            case "catalog_func604":
+                WriteToPage('xdyc201201014','CJFD2012','CJFQ','CJFQ','604');
+                break;
+            case "catalog_func605":
+                WriteToPage('xdyc201201014','CJFD2012','CJFQ','CJFQ','605');
+                break;
+            case "catalog_func602":
+                WriteToPage('xdyc201201014','CJFD2012','CJFQ','CJFQ','602');
+                break;
+            case "catalog_func603":
+                WriteToPage('xdyc201201014','CJFD2012','CJFQ','CJFQ','603');
+                break;
+            default : break;
+        }
+    }
+
+    setYxCatalog();
+    setGkfxFlagByBm('CJFD2012');
+</script><div class="wxToolbar" id="wxDlToolbar">
+    <div class="wxwrap">
+        <div class="dllink"><a target="_blank" class="icon icon-dlcrsp xml" href="/KXReader/Detail?dbcode=CJFQ&amp;filename=XDYC201201014&amp;uid=">
+            HTML阅读
+        </a><a onclick="WriteKrsDownLog()" target="_blank" class="icon icon-dlcaj" id="cajDownF" name="cajDownF" href="/kns/download.aspx?filename=sp3aix2SxYndrY1Nzk1LylTSBF1L6Jkb1l0bORzVPFEShJzTZZ1KDl3YRp3YElTTnpFWU1UZSpGb4R3cphUW4VDNmFHVxkTOwJmeNRkbytSSKZ2UwY2SL5GciV1VZtiWslnY3ZEc282cVhUOJVjNsdETygXYa1ma&amp;tablename=CJFD2012">
+            CAJ下载
+        </a><a onclick="WriteKrsDownLog()" target="_blank" class="icon icon-dlpdf" id="pdfDownF" name="pdfDownF" href="/kns/download.aspx?filename=sp3aix2SxYndrY1Nzk1LylTSBF1L6Jkb1l0bORzVPFEShJzTZZ1KDl3YRp3YElTTnpFWU1UZSpGb4R3cphUW4VDNmFHVxkTOwJmeNRkbytSSKZ2UwY2SL5GciV1VZtiWslnY3ZEc282cVhUOJVjNsdETygXYa1ma&amp;tablename=CJFD2012&amp;dflag=pdfdown&#xA;                    ">
+            PDF下载
+        </a></div>
+        <div class="infotxt">
+            <div class="total"><span class="a"><label>下载：</label><b>2595</b></span><span class="h"><label>页码：</label><b>62-67</b></span><span class="h"><label>页数：</label><b>6</b></span><span class="h"><label>大小：</label><b>1304K</b></span></div>
+            <div class="hotspotCen" style="display:none;"><label>热点关注度：</label><div class="hotspot"><span value="" style="width:0%;" class="HotSpotPower"></span></div><span class="HotSpotValue" id="HotValue">0</span><b class="h">（注：最近下载、浏览的数量值）</b></div>
+        </div>
+    </div>
+</div><script>FloatDownloadPartCantrol();</script><iframe scrolling="no" frameborder="0" id="headad" style="display:none;"></iframe>
+<div class="wait" id="waitDiv" style="visibility:hidden;">
+    正在为您查找，请稍等...
+</div>
+<div class="dazhong-ad" style="padding:40px 0 0 0; width:1200px; margin:0 auto;margin-bottom:-23px;overflow:hidden;"><script type="text/javascript" src="//bianke.cnki.net/adfiles/ad/R018.js?sc=H127;I138;"></script></div>
+<div id="footerBox"></div>
+<div class="fixedbar">
+    <div class="adviceside"><a class="fixCon" target="_blank" href="http://help.cnki.net/">在线咨询</a><a target="_blank" class="fixFed" href="/knsvote/vote.aspx">
+        用户反馈
+    </a></div>
+    <div class="backtop hiddenV" id="backtop"><a id="backTopSide" href="javascript:scroll(0,0);" title="返回顶端"></a></div>
+</div><script type="text/javascript" src="//kns.cnki.net/KRS/Scripts/Recommend.js"></script><script> toTop();</script><script>
+    InsertCatalog();
+
+    try{
+        FlushLogin();
+        modifyEcpHeader(true);
+    }
+    catch(es){}
+
+    KLogin.getFooter();
+</script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/klib.min.js?v=20171013"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/KCMS/detail/js/min/Timeaxis.min.js?v=20171013"></script><script type="text/javascript" src="//piccache.cnki.net/kdn/kcms/detail/js/piwikCommon70.js"></script><script type="text/javascript" src="//ishufang.cnki.net/KRecord/krecord.min.js"></script><script type="text/javascript">LoadScript('//piccache.cnki.net/kdn/KCMS/detail/js/min/cnkisug.min.js',function(){sugPara.IsTopK = false; sugPara.IsExp = false; sugPara.IsAttr = false;InitSug('http://acad3.cnki.net');});</script><script>
+    setRecommendPic();
+    isHasAddFav();
+    isHasRefTrack();
+</script><input id="writebrowselog" type="hidden" value="1"></body>
 </html>
