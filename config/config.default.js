@@ -81,7 +81,19 @@ module.exports = appInfo => {
       //   // 数据库名
       //   database: 'youzy',
       // },
-      jyrc: {
+      // jyrc: {
+      //   // host
+      //   host: '127.0.0.1',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'root',
+      //   // 密码
+      //   password: '123456789',
+      //   // 数据库名
+      //   database: 'zhiwang',
+      // },
+      bkzy: {
         // host
         host: '127.0.0.1',
         // 端口号
@@ -91,7 +103,7 @@ module.exports = appInfo => {
         // 密码
         password: '123456789',
         // 数据库名
-        database: 'zhiwang',
+        database: 'xgk',
       },
       // jyrc: {
       //   // host

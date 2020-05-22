@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "egg": "^2.2.1",
+    "egg": "^2.26.0",
     "egg-cors": "^2.1.2",
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.5.0",
@@ -13,7 +13,7 @@
     "egg-sequelize-auto": "^0.1.1",
     "egg-validate": "^2.0.2",
     "egg-view-nunjucks": "^2.2.0",
-    "egg-view-vue-ssr": "^3.3.0",
+    "egg-view-vue-ssr": "^3.3.2",
     "formstream": "^1.1.0",
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.4.0",
@@ -44,7 +44,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-SDGK  --port 7701",
     "stop": "egg-scripts stop --title=egg-server-SDGK",
-    "dev": "egg-bin dev",
+    "dev": "egg-bin dev --port 7003",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",

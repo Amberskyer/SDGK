@@ -4,7 +4,7 @@ const qs = require('qs');
 module.exports = {
 
 
-  async basePost(url = '', data = {}, cookie, referer) {
+  async basePost(url = '', data = {}) {
     const { app } = this;
     const apiHeader = app.config.apiHeader;
     // const authorization = this.session.token;
@@ -16,11 +16,11 @@ module.exports = {
       contentType: 'application/x-www-form-urlencoded',
       data,
       headers: {
-        Cookie: cookie,
-        DNT: 1,
-        Host: 'kns.cnki.net',
-        Origin: 'https://kns.cnki.net',
-        Referer: referer,
+        // Cookie: cookie,
+        // DNT: 1,
+        // Host: 'kns.cnki.net',
+        // Origin: 'https://kns.cnki.net',
+        // Referer: referer,
       },
     }).then(async res => {
       return res;
@@ -50,7 +50,7 @@ module.exports = {
     return await this.initResult(this, result);
   },
 
-  async baseGet(url = '', data = {}, cookie, referer) {
+  async baseGet(url = '', data = {}, cookie) {
     const { app } = this;
     const apiHeader = app.config.apiHeader;
     const result = await app.curl(apiHeader + url, {
@@ -58,8 +58,8 @@ module.exports = {
       data,
       headers: {
         Cookie: cookie,
-        DNT: 1,
-        Host: 'kns.cnki.net',
+        // DNT: 1,
+        // Host: 'kns.cnki.net',
       },
     }).then(function(res) {
       console.log(res);

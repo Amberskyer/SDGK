@@ -10,9 +10,13 @@ module.exports = app => {
   // router.get('/compare/school-admission', controller.compare.schoolAdmission);// 主页=>index
   // router.get('/test', controller.test.index);// 主页=>index
   // router.get('/toExcel', controller.toExcel.index);// 主页=>index
+  // router.get('/bkzy/load-school', controller.bkzy.loadSchool);// 主页=>index
+  // router.get('/bkzy/init_school_admission_table', controller.bkzy.initSchoolAdmissionTable);// 主页=>index
+  // router.get('/bkzy/load_school_admission_html', controller.bkzy.loadSchoolAdmission);// 主页=>index
+  router.get('/bkzy/check_school_admission_data', controller.bkzy.checkSchoolAdmissionData);// 主页=>index
   // router.get('/initIes', controller.transform.initIes);// 主页=>index
   // router.get('/initPaperJournal', controller.transform.initPaperJournal);// 主页=>index
-  router.get('/drm', controller.drm.toExcel);// 主页=>index
+  // router.get('/drm', controller.drm.toExcel);// 主页=>index
   // router.get('/yzy', controller.youzy.init);// 主页=>index
   // router.get('/zsgk', controller.zsgk.init);// 主页=>index
   // router.get('/zw', controller.zw.init);// 主页=>index
