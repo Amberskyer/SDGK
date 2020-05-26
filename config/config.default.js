@@ -93,7 +93,7 @@ module.exports = appInfo => {
       //   // 数据库名
       //   database: 'zhiwang',
       // },
-      bkzy: {
+      wmzy: {
         // host
         host: '127.0.0.1',
         // 端口号
@@ -101,10 +101,22 @@ module.exports = appInfo => {
         // 用户名
         user: 'root',
         // 密码
-        password: '123456789',
+        password: '123456',
         // 数据库名
-        database: 'xgk',
+        database: 'wmzy',
       },
+      // bkzy: {
+      //   // host
+      //   host: '127.0.0.1',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'root',
+      //   // 密码
+      //   password: '123456789',
+      //   // 数据库名
+      //   database: 'xgk',
+      // },
       // jyrc: {
       //   // host
       //   host: '122.204.161.106',
@@ -166,12 +178,26 @@ module.exports = appInfo => {
   };
   /*   (important:)   数据库链接信息  */
   config.sequelize = {
-    // dialect: 'mysql',
-    // database: 'zsgk',
-    // username: 'root',
-    // password: '123456',
-    // host: '127.0.0.1',
-    // port: 3306,
+    datasources: [
+      { delegate: 'zsgkModel', // load all models to app.model and ctx.model
+        baseDir: 'model/zsgk', // load models from `app/model/*.js`
+        dialect: 'mysql',
+        database: 'zsgk',
+        username: 'root',
+        password: '123456',
+        host: '127.0.0.1',
+        port: 3306,
+      },
+      { delegate: 'youzyModel', // load all models to app.model and ctx.model
+        baseDir: 'model/youzy', // load models from `app/model/*.js`
+        dialect: 'mysql',
+        database: 'youzy',
+        username: 'root',
+        password: '123456',
+        host: '127.0.0.1',
+        port: 3306,
+      },
+    ],
   };
 
 

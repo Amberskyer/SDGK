@@ -13,11 +13,21 @@ module.exports = app => {
   // router.get('/bkzy/load-school', controller.bkzy.loadSchool);// 主页=>index
   // router.get('/bkzy/init_school_admission_table', controller.bkzy.initSchoolAdmissionTable);// 主页=>index
   // router.get('/bkzy/load_school_admission_html', controller.bkzy.loadSchoolAdmission);// 主页=>index
-  router.get('/bkzy/check_school_admission_data', controller.bkzy.checkSchoolAdmissionData);// 主页=>index
+  // router.get('/bkzy/check_school_admission_data', controller.bkzy.checkSchoolAdmissionData);// 主页=>index
+  // router.get('/zsgk/load-school', controller.zsgk.loadSchool);// 主页=>index
+  // router.get('/zsgk/init-school-major', controller.zsgk.initSchoolMajorAdmissionTable);// 主页=>index
+  // router.get('/zsgk/load-school-major', controller.zsgk.loadSchoolMajorAdmission);// 主页=>index
+  // router.get('/wmzy/load-school', controller.wmzy.loadSchool);// 主页=>index
+  // router.get('/wmzy/load-major', controller.wmzy.loadMajor);// 主页=>index
+  // router.get('/wmzy/init-major-admission', controller.wmzy.initMajorAdmissionTable);// 主页=>index
+  // router.get('/wmzy/load-major-admission', controller.wmzy.loadMajorAdmission);// 主页=>index
   // router.get('/initIes', controller.transform.initIes);// 主页=>index
   // router.get('/initPaperJournal', controller.transform.initPaperJournal);// 主页=>index
   // router.get('/drm', controller.drm.toExcel);// 主页=>index
   // router.get('/yzy', controller.youzy.init);// 主页=>index
+  // router.get('/yzy/init-school-major-admission-table', controller.youzy.initSchoolMajorAdmissionTable);// 主页=>index
+  router.get('/yzy/load-school-major-admission', controller.youzy.loadSchoolMajorAdmission);// 主页=>index
+  router.get('/yzy/init-school-major-admission', controller.youzy.startLoadSchoolMajorAdmission);// 主页=>index
   // router.get('/zsgk', controller.zsgk.init);// 主页=>index
   // router.get('/zw', controller.zw.init);// 主页=>index
   // router.get('/zl', controller.zl.init);// 主页=>index
@@ -41,7 +51,6 @@ module.exports = app => {
   // router.get('/zsgk/init/school/admisson/table', controller.zsgk.initSchoolAdmissionTable);// 主页=>index
   // router.get('/zsgk/load/school/admisson/json', controller.zsgk.loadSchoolAdmission);// 主页=>index
   // router.get('/zsgk/init/school/major/admisson/table', controller.zsgk.initSchoolMajorAdmissionTable);// 主页=>index
-
 
 
 };

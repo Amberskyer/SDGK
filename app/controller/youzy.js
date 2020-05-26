@@ -14,6 +14,8 @@ class YouzyController extends Controller {
     super(ctx);
     this.schoolList = null;
     this.offsetNum = 0;
+    this.subjectTypeList = [ 0, 1 ];
+    this.yearList = [ 2019 ];
   }
 
   async init() {
@@ -21,15 +23,15 @@ class YouzyController extends Controller {
     // const interval = setInterval(this.loadSchoolMajorAdmission(), 1800);
 
     await this.initSchoolMajorAdmission();
-    // this.offsetNum = 0;
-    // await this.loadSchoolMajorAdmission(this.offsetNum);
+    this.offsetNum = 0;
+    await this.loadSchoolMajorAdmission(this.offsetNum);
     // this.offsetNum = 40;
     // await this.loadSchoolMajorAdmission(this.offsetNum);
     // this.offsetNum = 80;
     // await this.loadSchoolMajorAdmission(this.offsetNum);
     // this.offsetNum = 120;
     // await this.loadSchoolMajorAdmission(this.offsetNum);
-    // await this.aaa();
+    await this.aaa();
   }
 
   async loadSchool() {
@@ -843,28 +845,39 @@ class YouzyController extends Controller {
 
   async initSchoolMajorAdmissionTable() {
     const { ctx } = this;
-    this.provinceList = await this.loadProvince();
-    this.schoolList = await ctx.model.School.findAll();
+    this.provinceList = await ctx.youzyModel.Province.findAll();
+    this.schoolList = await ctx.youzyModel.School.findAll();
     const schoolMajorAdmissionJson = [];
     this.schoolList.forEach(item => {
       this.provinceList.forEach(item2 => {
-        this.subjectTypeList.forEach(item4 => {
-          const schoolMajorAdmissionJsonItem = {
-            school_id: item.school_id || item.id,
-            school_name: item.name,
-            province_id: item2.id,
-            province_name: item2.name,
-            subject_type: item4,
-          };
-          schoolMajorAdmissionJson.push(schoolMajorAdmissionJsonItem);
-        });
+        if (item2.province_id) {
+          this.subjectTypeList.forEach(item4 => {
+            this.yearList.forEach(item5 => {
+              const schoolMajorAdmissionJsonItem = {
+                school_id: item.school_id,
+                school_name: item.school_name,
+                province_id: item2.province_id,
+                province_name: item2.province_name,
+                subject_type: item4,
+                year: item5,
+              };
+              schoolMajorAdmissionJson.push(schoolMajorAdmissionJsonItem);
+            });
+          });
+        }
       });
     });
-    await ctx.model.SchoolMajorAdmissionJson.bulkCreate(schoolMajorAdmissionJson);
+    await ctx.youzyModel.SchoolMajorAdmissionHtml.bulkCreate(schoolMajorAdmissionJson);
   }
 
-  async loadSchoolMajorAdmission(offsetNum) {
+  async startLoadSchoolMajorAdmission() {
     const { ctx } = this;
+    setInterval(() => {
+      this.loadSchoolMajorAdmission(ctx);
+    }, 2000);
+  }
+
+  async loadSchoolMajorAdmission(ctx) {
 
     const provList = [
       {
@@ -993,7 +1006,7 @@ class YouzyController extends Controller {
       },
     ];
 
-    const schoolProvinceArr = await ctx.model.SchoolMajorAdmissionJson.findAll({
+    const schoolProvinceArr = await ctx.youzyModel.SchoolMajorAdmissionHtml.findAll({
       where: {
         // id:{
         // 	$gt:minId
@@ -1001,29 +1014,32 @@ class YouzyController extends Controller {
         // isHave: {
         // 	$ne:456
         // },
-        status: 1,
+        // id: 188918,
+        status: -1,
         // id: 1,
       },
       order: [[ 'id' ]],
-      limit: 40,
-      offset: offsetNum,
+      limit: 1,
+      // offset: offsetNum,
     });
     if (schoolProvinceArr) {
-      let loadNum = 0;
+      const loadNum = 0;
       for (let i = 0; i < schoolProvinceArr.length; i++) {
         const item = schoolProvinceArr[i];
 
-        let provItem = null;
-        provList.forEach(itemProv => {
-          if (itemProv.name === item.province_name) {
-            provItem = itemProv.value;
-          }
-        });
+        // let provItem = null;
+        // provList.forEach(itemProv => {
+        //   if (itemProv.name === item.province_name) {
+        //     provItem = itemProv.value;
+        //   }
+        // });
 
         const url = 'https://www.youzy.cn/Data/ScoreLines/Fractions/Professions/Query';
         const data = {
-          ucode: provItem + '_' + item.school_id + '_0_0',
-          courseType: item.subject_type === 'WEN' ? 0 : 1,
+          year: 2018,
+          ucode: item.province_id + '_' + item.school_id + '_0_0',
+          courseType: item.subject_type,
+          // collegeId: item.school_id,
         };
         const text = JSON.stringify(data);
         const textBytes = youzyEptService.utils.utf8.toBytes(text);
@@ -1032,87 +1048,90 @@ class YouzyController extends Controller {
         const params = {
           data: youzyEptService.utils.hex.fromBytes(encryptedBytes),
         };
-        const other = 'connect.sid=s:s9vPCDWoZmy3pWdxbsOYD83X6ZZfbTgz.Qr2PlEMdYqrC+Va46Vw5vXPLeCklWA1UClr+hsB2esM;';
-        const Youzy2CUser = {
-          numId: 11461160,
-          realName: '张三',
-          avatarUrl: null,
-          gender: 0,
-          provinceId: item.province_id,
-          cityId: 1140,
-          countyId: 10018,
-          schoolId: -10,
-          class: '高三',
-          gkYear: 2018,
-          isZZUser: false,
-          zzCount: 0,
-          isElective: false,
-          active: true,
-          courseType: 1,
-          secretName: '张同学',
-          userPermissionId: 3,
-          identityExpirationTime: '2019-10-22T08:13:05.943Z',
-          username: '18602756630',
-          mobilePhone: '18602756630',
-          provinceName: null,
-          cityName: null,
-          countyName: null,
-          schoolName: '',
-          updateGaoKaoCount: 0,
-          lastLoginDate: '0001-01-01T00:00:00',
-          creationTime: '2018-04-16T09:49:03.773+08:00',
-          id: '5cf584aa9e742b1f884ed01b',
-          vipPermission: true,
-        };
-        const Youzy2CCurrentProvince = {
-          provinceId: item.province_id,
-          provinceName: item.province_name,
-          isGaokaoVersion: true,
-        };
-        const Youzy2CCurrentScore = {
-          numId: 0,
-          provinceNumId: item.province_id,
-          provinceName: item.province_name,
-          total: 0,
-          courseTypeId: 0,
-          rank: 0,
-          chooseLevelOrSubjects: null,
-          scoreType: 0,
-          chooseLevelFormat: [],
-          chooseSubjectsFormat: [],
-        };
-        const cookie = other + 'Youzy2CUser=' + urlencode(JSON.stringify(Youzy2CUser))
-                    + ';Youzy2CCurrentProvince=' + urlencode(JSON.stringify(Youzy2CCurrentProvince))
-                    + ';Youzy2CCurrentScore=' + urlencode(JSON.stringify(Youzy2CCurrentScore));
-        const referer = `https://www.youzy.cn/tzy/search/colleges/homepage/cfrationIndex?cid=${item.school_id}`;
+        // const other = 'connect.sid=s:s9vPCDWoZmy3pWdxbsOYD83X6ZZfbTgz.Qr2PlEMdYqrC+Va46Vw5vXPLeCklWA1UClr+hsB2esM;';
+        // const Youzy2CUser = {
+        //   numId: 11461160,
+        //   realName: '张三',
+        //   avatarUrl: null,
+        //   gender: 0,
+        //   provinceId: item.province_id,
+        //   cityId: 1140,
+        //   countyId: 10018,
+        //   schoolId: -10,
+        //   class: '高三',
+        //   gkYear: 2018,
+        //   isZZUser: false,
+        //   zzCount: 0,
+        //   isElective: false,
+        //   active: true,
+        //   courseType: 1,
+        //   secretName: '张同学',
+        //   userPermissionId: 3,
+        //   identityExpirationTime: '2019-10-22T08:13:05.943Z',
+        //   username: '18602756630',
+        //   mobilePhone: '18602756630',
+        //   provinceName: null,
+        //   cityName: null,
+        //   countyName: null,
+        //   schoolName: '',
+        //   updateGaoKaoCount: 0,
+        //   lastLoginDate: '0001-01-01T00:00:00',
+        //   creationTime: '2018-04-16T09:49:03.773+08:00',
+        //   id: '5cf584aa9e742b1f884ed01b',
+        //   vipPermission: true,
+        // };
+        // const Youzy2CCurrentProvince = {
+        //   provinceId: item.province_id,
+        //   provinceName: item.province_name,
+        //   isGaokaoVersion: true,
+        // };
+        // const Youzy2CCurrentScore = {
+        //   numId: 0,
+        //   provinceNumId: item.province_id,
+        //   provinceName: item.province_name,
+        //   total: 0,
+        //   courseTypeId: 0,
+        //   rank: 0,
+        //   chooseLevelOrSubjects: null,
+        //   scoreType: 0,
+        //   chooseLevelFormat: [],
+        //   chooseSubjectsFormat: [],
+        // };
+        // const cookie = other + 'Youzy2CUser=' + urlencode(JSON.stringify(Youzy2CUser))
+        //             + ';Youzy2CCurrentProvince=' + urlencode(JSON.stringify(Youzy2CCurrentProvince))
+        //             + ';Youzy2CCurrentScore=' + urlencode(JSON.stringify(Youzy2CCurrentScore));
+        const cookie = 'UM_distinctid=1724a390308237-05e232b90636f7-d373666-219a80-1724a39030a467; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2214184607%22%2C%22%24device_id%22%3A%221724a3905f535e-03e65e05b801f5-d373666-2202240-1724a3905f6617%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22first_id%22%3A%221724a3905f535e-03e65e05b801f5-d373666-2202240-1724a3905f6617%22%7D';
+        // const referer = `https://www.youzy.cn/tzy/search/colleges/homepage/cfrationIndex?cid=${item.school_id}`;
+        const referer = 'https://ia-pv4y.youzy.cn/colleges/pfraction?p=af4f744668a5050fcb34bc057e2f8b47597d4e90f4d47391ee25b50418ef16c1baf7eba9072d8e89f3b3391460c80b90877e729ff234d950212a83a847bef39da467&u=af4f675b72a11f04fc2885047e2f835f42320395f4c860acf936b50f17f71ec1bae52132f6a96d55b0f0421872fd48c5de2f2ff9bb64cd522f14d3fd57b6f18da438077ba4b43639ee7b9b256e113b1b38ed8c0506d9aa04bafa679488d927bcd0b85aeb790b905476d02a2ab5ec8dcbd59ff271c4bbf69487c087b2b6ee8a5046d1fc888df2f9fae00c48b7dca1721581dfc03dc5328fde2552636b1ae65ebee6f80386a1&us=af4f6a416a9a08439261d9432c67dc05093f0f85c8ce68b1e464ea7a55a00391efa3647ef2ad4c7fbcfa39477dfa0693c03d69a6e327c61b74748db042b0ea9cb27f696ca1bd1371ee26c0681c1135033aa1d550648ea425b1b72ec9f0857dfbd5846af56d079b5670d67b32e9e394d4dc9ff26bd480fdd3e9df96bbe7b1965e0dc1cebdb7f2f9c4a7404bbaf6bd6554c2dd8b77ce0ad1912f497f6d06ed2ff1f0e01380a802c0deadeaba0350393214e9&dfs=af4f775b72a10f048a6bd7153356915f42250485ebde27c2b97fe9665be4018ced807f7cb3f22031fee86c0a3df6058a966633aaf964861b3e27cdc753b3bdd4e3351262a6af746ca3698a3d10003a4225f9964f3bc9a63fbdb072dcdf8c24f7d7af7dde3a49d3507cce6475b4e8b4cadc91ea3a98c0f8c1ca889fb1b0f1df5c4ccc89a6a2f8b3fba7575cb5d8fd7456cfc5cc2af024d2db234c757214ef19abfae51b868c10e1d4fdabf91a1369063bd9454cd8f7bf57992e26ce01d75adfef3474692cbb5604695764fba7a23cd90c21de5a84be191e1727838331cd456736b0ca9eb2c1f25a4294cbddf0f48a12a45a3826f26383fcae924e4c93fe8d143fe8ea73ef8ae5c1eafcf60ce5079b059327b44344a4504d1b9460d355c224f6a9e2276c704081fc5f&tcode=af4f675b6bbf0906cd18914366378b40587340c2f3c860bef528b33e10ed1dafefb27e32abea2063&toUrl=/colleges/pfraction&timestamp=1590478561749';
 
 
-        const schoolProvinceResult = await ctx.basePost(url, params, cookie, referer);
-        if (schoolProvinceResult && schoolProvinceResult.result) {
-          const result = await ctx.model.SchoolMajorAdmissionJson.update({
-            status: 600,
-            json: JSON.stringify(schoolProvinceResult.result),
-            num: schoolProvinceResult.result.length,
-            code: schoolProvinceResult.code,
-            message: schoolProvinceResult.message,
-            is_success: schoolProvinceResult.isSuccess,
+        // console.log({
+        //   url, params, cookie, referer,
+        // });
+
+        const schoolProvinceResult = await ctx.basePostForYouzy(url, params, cookie, referer);
+        // console.log(schoolProvinceResult);
+        // console.log(schoolProvinceResult);
+        if (schoolProvinceResult && schoolProvinceResult.isSuccess && schoolProvinceResult.result) {
+          await ctx.youzyModel.SchoolMajorAdmissionHtml.update({
+            status: 200,
+            html: JSON.stringify(schoolProvinceResult.result),
+            // num: schoolProvinceResult.result.length,
+            // code: schoolProvinceResult.code,
+            // message: schoolProvinceResult.message,
+            // is_success: schoolProvinceResult.isSuccess,
           }, {
             where: {
               id: item.id,
             },
           });
-          if (result) {
-            loadNum++;
-            if (loadNum === 40) {
-              await this.loadSchoolMajorAdmission(offsetNum);
-            }
-          }
         } else {
-          loadNum = loadNum + 1;
+          console.log(schoolProvinceResult);
         }
+        // await this.loadSchoolMajorAdmission();
       }
     } else {
-      this.loadSchoolMajorAdmission(offsetNum);
+      // await this.loadSchoolMajorAdmission();
     }
   }
 
@@ -1120,9 +1139,10 @@ class YouzyController extends Controller {
   async initSchoolMajorAdmission() {
     super.initSchoolMajorAdmission();
     const { ctx } = this;
-    const schoolProvinceArr = await ctx.model.SchoolMajorAdmissionJson.findAll({
+    const schoolProvinceArr = await ctx.youzyModel.SchoolMajorAdmissionHtml.findAll({
       where: {
-        status: 600,
+        // id: 188918,
+        status: 200,
         // id: 3,
       },
       limit: 35,
@@ -1133,26 +1153,37 @@ class YouzyController extends Controller {
     for (let i = 0; i < schoolProvinceArr.length; i++) {
       const item = schoolProvinceArr[i];
       idsArr.push(item.id);
-      if (item.json) {
-        const schoolProvinceItem = await this.jiemiSchoolData(JSON.parse(item.json));
+      if (item.html) {
+        const schoolProvinceItem = await this.jiemiSchoolData(JSON.parse(item.html));
+        console.log(schoolProvinceItem.length);
+        console.log(schoolProvinceItem);
 
         schoolProvinceItem.forEach(itemJson => {
           schoolMajorAdmissionArr.push({
             school_id: item.school_id,
-            r_school_id: item.r_school_id,
+            // r_school_id: item.r_school_id,
             school_name: item.school_name,
-            r_school_name: item.r_school_name,
+            // r_school_name: item.r_school_name,
             province_id: item.province_id,
-            r_province_id: item.r_province_id,
+            // r_province_id: item.r_province_id,
             province_name: item.province_name,
-            r_province_name: item.r_province_name,
+            // r_province_name: item.r_province_name,
 
             year: itemJson.year,
+
+            batch: itemJson.batch,
+            batch_name: itemJson.batchName,
+            subject_type: itemJson.courseType,
+
             min_score_rank: itemJson.lowSort,
             max_score_rank: itemJson.maxSort,
             min_score: itemJson.minScore,
             max_score: itemJson.maxScore,
             avg_score: itemJson.avgScore,
+
+            chooseLevel: itemJson.chooseLevel,
+            countOfZJZY: itemJson.countOfZJZY,
+            lineDiff: itemJson.lineDiff,
 
             count: itemJson.enterNum,
 
@@ -1160,21 +1191,19 @@ class YouzyController extends Controller {
             profession_code: itemJson.professionCode,
             profession_name: itemJson.professionName,
 
-            batch: itemJson.batch,
-            batch_name: itemJson.batchName,
-            subject_type: itemJson.courseType,
 
-            province_score: itemJson.proscore,
-            dual_class_name: itemJson.dual_class_name,
+            // province_score: itemJson.proscore,
+            // dual_class_name: itemJson.dual_class_name,
           });
         });
       }
       loadNum++;
     }
     // console.log(schoolMajorAdmissionArr);
-    await ctx.model.SchoolMajorAdmission.bulkCreate(schoolMajorAdmissionArr);
-    await ctx.model.SchoolMajorAdmissionJson.update({
-      status: 888,
+    // console.log(schoolMajorAdmissionArr);
+    await ctx.youzyModel.SchoolMajorAdmission.bulkCreate(schoolMajorAdmissionArr);
+    await ctx.youzyModel.SchoolMajorAdmissionHtml.update({
+      status: 600,
     }, {
       where: {
         id: {

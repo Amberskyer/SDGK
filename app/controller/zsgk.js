@@ -1,4 +1,5 @@
 'use strict';
+const qs = require('qs');
 const Controller = require('../care/base_controller');
 const { data: rSchoolJson } = require('../public/json/r_school');
 const { data: rProvinceJson } = require('../public/json/r_province');
@@ -8,6 +9,11 @@ class ZsgkController extends Controller {
   constructor(ctx) {
     super(ctx);
     this.schoolList = null;
+    this.subjectTypeList = [
+      { name: '理科', value: '1' },
+      { name: '文科', value: '2' },
+    ];
+    this.yearList = [ 2019 ];
   }
 
   async init() {
@@ -19,19 +25,22 @@ class ZsgkController extends Controller {
   async loadSchool() {
     super.loadSchool();
     const { ctx } = this;
-    this.schoolNum = 2835;
+    this.schoolNum = 3000;
     const size = this.size;
     const page = this.page;
     if (!this.pageCount) {
       this.pageCount = Math.ceil(this.schoolNum / size);
     }
-    const url = 'https://api.eol.cn/gh5/api';
+    let url = 'https://api.eol.cn/gh5/api';
     const params = {
       page, size,
       uri: 'apigkcx/api/school/hotlists',
     };
-    const result = await ctx.basePost(url, params);
+    url = url + '?' + qs.stringify(params);
+    console.log({ url });
+    const result = await ctx.basePost(url, {});
     // console.log(result.data);
+    console.log(result.data.item);
     if (result.data && result.data.item && result.data.item.length !== 0) {
       this.initSchool(result.data.item, ctx);
     }
@@ -39,15 +48,17 @@ class ZsgkController extends Controller {
       this.page = this.page + 1;
       console.log('学校爬取进度', { page, size }, '已爬取' + (page * size));
       await this.loadSchool();
+    } else {
+      console.log('学校爬取进度完成');
     }
   }
 
   async initSchool(schoolList, ctx) {
     schoolList = schoolList.map(item => {
       return {
-        id: item.school_id,
+        // id: item.school_id,
         school_id: item.school_id,
-        name: item.name,
+        school_name: item.name,
       };
     });
     await ctx.model.School.bulkCreate(schoolList);
@@ -395,7 +406,7 @@ class ZsgkController extends Controller {
 
   async initSchoolMajorAdmissionTable() {
     const { ctx } = this;
-    this.provinceList = await this.loadProvince();
+    this.provinceList = await ctx.model.Province.findAll();
     this.schoolList = await ctx.model.School.findAll();
     const schoolMajorAdmissionJson = [];
     this.schoolList.forEach(item => {
@@ -404,23 +415,23 @@ class ZsgkController extends Controller {
           this.subjectTypeList.forEach(item4 => {
             const schoolMajorAdmissionJsonItem = {
               school_id: item.school_id,
-              school_name: item.name,
+              school_name: item.school_name,
               province_id: item2.id,
               province_name: item2.name,
               year: item3,
-              subject_type: item4,
+              subject_type: item4.value,
             };
             schoolMajorAdmissionJson.push(schoolMajorAdmissionJsonItem);
           });
         });
       });
     });
-    await ctx.model.SchoolMajorAdmissionJson.bulkCreate(schoolMajorAdmissionJson);
+    await ctx.model.SchoolMajorAdmissionHtml.bulkCreate(schoolMajorAdmissionJson);
   }
 
   async loadSchoolMajorAdmission() {
     const { ctx } = this;
-    const schoolProvinceArr = await ctx.model.SchoolMajorAdmissionJson.findAll({
+    const schoolProvinceArr = await ctx.model.SchoolMajorAdmissionHtml.findAll({
       where: {
         // id:{
         // 	$gt:minId
@@ -428,28 +439,34 @@ class ZsgkController extends Controller {
         // isHave: {
         // 	$ne:456
         // },
-        status: 1,
+        status: -1,
       },
       order: [[ 'id' ]],
       limit: 30,
     });
+    // console.log(schoolProvinceArr);
     if (schoolProvinceArr) {
       let loadNum = 0;
       for (let i = 0; i < schoolProvinceArr.length; i++) {
-        const url = 'https://api.eol.cn/gh5/api';
+        let url = 'https://api.eol.cn/gh5/api';
         const item = schoolProvinceArr[i];
         const params = {
           local_province_id: item.province_id,
-          local_type_id: item.subject_type === 'WEN' ? 2 : 1,
+          local_type_id: item.subject_type,
           uri: 'apidata/api/gk/score/special',
           school_id: item.school_id,
           year: item.year,
-          size: '100',
+          signsafe: '7d27def8a4de091628b6539f5b277d3a',
+          page: 1,
+          size: 100,
         };
-        const schoolProvinceResult = await ctx.basePost(url, params);
+        url = url + '?' + qs.stringify(params);
+        const schoolProvinceResult = await ctx.basePost(url, {});
+
+        console.log(schoolProvinceResult);
         if (schoolProvinceResult && schoolProvinceResult.data && schoolProvinceResult.data.item) {
-          const result = await ctx.model.SchoolMajorAdmissionJson.update({
-            status: 2,
+          const result = await ctx.model.SchoolMajorAdmissionHtml.update({
+            status: 200,
             json: JSON.stringify(schoolProvinceResult.data.item),
             num: schoolProvinceResult.data.numFound,
             code: schoolProvinceResult.code,

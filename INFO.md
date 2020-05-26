@@ -4,7 +4,7 @@
 
 
 ```bash
-$ egg-sequelize-auto -o "./app/model" -d data-center-dev2 -h 127.0.0.1 -p 3306 -u root  -x 123456789 -e mysql
+$ egg-sequelize-auto -o "./app/model/youzy" -d youzy -h 127.0.0.1 -p 3306 -u root  -x 123456 -e mysql
 ```
 - timestamps: false,
 - freezeTableName: true// 默认false修改表名为复数，true不修改表名，与数据库表名同步

@@ -6,8 +6,21 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/drm",
-    "regexp": "/^\\/drm(?:\\/(?=$))?$/",
+    "path": "/yzy/load-school-major-admission",
+    "regexp": "/^\\/yzy\\/load-school-major-admission(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/yzy/init-school-major-admission",
+    "regexp": "/^\\/yzy\\/init-school-major-admission(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

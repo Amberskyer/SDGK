@@ -1,341 +1,357 @@
 {
-  "keys": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-  "apiHeader": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-  "middleware": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
+  "keys": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+  "apiHeader": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+  "middleware": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
   "errorHandler": {
-    "match": "D:\\GitHub\\AmberEgg\\config\\config.default.js"
+    "match": "C:\\GitHub\\AmberEgg\\config\\config.default.js"
   },
   "auth": {
-    "match": "D:\\GitHub\\AmberEgg\\config\\config.default.js"
+    "match": "C:\\GitHub\\AmberEgg\\config\\config.default.js"
   },
   "view": {
-    "root": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
+    "root": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
     "mapping": {
-      ".njk": "D:\\GitHub\\AmberEgg\\config\\config.default.js"
+      ".njk": "C:\\GitHub\\AmberEgg\\config\\config.default.js"
     },
-    "defaultViewEngine": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-    "defaultExtension": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-    "cache": "D:\\GitHub\\AmberEgg\\node_modules\\egg-view\\config\\config.local.js"
+    "defaultViewEngine": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+    "defaultExtension": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+    "cache": "C:\\GitHub\\AmberEgg\\node_modules\\egg-view\\config\\config.local.js"
   },
   "jwt": {
-    "secret": "D:\\GitHub\\AmberEgg\\config\\config.default.js"
+    "secret": "C:\\GitHub\\AmberEgg\\config\\config.default.js"
   },
   "mysql": {
     "clients": {
-      "jyrc": {
-        "host": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-        "port": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-        "user": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-        "password": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-        "database": "D:\\GitHub\\AmberEgg\\config\\config.default.js"
+      "wmzy": {
+        "host": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+        "port": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+        "user": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+        "password": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+        "database": "C:\\GitHub\\AmberEgg\\config\\config.default.js"
       }
     },
-    "default": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-    "app": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-    "agent": "D:\\GitHub\\AmberEgg\\config\\config.default.js"
+    "default": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+    "app": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+    "agent": "C:\\GitHub\\AmberEgg\\config\\config.default.js"
   },
-  "sequelize": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
+  "sequelize": {
+    "datasources": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+    "dialect": "C:\\GitHub\\AmberEgg\\node_modules\\egg-sequelize\\config\\config.default.js",
+    "database": "C:\\GitHub\\AmberEgg\\node_modules\\egg-sequelize\\config\\config.default.js",
+    "host": "C:\\GitHub\\AmberEgg\\node_modules\\egg-sequelize\\config\\config.default.js",
+    "port": "C:\\GitHub\\AmberEgg\\node_modules\\egg-sequelize\\config\\config.default.js",
+    "username": "C:\\GitHub\\AmberEgg\\node_modules\\egg-sequelize\\config\\config.default.js",
+    "password": "C:\\GitHub\\AmberEgg\\node_modules\\egg-sequelize\\config\\config.default.js"
+  },
   "httpclient": {
-    "enableDNSCache": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-    "dnsCacheLookupInterval": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-    "dnsCacheMaxLength": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
+    "enableDNSCache": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+    "dnsCacheMaxLength": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
     "request": {
-      "timeout": "D:\\GitHub\\AmberEgg\\config\\config.default.js"
+      "timeout": "C:\\GitHub\\AmberEgg\\config\\config.default.js"
     },
     "httpAgent": {
-      "keepAlive": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-      "freeSocketTimeout": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-      "timeout": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-      "maxSockets": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-      "maxFreeSockets": "D:\\GitHub\\AmberEgg\\config\\config.default.js"
+      "keepAlive": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+      "freeSocketTimeout": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+      "timeout": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+      "maxSockets": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+      "maxFreeSockets": "C:\\GitHub\\AmberEgg\\config\\config.default.js"
     },
     "httpsAgent": {
-      "keepAlive": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-      "freeSocketTimeout": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-      "timeout": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-      "maxSockets": "D:\\GitHub\\AmberEgg\\config\\config.default.js",
-      "maxFreeSockets": "D:\\GitHub\\AmberEgg\\config\\config.default.js"
+      "keepAlive": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+      "freeSocketTimeout": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+      "timeout": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+      "maxSockets": "C:\\GitHub\\AmberEgg\\config\\config.default.js",
+      "maxFreeSockets": "C:\\GitHub\\AmberEgg\\config\\config.default.js"
     }
   },
   "session": {
-    "maxAge": "D:\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
-    "key": "D:\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
-    "httpOnly": "D:\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
-    "encrypt": "D:\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js"
+    "maxAge": "C:\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "C:\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "C:\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "C:\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js"
   },
   "security": {
-    "domainWhiteList": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-    "protocolWhiteList": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-    "defaultMiddleware": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+    "domainWhiteList": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
     "csrf": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "useSession": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "ignoreJSON": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "cookieName": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "sessionName": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "headerName": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "bodyName": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "queryName": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "type": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "refererWhiteList": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "xframe": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "value": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "hsts": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.local.js",
-      "maxAge": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "includeSubdomains": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "dta": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "methodnoallow": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "noopen": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "nosniff": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "referrerPolicy": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "value": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "xssProtection": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "value": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "csp": {
-      "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "policy": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "ssrf": {
-      "ipBlackList": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "checkAddress": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+      "ipBlackList": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     }
   },
   "helper": {
-    "shtml": "D:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
+    "shtml": "C:\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
   },
   "jsonp": {
-    "limit": "D:\\GitHub\\AmberEgg\\node_modules\\egg-jsonp\\config\\config.default.js",
-    "callback": "D:\\GitHub\\AmberEgg\\node_modules\\egg-jsonp\\config\\config.default.js",
-    "csrf": "D:\\GitHub\\AmberEgg\\node_modules\\egg-jsonp\\config\\config.default.js"
+    "limit": "C:\\GitHub\\AmberEgg\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "C:\\GitHub\\AmberEgg\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "C:\\GitHub\\AmberEgg\\node_modules\\egg-jsonp\\config\\config.default.js"
   },
   "onerror": {
-    "errorPageUrl": "D:\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\config\\config.default.js",
-    "appErrorFilter": "D:\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\config\\config.default.js",
-    "templatePath": "D:\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\config\\config.default.js"
+    "errorPageUrl": "C:\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "C:\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "C:\\GitHub\\AmberEgg\\node_modules\\egg-onerror\\config\\config.default.js"
   },
   "i18n": {
-    "defaultLocale": "D:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js",
-    "dirs": "D:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js",
-    "queryField": "D:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js",
-    "cookieField": "D:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js",
-    "cookieMaxAge": "D:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js"
+    "defaultLocale": "C:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "C:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "C:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "C:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "C:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "C:\\GitHub\\AmberEgg\\node_modules\\egg-i18n\\config\\config.default.js"
   },
   "watcher": {
-    "type": "D:\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\config\\config.local.js",
+    "type": "C:\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\config\\config.local.js",
     "eventSources": {
-      "default": "D:\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\config\\config.default.js",
-      "development": "D:\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\config\\config.default.js"
+      "default": "C:\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "C:\\GitHub\\AmberEgg\\node_modules\\egg-watcher\\config\\config.default.js"
     }
   },
   "customLogger": {
     "scheduleLogger": {
-      "consoleLevel": "D:\\GitHub\\AmberEgg\\node_modules\\egg-schedule\\config\\config.default.js",
-      "file": "D:\\GitHub\\AmberEgg\\node_modules\\egg-schedule\\config\\config.default.js"
+      "consoleLevel": "C:\\GitHub\\AmberEgg\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "C:\\GitHub\\AmberEgg\\node_modules\\egg-schedule\\config\\config.default.js"
     }
   },
   "schedule": {
-    "directory": "D:\\GitHub\\AmberEgg\\node_modules\\egg-schedule\\config\\config.default.js"
+    "directory": "C:\\GitHub\\AmberEgg\\node_modules\\egg-schedule\\config\\config.default.js"
   },
   "multipart": {
-    "mode": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "autoFields": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "defaultCharset": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fieldNameSize": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fieldSize": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fields": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fileSize": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "files": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fileExtensions": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "whitelist": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
-    "tmpdir": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "mode": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js",
     "cleanSchedule": {
-      "cron": "D:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js"
+      "cron": "C:\\GitHub\\AmberEgg\\node_modules\\egg-multipart\\config\\config.default.js"
     }
   },
   "development": {
-    "watchDirs": "D:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js",
-    "ignoreDirs": "D:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js",
-    "fastReady": "D:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js",
-    "reloadOnDebug": "D:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js",
-    "overrideDefault": "D:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js"
+    "watchDirs": "C:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "C:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "C:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "C:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "C:\\GitHub\\AmberEgg\\node_modules\\egg-development\\config\\config.default.js"
   },
   "logrotator": {
-    "filesRotateByHour": "D:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "hourDelimiter": "D:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "filesRotateBySize": "D:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "maxFileSize": "D:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "maxFiles": "D:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "rotateDuration": "D:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "maxDays": "D:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js"
+    "filesRotateByHour": "C:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "C:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "C:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "C:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "C:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "C:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "C:\\GitHub\\AmberEgg\\node_modules\\egg-logrotator\\config\\config.default.js"
   },
   "static": {
-    "prefix": "D:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
-    "dir": "D:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
-    "dynamic": "D:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
-    "preload": "D:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
-    "buffer": "D:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
-    "maxFiles": "D:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js"
+    "prefix": "C:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "C:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "C:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "C:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "C:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "C:\\GitHub\\AmberEgg\\node_modules\\egg-static\\config\\config.default.js"
   },
   "nunjucks": {
-    "autoescape": "D:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
-    "throwOnUndefined": "D:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
-    "trimBlocks": "D:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
-    "lstripBlocks": "D:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
-    "cache": "D:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.local.js"
+    "autoescape": "C:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "throwOnUndefined": "C:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "trimBlocks": "C:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "lstripBlocks": "C:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "cache": "C:\\GitHub\\AmberEgg\\node_modules\\egg-view-nunjucks\\config\\config.local.js"
   },
-  "validate": "D:\\GitHub\\AmberEgg\\node_modules\\egg-validate\\config\\config.default.js",
-  "env": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-  "name": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-  "proxy": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-  "protocolHeaders": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-  "ipHeaders": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-  "hostHeaders": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "validate": "C:\\GitHub\\AmberEgg\\node_modules\\egg-validate\\config\\config.default.js",
+  "env": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "name": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "cookies": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "maxIpsCount": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
   "pkg": {
-    "name": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "version": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "description": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "private": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "name": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "version": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "description": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "private": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
     "dependencies": {
-      "cheerio": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-cors": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-mysql": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-scripts": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-sequelize": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-sequelize-auto": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-validate": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-view-nunjucks": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-view-vue-ssr": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "formstream": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "fs": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "jsonwebtoken": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "mysql2": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "node-xlsx": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "qs": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "querystring": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "request": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "sequelize": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "svg-captcha": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "urlencode": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+      "cheerio": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-cors": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-mysql": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-sequelize": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-sequelize-auto": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-validate": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-nunjucks": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-vue-ssr": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "formstream": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "fs": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "jsonwebtoken": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "mysql2": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "node-xlsx": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "path": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "qs": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "querystring": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "request": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "sequelize": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "svg-captcha": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "urlencode": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
     },
     "devDependencies": {
-      "autod": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "autod-egg": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-bin": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-ci": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "egg-mock": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "eslint": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "eslint-config-egg": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "sequelize-cli": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "webstorm-disable-index": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+      "autod": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "autod-egg": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-bin": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-ci": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "egg-mock": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "eslint": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "eslint-config-egg": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "sequelize-cli": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "webstorm-disable-index": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
     },
     "engines": {
-      "node": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+      "node": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
     },
     "scripts": {
-      "start": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "stop": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "dev": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "debug": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "test": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "test-local": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "cov": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "lint": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "ci": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "autod": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+      "start": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "stop": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "dev": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "debug": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "test": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "test-local": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "cov": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "lint": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "ci": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "autod": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
     },
     "ci": {
-      "version": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+      "version": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
     },
     "repository": {
-      "type": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "url": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+      "type": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "url": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
     },
-    "author": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "license": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+    "author": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "license": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
   },
-  "baseDir": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-  "HOME": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-  "rundir": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "baseDir": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
   "dump": {
-    "ignore": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+    "ignore": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
   },
   "confusedConfigurations": {
-    "bodyparser": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "notFound": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "sitefile": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "middlewares": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "httpClient": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+    "bodyparser": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
   },
   "notfound": {
-    "pageUrl": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+    "pageUrl": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
   },
   "siteFile": {
-    "/favicon.ico": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+    "/favicon.ico": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
   },
   "bodyParser": {
-    "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "encoding": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "formLimit": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "jsonLimit": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "strict": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "textLimit": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "strict": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
     "queryString": {
-      "arrayLimit": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "depth": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "parameterLimit": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
-    }
+      "arrayLimit": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "depth": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+    },
+    "onerror": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
   },
   "logger": {
-    "dir": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "encoding": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "env": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "level": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "consoleLevel": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "disableConsoleAfterReady": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "outputJSON": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "buffer": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "appLogName": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "coreLogName": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "agentLogName": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "errorLogName": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "dir": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "env": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "level": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
     "coreLogger": {
-      "consoleLevel": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.local.js"
+      "consoleLevel": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.local.js"
     },
-    "allowDebugAtProd": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+    "allowDebugAtProd": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
   },
   "meta": {
-    "enable": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "logging": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+    "enable": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "logging": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
   },
-  "coreMiddleware": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-  "workerStartTimeout": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-  "serverTimeout": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "coreMiddleware": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
   "cluster": {
     "listen": {
-      "path": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "port": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-      "hostname": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+      "path": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "port": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
     }
   },
   "clusterClient": {
-    "maxWaitTime": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
-    "responseTimeout": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+    "maxWaitTime": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
   },
-  "onClientError": "D:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
+  "onClientError": "C:\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js"
 }

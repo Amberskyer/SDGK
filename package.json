@@ -17,7 +17,7 @@
     "formstream": "^1.1.0",
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.4.0",
-    "mysql2": "^1.6.4",
+    "mysql2": "^1.7.0",
     "node-xlsx": "^0.15.0",
     "path": "^0.12.7",
     "qs": "^6.8.0",
