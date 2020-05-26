@@ -93,18 +93,18 @@ module.exports = appInfo => {
       //   // 数据库名
       //   database: 'zhiwang',
       // },
-      wmzy: {
-        // host
-        host: '127.0.0.1',
-        // 端口号
-        port: '3306',
-        // 用户名
-        user: 'root',
-        // 密码
-        password: '123456',
-        // 数据库名
-        database: 'wmzy',
-      },
+      // wmzy: {
+      //   // host
+      //   host: '127.0.0.1',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'root',
+      //   // 密码
+      //   password: '123456',
+      //   // 数据库名
+      //   database: 'wmzy',
+      // },
       // bkzy: {
       //   // host
       //   host: '127.0.0.1',
@@ -179,23 +179,32 @@ module.exports = appInfo => {
   /*   (important:)   数据库链接信息  */
   config.sequelize = {
     datasources: [
-      { delegate: 'zsgkModel', // load all models to app.model and ctx.model
-        baseDir: 'model/zsgk', // load models from `app/model/*.js`
-        dialect: 'mysql',
-        database: 'zsgk',
-        username: 'root',
-        password: '123456',
-        host: '127.0.0.1',
-        port: 3306,
-      },
+      // { delegate: 'zsgkModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/zsgk', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'zsgk',
+      //   username: 'root',
+      //   password: '123456',
+      //   host: '127.0.0.1',
+      //   port: 3306,
+      // },
+      // { delegate: 'youzyModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/youzy', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'youzy',
+      //   username: 'root',
+      //   password: '123456',
+      //   host: '127.0.0.1',
+      //   port: 3306,
+      // },
       { delegate: 'youzyModel', // load all models to app.model and ctx.model
         baseDir: 'model/youzy', // load models from `app/model/*.js`
         dialect: 'mysql',
         database: 'youzy',
-        username: 'root',
-        password: '123456',
-        host: '127.0.0.1',
-        port: 3306,
+        username: 'dev',
+        password: 'dev',
+        host: '91130.vicp.net',
+        port: 11306,
       },
     ],
   };

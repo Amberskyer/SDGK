@@ -856,8 +856,12 @@ class YouzyController extends Controller {
               const schoolMajorAdmissionJsonItem = {
                 school_id: item.school_id,
                 school_name: item.school_name,
+                r_school_id: item.r_school_id,
+                r_school_name: item.r_school_name,
                 province_id: item2.province_id,
                 province_name: item2.province_name,
+                r_province_id: item2.r_province_id,
+                r_province_name: item2.r_province_name,
                 subject_type: item4,
                 year: item5,
               };
@@ -1161,13 +1165,13 @@ class YouzyController extends Controller {
         schoolProvinceItem.forEach(itemJson => {
           schoolMajorAdmissionArr.push({
             school_id: item.school_id,
-            // r_school_id: item.r_school_id,
+            r_school_id: item.r_school_id,
             school_name: item.school_name,
-            // r_school_name: item.r_school_name,
+            r_school_name: item.r_school_name,
             province_id: item.province_id,
-            // r_province_id: item.r_province_id,
+            r_province_id: item.r_province_id,
             province_name: item.province_name,
-            // r_province_name: item.r_province_name,
+            r_province_name: item.r_province_name,
 
             year: itemJson.year,
 
