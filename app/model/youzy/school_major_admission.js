@@ -1,0 +1,103 @@
+/* indent size: 2 */
+
+module.exports = app => {
+  const DataTypes = app.Sequelize;
+
+  const Model = app.youzyModel.define('school_major_admission', {
+    id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true
+    },
+    school_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    school_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    province_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    province_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    profession_code: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    profession_name: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    year: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    batch: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    batch_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    subject_type: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    min_score_rank: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    max_score_rank: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    min_score: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    max_score: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    avg_score: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chooseLevel: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    countOfZJZY: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    lineDiff: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    count: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    major_code: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    }
+  }, {
+    tableName: 'school_major_admission',
+    timestamps: false,
+    freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
+  });
+
+  Model.associate = function() {
+
+  }
+
+  return Model;
+};
