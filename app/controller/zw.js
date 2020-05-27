@@ -405,63 +405,66 @@ class CompareController extends Controller {
 
     initItem();
     async function initItem() {
-      const lunwen = await jyrc.get('tb_100007_lun_wen', { status: 22 });
+      const lunwen = await jyrc.get('tb_100007_lun_wen', { status: 44 });
+      console.log(lunwen);
       const pearson = await jyrc.get('tb_100000_yan_jiu_ren_yuan', { id: lunwen.yan_jiu_ren_yuan_id });
+      console.log(pearson);
       let zzStr = lunwen.qi_ta_zuo_zhe;
-      const patt1 = new RegExp(',', 'g');
-      const patt2 = new RegExp('，', 'g');
-      const patt3 = new RegExp('；', 'g');
-      zzStr = zzStr.replace(patt1, ';');
-      zzStr = zzStr.replace(patt2, ';');
-      zzStr = zzStr.replace(patt3, ';');
+      if (zzStr) {
+        const patt1 = new RegExp(',', 'g');
+        const patt2 = new RegExp('，', 'g');
+        const patt3 = new RegExp('；', 'g');
+        zzStr = zzStr.replace(patt1, ';');
+        zzStr = zzStr.replace(patt2, ';');
+        zzStr = zzStr.replace(patt3, ';');
 
-      const zzArr = zzStr.split(';');
-      zzArr.forEach(async (item, index) => {
-        item = item.replace(/\s*/g, '');
-        if (item === '') {
-          return;
-        }
-        if (item.indexOf(pearson.xing_ming) != '-1') {
-          item = pearson.xing_ming;
-        }
-        const hzzPerson = await jyrc.get('tb_100000_yan_jiu_ren_yuan', { xing_ming: item, xue_xiao: pearson.xue_xiao });
+        const zzArr = zzStr.split(';');
+        zzArr.forEach(async (item, index) => {
+          item = item.replace(/\s*/g, '');
+          if (item === '') {
+            return;
+          }
+          if (item.indexOf(pearson.xing_ming) != '-1') {
+            item = pearson.xing_ming;
+          }
+          const hzzPerson = await jyrc.get('tb_100000_yan_jiu_ren_yuan', { xing_ming: item, xue_xiao: pearson.xue_xiao });
 
-        if (index === 0) {
-          await jyrc.update('tb_100007_lun_wen', {
-            di_yi_zuo_zhe: item,
-          }, {
-            where: {
-              id: lunwen.id,
-            },
-          });
-        }
-        if (item !== pearson.xing_ming) {
-          const gxItem = {
-            yan_jiu_ren_yuan_id: lunwen.yan_jiu_ren_yuan_id,
-            he_zuo_zhe: item,
-            lun_wen_id: lunwen.id,
-            lun_wen_biao_ti: lunwen.lun_wen_biao_ti,
-            order: index + 1,
-            xue_xiao: pearson.xue_xiao,
-            he_zuo_zhe_id: hzzPerson ? hzzPerson.id : null,
-            is_yan_jiu_ren_yuan: 0,
-          };
-          await jyrc.insert('tb_100015_lun_wen_xie_zuo', gxItem);
-        } else if (item === pearson.xing_ming) {
-          const gxItem = {
-            yan_jiu_ren_yuan_id: lunwen.yan_jiu_ren_yuan_id,
-            he_zuo_zhe: item,
-            lun_wen_id: lunwen.id,
-            lun_wen_biao_ti: lunwen.lun_wen_biao_ti,
-            order: index + 1,
-            xue_xiao: pearson.xue_xiao,
-            he_zuo_zhe_id: hzzPerson ? hzzPerson.id : null,
-            is_yan_jiu_ren_yuan: 1,
-          };
-          await jyrc.insert('tb_100015_lun_wen_xie_zuo', gxItem);
-        }
-      });
-      console.log(lunwen.id);
+          if (index === 0) {
+            await jyrc.update('tb_100007_lun_wen', {
+              di_yi_zuo_zhe: item,
+            }, {
+              where: {
+                id: lunwen.id,
+              },
+            });
+          }
+          if (item !== pearson.xing_ming) {
+            const gxItem = {
+              yan_jiu_ren_yuan_id: lunwen.yan_jiu_ren_yuan_id,
+              he_zuo_zhe: item,
+              lun_wen_id: lunwen.id,
+              lun_wen_biao_ti: lunwen.lun_wen_biao_ti,
+              order: index + 1,
+              xue_xiao: pearson.xue_xiao,
+              he_zuo_zhe_id: hzzPerson ? hzzPerson.id : null,
+              is_yan_jiu_ren_yuan: 0,
+            };
+            await jyrc.insert('tb_100015_lun_wen_xie_zuo', gxItem);
+          } else if (item === pearson.xing_ming) {
+            const gxItem = {
+              yan_jiu_ren_yuan_id: lunwen.yan_jiu_ren_yuan_id,
+              he_zuo_zhe: item,
+              lun_wen_id: lunwen.id,
+              lun_wen_biao_ti: lunwen.lun_wen_biao_ti,
+              order: index + 1,
+              xue_xiao: pearson.xue_xiao,
+              he_zuo_zhe_id: hzzPerson ? hzzPerson.id : null,
+              is_yan_jiu_ren_yuan: 1,
+            };
+            await jyrc.insert('tb_100015_lun_wen_xie_zuo', gxItem);
+          }
+        });
+      }
       await jyrc.update('tb_100007_lun_wen', {
         status: 66,
       }, {

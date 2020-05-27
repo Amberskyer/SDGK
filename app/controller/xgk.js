@@ -171,33 +171,36 @@ class CompareController extends Controller {
     const xgk = app.mysql.get('xgk');
     const htmlArr = await xgk.select('html', {
       where: { // 搜索 post 表
-        status: 1,
+        status: 2,
       },
     });
     console.log(htmlArr.length);
     for (let i = 0; i < htmlArr.length; i++) {
       const provinceItem = htmlArr[i];
       const htmlResult = await xgk.get('html', { // 搜索 post 表
-        province_name: provinceItem.province_name,
+        id: provinceItem.id,
       });
       const $ = cheerio.load('<table>' + htmlResult.html + '</table>');
       const trArr = $('table tr ');
       console.log('trArr', htmlArr.length, trArr.length);
+      const sqlArr = [];
       for (let j = 0; j < trArr.length; j++) {
         const tdArr = trArr.eq(j).children('td');
 
-        const item = {
-          year: 2020,
-          province_name: provinceItem.province_name,
-          student_province_name: provinceItem.student_province_name,
-          school_name: tdArr.eq(2).text().replace(/\s*/g, ''),
-          level: 'BK',
-          major_name: tdArr.eq(4).text().replace(/\s*/g, ''),
-          subject_type: tdArr.eq(5).text().replace(/\s*/g, ''),
-        };
-        await xgk.insert('index', item);
-        console.log({ j });
+        if (tdArr.eq(3).text().replace(/\s*/g, '') !== '层次') {
+          const item = {
+            year: 2020,
+            province_name: provinceItem.province_name,
+            student_province_name: provinceItem.student_province_name,
+            school_name: tdArr.eq(2).text().replace(/\s*/g, ''),
+            level: tdArr.eq(3).text().replace(/\s*/g, ''),
+            major_name: tdArr.eq(4).text().replace(/\s*/g, ''),
+            subject_type: tdArr.eq(5).text().replace(/\s*/g, ''),
+          };
+          sqlArr.push(item);
+        }
       }
+      await xgk.insert('t_xin_gao_kao', sqlArr);
       await xgk.update('html', {
         status: 22,
       }, {
@@ -205,7 +208,7 @@ class CompareController extends Controller {
           id: provinceItem.id,
         },
       });
-      console.log({ i });
+      // console.log({ i });
       // 处理数据
       // ctx.status = result.status;// 设置状态码
       // ctx.set(result.header);// 设置请求头

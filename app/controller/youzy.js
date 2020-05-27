@@ -878,7 +878,7 @@ class YouzyController extends Controller {
     const { ctx } = this;
     setInterval(() => {
       this.loadSchoolMajorAdmission(ctx);
-    }, 2000);
+    }, 800);
   }
 
   async loadSchoolMajorAdmission(ctx) {
