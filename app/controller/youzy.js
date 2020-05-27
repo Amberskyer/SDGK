@@ -1012,8 +1012,8 @@ class YouzyController extends Controller {
 
     const schoolProvinceArr = await ctx.youzyModel.SchoolMajorAdmissionHtml.findAll({
       where: {
-        // id:{
-        // 	$gt:minId
+        // id: {
+        // 	$gt: 75000,
         // },
         // isHave: {
         // 	$ne:456
@@ -1040,7 +1040,7 @@ class YouzyController extends Controller {
 
         const url = 'https://www.youzy.cn/Data/ScoreLines/Fractions/Professions/Query';
         const data = {
-          year: 2018,
+          year: item.year,
           ucode: item.province_id + '_' + item.school_id + '_0_0',
           courseType: item.subject_type,
           // collegeId: item.school_id,
@@ -1104,9 +1104,9 @@ class YouzyController extends Controller {
         // const cookie = other + 'Youzy2CUser=' + urlencode(JSON.stringify(Youzy2CUser))
         //             + ';Youzy2CCurrentProvince=' + urlencode(JSON.stringify(Youzy2CCurrentProvince))
         //             + ';Youzy2CCurrentScore=' + urlencode(JSON.stringify(Youzy2CCurrentScore));
-        const cookie = 'UM_distinctid=1724a390308237-05e232b90636f7-d373666-219a80-1724a39030a467; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2214184607%22%2C%22%24device_id%22%3A%221724a3905f535e-03e65e05b801f5-d373666-2202240-1724a3905f6617%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22first_id%22%3A%221724a3905f535e-03e65e05b801f5-d373666-2202240-1724a3905f6617%22%7D';
+        const cookie = 'UM_distinctid=17250d114b849-04054b9aa3b8a2-d373666-219a80-17250d114b95da; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2214184607%22%2C%22%24device_id%22%3A%2217250d1159ca1-0572f02bc64a16-d373666-2202240-17250d1159d3b0%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22first_id%22%3A%2217250d1159ca1-0572f02bc64a16-d373666-2202240-17250d1159d3b0%22%7D';
         // const referer = `https://www.youzy.cn/tzy/search/colleges/homepage/cfrationIndex?cid=${item.school_id}`;
-        const referer = 'https://ia-pv4y.youzy.cn/colleges/pfraction?p=af4f744668a5050fcb34bc057e2f8b47597d4e90f4d47391ee25b50418ef16c1baf7eba9072d8e89f3b3391460c80b90877e729ff234d950212a83a847bef39da467&u=af4f675b72a11f04fc2885047e2f835f42320395f4c860acf936b50f17f71ec1bae52132f6a96d55b0f0421872fd48c5de2f2ff9bb64cd522f14d3fd57b6f18da438077ba4b43639ee7b9b256e113b1b38ed8c0506d9aa04bafa679488d927bcd0b85aeb790b905476d02a2ab5ec8dcbd59ff271c4bbf69487c087b2b6ee8a5046d1fc888df2f9fae00c48b7dca1721581dfc03dc5328fde2552636b1ae65ebee6f80386a1&us=af4f6a416a9a08439261d9432c67dc05093f0f85c8ce68b1e464ea7a55a00391efa3647ef2ad4c7fbcfa39477dfa0693c03d69a6e327c61b74748db042b0ea9cb27f696ca1bd1371ee26c0681c1135033aa1d550648ea425b1b72ec9f0857dfbd5846af56d079b5670d67b32e9e394d4dc9ff26bd480fdd3e9df96bbe7b1965e0dc1cebdb7f2f9c4a7404bbaf6bd6554c2dd8b77ce0ad1912f497f6d06ed2ff1f0e01380a802c0deadeaba0350393214e9&dfs=af4f775b72a10f048a6bd7153356915f42250485ebde27c2b97fe9665be4018ced807f7cb3f22031fee86c0a3df6058a966633aaf964861b3e27cdc753b3bdd4e3351262a6af746ca3698a3d10003a4225f9964f3bc9a63fbdb072dcdf8c24f7d7af7dde3a49d3507cce6475b4e8b4cadc91ea3a98c0f8c1ca889fb1b0f1df5c4ccc89a6a2f8b3fba7575cb5d8fd7456cfc5cc2af024d2db234c757214ef19abfae51b868c10e1d4fdabf91a1369063bd9454cd8f7bf57992e26ce01d75adfef3474692cbb5604695764fba7a23cd90c21de5a84be191e1727838331cd456736b0ca9eb2c1f25a4294cbddf0f48a12a45a3826f26383fcae924e4c93fe8d143fe8ea73ef8ae5c1eafcf60ce5079b059327b44344a4504d1b9460d355c224f6a9e2276c704081fc5f&tcode=af4f675b6bbf0906cd18914366378b40587340c2f3c860bef528b33e10ed1dafefb27e32abea2063&toUrl=/colleges/pfraction&timestamp=1590478561749';
+        const referer = 'https://ia-pv4y.youzy.cn/colleges/pfraction?p=af4f744668a5050fcb34bc057e2f8b47597d4e90f4d47391ee25b50418ef16c1baf7eba9072d8e89f3b3391460c80b90877e729ff234d950212a83a847bef39da467&u=af4f675b72a11f04fc2885047e2f835f42320395f4c860acf936b50f17f71ec1bae52132f6a96d55b0f0421872fd48c5de2f2ff9bb64cd522f14d3fd57b6f18da438077ba4b43639ee7b9b256e113b1b38ed8c0506d9aa04bafa679488d927bcd0b85aeb790b905476d02a2ab5ec8dcbd59ff271c4bbf69487c087b2b6ee8a5046d1fc888df2f9fae00c48b7dca1721581dfc03dc5328fde2552636b1ae65ebee6f80386a1&us=af4f6a416a9a08439261d9432c67dc05093f0f85c8ce68b1e464ea7a55a00391efa3647ef2ad4c7fbcfa39477dfa0693c03d69a6e327c61b74748db042b0ea9cb27f696ca1bd1371ee26c0681c1135033aa1d550648ea425b1b72ec9f0857dfbd5846af56d079b5670d67b32e9e394d4dc9ff26bd480fdd3e9df96bbe7b1965e0dc1cebdb7f2f9c4a7404bbaf6bd6554c2dd8b77ce0ad1912f497f6d06ed2ff1f0e01380a802c0deadeaba0350393214e9&dfs=af4f775b72a10f048a6bd7153356915f42250485ebde27c2b97fe9665be4018ced807f7cb3f22031fee86c0a3df6058a966633aaf964861b3e27cdc753b3bdd4e3351262a6af746ca3698a3d10003a4225f9964f3bc9a63fbdb072dcdf8c24f7d7af7dde3a49d3507cce6475b4e8b4cadc91ea3a98c0f8c1ca889fb1b0f1df5c4ccc89a6a2f8b3fba7575cb5d8fd7456cfc5cc2af024d2db234c757214ef19abfae51b868c10e1d4fdabf91a1369063bd9454cd8f7bf57992e26ce01d75adfef3474692cbb5604695764fba7a23cd90c21de5a84be191e1727838331cd456736b0ca9eb2c1f25a4294cbddf0f48a12a45a3826f26383fcae924e4c93fe8d143fe8ea73ef8ae5c1eafcf60ce5079b059327b44344a4504d1b9460d355c224f6a9e2276c704081fc5f&tcode=af4f675b6bbf0906cd18914366378b40587340c2f3c860bef528b33e10ed1dafefb27e32abea2063&toUrl=/colleges/pfraction&timestamp=1590576917942';
 
 
         // console.log({
