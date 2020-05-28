@@ -26,8 +26,8 @@ module.exports = app => {
   // router.get('/drm', controller.drm.toExcel);// 主页=>index
   // router.get('/yzy', controller.youzy.init);// 主页=>index
   // router.get('/yzy/init-school-major-admission-table', controller.youzy.initSchoolMajorAdmissionTable);// 主页=>index
-  router.get('/yzy/load-school-major-admission', controller.youzy.startLoadSchoolMajorAdmission);// 主页=>index
-  // router.get('/yzy/init-school-major-admission', controller.youzy.loadSchoolMajorAdmission);// 主页=>index
+  // router.get('/yzy/load-school-major-admission', controller.youzy.startLoadSchoolMajorAdmission);// 主页=>index
+  router.get('/yzy/init-school-major-admission', controller.youzy.initSchoolMajorAdmission);// 主页=>index
   // router.get('/zsgk', controller.zsgk.init);// 主页=>index
   // router.get('/zw', controller.zw.init);// 主页=>index
   // router.get('/zl', controller.zl.init);// 主页=>index

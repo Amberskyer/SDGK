@@ -3,7 +3,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('school_major_admission', {
+  const Model = app.youzyModel.define('school_major_admission', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -122,7 +122,9 @@ module.exports = app => {
       allowNull: true
     }
   }, {
-    tableName: 'school_major_admission'
+    tableName: 'school_major_admission',
+    timestamps: false,
+    freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
   });
 
   Model.associate = function() {
