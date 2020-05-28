@@ -3,7 +3,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.youzyModel.define('school_major_admission', {
+  const Model = app.model.define('school_major_admission', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -13,7 +13,15 @@ module.exports = app => {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
+    r_school_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
     school_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    r_school_name: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -21,7 +29,15 @@ module.exports = app => {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
+    r_province_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
     province_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    r_province_name: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -33,6 +49,14 @@ module.exports = app => {
       type: DataTypes.TEXT,
       allowNull: true
     },
+    r_major_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    r_major_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
     year: {
       type: DataTypes.STRING(255),
       allowNull: true
@@ -41,7 +65,15 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    r_batch_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
     batch_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    r_batch_name: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -90,9 +122,7 @@ module.exports = app => {
       allowNull: true
     }
   }, {
-    tableName: 'school_major_admission',
-    timestamps: false,
-    freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
+    tableName: 'school_major_admission'
   });
 
   Model.associate = function() {
