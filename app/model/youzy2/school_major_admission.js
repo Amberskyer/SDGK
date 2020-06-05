@@ -3,18 +3,18 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.youzyModel.define('school_major_admission', {
+  const Model = app.model.define('school_major_admission', {
     id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
     school_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     r_school_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     school_name: {
@@ -26,11 +26,11 @@ module.exports = app => {
       allowNull: true
     },
     province_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     r_province_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     province_name: {
@@ -54,7 +54,15 @@ module.exports = app => {
       allowNull: true
     },
     r_major_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    major_code: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    r_major_code: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     year: {
@@ -66,7 +74,7 @@ module.exports = app => {
       allowNull: true
     },
     r_batch_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     batch_name: {
@@ -114,22 +122,15 @@ module.exports = app => {
       allowNull: true
     },
     count: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
-    },
-    major_code: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     status: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: '-1'
+      allowNull: true
     }
   }, {
-    tableName: 'school_major_admission',
-    timestamps: false,
-    freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
+    tableName: 'school_major_admission'
   });
 
   Model.associate = function() {

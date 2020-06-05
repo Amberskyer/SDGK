@@ -25,9 +25,11 @@ module.exports = app => {
   // router.get('/initPaperJournal', controller.transform.initPaperJournal);// 主页=>index
   // router.get('/drm', controller.drm.toExcel);// 主页=>index
   // router.get('/yzy', controller.youzy.init);// 主页=>index
-  // router.get('/yzy/init-school-major-admission-table', controller.youzy.initSchoolMajorAdmissionTable);// 主页=>index
-  // router.get('/yzy/load-school-major-admission', controller.youzy.startLoadSchoolMajorAdmission);// 主页=>index
-  router.get('/yzy/init-school-major-admission', controller.youzy.initSchoolMajorAdmission);// 主页=>index
+  router.get('/yzy/init-school-admission-table', controller.youzy.initSchoolAdmissionTable);// 主页=>index
+  router.get('/yzy/load-school-admission', controller.youzy.startLoadSchoolAdmission);// 主页=>index
+  router.get('/yzy/init-school-admission', controller.youzy.initSchoolAdmission);// 主页=>index
+  // router.get('/school_major_admission/init', controller.schoolMajorAdmission.init);// 主页=>index
+  // router.get('/school_major_admission/init/table', controller.schoolMajorAdmission.initSchoolMajorAdmissionTable);// 主页=>index
   // router.get('/zsgk', controller.zsgk.init);// 主页=>index
   // router.get('/zw', controller.zw.init);// 主页=>index
   // router.get('/zl', controller.zl.init);// 主页=>index

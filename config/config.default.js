@@ -179,33 +179,51 @@ module.exports = appInfo => {
   /*   (important:)   数据库链接信息  */
   config.sequelize = {
     datasources: [
-      // { delegate: 'zsgkModel', // load all models to app.model and ctx.model
-      //   baseDir: 'model/zsgk', // load models from `app/model/*.js`
-      //   dialect: 'mysql',
-      //   database: 'zsgk',
-      //   username: 'root',
-      //   password: '123456',
-      //   host: '127.0.0.1',
-      //   port: 3306,
-      // },
-      // { delegate: 'youzyModel', // load all models to app.model and ctx.model
-      //   baseDir: 'model/youzy', // load models from `app/model/*.js`
-      //   dialect: 'mysql',
-      //   database: 'youzy',
-      //   username: 'root',
-      //   password: '123456',
-      //   host: '127.0.0.1',
-      //   port: 3306,
-      // },
+      { delegate: 'zsgkModel', // load all models to app.model and ctx.model
+        baseDir: 'model/zsgk', // load models from `app/model/*.js`
+        dialect: 'mysql',
+        database: 'zsgk',
+        username: 'root',
+        password: '123456',
+        host: '127.0.0.1',
+        port: 3306,
+      },
       { delegate: 'youzyModel', // load all models to app.model and ctx.model
         baseDir: 'model/youzy', // load models from `app/model/*.js`
         dialect: 'mysql',
         database: 'youzy',
-        username: 'dev',
-        password: 'dev',
-        host: '91130.vicp.net',
-        port: 11306,
+        username: 'root',
+        password: '123456',
+        host: '127.0.0.1',
+        port: 3306,
       },
+      { delegate: 'sdgkModel', // load all models to app.model and ctx.model
+        baseDir: 'model/sdgk', // load models from `app/model/*.js`
+        dialect: 'mysql',
+        database: 'sdgk',
+        username: 'root',
+        password: '123456',
+        host: '127.0.0.1',
+        port: 3306,
+      },
+      { delegate: 'cSchoolMajorAdmissionModel', // load all models to app.model and ctx.model
+        baseDir: 'model/c_school_major_admission', // load models from `app/model/*.js`
+        dialect: 'mysql',
+        database: 'c_school_major_admission',
+        username: 'root',
+        password: '123456',
+        host: '127.0.0.1',
+        port: 3306,
+      },
+      // { delegate: 'youzyModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/youzy', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'youzy',
+      //   username: 'dev',
+      //   password: 'dev',
+      //   host: '91130.vicp.net',
+      //   port: 11306,
+      // },
     ],
   };
 

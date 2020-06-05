@@ -6,8 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/yzy/load-school-major-admission",
-    "regexp": "/^\\/yzy\\/load-school-major-admission(?:\\/(?=$))?$/",
+    "path": "/yzy/init-school-admission-table",
+    "regexp": "/^\\/yzy\\/init-school-admission-table(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -19,8 +19,21 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/yzy/init-school-major-admission",
-    "regexp": "/^\\/yzy\\/init-school-major-admission(?:\\/(?=$))?$/",
+    "path": "/yzy/load-school-admission",
+    "regexp": "/^\\/yzy\\/load-school-admission(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/yzy/init-school-admission",
+    "regexp": "/^\\/yzy\\/init-school-admission(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

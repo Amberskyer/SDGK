@@ -3,13 +3,33 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.youzyModel.define('province', {
+  const Model = app.model.define('school_admission_html', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    province_id_two: {
+    school_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    r_school_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    school_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    r_school_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    province_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    r_province_id: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
@@ -17,27 +37,20 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    status: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: '-1'
-    },
-    r_province_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
     r_province_name: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    province_id: {
-      type: DataTypes.INTEGER,
+    status: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    html: {
+      type: DataTypes.TEXT,
       allowNull: true
     }
   }, {
-    tableName: 'province',
-    timestamps: false,
-    freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
+    tableName: 'school_admission_html'
   });
 
   Model.associate = function() {
