@@ -29,6 +29,10 @@ module.exports = app => {
       type: DataTypes.INTEGER,
       allowNull: true
     },
+    province_id_two: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     r_province_id: {
       type: DataTypes.INTEGER,
       allowNull: true
