@@ -325,7 +325,7 @@ class YouzyController extends Controller {
     const { ctx } = this;
     setInterval(() => {
       this.loadSchoolAdmission(ctx);
-    }, 800);
+    }, 600);
     // this.loadSchoolAdmission(ctx);
   }
 
@@ -480,7 +480,9 @@ class YouzyController extends Controller {
         },
         order: [[ 'id' ]],
         limit: 1,
-        // offset: offsetNum,
+
+        offset: Math.floor(Math.random() * 20)
+        ,
       });
       const loadNum = 0;
 
@@ -598,13 +600,23 @@ class YouzyController extends Controller {
 
         const cookie = 'UM_distinctid=17278148a385f6-0baf146f3735f7-f7d1d38-1fa400-17278148a399da; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2214184607%22%2C%22%24device_id%22%3A%2217278148e60763-05f948b35351d8-f7d1d38-2073600-17278148e61b03%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22first_id%22%3A%2217278148e60763-05f948b35351d8-f7d1d38-2073600-17278148e61b03%22%7D';
 
-        const referer = 'https://ia-pv4y.youzy.cn/colleges/cfraction?p=af4f744668a5050fcb34bc057e2f8b47597d4e90f4d47391ee25b50418ef16c1baf7eba9072d8e89f3b3391460c80b90877e729ff234d950212a83a847bef39da467&u=af4f675b72a11f04fc2885047e2f835f42320395f4c860acf936b50f17f71ec1bae52132f6a96d55b0f0421872fd48c5de2f2ff9bb64cd522f14d3fd57b6f18da438077ba4b43639ee7b9b256e113b1b38ed8c0506d9aa04bafa679488d927bcd0b85aeb790b905476d02a2ab5ec8dcbd59ff271c4bbf69487c087b2b6ee8a5046d1fc888df2f9fae00c48b7dca1721581dfc03dc5328fde2552636b1ae65ebee6f80386a1&us=af4f6a416a9a08439261d9432c67dc05093f0f85c8ce68b1e464ea7a55a00391efa3647ef2ad4c7fbcfa39477dfa0693c03d69a6e327c61b74748db042b0ea9cb27f696ca1bd1371ee26c0681c1135033aa1d550648ea425b1b72ec9f0857dfbd5846af56d079b5670d67b32e9e394d4dc9ff26bd480fdd3e9df96bbe7b1965e0dc1cebdb7f2f9c4a7404bbaf6bd6554c2dd8b77ce0ad1912f497f6d06ed2ff1f0e01380a802c0deadeaba0350393214e9&dfs=af4f775b72a10f048a6bd7153356915f42250485ebde27c2b97fe9665be4018ced807f7cb3f22031fee86c0a3df6058a966633aaf964861b3e27cdc753b3bdd4e3351262a6af746ca3698a3d10003a4225f9964f3bc9a63fbdb072dcdf8c24f7d7af7dde3a49d3507cce6475b4e8b4cadc91ea3a98c0f8c1ca889fb1b0f1df5c4ccc89a6a2f8b3fba7575cb5d8fd7456cfc5cc2af024d2db234c757214ef19abfae51b868c10e1d4fdabf91a1369063bd9454cd8f7bf57992e26ce01d75adfef3474692cbb5604695764fba7a23cd90c21de5a84be191e1727838331cd456736b0ca9eb2c1f25a4294cbddf0f48a12a45a3826f26383fcae924e4c93fe8d143fe8ea73ef8ae5c1eafcf60ce5079b059327b44344a4504d1b9460d355c224f6a9e2276c704081fc5f&tcode=af4f675b6bbf0906cd18914366378b40587311&toUrl=/colleges/cfraction&timestamp=1591345971261';
+        const referer = 'https://ia-pv4y.youzy.cn/colleges/cfraction?p=af4f744668a5050fcb34bc057e2f8b47597d4e90f4d47391ee25b50418ef16c1baf7eba9072d8e89f3b3391460c80b90877e729ff234d950212a83a847bef39da467&u=af4f675b72a11f04fc2885047e2f835f42320395f4c860acf936b50f17f71ec1bae52132f6a96d55b0f0421872fd48c5de2f2ff9bb64cd522f14d3fd57b6f18da438077ba4b43639ee7b9b256e113b1b38ed8c0506d9aa04bafa679488d927bcd0b85aeb790b905476d02a2ab5ec8dcbd59ff271c4bbf69487c087b2b6ee8a5046d1fc888df2f9fae00c48b7dca1721581dfc03dc5328fde2552636b1ae65ebee6f80386a1&us=af4f6a416a9a08439261d9432c67dc05093f0f85c8ce68b1e464ea7a55a00391efa3647ef2ad4c7fbcfa39477dfa0693c03d69a6e327c61b74748db042b0ea9cb27f696ca1bd1371ee26c0681c1135033aa1d550648ea425b1b72ec9f0857dfbd5846af56d079b5670d67b32e9e394d4dc9ff26bd480fdd3e9df96bbe7b1965e0dc1cebdb7f2f9c4a7404bbaf6bd6554c2dd8b77ce0ad1912f497f6d06ed2ff1f0e01380a802c0deadeaba0350393214e9&dfs=af4f775b72a10f048a6bd7153356915f42250485ebde27c2b97fe9665be4018ced807f7cb3f22031fee86c0a3df6058a966633aaf964861b3e27cdc753b3bdd4e3351262a6af746ca3698a3d10003a4225f9964f3bc9a63fbdb072dcdf8c24f7d7af7dde3a49d3507cce6475b4e8b4cadc91ea3a98c0f8c1ca889fb1b0f1df5c4ccc89a6a2f8b3fba7575cb5d8fd7456cfc5cc2af024d2db234c757214ef19abfae51b868c10e1d4fdabf91a1369063bd9454cd8f7bf57992e26ce01d75adfef3474692cbb5604695764fba7a23cd90c21de5a84be191e1727838331cd456736b0ca9eb2c1f25a4294cbddf0f48a12a45a3826f26383fcae924e4c93fe8d143fe8ea73ef8ae5c1eafcf60ce5079b059327b44344a4504d1b9460d355c224f6a9e2276c704081fc5f&tcode=af4f675b6bbf0906cd18914366378b40587311&toUrl=/colleges/cfraction&timestamp=1591443833316';
 
 
         const schoolProvinceResult = await ctx.basePostForYouzy(url, params, cookie, referer);
 
+        console.log({ schoolProvinceResult });
 
-        if (schoolProvinceResult && schoolProvinceResult.isSuccess && schoolProvinceResult.result) {
+        if (schoolProvinceResult && schoolProvinceResult.staus) {
+
+          await ctx.youzyModel.SchoolAdmissionHtml.update({
+            status: schoolProvinceResult.staus,
+          }, {
+            where: {
+              id: schoolProvinceItem.id,
+            },
+          });
+        } else if (schoolProvinceResult.isSuccess && schoolProvinceResult.result) {
           await ctx.youzyModel.SchoolAdmissionHtml.update({
             status: 200,
             html: JSON.stringify(schoolProvinceResult.result),
@@ -638,11 +650,10 @@ class YouzyController extends Controller {
     const { ctx } = this;
     const schoolProvinceArr = await ctx.youzyModel.SchoolAdmissionHtml.findAll({
       where: {
-        // status: 200,
-        id: 409,
+        status: 200,
       },
       order: [[ 'id' ]],
-      limit: 1,
+      limit: 35,
     });
     // console.log(schoolProvinceArr);
 
@@ -689,19 +700,19 @@ class YouzyController extends Controller {
       loadNum++;
     }
     console.log('解析完毕', schoolAdmissionArr);
-    // await ctx.youzyModel.SchoolAdmission.bulkCreate(schoolAdmissionArr);
-    // await ctx.youzyModel.SchoolAdmissionHtml.update({
-    //   status: 666,
-    // }, {
-    //   where: {
-    //     id: {
-    //       $in: idsArr,
-    //     },
-    //   },
-    // });
-    // if (loadNum === 35) {
-    //   this.initSchoolAdmission();
-    // }
+    await ctx.youzyModel.SchoolAdmission.bulkCreate(schoolAdmissionArr);
+    await ctx.youzyModel.SchoolAdmissionHtml.update({
+      status: 666,
+    }, {
+      where: {
+        id: {
+          $in: idsArr,
+        },
+      },
+    });
+    if (loadNum === 35) {
+      await this.initSchoolAdmission();
+    }
   }
 
   async aaa(p, a, c, k, e, d) {
