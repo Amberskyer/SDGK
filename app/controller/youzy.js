@@ -651,6 +651,7 @@ class YouzyController extends Controller {
     const schoolProvinceArr = await ctx.youzyModel.SchoolAdmissionHtml.findAll({
       where: {
         status: 200,
+        // id: 409,
       },
       order: [[ 'id' ]],
       limit: 35,
@@ -663,8 +664,6 @@ class YouzyController extends Controller {
     for (let i = 0; i < schoolProvinceArr.length; i++) {
       const item = schoolProvinceArr[i];
       idsArr.push(item.id);
-
-      console.log(item.html);
 
       const schoolProvinceItem = await this.jiemiSchoolData(JSON.parse(item.html));
 
@@ -692,26 +691,27 @@ class YouzyController extends Controller {
 
           count: itemJson.enterNum,
           min_score_rank: parseInt(itemJson.lowSort),
+          max_score_rank: parseInt(itemJson.maxSort),
 
-          prov_score: itemJson.prvControlLines,
+          province_score: itemJson.prvControlLines,
         });
         // console.log('prov_score', itemJson.lowSort);
       });
       loadNum++;
     }
-    console.log('解析完毕', schoolAdmissionArr);
-    await ctx.youzyModel.SchoolAdmission.bulkCreate(schoolAdmissionArr);
-    await ctx.youzyModel.SchoolAdmissionHtml.update({
-      status: 666,
-    }, {
-      where: {
-        id: {
-          $in: idsArr,
-        },
-      },
-    });
+    console.log('解析完毕', idsArr);
     if (loadNum === 35) {
-      await this.initSchoolAdmission();
+      await ctx.youzyModel.SchoolAdmission.bulkCreate(schoolAdmissionArr);
+      await ctx.youzyModel.SchoolAdmissionHtml.update({
+        status: 666,
+      }, {
+        where: {
+          id: {
+            $in: idsArr,
+          },
+        },
+      });
+      this.initSchoolAdmission();
     }
   }
 
