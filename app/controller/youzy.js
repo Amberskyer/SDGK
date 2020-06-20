@@ -16,6 +16,7 @@ class YouzyController extends Controller {
     this.offsetNum = 0;
     this.subjectTypeList = [ 0, 1 ];
     this.yearList = [ 2019 ];
+    this.yearArrList = [ 2019, 2018, 2017 ];
   }
 
   async init() {
@@ -295,6 +296,200 @@ class YouzyController extends Controller {
     super.loadBatch();
   }
 
+
+  async initOneScoreOneRankTable() {
+    super.initSchoolAdmissionTable();
+    const { ctx } = this;
+    this.provinceList = await ctx.youzyModel.Province.findAll();
+    this.subjectTypeList = await ctx.youzyModel.SubjectType.findAll();
+    const tableArr = [];
+    this.provinceList.forEach(provinceItem => {
+      this.subjectTypeList.forEach(subjectTypeItem => {
+        this.yearArrList.forEach(yearItem => {
+          const tableArrItem = {
+            province_id: provinceItem.province_id,
+            province_id_two: provinceItem.province_id_two,
+            province_name: provinceItem.province_name,
+            r_province_id: provinceItem.r_province_id,
+            r_province_name: provinceItem.r_province_name,
+            subject_type: subjectTypeItem.subject_type,
+            r_subject_type: subjectTypeItem.r_subject_type,
+            year: yearItem,
+          };
+          tableArr.push(tableArrItem);
+        });
+      });
+    });
+    await ctx.youzyModel.OneScoreOneRankHtml.bulkCreate(tableArr);
+  }
+
+
+  async startLoadOneScoreOneRank() {
+    const { ctx } = this;
+    setInterval(() => {
+      this.loadOneScoreOneRank(ctx);
+    }, 1200);
+    // this.loadSchoolAdmission(ctx);
+  }
+
+
+  async loadOneScoreOneRank(ctx) {
+
+    await initItem(0);
+
+    async function initItem(offsetNum) {
+
+      const tableArr = await ctx.youzyModel.OneScoreOneRankHtml.findAll({
+        where: {
+          // id:{
+          // 	$gt:minId
+          // },
+          // isHave: {
+          // 	$ne:456
+          // },
+          // id: {
+          //   $in: [ 45 ],
+          // },
+          // id: 172,
+          status: -1,
+        },
+        order: [[ 'id' ]],
+        limit: 1,
+
+        // offset: Math.floor(Math.random() * 20),
+      });
+
+      for (let i = 0; i < tableArr.length; i++) {
+        const tableItem = tableArr[i];
+        const url = 'https://www.youzy.cn/Data/ScoreLines/YFYD/QueryEquivalents';
+        const data = {
+          provinceId: tableItem.province_id_two,
+          year: tableItem.year,
+          bzType: 1,
+          course: tableItem.subject_type,
+          score: 560,
+          isFillPcl: true,
+          isFillYFYD: true,
+        };
+        console.log(data);
+        const text = JSON.stringify(data);
+        const textBytes = youzyEptService.utils.utf8.toBytes(text);
+        const aesCtr = new youzyEptService.ModeOfOperation.ctr([ 11, 23, 32, 43, 45, 46, 67, 8, 9, 10, 11, 12, 13, 14, 15, 16 ], new youzyEptService.Counter(5));
+        const encryptedBytes = aesCtr.encrypt(textBytes);
+        const encryptedHex = youzyEptService.utils.hex.fromBytes(encryptedBytes);
+        if (encryptedHex === 'af4f744668a5050fcb34bc057e2f914b54684ecca4c26099f264ea684bb242daa2f92f72eb9c7b6eb4bd215f22ad46dd8f7068bbe42388036c7483be03acfc81b37f1f2ff3ed6c25ee30d22d4d253d013dd38c0c6a96b33fabbd718ed5934df7d5a741e04121d30967d07d75ae') {
+          console.log('相同');
+        }
+
+        // return;
+
+        const params = {
+          data: encryptedHex,
+        };
+        const cookie = 'UM_distinctid=17278148a385f6-0baf146f3735f7-f7d1d38-1fa400-17278148a399da; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2214184607%22%2C%22%24device_id%22%3A%2217278148e60763-05f948b35351d8-f7d1d38-2073600-17278148e61b03%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%7D%2C%22first_id%22%3A%2217278148e60763-05f948b35351d8-f7d1d38-2073600-17278148e61b03%22%7D';
+
+        const referer = 'https://ia-pv4y.youzy.cn/colleges/cfraction?p=af4f744668a5050fcb34bc057e2f8b47597d4e90f4d47391ee25b50418ef16c1baf7eba9072d8e89f3b3391460c80b90877e729ff234d950212a83a847bef39da467&u=af4f675b72a11f04fc2885047e2f835f42320395f4c860acf936b50f17f71ec1bae52132f6a96d55b0f0421872fd48c5de2f2ff9bb64cd522f14d3fd57b6f18da438077ba4b43639ee7b9b256e113b1b38ed8c0506d9aa04bafa679488d927bcd0b85aeb790b905476d02a2ab5ec8dcbd59ff271c4bbf69487c087b2b6ee8a5046d1fc888df2f9fae00c48b7dca1721581dfc03dc5328fde2552636b1ae65ebee6f80386a1&us=af4f6a416a9a08439261d9432c67dc05093f0f85c8ce68b1e464ea7a55a00391efa3647ef2ad4c7fbcfa39477dfa0693c03d69a6e327c61b74748db042b0ea9cb27f696ca1bd1371ee26c0681c1135033aa1d550648ea425b1b72ec9f0857dfbd5846af56d079b5670d67b32e9e394d4dc9ff26bd480fdd3e9df96bbe7b1965e0dc1cebdb7f2f9c4a7404bbaf6bd6554c2dd8b77ce0ad1912f497f6d06ed2ff1f0e01380a802c0deadeaba0350393214e9&dfs=af4f775b72a10f048a6bd7153356915f42250485ebde27c2b97fe9665be4018ced807f7cb3f22031fee86c0a3df6058a966633aaf964861b3e27cdc753b3bdd4e3351262a6af746ca3698a3d10003a4225f9964f3bc9a63fbdb072dcdf8c24f7d7af7dde3a49d3507cce6475b4e8b4cadc91ea3a98c0f8c1ca889fb1b0f1df5c4ccc89a6a2f8b3fba7575cb5d8fd7456cfc5cc2af024d2db234c757214ef19abfae51b868c10e1d4fdabf91a1369063bd9454cd8f7bf57992e26ce01d75adfef3474692cbb5604695764fba7a23cd90c21de5a84be191e1727838331cd456736b0ca9eb2c1f25a4294cbddf0f48a12a45a3826f26383fcae924e4c93fe8d143fe8ea73ef8ae5c1eafcf60ce5079b059327b44344a4504d1b9460d355c224f6a9e2276c704081fc5f&tcode=af4f675b6bbf0906cd18914366378b40587311&toUrl=/colleges/cfraction&timestamp=1591443833316';
+
+
+        const schoolProvinceResult = await ctx.basePostForYouzy(url, params, cookie, referer);
+
+        if (schoolProvinceResult && schoolProvinceResult.staus) {
+
+          await ctx.youzyModel.OneScoreOneRankHtml.update({
+            status: schoolProvinceResult.staus,
+          }, {
+            where: {
+              id: tableItem.id,
+            },
+          });
+        } else if (schoolProvinceResult.isSuccess && schoolProvinceResult.result) {
+          await ctx.youzyModel.OneScoreOneRankHtml.update({
+            status: 200,
+            html: JSON.stringify(schoolProvinceResult.result),
+          }, {
+            where: {
+              id: tableItem.id,
+            },
+          });
+        } else {
+          await ctx.youzyModel.OneScoreOneRankHtml.update({
+            status: 40404,
+          }, {
+            where: {
+              id: tableItem.id,
+            },
+          });
+        }
+
+      }
+
+    }
+
+  }
+
+
+  async initOneScoreOneRank() {
+
+    const { ctx } = this;
+    const schoolProvinceArr = await ctx.youzyModel.OneScoreOneRankHtml.findAll({
+      where: {
+        status: 666,
+        compare_status: 0,
+      },
+      // order: [[ 'id' ]],
+      limit: 1,
+    });
+      // console.log(schoolProvinceArr);
+
+    let loadNum = 0;
+    const schoolAdmissionArr = [];
+    const idsArr = [];
+    for (let i = 0; i < schoolProvinceArr.length; i++) {
+      const item = schoolProvinceArr[i];
+      idsArr.push(item.id);
+
+      const schoolProvinceItem = JSON.parse(item.html);
+
+      schoolProvinceItem.yfyds.forEach((itemJson, indexJson) => {
+
+        schoolAdmissionArr.push({
+          province_id: item.province_id,
+          r_province_id: item.r_province_id,
+          r_province_name: item.r_province_name,
+
+          year: itemJson.year,
+
+          province_name: itemJson.provinceName,
+          subject_type: itemJson.courseName,
+
+          start: itemJson.minScore,
+          end: indexJson === 0 ? 1000 : itemJson.maxScore,
+
+
+          count: itemJson.sameNumber,
+          rank: itemJson.lowestRank,
+        });
+
+        // console.log('prov_score', itemJson.lowSort);
+      });
+      loadNum++;
+    }
+    console.log('解析完毕', idsArr);
+    if (loadNum === 1) {
+      await ctx.youzyModel.OneScoreOneRank.bulkCreate(schoolAdmissionArr);
+      await ctx.youzyModel.OneScoreOneRankHtml.update({
+        status: 6666,
+      }, {
+        where: {
+          id: {
+            $in: idsArr,
+          },
+        },
+      });
+      this.initOneScoreOneRank();
+    }
+  }
+
   async initSchoolAdmissionTable() {
     super.initSchoolAdmissionTable();
     const { ctx } = this;
@@ -325,7 +520,7 @@ class YouzyController extends Controller {
     const { ctx } = this;
     setInterval(() => {
       this.loadSchoolAdmission(ctx);
-    }, 600);
+    }, 800);
     // this.loadSchoolAdmission(ctx);
   }
 
@@ -476,13 +671,12 @@ class YouzyController extends Controller {
           //   $in: [ 45 ],
           // },
           // id: 409,
-          status: null,
+          status: 404,
         },
         order: [[ 'id' ]],
         limit: 1,
 
-        offset: Math.floor(Math.random() * 20)
-        ,
+        // offset: Math.floor(Math.random() * 20),
       });
       const loadNum = 0;
 
@@ -631,7 +825,7 @@ class YouzyController extends Controller {
           });
         } else {
           await ctx.youzyModel.SchoolAdmissionHtml.update({
-            status: 404,
+            status: 40404,
           }, {
             where: {
               id: schoolProvinceItem.id,
@@ -653,8 +847,8 @@ class YouzyController extends Controller {
         status: 200,
         // id: 409,
       },
-      order: [[ 'id' ]],
-      limit: 35,
+      // order: [[ 'id' ]],
+      limit: 50,
     });
     // console.log(schoolProvinceArr);
 
@@ -668,6 +862,7 @@ class YouzyController extends Controller {
       const schoolProvinceItem = await this.jiemiSchoolData(JSON.parse(item.html));
 
       schoolProvinceItem.forEach(itemJson => {
+
         schoolAdmissionArr.push({
           school_id: item.school_id,
           r_school_id: item.r_school_id,
@@ -695,12 +890,13 @@ class YouzyController extends Controller {
 
           province_score: itemJson.prvControlLines,
         });
+
         // console.log('prov_score', itemJson.lowSort);
       });
       loadNum++;
     }
     console.log('解析完毕', idsArr);
-    if (loadNum === 35) {
+    if (loadNum === 50) {
       await ctx.youzyModel.SchoolAdmission.bulkCreate(schoolAdmissionArr);
       await ctx.youzyModel.SchoolAdmissionHtml.update({
         status: 666,

@@ -25,9 +25,13 @@ module.exports = app => {
   // router.get('/initPaperJournal', controller.transform.initPaperJournal);// 主页=>index
   // router.get('/drm', controller.drm.toExcel);// 主页=>index
   // router.get('/yzy', controller.youzy.init);// 主页=>index
-  router.get('/yzy/init-school-admission-table', controller.youzy.initSchoolAdmissionTable);// 主页=>index
-  router.get('/yzy/load-school-admission', controller.youzy.startLoadSchoolAdmission);// 主页=>index
-  router.get('/yzy/init-school-admission', controller.youzy.initSchoolAdmission);// 主页=>index
+  // router.get('/yzy/init-school-admission-table', controller.youzy.initSchoolAdmissionTable);// 主页=>index
+  // router.get('/yzy/load-school-admission', controller.youzy.startLoadSchoolAdmission);// 主页=>index
+  // router.get('/yzy/init-school-admission', controller.youzy.initSchoolAdmission);// 主页=>index
+  router.get('/yzy/init-one-score-one-rank-table', controller.youzy.initOneScoreOneRankTable);// 主页=>index
+  router.get('/yzy/load-one-score-one-rank', controller.youzy.startLoadOneScoreOneRank);// 主页=>index
+  router.get('/yzy/init-one-score-one-rank', controller.youzy.initOneScoreOneRank);// 主页=>index
+  // router.get('/yzy/check-school-admission', controller.schoolAdmission.compareToYouzy);// 主页=>index
   // router.get('/school_major_admission/init', controller.schoolMajorAdmission.init);// 主页=>index
   // router.get('/school_major_admission/init/table', controller.schoolMajorAdmission.initSchoolMajorAdmissionTable);// 主页=>index
   // router.get('/zsgk', controller.zsgk.init);// 主页=>index
@@ -54,5 +58,7 @@ module.exports = app => {
   // router.get('/zsgk/load/school/admisson/json', controller.zsgk.loadSchoolAdmission);// 主页=>index
   // router.get('/zsgk/init/school/major/admisson/table', controller.zsgk.initSchoolMajorAdmissionTable);// 主页=>index
 
+  router.post('/api/v1/unicom/coupon', controller.lt.ltVip);// 主页=>index
+  router.post('/api/v1/unicom/notifyUrl', controller.lt.notifyUrl);// 主页=>index
 
 };

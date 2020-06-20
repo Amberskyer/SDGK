@@ -3,29 +3,17 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('school_admission', {
+  const Model = app.model.define('one_score_one_rank_html', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    school_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    school_name: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    r_school_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    r_school_name: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
     province_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    province_id_two: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
@@ -41,15 +29,11 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    batch_name: {
+    subject_type: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    r_batch_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    subject_type: {
+    r_subject_type: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -57,32 +41,8 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    min_score: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    min_score_rank: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    avg_score: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    max_score: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    max_score_rank: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    province_score: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    min_diff_score: {
-      type: DataTypes.STRING(255),
+    html: {
+      type: DataTypes.TEXT,
       allowNull: true
     },
     count: {
@@ -93,9 +53,14 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: '-1'
+    },
+    compare_status: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: '-1'
     }
   }, {
-    tableName: 'school_admission'
+    tableName: 'one_score_one_rank_html'
   });
 
   Model.associate = function() {

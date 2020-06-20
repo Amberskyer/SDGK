@@ -6,89 +6,94 @@ module.exports = app => {
   const Model = app.youzyModel.define('school_admission', {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      primaryKey: true,
+      allowNull: false,
+      primaryKey: true
     },
     school_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: true
     },
     school_name: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     r_school_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: true
     },
     r_school_name: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     province_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: true
     },
     r_province_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: true
     },
     province_name: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     r_province_name: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     batch_name: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     r_batch_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: true
     },
     subject_type: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     year: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     min_score: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     min_score_rank: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     avg_score: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     max_score: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     max_score_rank: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     province_score: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     min_diff_score: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: true
     },
     count: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    status: {
       type: DataTypes.STRING(255),
       allowNull: true,
-    },
+      defaultValue: '-1'
+    }
   }, {
     tableName: 'school_admission',
     timestamps: false,
@@ -97,7 +102,7 @@ module.exports = app => {
 
   Model.associate = function() {
 
-  };
+  }
 
   return Model;
 };

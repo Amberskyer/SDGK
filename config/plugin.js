@@ -26,3 +26,10 @@ exports.validate = {
   enable: true,
   package: 'egg-validate',
 };
+
+
+/*   (info:)    跨域   */
+exports.cors = {
+  enable: true,
+  package: 'egg-cors',
+};

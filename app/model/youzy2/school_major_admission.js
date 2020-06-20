@@ -109,6 +109,10 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    province_score: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     chooseLevel: {
       type: DataTypes.STRING(255),
       allowNull: true

@@ -8,6 +8,10 @@
   "auth": {
     "match": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js"
   },
+  "ChinaUnicom": {
+    "productCode": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js",
+    "key": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js"
+  },
   "view": {
     "root": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js",
     "mapping": {
@@ -57,20 +61,11 @@
       "maxFreeSockets": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js"
     }
   },
-  "session": {
-    "maxAge": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
-    "key": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
-    "httpOnly": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
-    "encrypt": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js"
-  },
   "security": {
-    "domainWhiteList": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-    "protocolWhiteList": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-    "defaultMiddleware": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
     "csrf": {
-      "enable": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "enable": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js",
+      "ignoreJSON": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js",
       "type": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
-      "ignoreJSON": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
       "useSession": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
       "cookieName": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
       "sessionName": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
@@ -80,9 +75,12 @@
       "refererWhiteList": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
     "xframe": {
-      "enable": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+      "enable": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js",
       "value": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     },
+    "domainWhiteList": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
     "hsts": {
       "enable": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.local.js",
       "maxAge": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
@@ -116,6 +114,16 @@
       "ipBlackList": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js",
       "checkAddress": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
     }
+  },
+  "cors": {
+    "origin": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js",
+    "allowMethods": "C:\\Documents\\GitHub\\AmberEgg\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-session\\config\\config.default.js"
   },
   "helper": {
     "shtml": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg-security\\config\\config.default.js"
@@ -230,6 +238,7 @@
       "formstream": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "fs": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "jsonwebtoken": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "md5-node": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "mysql2": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "node-xlsx": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "path": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",

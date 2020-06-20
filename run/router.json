@@ -6,8 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/yzy/init-school-admission-table",
-    "regexp": "/^\\/yzy\\/init-school-admission-table(?:\\/(?=$))?$/",
+    "path": "/yzy/init-one-score-one-rank-table",
+    "regexp": "/^\\/yzy\\/init-one-score-one-rank-table(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -19,8 +19,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/yzy/load-school-admission",
-    "regexp": "/^\\/yzy\\/load-school-admission(?:\\/(?=$))?$/",
+    "path": "/yzy/load-one-score-one-rank",
+    "regexp": "/^\\/yzy\\/load-one-score-one-rank(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -32,8 +32,32 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/yzy/init-school-admission",
-    "regexp": "/^\\/yzy\\/init-school-admission(?:\\/(?=$))?$/",
+    "path": "/yzy/init-one-score-one-rank",
+    "regexp": "/^\\/yzy\\/init-one-score-one-rank(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/v1/unicom/coupon",
+    "regexp": "/^\\/api\\/v1\\/unicom\\/coupon(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/v1/unicom/notifyUrl",
+    "regexp": "/^\\/api\\/v1\\/unicom\\/notifyUrl(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

@@ -22,6 +22,15 @@ module.exports = appInfo => {
   };
 
 
+  config.ChinaUnicom = {
+    productCode: [
+      { type: 'TR', value: 'gk0001' },
+      { type: 'U', value: 'gk0002' },
+    ],
+    key: 'cac07806c9cd24ecceb5204a32de27de',
+  };
+
+
   /*   (important:)   模板位置  */
   config.view = {
     root: [
@@ -273,6 +282,26 @@ module.exports = appInfo => {
       // 最大空闲 socket 数
       maxFreeSockets: 256,
     },
+  };
+
+
+
+  /*   (important:)   跨域设置  */
+  config.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true,
+    },
+    xframe: {
+      enable: false,
+    },
+    // domainWhiteList: [ '127.0.0.3' ], // 配置白名单
+  };
+  //
+  // /*   (important:)   跨域设置  */3
+  config.cors = {
+    origin: '*', // 允许所有跨域访问，注释掉则允许上面 白名单 访问
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   };
 
   return config;
