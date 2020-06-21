@@ -71,9 +71,8 @@ class KKController extends Controller {
     // const rank = null;
     // const last_rank = null;
     // const rankStep = 1000;
-    const sumNum = 0;
 
-    for (let i = 0; i < 80000; i = i + 4000) {
+    for (let i = 0; i < 168640; i = i + 4000) {
 
       initItem(i);
     }
@@ -91,6 +90,7 @@ class KKController extends Controller {
         offset: offsetNum,
       });
 
+      let sumNum = 0
       for (let i = 0; i < 50; i++) {
         const rateListItem = rateList[i];
         if (!rateListItem) {
@@ -122,6 +122,7 @@ class KKController extends Controller {
         // console.log(schoolProvinceResult.data);
         if (schoolProvinceResult.status !== 200) {
           console.log('停了停了————————————————————————————————————');
+          sumNum++
         } else if (schoolProvinceResult.status === 200) {
           const rateInfo = schoolProvinceResult.data.data;
           const item = {
@@ -144,11 +145,13 @@ class KKController extends Controller {
               id: rateListItem.id,
             },
           });
+          sumNum++;
+        }
+      }
 
-        }
-        if (i === 49) {
-          await initItem(offsetNum);
-        }
+
+      if (sumNum === 50) {
+        await initItem(offsetNum);
       }
     }
   }
