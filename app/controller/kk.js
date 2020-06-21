@@ -83,11 +83,14 @@ class KKController extends Controller {
       const rateList = await ctx.kkModel.RateTable.findAll({
         where: {
           status: -1,
+          id: {
+            $gt: offsetNum,
+          },
           // probability: rate,
         }, // WHERE 条件
         // order: [[ 'probability' ]],
         limit: 50,
-        offset: offsetNum,
+        // offset: offsetNum,
       });
 
       let sumNum = 0
