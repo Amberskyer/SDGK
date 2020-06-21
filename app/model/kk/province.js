@@ -17,6 +17,14 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    pin_yin: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    pin_yin_two: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     status: {
       type: DataTypes.INTEGER(11),
       allowNull: true,

@@ -1,5 +1,6 @@
 'use strict';
 const MD5 = require('md5-node');
+const fs = require('fs');
 const Controller = require('../care/base_controller');
 const SchoolListJson = require('../data/rest.json');
 const qs = 'qs';
@@ -29,7 +30,6 @@ class KKController extends Controller {
     await ctx.kkModel.School.bulkCreate(schoolArr);
 
   }
-
 
   async initRateTable() {
 
@@ -61,7 +61,7 @@ class KKController extends Controller {
     }
   }
 
-  async loadRate() {
+  async loadRateTable() {
 
     const { ctx } = this;
     // schoolList = await ctx.kkModel.school.findAll();
@@ -93,7 +93,7 @@ class KKController extends Controller {
         // offset: offsetNum,
       });
 
-      let sumNum = 0
+      let sumNum = 0;
       for (let i = 0; i < 50; i++) {
         const rateListItem = rateList[i];
         if (!rateListItem) {
@@ -125,7 +125,7 @@ class KKController extends Controller {
         // console.log(schoolProvinceResult.data);
         if (schoolProvinceResult.status !== 200) {
           console.log('停了停了————————————————————————————————————');
-          sumNum++
+          sumNum++;
         } else if (schoolProvinceResult.status === 200) {
           const rateInfo = schoolProvinceResult.data.data;
           const item = {
@@ -160,6 +160,96 @@ class KKController extends Controller {
   }
 
 
+  async initRate() {
+
+    const { ctx } = this;
+    const provinceList = await ctx.kkModel.Province.findAll();
+    const provinceObj = {};
+    provinceList.forEach(item => {
+      provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
+    });
+
+    for (let i = 0; i < provinceList.length; i = i + 4000) {
+
+      initItem(provinceList[i].province_name);
+    }
+
+    async function initItem(location) {
+
+
+      const rateArrResult = await ctx.kkModel.RateTable.findAll({
+        where: {
+          status: 200,
+          location,
+          // probability: rate,
+        }, // WHERE 条件
+        attributes: [ 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
+        // order: [[ 'probability' ]],
+        limit: 10,
+        // offset: offsetNum,
+      });
+
+      const rateArr = [];
+      const idsArr = [];
+      for (let j = 0; j < rateArrResult.length; j++) {
+        const rateResult = rateArrResult[j];
+
+        const minScore = rateResult.low_score;
+
+        for (let i = minScore; i <= 750; i++) {
+          const item = {
+            college: rateResult.college,
+            aos: rateResult.aos,
+            batch: rateResult.batch,
+            location: rateResult.location,
+            student_rank: rateResult.student_rank,
+            score: rateResult.score,
+            year: rateResult.year,
+            low_rank: rateResult.low_rank,
+            low_score: rateResult.low_score,
+          };
+          rateArr.push(item);
+        }
+
+        idsArr.push(rateResult.id);
+      }
+
+      await ctx.kkModel[provinceObj.location].bulkCreate(rateArr);
+
+      await ctx.kkModel.RateTable.update({
+        status: 6666,
+      }, {
+        where: {
+          id: {
+            $in: idsArr,
+          },
+        },
+      });
+
+      await initItem(location);
+    }
+
+  }
+
+  async initRateProvinceSql() {
+    const { ctx } = this;
+    const provinceList = await ctx.kkModel.Province.findAll();
+    // for (let i = 0; i < provinceList.length; i++) {
+    //   const provinceListItem = provinceList[i];
+    //   const RateSqlStr = await fs.readFileSync('.\\app\\data\\rate.sql');
+    //   console.log(RateSqlStr.toString());
+    //   const sqlStr = RateSqlStr.toString().replace(/rate/g, `rate_${provinceListItem.pin_yin}`);
+    //   await fs.writeFileSync(`.\\app\\data\\rate_${provinceListItem.pin_yin}.sql`, sqlStr);
+    // }
+    for (let i = 0; i < provinceList.length; i++) {
+      const provinceListItem = provinceList[i];
+      const RateSqlStr = await fs.readFileSync('.\\app\\model\\kk\\rate.js');
+      console.log(RateSqlStr.toString());
+      const sqlStr = RateSqlStr.toString().replace(/rate/g, `rate_${provinceListItem.pin_yin}`);
+      await fs.writeFileSync(`.\\app\\model\\kk\\rate_${provinceListItem.pin_yin}.js`, sqlStr);
+    }
+  }
 }
+
 
 module.exports = KKController;
