@@ -18,6 +18,32 @@ class BaseController extends Controller {
   }
 
 
+  // set rate(val) {
+  //   this.ctx.session.rate = val;
+  // }
+  //
+  // get rate() {
+  //   return this.ctx.session.rate || 101;
+  // }
+  //
+  //
+  // set rank(val) {
+  //   this.ctx.session.rank = val;
+  // }
+  //
+  // get rank() {
+  //   return this.ctx.session.rank || 1;
+  // }
+  //
+  //
+  // set rankStep(val) {
+  //   this.ctx.session.rankStep = val;
+  // }
+  //
+  // get rankStep() {
+  //   return this.ctx.session.rankStep || 1000;
+  // }
+
   async loadSchool() {
   // ...
   }

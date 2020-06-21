@@ -6,8 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/yzy/init-one-score-one-rank-table",
-    "regexp": "/^\\/yzy\\/init-one-score-one-rank-table(?:\\/(?=$))?$/",
+    "path": "/kk/init-school",
+    "regexp": "/^\\/kk\\/init-school(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -19,8 +19,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/yzy/load-one-score-one-rank",
-    "regexp": "/^\\/yzy\\/load-one-score-one-rank(?:\\/(?=$))?$/",
+    "path": "/kk/init-rate-table",
+    "regexp": "/^\\/kk\\/init-rate-table(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -32,8 +32,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/yzy/init-one-score-one-rank",
-    "regexp": "/^\\/yzy\\/init-one-score-one-rank(?:\\/(?=$))?$/",
+    "path": "/kk/load-rate",
+    "regexp": "/^\\/kk\\/load-rate(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

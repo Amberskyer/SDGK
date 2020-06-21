@@ -28,9 +28,13 @@ module.exports = app => {
   // router.get('/yzy/init-school-admission-table', controller.youzy.initSchoolAdmissionTable);// 主页=>index
   // router.get('/yzy/load-school-admission', controller.youzy.startLoadSchoolAdmission);// 主页=>index
   // router.get('/yzy/init-school-admission', controller.youzy.initSchoolAdmission);// 主页=>index
-  router.get('/yzy/init-one-score-one-rank-table', controller.youzy.initOneScoreOneRankTable);// 主页=>index
-  router.get('/yzy/load-one-score-one-rank', controller.youzy.startLoadOneScoreOneRank);// 主页=>index
-  router.get('/yzy/init-one-score-one-rank', controller.youzy.initOneScoreOneRank);// 主页=>index
+  // router.get('/yzy/init-one-score-one-rank-table', controller.youzy.initOneScoreOneRankTable);// 主页=>index
+  // router.get('/yzy/load-one-score-one-rank', controller.youzy.startLoadOneScoreOneRank);// 主页=>index
+  // router.get('/yzy/init-one-score-one-rank', controller.youzy.initOneScoreOneRank);// 主页=>index
+  // router.get('/kk/init', controller.kk.init);// 主页=>index
+  router.get('/kk/init-school', controller.kk.initSchool);// 主页=>index
+  router.get('/kk/init-rate-table', controller.kk.initRateTable);// 主页=>index
+  router.get('/kk/load-rate', controller.kk.loadRate);// 主页=>index
   // router.get('/yzy/check-school-admission', controller.schoolAdmission.compareToYouzy);// 主页=>index
   // router.get('/school_major_admission/init', controller.schoolMajorAdmission.init);// 主页=>index
   // router.get('/school_major_admission/init/table', controller.schoolMajorAdmission.initSchoolMajorAdmissionTable);// 主页=>index

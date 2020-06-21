@@ -206,19 +206,28 @@ module.exports = appInfo => {
         host: '127.0.0.1',
         port: 3306,
       },
-      { delegate: 'sdgkModel', // load all models to app.model and ctx.model
-        baseDir: 'model/sdgk', // load models from `app/model/*.js`
+      // { delegate: 'sdgkModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/sdgk', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'sdgk',
+      //   username: 'root',
+      //   password: '123456',
+      //   host: '127.0.0.1',
+      //   port: 3306,
+      // },
+      // { delegate: 'cSchoolMajorAdmissionModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/c_school_major_admission', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'c_school_major_admission',
+      //   username: 'root',
+      //   password: '123456',
+      //   host: '127.0.0.1',
+      //   port: 3306,
+      // },
+      { delegate: 'kkModel', // load all models to app.model and ctx.model
+        baseDir: 'model/kk', // load models from `app/model/*.js`
         dialect: 'mysql',
-        database: 'sdgk',
-        username: 'root',
-        password: '123456',
-        host: '127.0.0.1',
-        port: 3306,
-      },
-      { delegate: 'cSchoolMajorAdmissionModel', // load all models to app.model and ctx.model
-        baseDir: 'model/c_school_major_admission', // load models from `app/model/*.js`
-        dialect: 'mysql',
-        database: 'c_school_major_admission',
+        database: 'kk',
         username: 'root',
         password: '123456',
         host: '127.0.0.1',

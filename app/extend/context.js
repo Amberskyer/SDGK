@@ -115,10 +115,10 @@ module.exports = {
         // Host: 'kns.cnki.net',
       },
     }).then(function(res) {
-      console.log(res);
+      // console.log(res);
       return res;
     }).catch(function(err) {
-      console.log(err);
+      // console.log(err);
       return err;
     });
     return result;
