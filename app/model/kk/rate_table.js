@@ -57,6 +57,10 @@ module.exports = app => {
       type: DataTypes.INTEGER(11),
       allowNull: true,
     },
+    html: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
   }, {
     tableName: 'rate_table',
     timestamps: false,

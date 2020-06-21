@@ -6,32 +6,6 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/init-school",
-    "regexp": "/^\\/kk\\/init-school(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/kk/init-rate-table",
-    "regexp": "/^\\/kk\\/init-rate-table(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
     "path": "/kk/load-rate",
     "regexp": "/^\\/kk\\/load-rate(?:\\/(?=$))?$/",
     "stack": [

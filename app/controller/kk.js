@@ -73,9 +73,9 @@ class KKController extends Controller {
     // const rankStep = 1000;
     const sumNum = 0;
 
-    for (let i = 0; i < 168640; i = i + 2720) {
+    for (let i = 0; i < 80000; i = i + 4000) {
 
-      await initItem(i);
+      initItem(i);
     }
 
     async function initItem(offsetNum) {
@@ -87,13 +87,16 @@ class KKController extends Controller {
           // probability: rate,
         }, // WHERE 条件
         // order: [[ 'probability' ]],
-        limit: 5,
+        limit: 50,
         offset: offsetNum,
       });
 
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 50; i++) {
         const rateListItem = rateList[i];
-
+        if (!rateListItem) {
+          await initItem(offsetNum);
+          return;
+        }
         const student_rank = rateListItem.student_rank;
         const score = 750;
         const college = rateListItem.college;
@@ -133,6 +136,7 @@ class KKController extends Controller {
             low_rank: rateInfo.lowest_rank,
             low_score: rateInfo.lowest_score,
             status: 200,
+            html: JSON.stringify(schoolProvinceResult.data),
           };
 
           await ctx.kkModel.RateTable.update(item, {
@@ -142,7 +146,7 @@ class KKController extends Controller {
           });
 
         }
-        if (i === 4) {
+        if (i === 49) {
           await initItem(offsetNum);
         }
       }
