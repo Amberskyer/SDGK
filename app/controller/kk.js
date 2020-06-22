@@ -169,7 +169,7 @@ class KKController extends Controller {
       provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
     });
 
-    for (let i = 0; i < provinceList.length; i = i + 4000) {
+    for (let i = 0; i < provinceList.length; i++) {
 
       initItem(provinceList[i].province_name);
     }
@@ -183,7 +183,7 @@ class KKController extends Controller {
           location,
           // probability: rate,
         }, // WHERE 条件
-        attributes: [ 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
+        attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
         // order: [[ 'probability' ]],
         limit: 10,
         // offset: offsetNum,
@@ -203,7 +203,7 @@ class KKController extends Controller {
             batch: rateResult.batch,
             location: rateResult.location,
             student_rank: rateResult.student_rank,
-            score: rateResult.score,
+            score: i,
             year: rateResult.year,
             low_rank: rateResult.low_rank,
             low_score: rateResult.low_score,
@@ -213,8 +213,12 @@ class KKController extends Controller {
 
         idsArr.push(rateResult.id);
       }
+      console.log(provinceObj);
+      console.log(location);
+      console.log(provinceObj[location]);
+      console.log(idsArr);
 
-      await ctx.kkModel[provinceObj.location].bulkCreate(rateArr);
+      await ctx.kkModel[provinceObj[location]].bulkCreate(rateArr);
 
       await ctx.kkModel.RateTable.update({
         status: 6666,
@@ -226,9 +230,143 @@ class KKController extends Controller {
         },
       });
 
-      await initItem(location);
+      if (idsArr.length !== 0) {
+        await initItem(location);
+      }
     }
 
+  }
+
+
+  async loadRate() {
+
+    const { ctx } = this;
+    const provinceList = await ctx.kkModel.Province.findAll();
+    const provinceObj = {};
+    provinceList.forEach(item => {
+      provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
+    });
+
+    for (let i = 0; i < provinceList.length; i++) {
+
+      initItem(provinceList[i].province_name);
+    }
+
+    async function initItem(location) {
+
+
+      const rateList = await ctx.kkModel[provinceObj[location]].findAll({
+        where: {
+          // status: {
+          //   $in: [ 200, 800 ],
+          // },
+          status: -1,
+        // probability: rate,
+        }, // WHERE 条件
+        // order: [[ 'probability' ]],
+        attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
+        limit: 10,
+      // offset: offsetNum,
+      });
+
+      if (rateList.length !== 0) {
+
+        let sumNum = 0;
+        const idsArrFor404 = [];
+        let isEnough = false;
+        for (let i = 0; i < rateList.length; i++) {
+          if (!isEnough) {
+            const rateListItem = rateList[i];
+            const score = rateListItem.score;
+            const college = rateListItem.college;
+            const location = rateListItem.location;
+            const aos = rateListItem.aos;
+            const year = rateListItem.year;
+
+            const url = 'https://quark.sm.cn/api/rest';
+            const params = {
+              url: '/api/rest',
+              method: 'QuarkGaoKao.getPredictColleges',
+              location,
+              aos,
+              score,
+              year,
+              college,
+            };
+            // url = url + '?' + qs.stringify(params);
+            // console.log({ url });
+            const cookie = '__wpkreporterwid_=f4f9c5ea-fa79-46d6-22b7-4b37c8c14713; sm_diu=241e20eaddceb7aaee89eea2fbbcad02%7C%7C11eef1ee4faf608587%7C1589539220; sm_uuid=e4e969d7e31bec7e0bd2fe182355e710%7C%7C%7C1592634858; sm_sid=a0780ee052cbc310f3e278133a78d241; phid=a0780ee052cbc310f3e278133a78d241';
+            const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
+            // console.log(schoolProvinceResult.data);
+
+
+            if (schoolProvinceResult.status !== 200) {
+              // 统一处理拉取失败的数据
+              idsArrFor404.push(rateListItem.id);
+              sumNum++;
+            } else if (schoolProvinceResult.status === 200) {
+              const rateInfo = schoolProvinceResult.data.data;
+              const _rate = Math.ceil(rateInfo.probability * 100);
+              if (_rate < 100) {
+                const item = {
+                  student_rank: rateInfo.student_rank,
+                  probability: _rate,
+                  status: 20202,
+                };
+                await ctx.kkModel[provinceObj[location]].update(item, {
+                  where: {
+                    id: rateListItem.id,
+                  },
+                });
+                sumNum++;
+              } else {
+
+                const item = {
+                  student_rank: rateInfo.student_rank,
+                  probability: _rate,
+                  status: 8080808,
+                };
+                await ctx.kkModel[provinceObj[location]].update(item, {
+                  where: {
+                    id: rateListItem.id,
+                  },
+                });
+
+                await ctx.kkModel[provinceObj[location]].update({
+                  status: 8080808,
+                }, {
+                  where: {
+                    status: -1,
+                    college,
+                    aos,
+                    location,
+                    year,
+                  },
+                });
+                isEnough = true;
+                // await initItem(location);
+              }
+            }
+          }
+
+        }
+
+        if (isEnough || sumNum === rateList.length) {
+          if (idsArrFor404.length !== 0) {
+            await ctx.kkModel[provinceObj[location]].update({
+              status: 40404,
+            }, {
+              where: {
+                id: {
+                  $in: idsArrFor404,
+                },
+              },
+            });
+          }
+          await initItem(location);
+        }
+      }
+    }
   }
 
   async initRateProvinceSql() {
