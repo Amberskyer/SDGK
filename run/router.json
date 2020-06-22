@@ -6,8 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate",
-    "regexp": "/^\\/kk\\/load-rate(?:\\/(?=$))?$/",
+    "path": "/kk/init-rate",
+    "regexp": "/^\\/kk\\/init-rate(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
