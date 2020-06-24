@@ -238,7 +238,7 @@ class KKController extends Controller {
   }
 
 
-  async loadRate() {
+  async loadRate2() {
 
     const { ctx } = this;
     const provinceList = await ctx.kkModel.Province.findAll();
@@ -249,8 +249,10 @@ class KKController extends Controller {
 
     for (let i = 0; i < provinceList.length; i++) {
 
-      initItem(provinceList[i].province_name);
+      await initItem(provinceList[i].province_name);
     }
+
+    // initItem('四川');
 
     async function initItem(location) {
 
@@ -260,13 +262,13 @@ class KKController extends Controller {
           // status: {
           //   $in: [ 200, 800 ],
           // },
-          status: -1,
-        // probability: rate,
+          status: 80808,
+          // probability: rate,
         }, // WHERE 条件
         // order: [[ 'probability' ]],
         attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
-        limit: 10,
-      // offset: offsetNum,
+        limit: 20,
+        // offset: offsetNum,
       });
 
       if (rateList.length !== 0) {
@@ -311,6 +313,7 @@ class KKController extends Controller {
                 const item = {
                   student_rank: rateInfo.student_rank,
                   probability: _rate,
+                  batch: rateInfo.batch,
                   status: 20202,
                 };
                 await ctx.kkModel[provinceObj[location]].update(item, {
@@ -323,6 +326,144 @@ class KKController extends Controller {
 
                 const item = {
                   student_rank: rateInfo.student_rank,
+                  probability: _rate,
+                  batch: rateInfo.batch,
+                  status: 8080808,
+                };
+                await ctx.kkModel[provinceObj[location]].update(item, {
+                  where: {
+                    id: rateListItem.id,
+                  },
+                });
+
+                await ctx.kkModel[provinceObj[location]].update({
+                  status: 8080808,
+                }, {
+                  where: {
+                    status: 80808,
+                    college,
+                    aos,
+                    // location,
+                    // year,
+                  },
+                });
+                isEnough = true;
+                await initItem(location);
+              }
+            }
+          }
+
+        }
+
+        if (isEnough || sumNum === rateList.length) {
+          if (idsArrFor404.length !== 0) {
+            await ctx.kkModel[provinceObj[location]].update({
+              status: 40404,
+            }, {
+              where: {
+                id: {
+                  $in: idsArrFor404,
+                },
+              },
+            });
+          }
+          await initItem(location);
+        }
+      } else {
+        console.log(location, '跑完了');
+      }
+    }
+  }
+
+  async loadRate() {
+
+    const { ctx } = this;
+    const provinceList = await ctx.kkModel.Province.findAll();
+    const provinceObj = {};
+    provinceList.forEach(item => {
+      provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
+    });
+
+    for (let i = 0; i < provinceList.length; i++) {
+
+      initItem(provinceList[i].province_name);
+    }
+
+    // initItem('四川');
+
+    async function initItem(location) {
+
+
+      const rateList = await ctx.kkModel[provinceObj[location]].findAll({
+        where: {
+          // status: {
+          //   $in: [ 200, 800 ],
+          // },
+          status: 20202,
+        // probability: rate,
+        }, // WHERE 条件
+        // order: [[ 'probability' ]],
+        attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
+        limit: 30,
+      // offset: offsetNum,
+      });
+
+      if (rateList.length !== 0) {
+
+        let sumNum = 0;
+        const idsArrFor404 = [];
+        let isEnough = false;
+        for (let i = 0; i < rateList.length; i++) {
+          if (!isEnough) {
+            const rateListItem = rateList[i];
+            const score = rateListItem.score;
+            const college = rateListItem.college;
+            const location = rateListItem.location;
+            const aos = rateListItem.aos;
+            const year = rateListItem.year;
+
+            const url = 'https://quark.sm.cn/api/rest';
+            const params = {
+              url: '/api/rest',
+              method: 'QuarkGaoKao.getPredictColleges',
+              location,
+              aos,
+              score,
+              year,
+              college,
+            };
+            // url = url + '?' + qs.stringify(params);
+            // console.log({ url });
+            const cookie = '__wpkreporterwid_=f4f9c5ea-fa79-46d6-22b7-4b37c8c14713; sm_diu=241e20eaddceb7aaee89eea2fbbcad02%7C%7C11eef1ee4faf608587%7C1589539220; sm_uuid=e4e969d7e31bec7e0bd2fe182355e710%7C%7C%7C1592634858; sm_sid=a0780ee052cbc310f3e278133a78d241; phid=a0780ee052cbc310f3e278133a78d241';
+            const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
+            // console.log(schoolProvinceResult.data);
+
+
+            if (schoolProvinceResult.status !== 200) {
+              // 统一处理拉取失败的数据
+              idsArrFor404.push(rateListItem.id);
+              sumNum++;
+            } else if (schoolProvinceResult.status === 200) {
+              const rateInfo = schoolProvinceResult.data.data;
+              const _rate = Math.ceil(rateInfo.probability * 100);
+              if (_rate < 100) {
+                const item = {
+                  student_rank: rateInfo.student_rank,
+                  batch: rateInfo.batch,
+                  probability: _rate,
+                  status: 200,
+                };
+                await ctx.kkModel[provinceObj[location]].update(item, {
+                  where: {
+                    id: rateListItem.id,
+                  },
+                });
+                sumNum++;
+              } else {
+
+                const item = {
+                  student_rank: rateInfo.student_rank,
+                  batch: rateInfo.batch,
                   probability: _rate,
                   status: 8080808,
                 };
@@ -339,12 +480,12 @@ class KKController extends Controller {
                     status: -1,
                     college,
                     aos,
-                    location,
-                    year,
+                    // location,
+                    // year,
                   },
                 });
                 isEnough = true;
-                // await initItem(location);
+                await initItem(location);
               }
             }
           }
@@ -355,6 +496,111 @@ class KKController extends Controller {
           if (idsArrFor404.length !== 0) {
             await ctx.kkModel[provinceObj[location]].update({
               status: 40404,
+            }, {
+              where: {
+                id: {
+                  $in: idsArrFor404,
+                },
+              },
+            });
+          }
+          await initItem(location);
+        }
+      } else {
+        console.log(location, '跑完了');
+      }
+    }
+  }
+
+  async loadRateBatch() {
+
+    const { ctx } = this;
+
+    const provinceList = await ctx.kkModel.Province.findAll();
+    const provinceObj = {};
+    provinceList.forEach(item => {
+      provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
+    });
+    for (let i = 0; i < provinceList.length; i++) {
+
+      await initItem(provinceList[i].province_name);
+    }
+
+    async function initItem(location) {
+
+
+      const rateList = await ctx.kkModel.Rate.findAll({
+        where: {
+          // status: {
+          //   $in: [ 200, 800 ],
+          // },
+          status: -1,
+          location,
+          // probability: rate,
+        }, // WHERE 条件
+        // order: [[ 'probability' ]],
+        attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
+        limit: 30,
+        // offset: offsetNum,
+      });
+
+      if (rateList.length !== 0) {
+
+        let sumNum = 0;
+        const idsArrFor404 = [];
+        const isEnough = false;
+        for (let i = 0; i < rateList.length; i++) {
+          if (!isEnough) {
+            const rateListItem = rateList[i];
+            const score = rateListItem.student_rank;
+            const college = rateListItem.college;
+            const location = rateListItem.location;
+            const aos = rateListItem.aos;
+            const year = rateListItem.year;
+
+            const url = 'https://quark.sm.cn/api/rest';
+            const params = {
+              url: '/api/rest',
+              method: 'QuarkGaoKao.getPredictColleges',
+              location,
+              aos,
+              score,
+              year,
+              college,
+            };
+            // url = url + '?' + qs.stringify(params);
+            // console.log({ url });
+            const cookie = 'sm_uuid=1fce9782176379015c32aca4cfb2e9ae%7C%7C%7C1592793954; sm_diu=1fce9782176379015c32aca4cfb2e9ae%7C%7C11eef1ee4fe10a7301%7C1592793954';
+            const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
+            // console.log(url, params, schoolProvinceResult.data);
+            // return;
+
+            if (schoolProvinceResult.status !== 200) {
+              // 统一处理拉取失败的数据
+              idsArrFor404.push(rateListItem.id);
+              sumNum++;
+            } else if (schoolProvinceResult.status === 200) {
+              const rateInfo = schoolProvinceResult.data.data;
+              const _rate = Math.ceil(rateInfo.probability * 100);
+              const item = {
+                student_rank: rateInfo.student_rank,
+                probability: _rate,
+                status: 200,
+              };
+              await ctx.kkModel.Rate.update(item, {
+                where: {
+                  id: rateListItem.id,
+                },
+              });
+            }
+          }
+
+        }
+
+        if (sumNum === rateList.length) {
+          if (idsArrFor404.length !== 0) {
+            await ctx.kkModel.Rate.update({
+              status: 404,
             }, {
               where: {
                 id: {

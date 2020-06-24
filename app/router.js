@@ -36,6 +36,8 @@ module.exports = app => {
   // router.get('/kk/init-rate-province_sql', controller.kk.initRateProvinceSql);// 主页=>index
   // router.get('/kk/init-rate', controller.kk.initRate);// 主页=>index
   router.get('/kk/load-rate', controller.kk.loadRate);// 主页=>index
+  router.get('/kk/load-rate2', controller.kk.loadRate2);// 主页=>index
+  router.get('/kk/load-rate-batch', controller.kk.loadRateBatch);// 主页=>index
   // router.get('/kk/init-rate-table', controller.kk.initRateTable);// 主页=>index
   // router.get('/kk/load-rate-table', controller.kk.loadRateTable);// 主页=>index
   // router.get('/yzy/check-school-admission', controller.schoolAdmission.compareToYouzy);// 主页=>index
