@@ -9,7 +9,7 @@ module.exports = app => {
       allowNull: false,
       primaryKey: true,
     },
-    school_id: {
+    r_school_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
     },
@@ -33,12 +33,8 @@ module.exports = app => {
       type: DataTypes.INTEGER(11),
       allowNull: true,
     },
-    low_rank: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true,
-    },
-    low_score: {
-      type: DataTypes.INTEGER(11),
+    r_rank: {
+      type: DataTypes.STRING(255),
       allowNull: true,
     },
     score: {
@@ -53,7 +49,36 @@ module.exports = app => {
       type: DataTypes.INTEGER(11),
       allowNull: true,
     },
+    rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    r_rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    low_rank: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    low_score: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
     status: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: '-1',
+    },
+    r_batch_id: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    r_subject_type: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    r_province_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
     },

@@ -57,6 +57,10 @@ module.exports = app => {
       type: DataTypes.INTEGER(11),
       allowNull: true,
     },
+    rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
   }, {
     tableName: 'rate_xin_jiang',
     timestamps: false,
