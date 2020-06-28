@@ -6,34 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate",
-    "regexp": "/^\\/kk\\/load-rate(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/kk/load-rate2",
-    "regexp": "/^\\/kk\\/load-rate2(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/kk/load-rate-batch",
-    "regexp": "/^\\/kk\\/load-rate-batch(?:\\/(?=$))?$/",
+    "path": "/kk/load-rate-table-for-2020",
+    "regexp": "/^\\/kk\\/load-rate-table-for-2020(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

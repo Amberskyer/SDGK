@@ -159,8 +159,236 @@ class KKController extends Controller {
     }
   }
 
+  async loadRateTableFor2020() {
+
+    const { ctx } = this;
+    // schoolList = await ctx.kkModel.school.findAll();
+
+
+    // const rate = null;
+    // const rank = null;
+    // const last_rank = null;
+    // const rankStep = 1000;
+
+    for (let i = 0; i < 168640; i = i + 40000) {
+      initItem(i);
+    }
+
+    // initItem(0);
+
+    async function initItem(offsetNum) {
+
+
+      const rateList = await ctx.kkModel.RateTable.findAll({
+        where: {
+          status: -1,
+          id: {
+            $lte: offsetNum + 10000,
+            $gte: offsetNum,
+          },
+          // probability: rate,
+        }, // WHERE 条件
+        // order: [[ 'probability' ]],
+        limit: 50,
+        // offset: offsetNum,
+      });
+
+      let sumNum = 0;
+      const idsArrFor404 = [];
+      const idsArrFor301 = [];
+      const idsArrForError = [];
+      for (let i = 0; i < rateList.length; i++) {
+        const rateListItem = rateList[i];
+        if (!rateListItem) {
+          await initItem(offsetNum);
+          return;
+        }
+        const student_rank = '';
+        const score = 750;
+        const college = rateListItem.college;
+        const location = rateListItem.location;
+        const aos = rateListItem.aos;
+        const year = rateListItem.year;
+
+        const url = 'https://quark.sm.cn/api/rest';
+        const params = {
+          url: '/api/rest',
+          method: 'QuarkGaoKao2020.getPredictColleges',
+          location,
+          aos,
+          score,
+          student_rank,
+          subjects: aos,
+          year,
+          college,
+        };
+        // url = url + '?' + qs.stringify(params);
+        // console.log({ url });
+        const cookie = '__wpkreporterwid_=e07d46a8-717d-4902-aaa0-4b59ccbcee4d; sm_uuid=1fce9782176379015c32aca4cfb2e9ae%7C%7C%7C1592793954; sm_diu=1fce9782176379015c32aca4cfb2e9ae%7C%7C11eef1ee4fe10a7301%7C1592793954; PHPSESSID=614h35h64mfgu20mlck5l1qulk';
+        const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
+        // console.log(schoolProvinceResult.data);
+        if (schoolProvinceResult.status !== 200) {
+          console.log('停了停了————————————————————————————————————');
+          sumNum++;
+          idsArrFor404.push(rateListItem.id);
+        } else if (schoolProvinceResult.data.data.status_code === 301) {
+          console.log(params, '301301————————————————————————————————————');
+          sumNum++;
+          idsArrFor301.push(rateListItem.id);
+        } else if (schoolProvinceResult.data.data.error === false) {
+          console.log(params, 'error————————————————————————————————————');
+          sumNum++;
+          idsArrForError.push(rateListItem.id);
+        } else if (schoolProvinceResult.status === 200 && schoolProvinceResult.data.status === 0) {
+          console.log(schoolProvinceResult);
+          const rateInfo = schoolProvinceResult.data.data;
+          const item = {
+            college,
+            aos,
+            location,
+            score,
+            year,
+            batch: rateInfo.college.batch,
+            student_rank: rateInfo.student_rank,
+            probability: rateInfo.college.probability,
+            low_rank: rateInfo.lowest_rank,
+            low_score: rateInfo.lowest_score,
+            status: 200,
+            html: JSON.stringify(schoolProvinceResult.data),
+          };
+          console.log(item);
+
+          await ctx.kkModel.RateTable.update(item, {
+            where: {
+              id: rateListItem.id,
+            },
+          });
+          sumNum++;
+        } else {
+          sumNum++;
+          idsArrFor404.push(rateListItem.id);
+        }
+      }
+
+
+      if (sumNum === rateList.length) {
+        if (idsArrFor404.length !== 0) {
+          await ctx.kkModel.RateTable.update({
+            status: 40404,
+          }, {
+            where: {
+              id: {
+                $in: idsArrFor404,
+              },
+            },
+          });
+        }
+        if (idsArrFor301.length !== 0) {
+          await ctx.kkModel.RateTable.update({
+            status: 30303,
+          }, {
+            where: {
+              id: {
+                $in: idsArrFor301,
+              },
+            },
+          });
+        }
+        if (idsArrForError.length !== 0) {
+          await ctx.kkModel.RateTable.update({
+            status: 50505,
+          }, {
+            where: {
+              id: {
+                $in: idsArrForError,
+              },
+            },
+          });
+        }
+        await initItem(offsetNum);
+      }
+    }
+  }
+
 
   async initRate() {
+
+    const { ctx } = this;
+    const provinceList = await ctx.kkModel.Province.findAll();
+    const provinceObj = {};
+    provinceList.forEach(item => {
+      provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
+    });
+
+    for (let i = 0; i < provinceList.length; i++) {
+
+      initItem(provinceList[i].province_name);
+    }
+
+    async function initItem(location) {
+
+
+      const rateArrResult = await ctx.kkModel.RateTable.findAll({
+        where: {
+          status: 200,
+          location,
+          // probability: rate,
+        }, // WHERE 条件
+        attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
+        // order: [[ 'probability' ]],
+        limit: 10,
+        // offset: offsetNum,
+      });
+
+      const rateArr = [];
+      const idsArr = [];
+      for (let j = 0; j < rateArrResult.length; j++) {
+        const rateResult = rateArrResult[j];
+
+        const minScore = rateResult.low_score;
+
+        for (let i = minScore; i <= 750; i++) {
+          const item = {
+            college: rateResult.college,
+            aos: rateResult.aos,
+            batch: rateResult.batch,
+            location: rateResult.location,
+            student_rank: rateResult.student_rank,
+            score: i,
+            year: rateResult.year,
+            low_rank: rateResult.low_rank,
+            low_score: rateResult.low_score,
+          };
+          rateArr.push(item);
+        }
+
+        idsArr.push(rateResult.id);
+      }
+      console.log(provinceObj);
+      console.log(location);
+      console.log(provinceObj[location]);
+      console.log(idsArr);
+
+      await ctx.kkModel[provinceObj[location]].bulkCreate(rateArr);
+
+      await ctx.kkModel.RateTable.update({
+        status: 6666,
+      }, {
+        where: {
+          id: {
+            $in: idsArr,
+          },
+        },
+      });
+
+      if (idsArr.length !== 0) {
+        await initItem(location);
+      }
+    }
+
+  }
+
+  async initRateFor2020() {
 
     const { ctx } = this;
     const provinceList = await ctx.kkModel.Province.findAll();
@@ -495,36 +723,36 @@ class KKController extends Controller {
 
     async function initItem(location) {
       sqlStr = sqlStr + `INSERT INTO rate (
-         r_school_id,
-         college,
-         aos,
-         batch,
-         location,
-         student_rank,
-         score,
-         YEAR,
-         probability,
-         rate,
-         low_rank,
-         low_score
-        )(
-         SELECT
-          school_id,
-          college,
-          aos,
-          batch,
-          location,
-          student_rank,
-          score,
-          YEAR,
-          probability,
-        \trate,
-          low_rank,
-          low_score
-         FROM
-          ${provinceObj[location]}
-         WHERE status=222
-);`;
+                                 r_school_id,
+                                 college,
+                                 aos,
+                                 batch,
+                                 location,
+                                 student_rank,
+                                 score,
+                                 YEAR,
+                                 probability,
+                                 rate,
+                                 low_rank,
+                                 low_score
+                                )(
+                                 SELECT
+                                  school_id,
+                                  college,
+                                  aos,
+                                  batch,
+                                  location,
+                                  student_rank,
+                                  score,
+                                  YEAR,
+                                  probability,
+                                \trate,
+                                  low_rank,
+                                  low_score
+                                 FROM
+                                  ${provinceObj[location]}
+                                 WHERE status=222
+                        );`;
     }
   }
 

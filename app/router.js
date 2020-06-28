@@ -36,10 +36,10 @@ module.exports = app => {
   // router.get('/kk/init-rate-province_sql', controller.kk.initRateProvinceSql);// 主页=>index
   // router.get('/kk/init-rate', controller.kk.initRate);// 主页=>index
   // router.get('/kk/load-rate', controller.kk.loadRate);// 主页=>index
-  // router.get('/kk/load-rate2', controller.kk.loadRate2);// 主页=>index
+  router.get('/kk/load-rate-table-for-2020', controller.kk.loadRateTableFor2020);// 主页=>index
   // router.get('/kk/transfer-rate', controller.kk.transferRate);// 主页=>index
   // router.get('/kk/init-table-id', controller.kk.initTableId);// 主页=>index
-  router.get('/kk/init-school-id', controller.kk.initSchoolId);// 主页=>index
+  // router.get('/kk/init-school-id', controller.kk.initSchoolId);// 主页=>index
   // router.get('/kk/init-province-id', controller.kk.initProvinceId);// 主页=>index
   // router.get('/kk/init-batch-id', controller.kk.initBatchId);// 主页=>index
   // router.get('/kk/load-rate2', controller.kk.loadRate2);// 主页=>index
