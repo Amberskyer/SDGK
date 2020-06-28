@@ -183,7 +183,7 @@ class KKController extends Controller {
         where: {
           status: -1,
           id: {
-            $lte: offsetNum + 10000,
+            $lte: offsetNum + 40000,
             $gte: offsetNum,
           },
           // probability: rate,
