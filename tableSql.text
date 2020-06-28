@@ -1,0 +1,404 @@
+
+                        ALTER TABLE `rate_an_hui`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_an_hui`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_bei_jing`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_bei_jing`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_chong_qing`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_chong_qing`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_fu_jian`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_fu_jian`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_gan_su`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_gan_su`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_guang_dong`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_guang_dong`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_guang_xi`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_guang_xi`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_gui_zhou`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_gui_zhou`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_hai_nan`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_hai_nan`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_hei_long_jiang`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_hei_long_jiang`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_he_bei`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_he_bei`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_he_nan`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_he_nan`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_hu_bei`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_hu_bei`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_hu_nan`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_hu_nan`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_ji_lin`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_ji_lin`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_jiang_su`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_jiang_su`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_jiang_xi`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_jiang_xi`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_liao_ning`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_liao_ning`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_nei_meng_gu`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_nei_meng_gu`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_ning_xia`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_ning_xia`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_qing_hai`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_qing_hai`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_shan_dong`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_shan_dong`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_shan_xi`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_shan_xi`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_shan_xi_two`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_shan_xi_two`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_shang_hai`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_shang_hai`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_si_chuan`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_si_chuan`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_tian_jin`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_tian_jin`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_xi_zang`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_xi_zang`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_xin_jiang`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_xin_jiang`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_yun_nan`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_yun_nan`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
+                        ALTER TABLE `rate_zhe_jiang`
+                         ADD COLUMN `r_school_id`  int NULL AFTER `rate`,
+                         ADD COLUMN `r_province_id`  int NULL AFTER `r_school_id`,
+                         ADD COLUMN `r_subject_type`  varchar(255) NULL AFTER `r_province_id`,
+                         ADD COLUMN `r_batch_id`  int NULL AFTER `r_subject_type`,
+                         ADD COLUMN `r_rank`  varchar(255) NULL AFTER `r_batch_id`;
+                        ALTER TABLE `rate_zhe_jiang`
+                         ADD INDEX `r_school_id` (`r_school_id`),
+                         ADD INDEX `r_province_id` (`r_province_id`),
+                         ADD INDEX `r_subject_type` (`r_subject_type`),
+                         ADD INDEX `r_batch_id` (`r_batch_id`),
+                         ADD INDEX `r_rank` (`r_rank`);
+                         
