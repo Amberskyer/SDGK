@@ -431,10 +431,13 @@ class YouzyController extends Controller {
   async initOneScoreOneRank() {
 
     const { ctx } = this;
-    const schoolProvinceArr = await ctx.youzyModel.OneScoreOneRankHtml.findAll({
+    const schoolProvinceListArr = await ctx.youzyModel.OneScoreOneRankHtml.findAll({
       where: {
         status: 666,
-        compare_status: 0,
+        html: {
+          $ne: null,
+        },
+        // compare_status: 0,
       },
       // order: [[ 'id' ]],
       limit: 1,
@@ -444,41 +447,82 @@ class YouzyController extends Controller {
     let loadNum = 0;
     const schoolAdmissionArr = [];
     const idsArr = [];
-    for (let i = 0; i < schoolProvinceArr.length; i++) {
-      const item = schoolProvinceArr[i];
-      idsArr.push(item.id);
+    for (let i = 0; i < schoolProvinceListArr.length; i++) {
+      const item = schoolProvinceListArr[i];
 
       const schoolProvinceItem = JSON.parse(item.html);
 
       schoolProvinceItem.yfyds.forEach((itemJson, indexJson) => {
+        if (indexJson === 0) {
 
-        schoolAdmissionArr.push({
-          province_id: item.province_id,
-          r_province_id: item.r_province_id,
-          r_province_name: item.r_province_name,
+          schoolAdmissionArr.push({
+            province_id: item.province_id,
+            r_province_id: item.r_province_id,
+            r_province_name: item.r_province_name,
 
-          year: itemJson.year,
+            year: itemJson.year,
 
-          province_name: itemJson.provinceName,
-          subject_type: itemJson.courseName,
+            province_name: itemJson.provinceName,
+            subject_type: itemJson.courseName,
 
-          start: itemJson.minScore,
-          end: indexJson === 0 ? 1000 : itemJson.maxScore,
+            start: itemJson.minScore + 1,
+            end: 1000,
 
 
-          count: itemJson.sameNumber,
-          rank: itemJson.lowestRank,
-        });
+            count: itemJson.sameNumber,
+            rank: itemJson.lowestRank,
+          });
+
+          schoolAdmissionArr.push({
+            province_id: item.province_id,
+            r_province_id: item.r_province_id,
+            r_province_name: item.r_province_name,
+
+            year: itemJson.year,
+
+            province_name: itemJson.provinceName,
+            subject_type: itemJson.courseName,
+
+            start: itemJson.minScore,
+            end: itemJson.minScore,
+
+
+            count: itemJson.sameNumber,
+            rank: itemJson.lowestRank,
+          });
+        } else {
+
+
+          schoolAdmissionArr.push({
+            province_id: item.province_id,
+            r_province_id: item.r_province_id,
+            r_province_name: item.r_province_name,
+
+            year: itemJson.year,
+
+            province_name: itemJson.provinceName,
+            subject_type: itemJson.courseName,
+
+            start: itemJson.minScore,
+            end: itemJson.maxScore,
+
+
+            count: itemJson.sameNumber,
+            rank: itemJson.lowestRank,
+          });
+        }
 
         // console.log('prov_score', itemJson.lowSort);
       });
+
+      idsArr.push(item.id);
       loadNum++;
     }
     console.log('解析完毕', idsArr);
-    if (loadNum === 1) {
+    if (loadNum === schoolProvinceListArr.length) {
       await ctx.youzyModel.OneScoreOneRank.bulkCreate(schoolAdmissionArr);
       await ctx.youzyModel.OneScoreOneRankHtml.update({
-        status: 6666,
+        status: 200,
       }, {
         where: {
           id: {
@@ -486,7 +530,7 @@ class YouzyController extends Controller {
           },
         },
       });
-      this.initOneScoreOneRank();
+      await this.initOneScoreOneRank();
     }
   }
 

@@ -6,8 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate-table-for-2020",
-    "regexp": "/^\\/kk\\/load-rate-table-for-2020(?:\\/(?=$))?$/",
+    "path": "/kk/load-rate",
+    "regexp": "/^\\/kk\\/load-rate(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

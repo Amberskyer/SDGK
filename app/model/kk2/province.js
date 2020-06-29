@@ -5,12 +5,12 @@ module.exports = app => {
 
   const Model = app.model.define('province', {
     id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
     province_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     province_name: {
@@ -26,16 +26,16 @@ module.exports = app => {
       allowNull: true
     },
     status: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: '-1'
     },
     province_id_two: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     r_province_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     r_province_name: {

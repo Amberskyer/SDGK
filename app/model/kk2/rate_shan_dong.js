@@ -5,12 +5,12 @@ module.exports = app => {
 
   const Model = app.model.define('rate_shan_dong', {
     id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
     school_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     college: {
@@ -30,19 +30,19 @@ module.exports = app => {
       allowNull: true
     },
     student_rank: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     score: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     year: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     probability: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     low_rank: {
@@ -57,10 +57,6 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: '-1'
-    },
-    rate: {
-      type: DataTypes.STRING(255),
-      allowNull: true
     }
   }, {
     tableName: 'rate_shan_dong'

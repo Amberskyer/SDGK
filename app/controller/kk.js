@@ -159,6 +159,84 @@ class KKController extends Controller {
     }
   }
 
+  async checkRateTableFor2020() {
+
+    const { ctx } = this;
+    // schoolList = await ctx.kkModel.school.findAll();
+
+
+    // const rate = null;
+    // const rank = null;
+    // const last_rank = null;
+    // const rankStep = 1000;
+
+    for (let i = 0; i < 168640; i = i + 40000) {
+      initItem(i);
+    }
+
+    async function initItem(offsetNum) {
+
+      const rateList = await ctx.kkModel.RateTable.findAll({
+        where: {
+          status: 6666,
+          id: {
+            $lte: offsetNum + 40000,
+            $gte: offsetNum,
+          },
+          // probability: rate,
+        }, // WHERE 条件
+        // order: [[ 'probability' ]],
+        limit: 50,
+        // offset: offsetNum,
+      });
+
+      let sumNum = 0;
+      const idsArrFor222 = [];
+      const idsArrFor444 = [];
+
+      for (let i = 0; i < rateList.length; i++) {
+        const rateListItem = rateList[i];
+        const dataJson = JSON.parse(rateListItem.html);
+        if (dataJson.data.college.luqu_genre === rateListItem.aos) {
+          idsArrFor222.push(rateListItem.id);
+        } else {
+          idsArrFor444.push(rateListItem.id);
+        }
+        sumNum++;
+
+
+      }
+
+      if (sumNum !== 0 && sumNum === rateList.length) {
+        console.log(idsArrFor222);
+        console.log(idsArrFor444);
+        await ctx.kkModel.RateTable.update({
+          status: 222,
+        }, {
+          where: {
+            id: {
+              $in: idsArrFor222,
+            },
+          },
+        });
+
+
+        await ctx.kkModel.RateTable.update({
+          status: 444,
+        }, {
+          where: {
+            id: {
+              $in: idsArrFor444,
+            },
+          },
+        });
+      }
+
+      await initItem(offsetNum);
+
+    }
+  }
+
   async loadRateTableFor2020() {
 
     const { ctx } = this;
@@ -472,6 +550,7 @@ class KKController extends Controller {
 
   }
 
+
   async loadRate2() {
 
     const { ctx } = this;
@@ -591,7 +670,9 @@ class KKController extends Controller {
           // status: {
           //   $notIn: [ 222, 888 ],
           // },
-          status: -1,
+          status: {
+            $in: [ -1, 222 ],
+          },
         // probability: rate,
         }, // WHERE 条件
         // order: [[ 'probability' ]],
@@ -655,15 +736,26 @@ class KKController extends Controller {
             batch: rateInfo.college.batch,
             student_rank: rateInfo.student_rank,
             rate: rateInfo.college.probability,
-            status: 222,
+            status: 2222,
           };
-          console.log(item);
 
-          await ctx.kkModel[provinceObj[location]].update(item, {
-            where: {
-              id: rateListItem.id, status: -1,
-            },
-          });
+          if (aos === rateInfo.college.luqu_genre) {
+            await ctx.kkModel[provinceObj[location]].update(item, {
+              where: {
+                id: rateListItem.id, status: {
+                  $in: [ -1, 222 ],
+                },
+              },
+            });
+          } else {
+            await ctx.kkModel[provinceObj[location]].update({
+              status: 444,
+            }, {
+              where: {
+                college, aos,
+              },
+            });
+          }
           sumNum++;
           if (_rate === 100) {
             await ctx.kkModel[provinceObj[location]].update({
