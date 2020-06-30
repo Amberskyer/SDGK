@@ -170,18 +170,22 @@ class KKController extends Controller {
     // const last_rank = null;
     // const rankStep = 1000;
 
-    for (let i = 0; i < 168640; i = i + 40000) {
+    for (let i = 0; i < 168640; i = i + 4000) {
       initItem(i);
     }
 
+    // initItem(0);
     async function initItem(offsetNum) {
 
       const rateList = await ctx.kkModel.RateTable.findAll({
         where: {
-          status: 6666,
+          status: {
+            $in: [ 6666, 444 ],
+          },
           id: {
-            $lte: offsetNum + 40000,
-            $gte: offsetNum,
+            $between: [ offsetNum, offsetNum + 4000 ],
+            // $lte: offsetNum + 40000,
+            // $gte: offsetNum,
           },
           // probability: rate,
         }, // WHERE 条件
@@ -222,7 +226,7 @@ class KKController extends Controller {
 
 
         await ctx.kkModel.RateTable.update({
-          status: 444,
+          status: 4444,
         }, {
           where: {
             id: {
@@ -248,22 +252,22 @@ class KKController extends Controller {
     // const last_rank = null;
     // const rankStep = 1000;
 
-    // for (let i = 0; i < 168640; i = i + 40000) {
-    //   initItem(i);
-    // }
+    for (let i = 0; i < 168640; i = i + 40000) {
+      initItem(i);
+    }
 
-    initItem(0);
+    // initItem(0);
 
     async function initItem(offsetNum) {
 
 
       const rateList = await ctx.kkModel.RateTable.findAll({
         where: {
-          status: 200,
-          // id: {
-          // $lte: offsetNum + 40000,
-          // $gte: offsetNum,
-          // },
+          status: 505,
+          id: {
+            $lte: offsetNum + 40000,
+            $gte: offsetNum,
+          },
           // probability: rate,
         }, // WHERE 条件
         // order: [[ 'probability' ]],
@@ -349,7 +353,7 @@ class KKController extends Controller {
       }
 
 
-      if (sumNum === rateList.length) {
+      if (sumNum !== 0 && sumNum === rateList.length) {
         if (idsArrFor404.length !== 0) {
           await ctx.kkModel.RateTable.update({
             status: 404,
@@ -374,7 +378,7 @@ class KKController extends Controller {
         }
         if (idsArrForError.length !== 0) {
           await ctx.kkModel.RateTable.update({
-            status: 505,
+            status: 50505,
           }, {
             where: {
               id: {
@@ -408,7 +412,7 @@ class KKController extends Controller {
 
       const rateArrResult = await ctx.kkModel.RateTable.findAll({
         where: {
-          status: 200,
+          status: 222,
           location,
           // probability: rate,
         }, // WHERE 条件
@@ -449,10 +453,10 @@ class KKController extends Controller {
 
       await ctx.kkModel[provinceObj[location]].bulkCreate(rateArr);
 
-      if (idsArr === rateArrResult.length) {
+      if (idsArr.length !== 0 && idsArr.length === rateArrResult.length) {
 
         await ctx.kkModel.RateTable.update({
-          status: 6666,
+          status: 888,
         }, {
           where: {
             id: {
@@ -487,13 +491,13 @@ class KKController extends Controller {
 
       const rateArrResult = await ctx.kkModel.RateTable.findAll({
         where: {
-          status: 200,
+          status: 888,
           location,
           // probability: rate,
         }, // WHERE 条件
         attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status', 'r_school_id', 'r_province_id', 'r_subject_type', 'r_batch_id' ],
         // order: [[ 'probability' ]],
-        limit: 10,
+        limit: 1,
         // offset: offsetNum,
       });
 
@@ -532,10 +536,10 @@ class KKController extends Controller {
 
       await ctx.kkModel[provinceObj[location]].bulkCreate(rateArr);
 
-      if (idsArr.length === rateArrResult.length) {
+      if (idsArr.length !== 0 && idsArr.length === rateArrResult.length) {
 
         await ctx.kkModel.RateTable.update({
-          status: 6666,
+          status: 222,
         }, {
           where: {
             id: {
@@ -649,7 +653,11 @@ class KKController extends Controller {
   async loadRate() {
 
     const { ctx } = this;
-    const provinceList = await ctx.kkModel.Province.findAll();
+    const provinceList = await ctx.kkModel.Province.findAll({
+      where: {
+        status: 6,
+      },
+    });
     const provinceObj = {};
     provinceList.forEach(item => {
       provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
@@ -670,111 +678,112 @@ class KKController extends Controller {
           // status: {
           //   $notIn: [ 222, 888 ],
           // },
-          status: {
-            $in: [ -1, 222 ],
-          },
+          status: -1,
         // probability: rate,
         }, // WHERE 条件
         // order: [[ 'probability' ]],
         attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
-        limit: 20,
+        limit: 40,
       // offset: offsetNum,
       });
 
 
       let sumNum = 0;
+      let isEnough = false;
       const idsArrFor404 = [];
       const idsArrFor301 = [];
       const idsArrForError = [];
       for (let i = 0; i < rateList.length; i++) {
-        const rateListItem = rateList[i];
-        // if (!rateListItem) {
-        //   await initItem(location);
-        //   return;
-        // }
-        const student_rank = '';
-        const score = rateListItem.score;
-        const college = rateListItem.college;
-        const location = rateListItem.location;
-        const aos = rateListItem.aos;
-        const year = rateListItem.year;
+        if (!isEnough) {
+          const rateListItem = rateList[i];
+          // if (!rateListItem) {
+          //   await initItem(location);
+          //   return;
+          // }
+          const student_rank = '';
+          const score = rateListItem.score;
+          const college = rateListItem.college;
+          const location = rateListItem.location;
+          const aos = rateListItem.aos;
+          const year = rateListItem.year;
 
-        const url = 'https://quark.sm.cn/api/rest';
-        const params = {
-          url: '/api/rest',
-          method: 'QuarkGaoKao2020.getPredictColleges',
-          location,
-          aos,
-          score,
-          student_rank,
-          subjects: aos,
-          year,
-          college,
-        };
-        // url = url + '?' + qs.stringify(params);
-        // console.log({ url });
-        const cookie = '__wpkreporterwid_=e07d46a8-717d-4902-aaa0-4b59ccbcee4d; sm_uuid=1fce9782176379015c32aca4cfb2e9ae%7C%7C%7C1592793954; sm_diu=1fce9782176379015c32aca4cfb2e9ae%7C%7C11eef1ee4fe10a7301%7C1592793954; PHPSESSID=614h35h64mfgu20mlck5l1qulk';
-        const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
-        // console.log(schoolProvinceResult.data);
-        if (schoolProvinceResult.status !== 200) {
-          console.log('停了停了————————————————————————————————————');
-          sumNum++;
-          idsArrFor404.push(rateListItem.id);
-        } else if (schoolProvinceResult.data.data.status_code === 301) {
-          console.log(params, '301301————————————————————————————————————');
-          sumNum++;
-          idsArrFor301.push(rateListItem.id);
-        } else if (schoolProvinceResult.data.data.error === false) {
-          console.log(params, 'error————————————————————————————————————');
-          sumNum++;
-          idsArrForError.push(rateListItem.id);
-        } else if (schoolProvinceResult.status === 200 && schoolProvinceResult.data.status === 0) {
-          console.log(schoolProvinceResult);
-          const rateInfo = schoolProvinceResult.data.data;
-          const _rate = Math.ceil(rateInfo.college.probability * 100);
-          const item = {
-            batch: rateInfo.college.batch,
-            student_rank: rateInfo.student_rank,
-            rate: rateInfo.college.probability,
-            status: 2222,
+          const url = 'https://quark.sm.cn/api/rest';
+          const params = {
+            url: '/api/rest',
+            method: 'QuarkGaoKao2020.getPredictColleges',
+            location,
+            aos,
+            score,
+            student_rank,
+            subjects: aos,
+            year,
+            college,
           };
+          // url = url + '?' + qs.stringify(params);
+          // console.log({ url });
+          const cookie = '__wpkreporterwid_=e07d46a8-717d-4902-aaa0-4b59ccbcee4d; sm_uuid=1fce9782176379015c32aca4cfb2e9ae%7C%7C%7C1592793954; sm_diu=1fce9782176379015c32aca4cfb2e9ae%7C%7C11eef1ee4fe10a7301%7C1592793954; PHPSESSID=614h35h64mfgu20mlck5l1qulk';
+          const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
+          // console.log(schoolProvinceResult.data);
+          if (schoolProvinceResult.status !== 200) {
+            console.log('停了停了————————————————————————————————————'); -sumNum++;
+            idsArrFor404.push(rateListItem.id);
+          } else if (schoolProvinceResult.data.data.status_code === 301) {
+            console.log(params, '301301————————————————————————————————————');
+            sumNum++;
+            idsArrFor301.push(rateListItem.id);
+          } else if (schoolProvinceResult.data.data.error === false) {
+            console.log(params, 'error————————————————————————————————————');
+            sumNum++;
+            idsArrForError.push(rateListItem.id);
+          } else if (schoolProvinceResult.status === 200 && schoolProvinceResult.data.status === 0) {
+            console.log(schoolProvinceResult);
+            const rateInfo = schoolProvinceResult.data.data;
+            const _rate = Math.ceil(rateInfo.college.probability * 100);
+            const item = {
+              batch: rateInfo.college.batch,
+              student_rank: rateInfo.student_rank,
+              rate: rateInfo.college.probability,
+              risky: rateInfo.college.risky,
+              status: 222,
+            };
 
-          if (aos === rateInfo.college.luqu_genre) {
-            await ctx.kkModel[provinceObj[location]].update(item, {
-              where: {
-                id: rateListItem.id, status: {
-                  $in: [ -1, 222 ],
+            if (aos === rateInfo.college.luqu_genre) {
+              await ctx.kkModel[provinceObj[location]].update(item, {
+                where: {
+                  id: rateListItem.id, status: -1,
                 },
-              },
-            });
+              });
+            } else {
+              await ctx.kkModel[provinceObj[location]].update({
+                status: 444,
+              }, {
+                where: {
+                  college, aos,
+                },
+              });
+            }
+            sumNum++;
+            if (_rate === 100) {
+              await ctx.kkModel[provinceObj[location]].update({
+                rate: null,
+                status: 6666,
+              }, {
+                where: {
+                  college, aos, status: -1,
+                },
+              });
+              isEnough = true;
+            }
           } else {
-            await ctx.kkModel[provinceObj[location]].update({
-              status: 444,
-            }, {
-              where: {
-                college, aos,
-              },
-            });
+            sumNum++;
+            idsArrFor404.push(rateListItem.id);
           }
-          sumNum++;
-          if (_rate === 100) {
-            await ctx.kkModel[provinceObj[location]].update({
-              rate: null,
-              status: 6666,
-            }, {
-              where: {
-                college, aos, status: -1,
-              },
-            });
-          }
-        } else {
-          sumNum++;
-          idsArrFor404.push(rateListItem.id);
         }
+
       }
 
 
-      if (sumNum === rateList.length) {
+      if (isEnough || (sumNum !== 0 && sumNum === rateList.length)) {
         if (idsArrFor404.length !== 0) {
           await ctx.kkModel[provinceObj[location]].update({
             status: 404,
@@ -819,7 +828,11 @@ class KKController extends Controller {
   async transferRate() {
 
     const { ctx } = this;
-    const provinceList = await ctx.kkModel.Province.findAll();
+    const provinceList = await ctx.kkModel.Province.findAll({
+      where: {
+        status: 6,
+      },
+    });
     const provinceObj = {};
     provinceList.forEach(item => {
       provinceObj[item.province_name] = 'rate_' + item.pin_yin;
@@ -838,36 +851,27 @@ class KKController extends Controller {
 
     async function initItem(location) {
       sqlStr = sqlStr + `INSERT INTO rate (
-                                 r_school_id,
-                                 college,
-                                 aos,
-                                 batch,
-                                 location,
-                                 student_rank,
-                                 score,
-                                 YEAR,
-                                 probability,
-                                 rate,
-                                 low_rank,
-                                 low_score
-                                )(
-                                 SELECT
-                                  school_id,
-                                  college,
-                                  aos,
-                                  batch,
-                                  location,
-                                  student_rank,
-                                  score,
-                                  YEAR,
-                                  probability,
-                                \trate,
-                                  low_rank,
-                                  low_score
-                                 FROM
-                                  ${provinceObj[location]}
-                                 WHERE status=222
-                        );`;
+                              \tschool_id,
+                              \tprovince_id,
+                              \tbatch_id,
+                              \tsubject_type,
+                              \trank_begin,
+                              \trank_end,
+                              \trank_rate
+                              )(
+                              \tSELECT
+                              \t\tr_school_id,
+                              \t\tr_province_id,
+                              \t\tr_batch_id,
+                              \t\tr_subject_type,
+                              \t\tstudent_rank,
+                              \t\tstudent_rank,
+                              \t\trate
+                              \tFROM
+                              \t\t${provinceObj[location]}
+                              \tWHERE
+                              \t\trate is not null
+                              );`;
     }
   }
 
@@ -902,28 +906,27 @@ CREATE TABLE \`rate_${provinceInfo.pin_yin}\` (
   \`aos\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   \`batch\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   \`location\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  \`student_rank\` int(11) DEFAULT NULL,
-  \`score\` int(11) DEFAULT NULL,
   \`year\` int(11) DEFAULT NULL,
-  \`probability\` int(11) DEFAULT NULL,
+  \`score\` int(11) DEFAULT NULL,
+  \`student_rank\` int(11) DEFAULT NULL,
+  \`rate\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  \`risky\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  \`r_rank\` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  \`r_rate\` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   \`low_rank\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   \`low_score\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   \`status\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '-1',
-  \`rate\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   \`r_school_id\` int(11) DEFAULT NULL,
   \`r_province_id\` int(11) DEFAULT NULL,
   \`r_subject_type\` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   \`r_batch_id\` int(11) DEFAULT NULL,
-  \`r_rank\` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  \`r_rate\` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (\`id\`) USING BTREE,
   KEY \`id\` (\`id\`) USING BTREE,
   KEY \`college\` (\`college\`) USING BTREE,
   KEY \`location\` (\`location\`) USING BTREE,
-  KEY \`probability\` (\`probability\`) USING BTREE,
   KEY \`status\` (\`status\`) USING BTREE,
   KEY \`aos\` (\`aos\`),
-  KEY \`school_id\` (\`school_id\`),
+  KEY \`rate\` (\`rate\`),
   KEY \`r_school_id\` (\`r_school_id\`),
   KEY \`r_province_id\` (\`r_province_id\`),
   KEY \`r_subject_type\` (\`r_subject_type\`),
