@@ -43,6 +43,28 @@ module.exports = {
     return await this.initResult(this, result);
   },
 
+
+  async basePostForYouzy2020(url = '', data = {}, cookie, referer) {
+    const { app } = this;
+    const apiHeader = app.config.apiHeader;
+    const result = await app.curl(apiHeader + url, {
+      method: 'post',
+      dataType: 'json',
+      contentType: 'json',
+      data,
+      headers: {
+        Cookie: cookie,
+        Referer: referer,
+      },
+    }).then(async res => {
+      return res;
+    }).catch(function() {
+      return [];
+    });
+    return result;
+  },
+
+
   async basePostForWmzy(url = '', data = {}, cookie) {
     const { app } = this;
     const apiHeader = app.config.apiHeader;

@@ -495,7 +495,7 @@ class KKController extends Controller {
           location,
           // probability: rate,
         }, // WHERE 条件
-        attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status', 'r_school_id', 'r_province_id', 'r_subject_type', 'r_batch_id' ],
+        attributes: [ 'id', 'college', 'aos', 'location', 'batch', 'batch_two', 'score', 'year', 'low_rank', 'low_rank_two', 'low_score', 'low_score_two', 'status', 'r_school_id', 'r_province_id', 'r_subject_type', 'r_batch_id', 'r_batch_id_two' ],
         // order: [[ 'probability' ]],
         limit: 1,
         // offset: offsetNum,
@@ -506,33 +506,54 @@ class KKController extends Controller {
       for (let j = 0; j < rateArrResult.length; j++) {
         const rateResult = rateArrResult[j];
 
-        const minScore = rateResult.low_score;
+        if (rateResult.batch) {
+          const minScore = rateResult.low_score;
 
-        for (let i = minScore; i <= 750; i++) {
-          const item = {
-            college: rateResult.college,
-            aos: rateResult.aos,
-            batch: rateResult.batch,
-            location: rateResult.location,
-            student_rank: rateResult.student_rank,
-            score: i,
-            year: rateResult.year,
-            low_rank: rateResult.low_rank,
-            low_score: rateResult.low_score,
-            r_school_id: rateResult.r_school_id,
-            r_province_id: rateResult.r_province_id,
-            r_subject_type: rateResult.r_subject_type,
-            r_batch_id: rateResult.r_batch_id,
-          };
-          rateArr.push(item);
+          for (let i = minScore; i <= 750; i++) {
+            const item = {
+              college: rateResult.college,
+              aos: rateResult.aos,
+              batch: rateResult.batch,
+              location: rateResult.location,
+              student_rank: rateResult.student_rank,
+              score: i,
+              year: rateResult.year,
+              low_rank: rateResult.low_rank,
+              low_score: rateResult.low_score,
+              r_school_id: rateResult.r_school_id,
+              r_province_id: rateResult.r_province_id,
+              r_subject_type: rateResult.r_subject_type,
+              r_batch_id: rateResult.r_batch_id,
+            };
+            rateArr.push(item);
+          }
+        }
+
+        if (rateResult.batch_two) {
+          const minScore = rateResult.low_score_two;
+
+          for (let i = minScore; i <= rateResult.low_score; i++) {
+            const item = {
+              college: rateResult.college,
+              aos: rateResult.aos,
+              location: rateResult.location,
+              student_rank: rateResult.student_rank,
+              score: i,
+              year: rateResult.year,
+              batch: rateResult.batch_two,
+              low_rank: rateResult.low_rank_two,
+              low_score: rateResult.low_score_two,
+              r_batch_id: rateResult.r_batch_id_two,
+              r_school_id: rateResult.r_school_id,
+              r_province_id: rateResult.r_province_id,
+              r_subject_type: rateResult.r_subject_type,
+            };
+            rateArr.push(item);
+          }
         }
 
         idsArr.push(rateResult.id);
       }
-      console.log(provinceObj);
-      console.log(location);
-      console.log(provinceObj[location]);
-      console.log(idsArr);
 
       await ctx.kkModel[provinceObj[location]].bulkCreate(rateArr);
 
@@ -685,6 +706,180 @@ class KKController extends Controller {
         attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
         limit: 40,
       // offset: offsetNum,
+      });
+
+
+      let sumNum = 0;
+      let isEnough = false;
+      const idsArrFor404 = [];
+      const idsArrFor301 = [];
+      const idsArrForError = [];
+      for (let i = 0; i < rateList.length; i++) {
+        if (!isEnough) {
+          const rateListItem = rateList[i];
+          // if (!rateListItem) {
+          //   await initItem(location);
+          //   return;
+          // }
+          const student_rank = '';
+          const score = rateListItem.score;
+          const college = rateListItem.college;
+          const location = rateListItem.location;
+          const aos = rateListItem.aos;
+          const year = rateListItem.year;
+
+          const url = 'https://quark.sm.cn/api/rest';
+          const params = {
+            url: '/api/rest',
+            method: 'QuarkGaoKao2020.getPredictColleges',
+            location,
+            aos,
+            score,
+            student_rank,
+            subjects: aos,
+            year,
+            college,
+          };
+          // url = url + '?' + qs.stringify(params);
+          // console.log({ url });
+          const cookie = '__wpkreporterwid_=e07d46a8-717d-4902-aaa0-4b59ccbcee4d; sm_uuid=1fce9782176379015c32aca4cfb2e9ae%7C%7C%7C1592793954; sm_diu=1fce9782176379015c32aca4cfb2e9ae%7C%7C11eef1ee4fe10a7301%7C1592793954; PHPSESSID=614h35h64mfgu20mlck5l1qulk';
+          const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
+          // console.log(schoolProvinceResult.data);
+          if (schoolProvinceResult.status !== 200) {
+            console.log('停了停了————————————————————————————————————'); -sumNum++;
+            idsArrFor404.push(rateListItem.id);
+          } else if (schoolProvinceResult.data.data.status_code === 301) {
+            console.log(params, '301301————————————————————————————————————');
+            sumNum++;
+            idsArrFor301.push(rateListItem.id);
+          } else if (schoolProvinceResult.data.data.error === false) {
+            console.log(params, 'error————————————————————————————————————');
+            sumNum++;
+            idsArrForError.push(rateListItem.id);
+          } else if (schoolProvinceResult.status === 200 && schoolProvinceResult.data.status === 0) {
+            console.log(schoolProvinceResult);
+            const rateInfo = schoolProvinceResult.data.data;
+            const _rate = Math.ceil(rateInfo.college.probability * 100);
+            const item = {
+              batch: rateInfo.college.batch,
+              student_rank: rateInfo.student_rank,
+              rate: rateInfo.college.probability,
+              risky: rateInfo.college.risky,
+              status: 222,
+            };
+
+            if (aos === rateInfo.college.luqu_genre) {
+              await ctx.kkModel[provinceObj[location]].update(item, {
+                where: {
+                  id: rateListItem.id, status: -1,
+                },
+              });
+            } else {
+              await ctx.kkModel[provinceObj[location]].update({
+                status: 444,
+              }, {
+                where: {
+                  college, aos,
+                },
+              });
+            }
+            sumNum++;
+            if (_rate === 100) {
+              await ctx.kkModel[provinceObj[location]].update({
+                rate: null,
+                status: 6666,
+              }, {
+                where: {
+                  college, aos, status: -1,
+                },
+              });
+              isEnough = true;
+            }
+          } else {
+            sumNum++;
+            idsArrFor404.push(rateListItem.id);
+          }
+        }
+
+      }
+
+
+      if (isEnough || (sumNum !== 0 && sumNum === rateList.length)) {
+        if (idsArrFor404.length !== 0) {
+          await ctx.kkModel[provinceObj[location]].update({
+            status: 404,
+          }, {
+            where: {
+              id: {
+                $in: idsArrFor404,
+              },
+            },
+          });
+        }
+        if (idsArrFor301.length !== 0) {
+          await ctx.kkModel[provinceObj[location]].update({
+            status: 30303,
+          }, {
+            where: {
+              id: {
+                $in: idsArrFor301,
+              },
+            },
+          });
+        }
+        if (idsArrForError.length !== 0) {
+          await ctx.kkModel[provinceObj[location]].update({
+            status: 505,
+          }, {
+            where: {
+              id: {
+                $in: idsArrForError,
+              },
+            },
+          });
+        }
+        await initItem(location);
+      }
+
+
+    }
+  }
+
+  async loadRateFor2020() {
+
+    const { ctx } = this;
+    const provinceList = await ctx.kkModel.Province.findAll({
+      where: {
+        status: 6,
+      },
+    });
+    const provinceObj = {};
+    provinceList.forEach(item => {
+      provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
+    });
+
+    for (let i = 0; i < provinceList.length; i++) {
+
+      initItem(provinceList[i].province_name);
+    }
+
+    // initItem('四川');
+
+    async function initItem(location) {
+
+
+      const rateList = await ctx.kkModel[provinceObj[location]].findAll({
+        where: {
+          // status: {
+          //   $notIn: [ 222, 888 ],
+          // },
+          status: -1,
+          // probability: rate,
+        }, // WHERE 条件
+        // order: [[ 'probability' ]],
+        attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
+        limit: 40,
+        // offset: offsetNum,
       });
 
 
@@ -1091,6 +1286,9 @@ CREATE TABLE \`rate_${provinceInfo.pin_yin}\` (
       sqlStr = sqlStr + `UPDATE rate_table
                           SET r_batch_id=${batchInfo.r_batch_id}
                           WHERE batch='${batchInfo.batch_name}';`;
+      sqlStr = sqlStr + `UPDATE rate_table
+                          SET r_batch_id_two=${batchInfo.r_batch_id}
+                          WHERE batch_two='${batchInfo.batch_name}';`;
     }
   }
 

@@ -13,27 +13,11 @@ class YouzyController extends Controller {
   constructor(ctx) {
     super(ctx);
     this.schoolList = null;
-    this.offsetNum = 0;
     this.subjectTypeList = [ 0, 1 ];
     this.yearList = [ 2019 ];
     this.yearArrList = [ 2019, 2018, 2017 ];
   }
 
-  async init() {
-    const { ctx } = this;
-    // const interval = setInterval(this.loadSchoolMajorAdmission(), 1800);
-
-    await this.initSchoolMajorAdmission();
-    this.offsetNum = 0;
-    await this.loadSchoolMajorAdmission(this.offsetNum);
-    // this.offsetNum = 40;
-    // await this.loadSchoolMajorAdmission(this.offsetNum);
-    // this.offsetNum = 80;
-    // await this.loadSchoolMajorAdmission(this.offsetNum);
-    // this.offsetNum = 120;
-    // await this.loadSchoolMajorAdmission(this.offsetNum);
-    await this.aaa();
-  }
 
   async loadSchool() {
     super.loadSchool();
@@ -262,38 +246,6 @@ class YouzyController extends Controller {
       },
     ];
     return provinceList;
-  }
-
-  async compareProvince() {
-    const { ctx } = this;
-    const provinceArr = await this.loadProvince();
-    console.log(provinceArr.length);
-    const nProvinceArr = provinceArr.map(item => {
-      const nProvinceItem = {
-        status: 0,
-        id: item.id,
-        name: item.name,
-        r_province_id: null,
-        r_province_name: null,
-      };
-      rProvinceJson.forEach(itemR => {
-        if (itemR.name === item.name) {
-          nProvinceItem.r_province_id = itemR.id;
-          nProvinceItem.r_province_name = itemR.name;
-          nProvinceItem.status = 1;
-        }
-      });
-      return nProvinceItem;
-    });
-    await ctx.model.Province.bulkCreate(nProvinceArr);
-  }
-
-  async loadSubject() {
-    super.loadSubject();
-  }
-
-  async loadBatch() {
-    super.loadBatch();
   }
 
 
@@ -570,312 +522,95 @@ class YouzyController extends Controller {
 
 
   async loadSchoolAdmission(ctx) {
-    // const { ctx } = this;
 
-    const provList = [
-      {
-        name: '安徽',
-        value: 34,
-      },
-      {
-        name: '北京',
-        value: 11,
-      },
-      {
-        name: '重庆',
-        value: 50,
-      },
-      {
-        name: '福建',
-        value: 35,
-      },
-      {
-        name: '广东',
-        value: 44,
-      },
-      {
-        name: '广西',
-        value: 45,
-      },
-      {
-        name: '甘肃',
-        value: 62,
-      },
-      {
-        name: '贵州',
-        value: 52,
-      },
-      {
-        name: '河北',
-        value: 13,
-      },
-      {
-        name: '河南',
-        value: 41,
-      },
-      {
-        name: '海南',
-        value: 46,
-      },
-      {
-        name: '湖北',
-        value: 42,
-      },
-      {
-        name: '湖南',
-        value: 43,
-      },
-      {
-        name: '黑龙江',
-        value: 23,
-      },
-      {
-        name: '吉林',
-        value: 22,
-      },
-      {
-        name: '江苏',
-        value: 32,
-      },
-      {
-        name: '江西',
-        value: 36,
-      },
-      {
-        name: '辽宁',
-        value: 21,
-      },
-      {
-        name: '内蒙古',
-        value: 15,
-      },
-      {
-        name: '宁夏',
-        value: 64,
-      },
-      {
-        name: '青海',
-        value: 63,
-      },
-      {
-        name: '上海',
-        value: 31,
-      },
-      {
-        name: '四川',
-        value: 51,
-      },
-      {
-        name: '山东',
-        value: 37,
-      },
-      {
-        name: '山西',
-        value: 14,
-      },
-      {
-        name: '陕西',
-        value: 61,
-      },
-      {
-        name: '天津',
-        value: 12,
-      },
-      {
-        name: '新疆',
-        value: 65,
-      },
-      {
-        name: '云南',
-        value: 53,
-      },
-      {
-        name: '浙江',
-        value: 33,
-      },
-      {
-        name: '西藏',
-        value: 54,
-      },
-    ];
+    await initItem(0, 1000);
 
-    await initItem(0);
+    async function initItem(offsetNum, diffNum) {
 
-    async function initItem(offsetNum) {
-
-      const schoolProvinceArr = await ctx.youzyModel.SchoolAdmissionHtml.findAll({
+      const schoolAdmissionList = await ctx.youzyModel.SchoolAdmissionHtml.findAll({
         where: {
-          // id:{
-          // 	$gt:minId
-          // },
-          // isHave: {
-          // 	$ne:456
-          // },
-          // id: {
-          //   $in: [ 45 ],
-          // },
-          // id: 409,
+          id: {
+            $between: [ offsetNum, offsetNum + diffNum ],
+          },
           status: 404,
         },
-        order: [[ 'id' ]],
         limit: 1,
-
-        // offset: Math.floor(Math.random() * 20),
       });
       const loadNum = 0;
+      const idsArrFor404 = [];
 
-      console.log(schoolProvinceArr);
+      for (let i = 0; i < schoolAdmissionList.length; i++) {
+        const schoolProvinceItem = schoolAdmissionList[i];
+        if (schoolProvinceItem) {
+
+          const url = 'https://www.youzy.cn/Data/ScoreLines/Fractions/Colleges/Query';
+          const data = {
+            provinceNumId: schoolProvinceItem.province_id_two,
+            ucode: schoolProvinceItem.province_id + '_' + schoolProvinceItem.school_id + '_0_0',
+          };
+          const text = JSON.stringify(data);
+          const textBytes = youzyEptService.utils.utf8.toBytes(text);
+          const aesCtr = new youzyEptService.ModeOfOperation.ctr([ 11, 23, 32, 43, 45, 46, 67, 8, 9, 10, 11, 12, 13, 14, 15, 16 ], new youzyEptService.Counter(5));
+          const encryptedBytes = aesCtr.encrypt(textBytes);
+          const encryptedHex = youzyEptService.utils.hex.fromBytes(encryptedBytes);
+          if (encryptedHex === 'af4f744668a5050fcb34bb14315cd7515a6958d9aa99709bef22b56843a047d1dfed3e28cef85d2ef3e2') {
+            console.log('相同');
+          }
 
 
-      for (let i = 0; i < schoolProvinceArr.length; i++) {
-        const schoolProvinceItem = schoolProvinceArr[i];
-        // let provItem = null;
-        // provList.forEach(itemProv => {
-        //   if (itemProv.name === item.province_name) {
-        //     provItem = itemProv.value;
-        //   }
-        // });
-        const url = 'https://www.youzy.cn/Data/ScoreLines/Fractions/Colleges/Query';
-        const data = {
-          provinceNumId: schoolProvinceItem.province_id_two,
-          ucode: schoolProvinceItem.province_id + '_' + schoolProvinceItem.school_id + '_0_0',
-        };
-        console.log(data);
-        const text = JSON.stringify(data);
-        const textBytes = youzyEptService.utils.utf8.toBytes(text);
-        const aesCtr = new youzyEptService.ModeOfOperation.ctr([ 11, 23, 32, 43, 45, 46, 67, 8, 9, 10, 11, 12, 13, 14, 15, 16 ], new youzyEptService.Counter(5));
-        const encryptedBytes = aesCtr.encrypt(textBytes);
-        const encryptedHex = youzyEptService.utils.hex.fromBytes(encryptedBytes);
-        if (encryptedHex === 'af4f744668a5050fcb34bb14315cd7515a6958d9aa99709bef22b56843a047d1dfed3e28cef85d2ef3e2') {
-          console.log('相同');
+          const params = {
+            data: encryptedHex,
+          };
+
+          const cookie = 'UM_distinctid=17278148a385f6-0baf146f3735f7-f7d1d38-1fa400-17278148a399da; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2214184607%22%2C%22%24device_id%22%3A%2217278148e60763-05f948b35351d8-f7d1d38-2073600-17278148e61b03%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22first_id%22%3A%2217278148e60763-05f948b35351d8-f7d1d38-2073600-17278148e61b03%22%7D';
+
+          const referer = 'https://ia-pv4y.youzy.cn/colleges/cfraction?p=af4f744668a5050fcb34bc057e2f8b47597d4e90f4d47391ee25b50418ef16c1baf7eba9072d8e89f3b3391460c80b90877e729ff234d950212a83a847bef39da467&u=af4f675b72a11f04fc2885047e2f835f42320395f4c860acf936b50f17f71ec1bae52132f6a96d55b0f0421872fd48c5de2f2ff9bb64cd522f14d3fd57b6f18da438077ba4b43639ee7b9b256e113b1b38ed8c0506d9aa04bafa679488d927bcd0b85aeb790b905476d02a2ab5ec8dcbd59ff271c4bbf69487c087b2b6ee8a5046d1fc888df2f9fae00c48b7dca1721581dfc03dc5328fde2552636b1ae65ebee6f80386a1&us=af4f6a416a9a08439261d9432c67dc05093f0f85c8ce68b1e464ea7a55a00391efa3647ef2ad4c7fbcfa39477dfa0693c03d69a6e327c61b74748db042b0ea9cb27f696ca1bd1371ee26c0681c1135033aa1d550648ea425b1b72ec9f0857dfbd5846af56d079b5670d67b32e9e394d4dc9ff26bd480fdd3e9df96bbe7b1965e0dc1cebdb7f2f9c4a7404bbaf6bd6554c2dd8b77ce0ad1912f497f6d06ed2ff1f0e01380a802c0deadeaba0350393214e9&dfs=af4f775b72a10f048a6bd7153356915f42250485ebde27c2b97fe9665be4018ced807f7cb3f22031fee86c0a3df6058a966633aaf964861b3e27cdc753b3bdd4e3351262a6af746ca3698a3d10003a4225f9964f3bc9a63fbdb072dcdf8c24f7d7af7dde3a49d3507cce6475b4e8b4cadc91ea3a98c0f8c1ca889fb1b0f1df5c4ccc89a6a2f8b3fba7575cb5d8fd7456cfc5cc2af024d2db234c757214ef19abfae51b868c10e1d4fdabf91a1369063bd9454cd8f7bf57992e26ce01d75adfef3474692cbb5604695764fba7a23cd90c21de5a84be191e1727838331cd456736b0ca9eb2c1f25a4294cbddf0f48a12a45a3826f26383fcae924e4c93fe8d143fe8ea73ef8ae5c1eafcf60ce5079b059327b44344a4504d1b9460d355c224f6a9e2276c704081fc5f&tcode=af4f675b6bbf0906cd18914366378b40587311&toUrl=/colleges/cfraction&timestamp=1591443833316';
+
+
+          const schoolProvinceResult = await ctx.basePostForYouzy2020(url, params, cookie, referer);
+
+
+          if (schoolProvinceResult.status !== 200) {
+            await ctx.youzyModel.SchoolAdmissionHtml.update({
+              status: schoolProvinceResult.status,
+            }, {
+              where: {
+                id: schoolProvinceItem.id,
+              },
+            });
+          } else if (schoolProvinceResult.status === 200 && schoolProvinceResult.data.isSuccess && schoolProvinceResult.data.result) {
+            const schoolAdmissionInfo = schoolProvinceResult.data;
+            await ctx.youzyModel.SchoolAdmissionHtml.update({
+              status: 200,
+              html: JSON.stringify(schoolAdmissionInfo.result),
+              num: schoolAdmissionInfo.result.length,
+              code: schoolAdmissionInfo.code,
+              message: schoolAdmissionInfo.message,
+              is_success: schoolAdmissionInfo.isSuccess,
+            }, {
+              where: {
+                id: schoolProvinceItem.id,
+              },
+            });
+          } else {
+            idsArrFor404.push(schoolProvinceItem.id);
+          }
         }
+      }
 
-
-        const params = {
-          data: encryptedHex,
-          // data: 'af4f744668a5050fcb34bb14315cd7515a6958d1aa99709bef22b56843a041d0dfed3f27cef85d2ef3e2',
-        };
-        // const CurrentVersion = {
-        //   Name: item.province_name,
-        //   EnName: 'hubei',
-        //   ProvinceId: item.province_id,
-        //   Domain: 'http://hubei.youzy.cn',
-        //   Description: '',
-        //   QQGroup: '428487411',
-        //   QQGroupUrl: null,
-        //   IsOpen: true,
-        //   Sort: 12,
-        //   Province: { Name: item.province_name, Id: item.province_id },
-        //   Id: 11,
-        // };
-
-        // const other = 'connect.sid=s%3AVoz4bdDZrrHIipjyTdYTK4yLJtlak6NO.DM1Gk1BltiV2aTaO5SjumaZlsq1XfSGHYmh%2BGP%2F3u5k; Youzy2CCurrentProvince=%7B%22provinceId%22%3A850%2C%22provinceName%22%3A%22%E6%B9%96%E5%8D%97%22%2C%22isGaokaoVersion%22%3Atrue%7D; Youzy2CCurrentScore=%7B%22numId%22%3A0%2C%22provinceNumId%22%3A0%2C%22provinceName%22%3Anull%2C%22total%22%3A0%2C%22courseTypeId%22%3A0%2C%22rank%22%3A0%2C%22chooseLevelOrSubjects%22%3Anull%2C%22scoreType%22%3A0%2C%22chooseLevelFormat%22%3A%5B%5D%2C%22chooseSubjectsFormat%22%3A%5B%5D%7D; Youzy2CUser=%7B%22numId%22%3A11461160%2C%22realName%22%3A%22%E5%BC%A0%E4%B8%89%22%2C%22avatarUrl%22%3Anull%2C%22gender%22%3A0%2C%22provinceId%22%3A850%2C%22cityId%22%3A1140%2C%22countyId%22%3A10018%2C%22schoolId%22%3A-10%2C%22class%22%3A%22%E9%AB%98%E4%B8%89%22%2C%22gkYear%22%3A2018%2C%22isZZUser%22%3Afalse%2C%22zzCount%22%3A0%2C%22isElective%22%3Afalse%2C%22active%22%3Atrue%2C%22courseType%22%3A1%2C%22secretName%22%3A%22%E5%BC%A0%E5%90%8C%E5%AD%A6%22%2C%22userPermissionId%22%3A3%2C%22identityExpirationTime%22%3A%222019-10-22T08%3A13%3A05.943Z%22%2C%22username%22%3A%2218602756630%22%2C%22mobilePhone%22%3A%2218602756630%22%2C%22provinceName%22%3Anull%2C%22cityName%22%3Anull%2C%22countyName%22%3Anull%2C%22schoolName%22%3A%22%22%2C%22updateGaoKaoCount%22%3A0%2C%22lastLoginDate%22%3A%220001-01-01T00%3A00%3A00%22%2C%22creationTime%22%3A%222018-04-16T09%3A49%3A03.773%2B08%3A00%22%2C%22id%22%3A%225cf584aa9e742b1f884ed01b%22%2C%22vipPermission%22%3Atrue%7D';
-        // const cookie = 'Youzy.FirstSelectVersion=1; Youzy.CurrentVersion=' + urlencode(JSON.stringify(CurrentVersion)) + other;
-        // const cookie = 'Youzy.FirstSelectVersion=1; Youzy.CurrentVersion=%7b%22Name%22%3a%22%e6%b9%96%e5%8c%97%22%2c%22EnName%22%3a%22hubei%22%2c%22ProvinceId%22%3a849%2c%22Domain%22%3a%22http%3a%2f%2fhubei.youzy.cn%22%2c%22Description%22%3a%22%22%2c%22QQGroup%22%3a%22428487411%22%2c%22QQGroupUrl%22%3anull%2c%22IsOpen%22%3atrue%2c%22Sort%22%3a12%2c%22Province%22%3a%7b%22Name%22%3a%22%e6%b9%96%e5%8c%97%22%2c%22Id%22%3a849%7d%2c%22Id%22%3a11%7d; connect.sid=s%3AVoz4bdDZrrHIipjyTdYTK4yLJtlak6NO.DM1Gk1BltiV2aTaO5SjumaZlsq1XfSGHYmh%2BGP%2F3u5k; Youzy2CCurrentProvince=%7B%22provinceId%22%3A850%2C%22provinceName%22%3A%22%E6%B9%96%E5%8D%97%22%2C%22isGaokaoVersion%22%3Atrue%7D; Youzy2CCurrentScore=%7B%22numId%22%3A0%2C%22provinceNumId%22%3A0%2C%22provinceName%22%3Anull%2C%22total%22%3A0%2C%22courseTypeId%22%3A0%2C%22rank%22%3A0%2C%22chooseLevelOrSubjects%22%3Anull%2C%22scoreType%22%3A0%2C%22chooseLevelFormat%22%3A%5B%5D%2C%22chooseSubjectsFormat%22%3A%5B%5D%7D; Youzy2CUser=%7B%22numId%22%3A11461160%2C%22realName%22%3A%22%E5%BC%A0%E4%B8%89%22%2C%22avatarUrl%22%3Anull%2C%22gender%22%3A0%2C%22provinceId%22%3A850%2C%22cityId%22%3A1140%2C%22countyId%22%3A10018%2C%22schoolId%22%3A-10%2C%22class%22%3A%22%E9%AB%98%E4%B8%89%22%2C%22gkYear%22%3A2018%2C%22isZZUser%22%3Afalse%2C%22zzCount%22%3A0%2C%22isElective%22%3Afalse%2C%22active%22%3Atrue%2C%22courseType%22%3A1%2C%22secretName%22%3A%22%E5%BC%A0%E5%90%8C%E5%AD%A6%22%2C%22userPermissionId%22%3A3%2C%22identityExpirationTime%22%3A%222019-10-22T08%3A13%3A05.943Z%22%2C%22username%22%3A%2218602756630%22%2C%22mobilePhone%22%3A%2218602756630%22%2C%22provinceName%22%3Anull%2C%22cityName%22%3Anull%2C%22countyName%22%3Anull%2C%22schoolName%22%3A%22%22%2C%22updateGaoKaoCount%22%3A0%2C%22lastLoginDate%22%3A%220001-01-01T00%3A00%3A00%22%2C%22creationTime%22%3A%222018-04-16T09%3A49%3A03.773%2B08%3A00%22%2C%22id%22%3A%225cf584aa9e742b1f884ed01b%22%2C%22vipPermission%22%3Atrue%7D';
-        // const referer = 'https://www.youzy.cn/tzy/search/colleges/homepage/cfrationIndex?cid=1009';
-
-
-        // 上个版本
-        // const other = ';connect.sid=s:wcTG8AinKEEmpikF4_5yAMhfp06v9ywH.FjaeuHzKyVjMWe6OiFZ7DglHwMaGjnwaF92K5wIyvgs';
-        // const Youzy2CUser = {
-        //   numId: 11461160,
-        //   realName: '张三',
-        //   avatarUrl: null,
-        //   gender: 0,
-        //   provinceId: item.province_id,
-        //   cityId: 1140,
-        //   countyId: 10018,
-        //   schoolId: -10,
-        //   class: '高三',
-        //   gkYear: 2018,
-        //   isZZUser: false,
-        //   zzCount: 0,
-        //   isElective: false,
-        //   active: true,
-        //   courseType: 1,
-        //   secretName: '张同学',
-        //   userPermissionId: 3,
-        //   identityExpirationTime: '2019-10-22T08:13:05.943Z',
-        //   username: '18602756630',
-        //   mobilePhone: '18602756630',
-        //   provinceName: null,
-        //   cityName: null,
-        //   countyName: null,
-        //   schoolName: '',
-        //   updateGaoKaoCount: 0,
-        //   lastLoginDate: '0001-01-01T00:00:00',
-        //   creationTime: '2018-04-16T09:49:03.773+08:00',
-        //   id: '5cf584aa9e742b1f884ed01b',
-        //   vipPermission: true,
-        // };
-        // const Youzy2CCurrentProvince = {
-        //   provinceId: item.province_id,
-        //   provinceName: item.province_name,
-        //   isGaokaoVersion: true,
-        // };
-        // const Youzy2CCurrentScore = {
-        //   numId: 0,
-        //   provinceNumId: item.province_id,
-        //   provinceName: item.province_name,
-        //   total: 0,
-        //   courseTypeId: 0,
-        //   rank: 0,
-        //   chooseLevelOrSubjects: null,
-        //   scoreType: 0,
-        //   chooseLevelFormat: [],
-        //   chooseSubjectsFormat: [],
-        // };
-        // const cookie = ''
-        //     // + 'Youzy.FirstSelectVersion=1'
-        //     + other;
-        // +';Youzy.CurrentVersion=' + urlencode(JSON.stringify(CurrentVersion))
-        // + ';Youzy2CUser=' + urlencode(JSON.stringify(Youzy2CUser))
-        // + ';Youzy2CCurrentProvince=' + urlencode(JSON.stringify(Youzy2CCurrentProvince))
-        // + ';Youzy2CCurrentScore=' + urlencode(JSON.stringify(Youzy2CCurrentScore));
-        // // const cookieCommon = 'connect.sid=s%3AwcTG8AinKEEmpikF4_5yAMhfp06v9ywH.FjaeuHzKyVjMWe6OiFZ7DglHwMaGjnwaF92K5wIyvgs; Youzy2CUser=%7B%22numId%22%3A11461160%2C%22realName%22%3A%22%E5%BC%A0%E4%B8%89%22%2C%22avatarUrl%22%3A%22%2Fcontent%2Fdefault%2Fusercenter%2Fheadimg.jpg%22%2C%22gender%22%3A0%2C%22provinceId%22%3A841%2C%22cityId%22%3A1140%2C%22countyId%22%3A10026%2C%22schoolId%22%3A10038%2C%22class%22%3A%22%E9%AB%98%E4%B8%89-%E9%AB%98%E4%B8%89%E7%8F%AD%22%2C%22gkYear%22%3A2018%2C%22isZZUser%22%3Afalse%2C%22zzCount%22%3A0%2C%22isElective%22%3Afalse%2C%22active%22%3Atrue%2C%22courseType%22%3A1%2C%22secretName%22%3A%22%E5%BC%A0%E5%90%8C%E5%AD%A6%22%2C%22userPermissionId%22%3A3%2C%22identityExpirationTime%22%3A%222019-10-22T08%3A13%3A05.943Z%22%2C%22username%22%3A%2218602756630%22%2C%22mobilePhone%22%3A%2218602756630%22%2C%22provinceName%22%3Anull%2C%22cityName%22%3Anull%2C%22countyName%22%3Anull%2C%22schoolName%22%3A%22%22%2C%22updateGaoKaoCount%22%3A0%2C%22lastLoginDate%22%3A%220001-01-01T00%3A00%3A00%22%2C%22creationTime%22%3A%222018-04-16T09%3A49%3A03.773%2B08%3A00%22%2C%22id%22%3A%225cf584aa9e742b1f884ed01b%22%2C%22vipPermission%22%3Atrue%7D; Youzy2CCurrentProvince=%7B%22provinceId%22%3A841%2C%22provinceName%22%3A%22%E9%BB%91%E9%BE%99%E6%B1%9F%22%2C%22isGaokaoVersion%22%3Atrue%7D; Youzy2CCurrentScore=%7B%22numId%22%3A0%2C%22provinceNumId%22%3A0%2C%22provinceName%22%3Anull%2C%22total%22%3A0%2C%22courseTypeId%22%3A0%2C%22rank%22%3A0%2C%22chooseLevelOrSubjects%22%3Anull%2C%22scoreType%22%3A0%2C%22chooseLevelFormat%22%3A%5B%5D%2C%22chooseSubjectsFormat%22%3A%5B%5D%7D';
-        // const referer = `https://www.youzy.cn/tzy/search/colleges/homepage/cfrationIndex?cid=${item.school_id}`;
-
-
-        const cookie = 'UM_distinctid=17278148a385f6-0baf146f3735f7-f7d1d38-1fa400-17278148a399da; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2214184607%22%2C%22%24device_id%22%3A%2217278148e60763-05f948b35351d8-f7d1d38-2073600-17278148e61b03%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22first_id%22%3A%2217278148e60763-05f948b35351d8-f7d1d38-2073600-17278148e61b03%22%7D';
-
-        const referer = 'https://ia-pv4y.youzy.cn/colleges/cfraction?p=af4f744668a5050fcb34bc057e2f8b47597d4e90f4d47391ee25b50418ef16c1baf7eba9072d8e89f3b3391460c80b90877e729ff234d950212a83a847bef39da467&u=af4f675b72a11f04fc2885047e2f835f42320395f4c860acf936b50f17f71ec1bae52132f6a96d55b0f0421872fd48c5de2f2ff9bb64cd522f14d3fd57b6f18da438077ba4b43639ee7b9b256e113b1b38ed8c0506d9aa04bafa679488d927bcd0b85aeb790b905476d02a2ab5ec8dcbd59ff271c4bbf69487c087b2b6ee8a5046d1fc888df2f9fae00c48b7dca1721581dfc03dc5328fde2552636b1ae65ebee6f80386a1&us=af4f6a416a9a08439261d9432c67dc05093f0f85c8ce68b1e464ea7a55a00391efa3647ef2ad4c7fbcfa39477dfa0693c03d69a6e327c61b74748db042b0ea9cb27f696ca1bd1371ee26c0681c1135033aa1d550648ea425b1b72ec9f0857dfbd5846af56d079b5670d67b32e9e394d4dc9ff26bd480fdd3e9df96bbe7b1965e0dc1cebdb7f2f9c4a7404bbaf6bd6554c2dd8b77ce0ad1912f497f6d06ed2ff1f0e01380a802c0deadeaba0350393214e9&dfs=af4f775b72a10f048a6bd7153356915f42250485ebde27c2b97fe9665be4018ced807f7cb3f22031fee86c0a3df6058a966633aaf964861b3e27cdc753b3bdd4e3351262a6af746ca3698a3d10003a4225f9964f3bc9a63fbdb072dcdf8c24f7d7af7dde3a49d3507cce6475b4e8b4cadc91ea3a98c0f8c1ca889fb1b0f1df5c4ccc89a6a2f8b3fba7575cb5d8fd7456cfc5cc2af024d2db234c757214ef19abfae51b868c10e1d4fdabf91a1369063bd9454cd8f7bf57992e26ce01d75adfef3474692cbb5604695764fba7a23cd90c21de5a84be191e1727838331cd456736b0ca9eb2c1f25a4294cbddf0f48a12a45a3826f26383fcae924e4c93fe8d143fe8ea73ef8ae5c1eafcf60ce5079b059327b44344a4504d1b9460d355c224f6a9e2276c704081fc5f&tcode=af4f675b6bbf0906cd18914366378b40587311&toUrl=/colleges/cfraction&timestamp=1591443833316';
-
-
-        const schoolProvinceResult = await ctx.basePostForYouzy(url, params, cookie, referer);
-
-        console.log({ schoolProvinceResult });
-
-        if (schoolProvinceResult && schoolProvinceResult.staus) {
-
-          await ctx.youzyModel.SchoolAdmissionHtml.update({
-            status: schoolProvinceResult.staus,
-          }, {
-            where: {
-              id: schoolProvinceItem.id,
-            },
-          });
-        } else if (schoolProvinceResult.isSuccess && schoolProvinceResult.result) {
-          await ctx.youzyModel.SchoolAdmissionHtml.update({
-            status: 200,
-            html: JSON.stringify(schoolProvinceResult.result),
-            num: schoolProvinceResult.result.length,
-            code: schoolProvinceResult.code,
-            message: schoolProvinceResult.message,
-            is_success: schoolProvinceResult.isSuccess,
-          }, {
-            where: {
-              id: schoolProvinceItem.id,
-            },
-          });
-        } else {
+      if (loadNum && loadNum === schoolAdmissionList.length) {
+        if (idsArrFor404.length !== 0) {
           await ctx.youzyModel.SchoolAdmissionHtml.update({
             status: 40404,
           }, {
             where: {
-              id: schoolProvinceItem.id,
+              id: {
+                $in: idsArrFor404,
+              },
             },
           });
         }
+        await initItem();
       }
     }
 
@@ -886,7 +621,7 @@ class YouzyController extends Controller {
     super.initSchoolAdmission();
 
     const { ctx } = this;
-    const schoolProvinceArr = await ctx.youzyModel.SchoolAdmissionHtml.findAll({
+    const schoolAdmissionList = await ctx.youzyModel.SchoolAdmissionHtml.findAll({
       where: {
         status: 200,
         // id: 409,
@@ -896,11 +631,11 @@ class YouzyController extends Controller {
     });
     // console.log(schoolProvinceArr);
 
-    let loadNum = 0;
+    let sumNum = 0;
     const schoolAdmissionArr = [];
     const idsArr = [];
-    for (let i = 0; i < schoolProvinceArr.length; i++) {
-      const item = schoolProvinceArr[i];
+    for (let i = 0; i < schoolAdmissionList.length; i++) {
+      const item = schoolAdmissionList[i];
       idsArr.push(item.id);
 
       const schoolProvinceItem = await this.jiemiSchoolData(JSON.parse(item.html));
@@ -937,10 +672,10 @@ class YouzyController extends Controller {
 
         // console.log('prov_score', itemJson.lowSort);
       });
-      loadNum++;
+      sumNum++;
     }
     console.log('解析完毕', idsArr);
-    if (loadNum === 50) {
+    if (sumNum && sumNum === schoolAdmissionList.length) {
       await ctx.youzyModel.SchoolAdmission.bulkCreate(schoolAdmissionArr);
       await ctx.youzyModel.SchoolAdmissionHtml.update({
         status: 666,
@@ -951,7 +686,7 @@ class YouzyController extends Controller {
           },
         },
       });
-      this.initSchoolAdmission();
+      await this.initSchoolAdmission();
     }
   }
 

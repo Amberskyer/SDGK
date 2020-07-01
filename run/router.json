@@ -6,8 +6,21 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate",
-    "regexp": "/^\\/kk\\/load-rate(?:\\/(?=$))?$/",
+    "path": "/kk/transfer-for-rate",
+    "regexp": "/^\\/kk\\/transfer-for-rate(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/kk/init-batch-id-for-2020",
+    "regexp": "/^\\/kk\\/init-batch-id-for-2020(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
