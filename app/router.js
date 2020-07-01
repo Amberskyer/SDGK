@@ -44,7 +44,7 @@ module.exports = app => {
   router.get('/kk/init-province-table-for-2020', controller.kk.addProvinceTable);// 主页=>index
   router.get('/kk/init-batch-id-for-2020', controller.kk.initBatchId);// 主页=>index
   // router.get('/kk/init-rate-for-2020', controller.kk.initRateFor2020);// 主页=>index
-  // router.get('/kk/init-rate-province-for-2020', controller.kk.initRateProvinceSql);// 主页=>index
+  router.get('/kk/init-rate-province-for-2020', controller.kk.initRateProvinceSql);// 主页=>index
   // router.get('/kk/transfer-rate', controller.kk.transferRate);// 主页=>index
   // router.get('/kk/init-table-id', controller.kk.initTableId);// 主页=>index
   // router.get('/kk/init-school-id', controller.kk.initSchoolId);// 主页=>index

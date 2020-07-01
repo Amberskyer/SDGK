@@ -223,10 +223,10 @@
           "delegate": "kkModel",
           "baseDir": "model/kk",
           "dialect": "mysql",
-          "database": "sdgk-data-dev",
-          "username": "dev",
-          "password": "yqdev2020??",
-          "host": "47.98.141.198",
+          "database": "kk2020",
+          "username": "root",
+          "password": "123456",
+          "host": "127.0.0.1",
           "port": 3306
         }
       ]
