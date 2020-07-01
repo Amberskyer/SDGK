@@ -263,15 +263,17 @@ class KKController extends Controller {
 
       const rateList = await ctx.kkModel.RateTable.findAll({
         where: {
-          status: 505,
+          status: {
+            $in: [ 222 ],
+          },
           id: {
-            $lte: offsetNum + 40000,
+            // $lte: offsetNum + 40000,
             $gte: offsetNum,
           },
           // probability: rate,
         }, // WHERE 条件
         // order: [[ 'probability' ]],
-        limit: 1,
+        limit: 30,
         // offset: offsetNum,
       });
 
@@ -286,7 +288,8 @@ class KKController extends Controller {
           return;
         }
         const student_rank = '';
-        const score = 750;
+        const score = rateListItem.low_score;
+        const batch = rateListItem.batch;
         const college = rateListItem.college;
         const location = rateListItem.location;
         const aos = rateListItem.aos;
@@ -324,27 +327,32 @@ class KKController extends Controller {
         } else if (schoolProvinceResult.status === 200 && schoolProvinceResult.data.status === 0) {
           console.log(schoolProvinceResult);
           const rateInfo = schoolProvinceResult.data.data;
-          const item = {
-            college,
-            aos,
-            location,
-            score,
-            year,
-            batch: rateInfo.college.batch,
-            student_rank: rateInfo.student_rank,
-            probability: rateInfo.college.probability,
-            low_rank: rateInfo.lowest_rank,
-            low_score: rateInfo.lowest_score,
-            status: 6666,
-            html: JSON.stringify(schoolProvinceResult.data),
-          };
-          console.log(item);
-
-          await ctx.kkModel.RateTable.update(item, {
-            where: {
-              id: rateListItem.id,
-            },
-          });
+          if (batch === rateInfo.college.batch) {
+            const item = {
+              status: 222222,
+              low_score: rateInfo.lowest_score,
+              low_rank: rateInfo.lowest_rank,
+              rate: rateInfo.college.probability,
+            };
+            await ctx.kkModel.RateTable.update(item, {
+              where: {
+                id: rateListItem.id,
+              },
+            });
+          } else {
+            const item = {
+              status: 444444,
+              low_score_two: rateInfo.lowest_score,
+              low_rank_two: rateInfo.lowest_rank,
+              batch_two: rateInfo.college.batch,
+              rate_two: rateInfo.college.probability,
+            };
+            await ctx.kkModel.RateTable.update(item, {
+              where: {
+                id: rateListItem.id,
+              },
+            });
+          }
           sumNum++;
         } else {
           sumNum++;
@@ -367,7 +375,7 @@ class KKController extends Controller {
         }
         if (idsArrFor301.length !== 0) {
           await ctx.kkModel.RateTable.update({
-            status: 30303,
+            status: 303,
           }, {
             where: {
               id: {
@@ -378,7 +386,7 @@ class KKController extends Controller {
         }
         if (idsArrForError.length !== 0) {
           await ctx.kkModel.RateTable.update({
-            status: 50505,
+            status: 505,
           }, {
             where: {
               id: {
@@ -392,6 +400,76 @@ class KKController extends Controller {
     }
   }
 
+  async destroyRate() {
+
+    const { ctx } = this;
+    for (let i = 0; i < 168640; i = i + 40000) {
+      initItem(i);
+    }
+
+    // initItem(0);
+
+    async function initItem(offsetNum) {
+
+
+      const rateList = await ctx.kkModel.RateTable.findAll({
+        where: {
+          status: {
+            $in: [ 444444 ],
+          },
+          id: {
+            $lte: offsetNum + 40000,
+            $gte: offsetNum,
+          },
+          // probability: rate,
+        }, // WHERE 条件
+        // order: [[ 'probability' ]],
+        limit: 10,
+        // offset: offsetNum,
+      });
+
+      let sumNum = 0;
+      const idsArrFor404 = [];
+      const idsArrFor301 = [];
+      const idsArrForError = [];
+      for (let i = 0; i < rateList.length; i++) {
+        const rateListItem = rateList[i];
+        if (!rateListItem) {
+          await initItem(offsetNum);
+          return;
+        }
+        const r_batch_id = rateListItem.r_batch_id;
+        const r_school_id = rateListItem.r_school_id;
+        const r_province_id = rateListItem.r_province_id;
+        const r_subject_type = rateListItem.r_subject_type;
+
+        await ctx.kkModel.Rate.destroy({
+          where: {
+            school_id: r_school_id, province_id: r_province_id, subject_type: r_subject_type,
+          },
+        });
+
+        sumNum++;
+        idsArrFor404.push(rateListItem.id);
+      }
+
+
+      if (sumNum !== 0 && sumNum === rateList.length) {
+        if (idsArrFor404.length !== 0) {
+          await ctx.kkModel.RateTable.update({
+            status: 4040404,
+          }, {
+            where: {
+              id: {
+                $in: idsArrFor404,
+              },
+            },
+          });
+        }
+        await initItem(offsetNum);
+      }
+    }
+  }
 
   async initRate() {
 
@@ -864,7 +942,7 @@ class KKController extends Controller {
                               \t\tr_province_id,
                               \t\tr_batch_id,
                               \t\tr_subject_type,
-                              \t\tstudent_rank,
+                              \t\tr_rank,
                               \t\tstudent_rank,
                               \t\trate
                               \tFROM

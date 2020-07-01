@@ -37,8 +37,9 @@ module.exports = app => {
   // router.get('/kk/init-rate', controller.kk.initRate);// 主页=>index
   // router.get('/kk/load-rate', controller.kk.loadRate);// 主页=>index
   // router.get('/kk/init', controller.kk.loadRate);// 主页=>index
-  router.get('/kk/transfer-for-rate', controller.kk.transferRate);// 主页=>index
-  // router.get('/kk/load-rate-table-for-2020', controller.kk.loadRateTableFor2020);// 主页=>index
+  // router.get('/kk/transfer-for-rate', controller.kk.transferRate);// 主页=>index
+  router.get('/kk/load-rate-table-for-2020', controller.kk.loadRateTableFor2020);// 主页=>index
+  // router.get('/kk/destroy-rate-table-for-2020', controller.kk.destroyRate);// 主页=>index
   // router.get('/kk/check-rate-table-for-2020', controller.kk.checkRateTableFor2020);// 主页=>index
   // router.get('/kk/init-province-table-for-2020', controller.kk.addProvinceTable);// 主页=>index
   // router.get('/kk/init-batch-id-for-2020', controller.kk.initBatchId);// 主页=>index
