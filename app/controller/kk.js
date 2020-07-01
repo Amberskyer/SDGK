@@ -569,7 +569,7 @@ class KKController extends Controller {
 
       const rateArrResult = await ctx.kkModel.RateTable.findAll({
         where: {
-          status: 888,
+          status: 222222,
           location,
           // probability: rate,
         }, // WHERE 条件
@@ -584,7 +584,7 @@ class KKController extends Controller {
       for (let j = 0; j < rateArrResult.length; j++) {
         const rateResult = rateArrResult[j];
 
-        if (rateResult.batch) {
+        if (rateResult.batch && !rateResult.batch_two) {
           const minScore = rateResult.low_score;
 
           for (let i = minScore; i <= 750; i++) {
@@ -607,10 +607,10 @@ class KKController extends Controller {
           }
         }
 
-        if (rateResult.batch_two) {
+        if (rateResult.batch && rateResult.batch_two) {
           const minScore = rateResult.low_score_two;
 
-          for (let i = minScore; i <= rateResult.low_score; i++) {
+          for (let i = minScore; i <= 750; i++) {
             const item = {
               college: rateResult.college,
               aos: rateResult.aos,
@@ -638,7 +638,7 @@ class KKController extends Controller {
       if (idsArr.length !== 0 && idsArr.length === rateArrResult.length) {
 
         await ctx.kkModel.RateTable.update({
-          status: 222,
+          status: 'F-222222',
         }, {
           where: {
             id: {
