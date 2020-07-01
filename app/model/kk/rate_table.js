@@ -25,6 +25,10 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
+    batch_two: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
     location: {
       type: DataTypes.STRING(255),
       allowNull: true,
@@ -49,7 +53,23 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
+    low_rank_two: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
     low_score: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    low_score_two: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    rate_two: {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
