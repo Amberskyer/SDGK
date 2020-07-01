@@ -53,6 +53,10 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
+    risky: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
     r_rate: {
       type: DataTypes.STRING(255),
       allowNull: true,

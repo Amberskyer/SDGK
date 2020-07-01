@@ -86,6 +86,10 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
+    r_batch_id_two: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
     r_subject_type: {
       type: DataTypes.STRING(255),
       allowNull: true,

@@ -6,34 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate-table-for-2020",
-    "regexp": "/^\\/kk\\/load-rate-table-for-2020(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/kk/init-province-table-for-2020",
-    "regexp": "/^\\/kk\\/init-province-table-for-2020(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/kk/init-batch-id-for-2020",
-    "regexp": "/^\\/kk\\/init-batch-id-for-2020(?:\\/(?=$))?$/",
+    "path": "/kk/load-rate-table-for-end",
+    "regexp": "/^\\/kk\\/load-rate-table-for-end(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

@@ -1158,10 +1158,10 @@ class KKController extends Controller {
 
       const rateList = await ctx.kkModel[provinceObj[location]].findAll({
         where: {
-          // status: {
-          //   $notIn: [ 222, 888 ],
-          // },
-          status: -1,
+          status: {
+            $in: [ 6666, 444, 222, 999, -1 ],
+          },
+          // status: -1,
           r_school_id: rateTableInfo.r_school_id,
           r_province_id: rateTableInfo.r_province_id,
           r_subject_type: rateTableInfo.r_subject_type,
@@ -1224,11 +1224,14 @@ class KKController extends Controller {
             const item = {
               batch: rateInfo.college.batch,
               student_rank: rateInfo.student_rank,
-              r_rank: _last_score_rank,
+              r_rank: null,
               rate: rateInfo.college.probability,
               risky: rateInfo.college.risky,
-              status: 222,
+              status: 200,
             };
+            if (rateInfo.student_rank === 1) {
+              isEnough = true;
+            }
             if (_last_batch && _last_batch !== rateInfo.college.batch) {
               _last_batch = null;
               _last_score_rank = 3000000;
@@ -1238,41 +1241,49 @@ class KKController extends Controller {
             if (aos === rateInfo.college.luqu_genre) {
               await ctx.kkModel[provinceObj[location]].update(item, {
                 where: {
-                  id: rateListItem.id, status: -1,
+                  id: rateListItem.id,
+                  status: {
+                    $in: [ 6666, 444, 222, 999, -1 ],
+                  },
                 },
               });
             } else {
               await ctx.kkModel[provinceObj[location]].update({
-                status: 444,
+                status: 400,
               }, {
                 where: {
                   college, aos,
                 },
               });
             }
-            sumNum++;
             _last_score_rank = rateInfo.student_rank + 1;
-            if (_rate === 100) {
+            if (isEnough || _rate === 100) {
+
+              // await ctx.kkModel[provinceObj[location]].update({
+              //   batch: rateInfo.college.batch,
+              //   student_rank: _last_score_rank,
+              //   r_rank: 1,
+              //   rate: rateInfo.college.probability,
+              //   risky: rateInfo.college.risky,
+              // }, {
+              //   where: {
+              //     id: rateListItem,
+              //   },
+              // });
 
               await ctx.kkModel[provinceObj[location]].update({
-                batch: rateInfo.college.batch,
-                student_rank: _last_score_rank,
-                r_rank: 1,
-                rate: rateInfo.college.probability,
-                risky: rateInfo.college.risky,
-                status: 'last_one',
-              }, {
-                where: {
-                  id: rateListItem.id + 1,
-                },
-              });
-
-              await ctx.kkModel[provinceObj[location]].update({
+                batch: null,
+                student_rank: null,
+                r_rank: null,
                 rate: null,
-                status: 6666,
+                risky: null,
+                status: 600,
               }, {
                 where: {
-                  college, aos, status: -1,
+                  college, aos,
+                  status: {
+                    $in: [ 6666, 444, 222, 999, -1 ],
+                  },
                 },
               });
               isEnough = true;
@@ -1280,6 +1291,7 @@ class KKController extends Controller {
               _last_score_rank = 3000000;
             }
 
+            sumNum++;
           } else {
             sumNum++;
             idsArrFor404.push(rateListItem.id);
@@ -1324,14 +1336,14 @@ class KKController extends Controller {
             },
           });
         }
-        // await ctx.kkModel.RateTable.update({
-        //   status: 'F-222-End',
-        // }, {
-        //   where: {
-        //     id: rateTableInfo.id,
-        //   },
-        // });
-        // await initItem(location);
+        await ctx.kkModel.RateTable.update({
+          status: 'F-222-End',
+        }, {
+          where: {
+            id: rateTableInfo.id,
+          },
+        });
+        await initItem(location);
       }
 
 
@@ -1412,8 +1424,7 @@ class KKController extends Controller {
 
     async function initItem(provinceInfo) {
       sqlStr = sqlStr + `
-DROP TABLE IF EXISTS \`rate_${provinceInfo.pin_yin}\`;
-CREATE TABLE \`rate_${provinceInfo.pin_yin}\` (
+CREATE TABLE \`rate_${provinceInfo.pin_yin}_data\` (
   \`id\` int(11) NOT NULL AUTO_INCREMENT,
   \`school_id\` int(11) DEFAULT NULL,
   \`college\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -1751,8 +1762,8 @@ CREATE TABLE \`rate_${provinceInfo.pin_yin}\` (
       const provinceListItem = provinceList[i];
       const RateSqlStr = await fs.readFileSync('.\\app\\model\\kk\\rate.js');
       console.log(RateSqlStr.toString());
-      const sqlStr = RateSqlStr.toString().replace(/'rate'/g, `'rate_${provinceListItem.pin_yin}'`);
-      await fs.writeFileSync(`.\\app\\model\\kk\\rate_${provinceListItem.pin_yin}.js`, sqlStr);
+      const sqlStr = RateSqlStr.toString().replace(/'rate_data'/g, `'rate_${provinceListItem.pin_yin}_data'`);
+      await fs.writeFileSync(`.\\app\\model\\kk\\rate_${provinceListItem.pin_yin}_data.js`, sqlStr);
     }
   }
 }
