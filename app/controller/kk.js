@@ -1558,17 +1558,17 @@ class KKController extends Controller {
 
 
         if (isEnough || (sumNum !== 0 && sumNum === rateList.length)) {
-          // if (idsArrFor404.length !== 0) {
-          //   await ctx.kkModel[provinceObj[location]].update({
-          //     status: 'ALL-40404',
-          //   }, {
-          //     where: {
-          //       id: {
-          //         $in: idsArrFor404,
-          //       },
-          //     },
-          //   });
-          // }
+          if (idsArrFor404.length !== 0) {
+            await ctx.kkModel[provinceObj[location]].update({
+              status: 'ALL-404',
+            }, {
+              where: {
+                id: {
+                  $in: idsArrFor404,
+                },
+              },
+            });
+          }
           if (idsArrFor301.length !== 0) {
             await ctx.kkModel[provinceObj[location]].update({
               status: 'ALL-303',
@@ -1616,7 +1616,7 @@ class KKController extends Controller {
     const { ctx } = this;
     const provinceList = await ctx.kkModel.Province.findAll({
       where: {
-        status: 6,
+        status: 707,
       },
     });
     const provinceObj = {};
@@ -1629,7 +1629,7 @@ class KKController extends Controller {
     //   initItem(provinceList[i].province_name);
     // }
 
-    initItem('湖北');
+    initItem('重庆');
 
     async function initItem(location) {
 
@@ -1637,7 +1637,7 @@ class KKController extends Controller {
       const rateTableResult = await ctx.kkModel.RateTable.findAll({
         where: {
           status: {
-            $in: [ 'F-222-End' ],
+            $in: [ 'F-222-End', 'F-444-End' ],
           },
           location,
           // id: 250,
@@ -1714,8 +1714,8 @@ class KKController extends Controller {
               province_id: r_province_id,
               subject_type: r_subject_type,
               batch_id: r_batch_id,
-              rank_begin: _batchEndRateArr[index],
-              rank_end: item,
+              rank_begin: item,
+              rank_end: _batchEndRateArr[index],
               rank_rate: 0.1,
               status: 200,
             });
@@ -1725,8 +1725,8 @@ class KKController extends Controller {
               province_id: r_province_id,
               subject_type: r_subject_type,
               batch_id: r_batch_id,
-              rank_begin: _batchEndRateArr[index],
-              rank_end: item,
+              rank_begin: item,
+              rank_end: _batchEndRateArr[index],
               rank_rate: _rateLit[index - 1].r_rate,
               status: 200,
             });
@@ -1737,7 +1737,7 @@ class KKController extends Controller {
       await ctx.kkModel.Rate.bulkCreate(rateArr);
 
       await ctx.kkModel.RateTable.update({
-        status: 'F-222-sec-' + location,
+        status: rateTableInfo.status + '_' + location,
       }, {
         where: {
           id: rateTableInfo.id,
