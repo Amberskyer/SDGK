@@ -223,7 +223,7 @@
           "delegate": "kkModel",
           "baseDir": "model/kk",
           "dialect": "mysql",
-          "database": "kk",
+          "database": "kk2020",
           "username": "root",
           "password": "123456",
           "host": "127.0.0.1",
