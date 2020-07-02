@@ -3,7 +3,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.kkModel.define('rate', {
+  const Model = app.kkModel.define('rate_end', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -87,7 +87,7 @@ module.exports = app => {
       allowNull: true,
     },
   }, {
-    tableName: 'rate',
+    tableName: 'rate_end',
     timestamps: false,
     freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
   });
