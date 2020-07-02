@@ -1153,7 +1153,7 @@ class KKController extends Controller {
 
       const rateTableResult = await ctx.kkModel.RateTable.findAll({
         where: {
-          status: 'F-444444',
+          status: 'F-222222',
           location,
           // probability: rate,
         }, // WHERE 条件
@@ -1171,18 +1171,11 @@ class KKController extends Controller {
 
       const rateList = await ctx.kkModel[provinceObj[location]].findAll({
         where: {
-          status: {
-            $in: [ 'ALL', 'All-200', 'ALL-303' ],
-          },
-          // status: -1,
           r_school_id: rateTableInfo.r_school_id,
           r_province_id: rateTableInfo.r_province_id,
           r_subject_type: rateTableInfo.r_subject_type,
-          // probability: rate,
         }, // WHERE 条件
-        // order: [[ 'probability' ]],
         attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
-        // offset: offsetNum,
       });
 
       let sumNum = 0;
@@ -1241,7 +1234,7 @@ class KKController extends Controller {
               r_rank: null,
               rate: rateInfo.college.probability,
               risky: rateInfo.college.risky,
-              status: 'ALL-2000',
+              status: '200',
             };
             if (rateInfo.student_rank === 1) {
               isEnough = true;
@@ -1256,23 +1249,19 @@ class KKController extends Controller {
               await ctx.kkModel[provinceObj[location]].update(item, {
                 where: {
                   id: rateListItem.id,
-                  status: {
-                    $in: [ 'ALL' ],
-                  },
                 },
               });
             } else {
-              await ctx.kkModel[provinceObj[location]].update({
-                status: 'ALL-4000',
-              }, {
-                where: {
-                  college, aos,
-                },
-              });
+              // await ctx.kkModel[provinceObj[location]].update({
+              //   status: 'ALL-4000',
+              // }, {
+              //   where: {
+              //     college, aos,
+              //   },
+              // });
             }
             _last_score_rank = rateInfo.student_rank + 1;
-            if ((batch === '本一' || batch === '本一A段' || batch === '本一B段' || batch === '本科'
-            || batch === '本科A批' || batch === '本科批' || batch === '本科批A段') && _rate === 100) {
+            if (isEnough || _rate === 100) {
 
               // await ctx.kkModel[provinceObj[location]].update({
               //   batch: rateInfo.college.batch,
@@ -1292,13 +1281,11 @@ class KKController extends Controller {
                 r_rank: null,
                 rate: null,
                 risky: null,
-                status: 'ALL-6000',
+                status: '600',
               }, {
                 where: {
                   college, aos,
-                  status: {
-                    $in: [ 'ALL', 'All-200', 'ALL-303' ],
-                  },
+                  status: -1,
                 },
               });
               isEnough = true;
@@ -1320,7 +1307,7 @@ class KKController extends Controller {
       if (isEnough || (sumNum !== 0 && sumNum === rateList.length)) {
         if (idsArrFor404.length !== 0) {
           await ctx.kkModel[provinceObj[location]].update({
-            status: 'ALL-40404',
+            status: '40404',
           }, {
             where: {
               id: {
@@ -1331,7 +1318,7 @@ class KKController extends Controller {
         }
         if (idsArrFor301.length !== 0) {
           await ctx.kkModel[provinceObj[location]].update({
-            status: 'ALL-30303',
+            status: '30303',
           }, {
             where: {
               id: {
@@ -1342,7 +1329,7 @@ class KKController extends Controller {
         }
         if (idsArrForError.length !== 0) {
           await ctx.kkModel[provinceObj[location]].update({
-            status: 'ALL-50505',
+            status: '50505',
           }, {
             where: {
               id: {
@@ -1352,7 +1339,7 @@ class KKController extends Controller {
           });
         }
         await ctx.kkModel.RateTable.update({
-          status: 'F-444-End',
+          status: 'F-222-End',
         }, {
           where: {
             id: rateTableInfo.id,
