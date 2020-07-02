@@ -6,21 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate-table-for-end",
-    "regexp": "/^\\/kk\\/load-rate-table-for-end(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/kk/init-rate-province-for-2020",
-    "regexp": "/^\\/kk\\/init-rate-province-for-2020(?:\\/(?=$))?$/",
+    "path": "/kk/init-rate-for-end-2020-222",
+    "regexp": "/^\\/kk\\/init-rate-for-end-2020-222(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

@@ -5,51 +5,39 @@ module.exports = app => {
 
   const Model = app.model.define('rate', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       primaryKey: true
     },
     school_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(36),
       allowNull: true
     },
-    college: {
-      type: DataTypes.STRING(255),
+    major_id: {
+      type: DataTypes.STRING(36),
       allowNull: true
     },
-    aos: {
-      type: DataTypes.STRING(255),
+    batch_id: {
+      type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    batch: {
-      type: DataTypes.STRING(255),
+    subject_type: {
+      type: DataTypes.STRING(16),
       allowNull: true
     },
-    location: {
-      type: DataTypes.STRING(255),
+    province_id: {
+      type: DataTypes.INTEGER(10),
       allowNull: true
     },
-    student_rank: {
-      type: DataTypes.INTEGER,
+    rank_begin: {
+      type: DataTypes.INTEGER(10),
       allowNull: true
     },
-    score: {
-      type: DataTypes.INTEGER,
+    rank_end: {
+      type: DataTypes.INTEGER(10),
       allowNull: true
     },
-    year: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    probability: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    low_rank: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    low_score: {
+    rank_rate: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
