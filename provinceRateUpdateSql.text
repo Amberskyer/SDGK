@@ -1,0 +1,93 @@
+
+            UPDATE rate_an_hui
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_chong_qing
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_fu_jian
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_gan_su
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_guang_dong
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_guang_xi
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_gui_zhou
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_hei_long_jiang
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_he_bei
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_he_nan
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_hu_bei
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_hu_nan
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_ji_lin
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_jiang_su
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_jiang_xi
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_liao_ning
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_nei_meng_gu
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_ning_xia
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_qing_hai
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_shan_xi
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_shan_xi_two
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_si_chuan
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
+            UPDATE rate_yun_nan
+            SET r_rate=floor(rate*100)
+            WHERE rate is not null;
+        
