@@ -46,8 +46,8 @@ module.exports = app => {
   // router.get('/kk/init-batch-id-for-2020', controller.kk.initBatchId);// 主页=>index
   // router.get('/kk/load-rate-for-2020', controller.kk.loadRateFor2020);// 主页=>index
   // router.get('/kk/init-rate-province-for-2020', controller.kk.initRateProvinceSql);// 主页=>index
-  router.get('/kk/init-rate-for-end-2020-222', controller.kk.initRateForEnd222);// 主页=>index
-  // router.get('/kk/load-rate-for-end-2020-444', controller.kk.loadRateForEnd444);// 主页=>index
+  // router.get('/kk/init-rate-for-end-2020-222', controller.kk.initRateForEnd222);// 主页=>index
+  router.get('/kk/load-rate-for-end-2020-444', controller.kk.loadRateForEnd444);// 主页=>index
   // router.get('/kk/transfer-rate', controller.kk.transferRate);// 主页=>index
   // router.get('/kk/init-table-id', controller.kk.initTableId);// 主页=>index
   // router.get('/kk/init-school-id', controller.kk.initSchoolId);// 主页=>index

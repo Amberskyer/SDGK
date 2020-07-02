@@ -1373,12 +1373,12 @@ class KKController extends Controller {
       provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
     });
 
-    // for (let i = 0; i < 1; i++) {
-    //
-    //   initItem(provinceList[i].province_name);
-    // }
+    for (let i = 0; i < provinceList.length; i++) {
 
-    initItem('湖北');
+      initItem(provinceList[i].province_name);
+    }
+
+    // initItem('湖北');
     async function initItem(location) {
 
 
@@ -1668,7 +1668,7 @@ class KKController extends Controller {
         }, // WHERE 条件
         // order: [[ 'probability' ]],
         attributes: [ 'id', 'college', 'aos', 'location', 'batch', 'score', 'year', 'student_rank', 'rate', 'r_rate', 'low_rank', 'low_score', 'status', 'r_school_id', 'r_province_id', 'r_subject_type', 'r_batch_id' ],
-        group: [ 'batch', 'r_rate' ],
+        group: [ 'college', 'location', 'aos', 'batch', 'student_rank' ],
         // offset: offsetNum,
       });
 
@@ -1685,6 +1685,7 @@ class KKController extends Controller {
         let r_school_id = null;
         let r_province_id = null;
         let r_subject_type = null;
+        let r_batch_id = null;
         let batch = batchValue;
 
 
@@ -1697,6 +1698,7 @@ class KKController extends Controller {
           r_school_id = item.r_school_id;
           r_province_id = item.r_province_id;
           r_subject_type = item.r_subject_type;
+          r_batch_id = item.r_batch_id;
           batch = item.batch;
           _batchBeginRateArr.push(item.student_rank + 1);
           _batchEndRateArr.push(item.student_rank);
@@ -1711,7 +1713,7 @@ class KKController extends Controller {
               school_id: r_school_id,
               province_id: r_province_id,
               subject_type: r_subject_type,
-              batch_id: batch,
+              batch_id: r_batch_id,
               rank_begin: _batchEndRateArr[index],
               rank_end: item,
               rank_rate: 0.1,
@@ -1722,7 +1724,7 @@ class KKController extends Controller {
               school_id: r_school_id,
               province_id: r_province_id,
               subject_type: r_subject_type,
-              batch_id: batch,
+              batch_id: r_batch_id,
               rank_begin: _batchEndRateArr[index],
               rank_end: item,
               rank_rate: _rateLit[index - 1].r_rate,
@@ -1732,7 +1734,7 @@ class KKController extends Controller {
         });
       });
 
-      await
+      await ctx.kkModel.Rate.bulkCreate(rateArr);
 
       await ctx.kkModel.RateTable.update({
         status: 'F-222-sec-' + location,
@@ -1742,7 +1744,7 @@ class KKController extends Controller {
         },
       });
 
-      await initItem(location)
+      await initItem(location);
     }
   }
 

@@ -9,7 +9,7 @@ module.exports = app => {
       allowNull: false,
       primaryKey: true
     },
-    school_id: {
+    r_school_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
@@ -70,11 +70,11 @@ module.exports = app => {
       allowNull: true,
       defaultValue: '-1'
     },
-    r_batch: {
+    r_batch_id: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    r_subject: {
+    r_subject_type: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
