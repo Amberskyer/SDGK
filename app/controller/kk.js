@@ -1670,30 +1670,30 @@ class KKController extends Controller {
       const batchSet = new Set(batchArr);
 
 
-      // console.log({ batchSet });
-
       const rateArr = [];
       batchSet.forEach(batchValue => {
-        const _batchBeginRateArr = [ ];
-        const _batchEndRateArr = [ 3000000 ];
         let r_school_id = null;
         let r_province_id = null;
         let r_subject_type = null;
         let batch = batchValue;
-        rateList.forEach((item, index) => {
+
+
+        const _batchBeginRateArr = [ ];
+        const _batchEndRateArr = [ 3000000 ];
+
+        const _rateLit = rateList.filter(item => item.batch === batchValue);
+
+        _rateLit.forEach((item, index) => {
           r_school_id = item.r_school_id;
           r_province_id = item.r_province_id;
           r_subject_type = item.r_subject_type;
           batch = item.batch;
-          if (batchValue === item.batch) {
-            console.log({ item });
-            _batchBeginRateArr.push(item.student_rank + 1);
-            _batchEndRateArr.push(item.student_rank);
-          }
+          _batchBeginRateArr.push(item.student_rank + 1);
+          _batchEndRateArr.push(item.student_rank);
         });
+
         _batchBeginRateArr.push(1);
 
-        console.log(_batchBeginRateArr, _batchEndRateArr);
 
         _batchBeginRateArr.forEach((item, index) => {
           if (index === 0) {
@@ -1715,13 +1715,12 @@ class KKController extends Controller {
               batch_id: batch,
               rank_begin: _batchEndRateArr[index],
               rank_end: item,
-              rank_rate: rateList[index - 1].rate,
+              rank_rate: _rateLit[index - 1].rate,
               status: 200,
             });
           }
         });
       });
-      console.log(rateArr);
 
     }
   }
