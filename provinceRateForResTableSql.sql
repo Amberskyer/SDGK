@@ -1,652 +1,93 @@
 
-                CREATE TABLE `tb_gk_rank_rates_13` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_13
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_2` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_23
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_23` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_14
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_14` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_29
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_29` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_20
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_20` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_21
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_21` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_25
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_25` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_9
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_22` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_4
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_9` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_17
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_4` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_18
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_17` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_19
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_18` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_8
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_19` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_11
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_8` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_15
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_11` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_7
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_15` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_6
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_7` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_31
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_6` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_30
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_31` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_5
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_30` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_28
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_16` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_24
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           
-                CREATE TABLE `tb_gk_rank_rates_5` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
-                          
-                CREATE TABLE `tb_gk_rank_rates_28` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
-                          
-                CREATE TABLE `tb_gk_rank_rates_10` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
-                          
-                CREATE TABLE `tb_gk_rank_rates_24` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
-                          
-                CREATE TABLE `tb_gk_rank_rates_3` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
-                          
-                CREATE TABLE `tb_gk_rank_rates_27` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
-                          
-                CREATE TABLE `tb_gk_rank_rates_32` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
-                          
-                CREATE TABLE `tb_gk_rank_rates_26` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
-                          
-                CREATE TABLE `tb_gk_rank_rates_12` (
-                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                `school_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `major_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `batch_id` int(11) DEFAULT NULL,
-                `subject_type` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                `province_id` int(10) DEFAULT NULL,
-                `rank_begin` int(10) DEFAULT NULL,
-                `rank_end` int(10) DEFAULT NULL,
-                `rank_rate` int(10) DEFAULT NULL,
-                PRIMARY KEY (`id`) USING BTREE,
-                KEY `id` (`id`) USING BTREE,
-                KEY `school_id` (`school_id`) USING BTREE,
-                KEY `batch_id` (`batch_id`) USING BTREE,
-                KEY `subject_type` (`subject_type`) USING BTREE,
-                KEY `province_id` (`province_id`) USING BTREE,
-                KEY `rank_begin` (`rank_begin`) USING BTREE,
-                KEY `rank_end` (`rank_end`) USING BTREE,
-                KEY `rank_rate` (`rank_rate`) USING BTREE
-              ) ENGINE=InnoDB AUTO_INCREMENT=4273658 DEFAULT CHARSET=utf8;
+                UPDATE tb_gk_rank_rates_26
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
                           

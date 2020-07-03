@@ -79,6 +79,38 @@ class SqlToolController extends Controller {
     }
   }
 
+  async updateResRate() {
+
+    const { ctx } = this;
+    const provinceList = await ctx.kkModel.Province.findAll({
+      where: {
+        status: {
+          $notIn: [ 404 ],
+        },
+      },
+    });
+
+    let sqlStr = '';
+    for (let i = 0; i < provinceList.length; i++) {
+
+      await initItem(provinceList[i]);
+    }
+
+    console.log(sqlStr);
+    fs.writeFileSync('provinceRateForResTableSql.sql', Buffer.from(sqlStr), { flag: 'w' });
+
+
+    // initItem('四川');
+
+    async function initItem(provinceInfo) {
+      sqlStr = sqlStr + `
+                UPDATE tb_gk_rank_rates_${provinceInfo.r_province_id}
+                SET rank_rate=99
+                WHERE rank_begin=1 and rank_rate <> 99 and rank_end>=1000;
+                          `;
+    }
+  }
+
   async addProvinceRateResTable() {
 
     const { ctx } = this;
