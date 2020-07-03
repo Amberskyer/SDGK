@@ -1373,12 +1373,12 @@ class KKController extends Controller {
       provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
     });
 
-    for (let i = 0; i < provinceList.length; i++) {
+    // for (let i = 0; i < provinceList.length; i++) {
+    //
+    //   initItem(provinceList[i].province_name);
+    // }
 
-      initItem(provinceList[i].province_name);
-    }
-
-    // initItem('湖北');
+    initItem('湖北', 18);
     async function initItem(location) {
 
 
@@ -1391,7 +1391,7 @@ class KKController extends Controller {
         }, // WHERE 条件
         attributes: [ 'id', 'college', 'aos', 'location', 'batch', 'batch_two', 'score', 'year', 'low_rank', 'low_rank_two', 'low_score', 'low_score_two', 'status', 'r_school_id', 'r_province_id', 'r_subject_type', 'r_batch_id', 'r_batch_id_two' ],
         // order: [[ 'probability' ]],
-        limit: 5,
+        limit: 1,
         // offset: offsetNum,
       });
 
@@ -1453,12 +1453,20 @@ class KKController extends Controller {
               year,
               college,
             };
-            const cookie = '__wpkreporterwid_=e07d46a8-717d-4902-aaa0-4b59ccbcee4d; sm_uuid=1fce9782176379015c32aca4cfb2e9ae%7C%7C%7C1592793954; sm_diu=1fce9782176379015c32aca4cfb2e9ae%7C%7C11eef1ee4fe10a7301%7C1592793954; PHPSESSID=614h35h64mfgu20mlck5l1qulk';
+            const cookie = 'sm_uuid=a1548c914ec0d19e8115e780e41af399%7C%7C%7C1593417757; sm_diu=a1548c914ec0d19e8115e780e41af399%7C%7C11eef1664fe8b10ca7%7C1593417757; PHPSESSID=tdlm8qlf3gs3c0pp6ppvdv2j3b';
             const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
             // console.log(schoolProvinceResult.data);
             if (schoolProvinceResult.status !== 200) {
+              console.log({
+                location,
+                aos,
+                score,
+                student_rank,
+                subjects: aos,
+                year,
+                college });
               console.log('停了停了————————————————————————————————————');
-              -sumNum++;
+              sumNum++;
               idsArrFor404.push(rateListItem.id);
             } else if (schoolProvinceResult.data.data.status_code === 301) {
               console.log(params, '301301————————————————————————————————————');
@@ -1616,7 +1624,9 @@ class KKController extends Controller {
     const { ctx } = this;
     const provinceList = await ctx.kkModel.Province.findAll({
       where: {
-        status: 707,
+        status: {
+          $notIn: [ 404 ],
+        },
       },
     });
     const provinceObj = {};
@@ -1624,20 +1634,21 @@ class KKController extends Controller {
       provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
     });
 
-    // for (let i = 0; i < 1; i++) {
-    //
-    //   initItem(provinceList[i].province_name);
-    // }
+    for (let i = 0; i < provinceList.length; i++) {
 
-    initItem('重庆');
+      console.log(provinceList[i].province_name, provinceList[i].r_province_id);
+      initItem(provinceList[i].province_name, provinceList[i].r_province_id);
+    }
 
-    async function initItem(location) {
+    // initItem('重庆');
+
+    async function initItem(location, locationId) {
 
 
       const rateTableResult = await ctx.kkModel.RateTable.findAll({
         where: {
           status: {
-            $in: [ 'F-222-End', 'F-444-End' ],
+            $in: [ `F-222-End_${location}`, `F-444-End_${location}` ],
           },
           location,
           // id: 250,
@@ -1652,13 +1663,15 @@ class KKController extends Controller {
       const rateTableInfo = rateTableResult[0];
 
       if (!rateTableInfo) {
+        console.log('没有哦');
         return;
       }
+      console.log(rateTableInfo.id);
 
       const rateList = await ctx.kkModel[provinceObj[location]].findAll({
         where: {
           status: {
-            $in: [ '200' ],
+            $in: [ '200', 'ALL-202' ],
           },
           // status: -1,
           r_school_id: rateTableInfo.r_school_id,
@@ -1668,7 +1681,7 @@ class KKController extends Controller {
         }, // WHERE 条件
         // order: [[ 'probability' ]],
         attributes: [ 'id', 'college', 'aos', 'location', 'batch', 'score', 'year', 'student_rank', 'rate', 'r_rate', 'low_rank', 'low_score', 'status', 'r_school_id', 'r_province_id', 'r_subject_type', 'r_batch_id' ],
-        group: [ 'college', 'location', 'aos', 'batch', 'student_rank' ],
+        group: [ 'college', 'location', 'aos', 'batch', 'student_rank', 'r_rank' ],
         // offset: offsetNum,
       });
 
@@ -1692,7 +1705,22 @@ class KKController extends Controller {
         const _batchBeginRateArr = [ ];
         const _batchEndRateArr = [ 3000000 ];
 
-        const _rateLit = rateList.filter(item => item.batch === batchValue);
+        const _rateLit = [];
+
+        rateList.forEach((item, index) => {
+          if (rateList.length >= 2) {
+            if (index === 0) {
+              _rateLit.push(item);
+            } else if (item.batch === batchValue && item.r_rate !== rateList[index - 1].r_rate) {
+              _rateLit.push(item);
+            }
+          } else if (rateList.length === 1) {
+            if (item.batch === batchValue) {
+              _rateLit.push(item);
+            }
+          }
+
+        });
 
         _rateLit.forEach((item, index) => {
           r_school_id = item.r_school_id;
@@ -1705,7 +1733,6 @@ class KKController extends Controller {
         });
 
         _batchBeginRateArr.push(1);
-
 
         _batchBeginRateArr.forEach((item, index) => {
           if (index === 0) {
@@ -1720,31 +1747,35 @@ class KKController extends Controller {
               status: 200,
             });
           } else {
-            rateArr.push({
-              school_id: r_school_id,
-              province_id: r_province_id,
-              subject_type: r_subject_type,
-              batch_id: r_batch_id,
-              rank_begin: item,
-              rank_end: _batchEndRateArr[index],
-              rank_rate: _rateLit[index - 1].r_rate,
-              status: 200,
-            });
+            if (index >= 2 && _rateLit[index - 1].r_rate === 99 && _rateLit[index - 2].r_rate === 99) {
+              // ...
+            } else {
+              rateArr.push({
+                school_id: r_school_id,
+                province_id: r_province_id,
+                subject_type: r_subject_type,
+                batch_id: r_batch_id,
+                rank_begin: item,
+                rank_end: _batchEndRateArr[index],
+                rank_rate: _rateLit[index - 1].r_rate,
+                status: 200,
+              });
+            }
           }
         });
       });
 
-      await ctx.kkModel.Rate.bulkCreate(rateArr);
+      await ctx.kkModel[`TbGkRankRates_${locationId}`].bulkCreate(rateArr);
 
       await ctx.kkModel.RateTable.update({
-        status: rateTableInfo.status + '_' + location,
+        status: rateTableInfo.status + '_2',
       }, {
         where: {
           id: rateTableInfo.id,
         },
       });
 
-      await initItem(location);
+      await initItem(location, locationId);
     }
   }
 
