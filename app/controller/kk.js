@@ -162,60 +162,66 @@ class KKController extends Controller {
   async checkRateTableFor2020() {
 
     const { ctx } = this;
-    // schoolList = await ctx.kkModel.school.findAll();
 
+    const provinceList = await ctx.kkModel.Province.findAll();
+    const provinceObj = {};
+    provinceList.forEach(item => {
+      provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
+    });
 
-    // const rate = null;
-    // const rank = null;
-    // const last_rank = null;
-    // const rankStep = 1000;
-
-    for (let i = 0; i < 168640; i = i + 4000) {
+    for (let i = 0; i < 168640; i = i + 40000) {
       initItem(i);
     }
 
     // initItem(0);
     async function initItem(offsetNum) {
 
-      const rateList = await ctx.kkModel.RateTable.findAll({
+      const rateTableList = await ctx.kkModel.RateTable.findAll({
         where: {
+          init_status: -1,
           status: {
-            $in: [ 6666, 444 ],
+            $notIn: [ '6-888' ],
           },
           id: {
-            $between: [ offsetNum, offsetNum + 4000 ],
-            // $lte: offsetNum + 40000,
-            // $gte: offsetNum,
+            $between: [ offsetNum, offsetNum + 40000 ],
           },
-          // probability: rate,
         }, // WHERE 条件
-        // order: [[ 'probability' ]],
         limit: 50,
-        // offset: offsetNum,
       });
 
       let sumNum = 0;
       const idsArrFor222 = [];
       const idsArrFor444 = [];
 
-      for (let i = 0; i < rateList.length; i++) {
-        const rateListItem = rateList[i];
-        const dataJson = JSON.parse(rateListItem.html);
-        if (dataJson.data.college.luqu_genre === rateListItem.aos) {
-          idsArrFor222.push(rateListItem.id);
+      for (let i = 0; i < rateTableList.length; i++) {
+
+        const rateTableInfo = rateTableList[i];
+        console.log(rateTableInfo);
+
+        const rateList = await ctx.kkModel[provinceObj[rateTableInfo.location]].findAll({
+          where: {
+            college: rateTableInfo.college,
+            aos: rateTableInfo.aos,
+          }, // WHERE 条件
+          // order: [[ 'probability' ]],
+          group: [ 'college', 'aos' ],
+          attributes: [ 'id', 'college', 'aos', 'location', 'batch' ],
+          // offset: offsetNum,
+        });
+
+        if (rateList.length >= 1) {
+          idsArrFor222.push(rateTableInfo.id);
         } else {
-          idsArrFor444.push(rateListItem.id);
+          idsArrFor444.push(rateTableInfo.id);
         }
+        console.log(rateList.length);
         sumNum++;
-
-
       }
 
-      if (sumNum !== 0 && sumNum === rateList.length) {
-        console.log(idsArrFor222);
-        console.log(idsArrFor444);
+      if (sumNum !== 0 && sumNum === rateTableList.length) {
+
         await ctx.kkModel.RateTable.update({
-          status: 222,
+          init_status: 200,
         }, {
           where: {
             id: {
@@ -226,7 +232,7 @@ class KKController extends Controller {
 
 
         await ctx.kkModel.RateTable.update({
-          status: 4444,
+          init_status: 404,
         }, {
           where: {
             id: {
@@ -754,7 +760,9 @@ class KKController extends Controller {
     const { ctx } = this;
     const provinceList = await ctx.kkModel.Province.findAll({
       where: {
-        status: 6,
+        status: {
+          $notIn: [ 404 ],
+        },
       },
     });
     const provinceObj = {};
@@ -777,7 +785,7 @@ class KKController extends Controller {
           // status: {
           //   $notIn: [ 222, 888 ],
           // },
-          status: -1,
+          status: 2222,
         // probability: rate,
         }, // WHERE 条件
         // order: [[ 'probability' ]],
@@ -1133,7 +1141,7 @@ class KKController extends Controller {
     const provinceList = await ctx.kkModel.Province.findAll({
       where: {
         status: {
-          $in: [ 6 ],
+          $notIn: [ 404 ],
         },
       },
     });
@@ -1142,19 +1150,19 @@ class KKController extends Controller {
       provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
     });
 
-    // for (let i = 0; i < provinceList.length; i++) {
-    //
-    //   initItem(provinceList[i].province_name);
-    // }
+    for (let i = 0; i < provinceList.length; i++) {
 
-    initItem('河南');
+      initItem(provinceList[i].province_name);
+    }
+
+    // initItem('河南');
 
     async function initItem(location) {
 
 
       const rateTableResult = await ctx.kkModel.RateTable.findAll({
         where: {
-          status: 'F-222222',
+          status: '2222',
           location,
           // probability: rate,
         }, // WHERE 条件
@@ -1164,11 +1172,8 @@ class KKController extends Controller {
         // offset: offsetNum,
       });
 
-      if (location === '河南') {
-        console.log(rateTableResult);
-      }
-
       const rateTableInfo = rateTableResult[0];
+
       if (!rateTableInfo) {
         return;
       }
@@ -1196,6 +1201,7 @@ class KKController extends Controller {
       for (let i = 0; i < rateList.length; i++) {
         if (!isEnough) {
           const rateListItem = rateList[i];
+          console.log(rateListItem.score, rateListItem.college);
           const student_rank = '';
           const score = rateListItem.score;
           const college = rateListItem.college;
@@ -1215,6 +1221,8 @@ class KKController extends Controller {
             year,
             college,
           };
+          console.log('参数是', params);
+
           const cookie = '__wpkreporterwid_=e07d46a8-717d-4902-aaa0-4b59ccbcee4d; sm_uuid=1fce9782176379015c32aca4cfb2e9ae%7C%7C%7C1592793954; sm_diu=1fce9782176379015c32aca4cfb2e9ae%7C%7C11eef1ee4fe10a7301%7C1592793954; PHPSESSID=614h35h64mfgu20mlck5l1qulk';
           const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
           // console.log(schoolProvinceResult.data);
@@ -1231,7 +1239,7 @@ class KKController extends Controller {
             sumNum++;
             idsArrForError.push(rateListItem.id);
           } else if (schoolProvinceResult.status === 200 && schoolProvinceResult.data.status === 0) {
-            console.log(schoolProvinceResult);
+            console.log('报错了', schoolProvinceResult, rateListItem);
             const rateInfo = schoolProvinceResult.data.data;
             const _rate = Math.ceil(rateInfo.college.probability * 100);
             const batch = rateInfo.college.batch;
@@ -1258,29 +1266,9 @@ class KKController extends Controller {
                   id: rateListItem.id,
                 },
               });
-            } else {
-              // await ctx.kkModel[provinceObj[location]].update({
-              //   status: 'ALL-4000',
-              // }, {
-              //   where: {
-              //     college, aos,
-              //   },
-              // });
             }
             _last_score_rank = rateInfo.student_rank + 1;
             if (isEnough || _rate === 100) {
-
-              // await ctx.kkModel[provinceObj[location]].update({
-              //   batch: rateInfo.college.batch,
-              //   student_rank: _last_score_rank,
-              //   r_rank: 1,
-              //   rate: rateInfo.college.probability,
-              //   risky: rateInfo.college.risky,
-              // }, {
-              //   where: {
-              //     id: rateListItem,
-              //   },
-              // });
 
               await ctx.kkModel[provinceObj[location]].update({
                 batch: null,
@@ -1292,7 +1280,9 @@ class KKController extends Controller {
               }, {
                 where: {
                   college, aos,
-                  status: -1,
+                  id: {
+                    $gt: rateListItem.id,
+                  },
                 },
               });
               isEnough = true;
@@ -2179,7 +2169,13 @@ CREATE TABLE \`rate_${provinceInfo.pin_yin}_data\` (
 
   async initRateProvinceSql() {
     const { ctx } = this;
-    const provinceList = await ctx.kkModel.Province.findAll();
+    const provinceList = await ctx.kkModel.Province.findAll({
+      where: {
+        status: {
+          $notIn: [ 404 ],
+        },
+      },
+    });
     // for (let i = 0; i < provinceList.length; i++) {
     //   const provinceListItem = provinceList[i];
     //   const RateSqlStr = await fs.readFileSync('.\\app\\data\\rate.sql');
@@ -2191,8 +2187,8 @@ CREATE TABLE \`rate_${provinceInfo.pin_yin}_data\` (
       const provinceListItem = provinceList[i];
       const RateSqlStr = await fs.readFileSync('.\\app\\model\\kk\\rate.js');
       console.log(RateSqlStr.toString());
-      const sqlStr = RateSqlStr.toString().replace(/'rate_data'/g, `'rate_${provinceListItem.pin_yin}_data'`);
-      await fs.writeFileSync(`.\\app\\model\\kk\\rate_${provinceListItem.pin_yin}_data.js`, sqlStr);
+      const sqlStr = RateSqlStr.toString().replace(/'rate'/g, `'rate_${provinceListItem.pin_yin}'`);
+      await fs.writeFileSync(`.\\app\\model\\kk\\rate_${provinceListItem.pin_yin}.js`, sqlStr);
     }
   }
 }

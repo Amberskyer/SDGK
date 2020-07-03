@@ -39,7 +39,7 @@ module.exports = app => {
   // router.get('/kk/init', controller.kk.loadRate);// 主页=>index
   // router.get('/kk/transfer-for-rate', controller.kk.transferRate);// 主页=>index
   // router.get('/kk/load-rate-table-for-2020', controller.kk.loadRateTableFor2020);// 主页=>index
-  // router.get('/kk/load-rate-for-end-2020-222', controller.kk.loadRateForEnd222);// 主页=>index
+  router.get('/kk/load-rate-for-end-2020-222', controller.kk.loadRateForEnd222);// 主页=>index
   // router.get('/kk/destroy-rate-table-for-2020', controller.kk.destroyRate);// 主页=>index
   // router.get('/kk/check-rate-table-for-2020', controller.kk.checkRateTableFor2020);// 主页=>index
   // router.get('/kk/init-province-table-for-2020', controller.kk.addProvinceTable);// 主页=>index
@@ -49,6 +49,7 @@ module.exports = app => {
   router.get('/kk/init-rate-for-end-2020-222', controller.kk.initRateForEnd222);// 主页=>index
   router.get('/kk/load-rate-for-end-2020-444', controller.kk.loadRateForEnd444);// 主页=>index
   router.get('/kk/update-res_rate', controller.sqlTool.updateResRate);// 主页=>index
+  router.get('/kk/check-rate-table-for-2020', controller.kk.checkRateTableFor2020);// 主页=>index
   // router.get('/kk/transfer-rate', controller.kk.transferRate);// 主页=>index
   // router.get('/kk/init-table-id', controller.kk.initTableId);// 主页=>index
   // router.get('/kk/init-school-id', controller.kk.initSchoolId);// 主页=>index

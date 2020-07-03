@@ -78,6 +78,11 @@ module.exports = app => {
       allowNull: true,
       defaultValue: '-1',
     },
+    init_status: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: '-1',
+    },
     html: {
       type: DataTypes.TEXT,
       allowNull: true,
