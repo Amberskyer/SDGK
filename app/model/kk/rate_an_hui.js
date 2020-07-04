@@ -5,40 +5,85 @@ module.exports = app => {
 
   const Model = app.kkModel.define('rate_an_hui', {
     id: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
     },
     school_id: {
-      type: DataTypes.STRING(36),
-      allowNull: true,
-    },
-    major_id: {
-      type: DataTypes.STRING(36),
-      allowNull: true,
-    },
-    batch_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
     },
-    subject_type: {
-      type: DataTypes.STRING(16),
+    college: {
+      type: DataTypes.STRING(255),
       allowNull: true,
     },
-    province_id: {
-      type: DataTypes.INTEGER(10),
+    aos: {
+      type: DataTypes.STRING(255),
       allowNull: true,
     },
-    rank_begin: {
-      type: DataTypes.INTEGER(10),
+    batch: {
+      type: DataTypes.STRING(255),
       allowNull: true,
     },
-    rank_end: {
-      type: DataTypes.INTEGER(10),
+    location: {
+      type: DataTypes.STRING(255),
       allowNull: true,
     },
-    rank_rate: {
-      type: DataTypes.INTEGER(10),
+    year: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+    },
+    score: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+    },
+    student_rank: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+    },
+    rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    risky: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    r_rank: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    r_rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    low_rank: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    low_score: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    status: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: '-1',
+    },
+    r_school_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+    },
+    r_province_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+    },
+    r_subject_type: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    r_batch_id: {
+      type: DataTypes.INTEGER(11),
       allowNull: true,
     },
   }, {

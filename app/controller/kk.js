@@ -1188,7 +1188,7 @@ class KKController extends Controller {
         attributes: [ 'id', 'college', 'aos', 'location', 'score', 'year', 'low_rank', 'low_score', 'status' ],
       });
 
-      console.log('查到了这么多哦', rateList.length);
+      console.log('查到了这么多哦', rateList[0]);
 
       let sumNum = 0;
       let isEnough = false;
@@ -1200,8 +1200,7 @@ class KKController extends Controller {
 
       for (let i = 0; i < rateList.length; i++) {
         if (!isEnough) {
-          const rateListItem = rateList[i];
-          console.log(rateListItem.score, rateListItem.college);
+          const rateListItem = rateList[i].dataValues;
           const student_rank = '';
           const score = rateListItem.score;
           const college = rateListItem.college;
@@ -1221,7 +1220,6 @@ class KKController extends Controller {
             year,
             college,
           };
-          console.log('参数是', params);
 
           const cookie = '__wpkreporterwid_=e07d46a8-717d-4902-aaa0-4b59ccbcee4d; sm_uuid=1fce9782176379015c32aca4cfb2e9ae%7C%7C%7C1592793954; sm_diu=1fce9782176379015c32aca4cfb2e9ae%7C%7C11eef1ee4fe10a7301%7C1592793954; PHPSESSID=614h35h64mfgu20mlck5l1qulk';
           const schoolProvinceResult = await ctx.baseGet(url, params, cookie);
@@ -1239,14 +1237,14 @@ class KKController extends Controller {
             sumNum++;
             idsArrForError.push(rateListItem.id);
           } else if (schoolProvinceResult.status === 200 && schoolProvinceResult.data.status === 0) {
-            console.log('报错了', schoolProvinceResult, rateListItem);
+            console.log('报错了');
             const rateInfo = schoolProvinceResult.data.data;
             const _rate = Math.ceil(rateInfo.college.probability * 100);
             const batch = rateInfo.college.batch;
             const item = {
               batch: rateInfo.college.batch,
               student_rank: rateInfo.student_rank,
-              r_rank: null,
+              // r_rank: null,
               rate: rateInfo.college.probability,
               risky: rateInfo.college.risky,
               status: '200',
@@ -1269,7 +1267,6 @@ class KKController extends Controller {
             }
             _last_score_rank = rateInfo.student_rank + 1;
             if (isEnough || _rate === 100) {
-
               await ctx.kkModel[provinceObj[location]].update({
                 batch: null,
                 student_rank: null,
@@ -1363,18 +1360,18 @@ class KKController extends Controller {
       provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
     });
 
-    // for (let i = 0; i < provinceList.length; i++) {
-    //
-    //   initItem(provinceList[i].province_name);
-    // }
+    for (let i = 0; i < provinceList.length; i++) {
 
-    initItem('湖北', 18);
+      initItem(provinceList[i].province_name);
+    }
+
+    // initItem('湖北', 18);
     async function initItem(location) {
 
 
       const rateTableResult = await ctx.kkModel.RateTable.findAll({
         where: {
-          status: 'F-444444',
+          status: 'F-4',
           location,
           // id: 167092,
           // probability: rate,
@@ -1423,7 +1420,7 @@ class KKController extends Controller {
 
         for (let i = 0; i < rateList.length; i++) {
           if (!isEnough) {
-            const rateListItem = rateList[i];
+            const rateListItem = rateList[i].dataValues;
             const student_rank = '';
             const score = rateListItem.score;
             const college = rateListItem.college;
@@ -1536,7 +1533,7 @@ class KKController extends Controller {
                   where: {
                     college, aos,
                     status: {
-                      $notIn: [ 'ALL-202', 'ALL-303', 'ALL-505' ],
+                      $notIn: [ 'ALL-20202', 'ALL-30303', 'ALL-50503' ],
                     },
                   },
                 });
@@ -1558,7 +1555,7 @@ class KKController extends Controller {
         if (isEnough || (sumNum !== 0 && sumNum === rateList.length)) {
           if (idsArrFor404.length !== 0) {
             await ctx.kkModel[provinceObj[location]].update({
-              status: 'ALL-404',
+              status: 'ALL-40404',
             }, {
               where: {
                 id: {
@@ -1569,7 +1566,7 @@ class KKController extends Controller {
           }
           if (idsArrFor301.length !== 0) {
             await ctx.kkModel[provinceObj[location]].update({
-              status: 'ALL-303',
+              status: 'ALL-30303',
             }, {
               where: {
                 id: {
@@ -1580,7 +1577,7 @@ class KKController extends Controller {
           }
           if (idsArrForError.length !== 0) {
             await ctx.kkModel[provinceObj[location]].update({
-              status: 'ALL-505',
+              status: 'ALL-50505',
             }, {
               where: {
                 id: {
