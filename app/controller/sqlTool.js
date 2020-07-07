@@ -205,9 +205,14 @@ class SqlToolController extends Controller {
       //                     `;
 
       sqlStr = sqlStr + `
-            UPDATE rate_${provinceInfo.pin_yin}
-            SET r_rate=floor(rate*100)
-            WHERE rate is not null;
+            CREATE TABLE sdgk_rate_${provinceInfo.r_province_id} AS (
+                      \tSELECT
+                      \t\t*
+                      \tFROM
+                      \t\tsdgk_rate
+                      \tWHERE
+                      \t\tprovince_id =${provinceInfo.r_province_id}
+                      );
         `;
     }
   }
@@ -220,8 +225,8 @@ class SqlToolController extends Controller {
       const provinceListItem = provinceList[i];
       const RateSqlStr = await fs.readFileSync('.\\app\\model\\kk\\tb_gk_rank_rates.js');
       console.log(RateSqlStr.toString());
-      const sqlStr = RateSqlStr.toString().replace(/'tb_gk_rank_rates'/g, `'tb_gk_rank_rates_${provinceListItem.r_province_id}'`);
-      await fs.writeFileSync(`.\\app\\model\\kk\\tb_gk_rank_rates_${provinceListItem.r_province_id}.js`, sqlStr);
+      const sqlStr = RateSqlStr.toString().replace(/'tb_gk_rank_rates'/g, `'sdgk_rate_${provinceListItem.r_province_id}'`);
+      await fs.writeFileSync(`.\\app\\model\\kk\\sdgk_rate_${provinceListItem.r_province_id}.js`, sqlStr);
     }
   }
 

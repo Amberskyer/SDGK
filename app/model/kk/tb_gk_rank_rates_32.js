@@ -17,6 +17,10 @@ module.exports = app => {
       type: DataTypes.STRING(36),
       allowNull: true,
     },
+    batch: {
+      type: DataTypes.STRING(36),
+      allowNull: true,
+    },
     batch_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
@@ -34,6 +38,14 @@ module.exports = app => {
       allowNull: true,
     },
     rank_end: {
+      type: DataTypes.INTEGER(10),
+      allowNull: true,
+    },
+    score_begin: {
+      type: DataTypes.INTEGER(10),
+      allowNull: true,
+    },
+    score_end: {
       type: DataTypes.INTEGER(10),
       allowNull: true,
     },

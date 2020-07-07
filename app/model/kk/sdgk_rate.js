@@ -3,7 +3,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('tb_gk_rank_rates_17', {
+  const Model = app.kkModel.define('sdgk_rate_table', {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -38,12 +38,18 @@ module.exports = app => {
       type: DataTypes.INTEGER(10),
       allowNull: true
     },
+    rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     rank_rate: {
-      type: DataTypes.INTEGER(10),
+      type: DataTypes.INTEGER(11),
       allowNull: true
     }
   }, {
-    tableName: 'tb_gk_rank_rates_17'
+    tableName: 'sdgk_rate_table',
+    timestamps: false,
+    freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
   });
 
   Model.associate = function() {

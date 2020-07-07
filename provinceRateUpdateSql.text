@@ -1,93 +1,208 @@
 
-            UPDATE rate_an_hui
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_chong_qing
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-
-            UPDATE rate_fu_jian
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_gan_su
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_guang_dong
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_guang_xi
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_gui_zhou
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_hei_long_jiang
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_he_bei
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_he_nan
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_hu_bei
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_hu_nan
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_ji_lin
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_jiang_su
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_jiang_xi
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_liao_ning
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_nei_meng_gu
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_ning_xia
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_qing_hai
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_shan_xi
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_shan_xi_two
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_si_chuan
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
-
-            UPDATE rate_yun_nan
-            SET r_rate=99
-            WHERE rate is not null and student_rank=1 ;
+            CREATE TABLE sdgk_rate_13 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =13
+                      );
+        
+            CREATE TABLE sdgk_rate_23 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =23
+                      );
+        
+            CREATE TABLE sdgk_rate_14 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =14
+                      );
+        
+            CREATE TABLE sdgk_rate_29 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =29
+                      );
+        
+            CREATE TABLE sdgk_rate_20 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =20
+                      );
+        
+            CREATE TABLE sdgk_rate_21 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =21
+                      );
+        
+            CREATE TABLE sdgk_rate_25 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =25
+                      );
+        
+            CREATE TABLE sdgk_rate_9 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =9
+                      );
+        
+            CREATE TABLE sdgk_rate_4 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =4
+                      );
+        
+            CREATE TABLE sdgk_rate_17 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =17
+                      );
+        
+            CREATE TABLE sdgk_rate_18 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =18
+                      );
+        
+            CREATE TABLE sdgk_rate_19 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =19
+                      );
+        
+            CREATE TABLE sdgk_rate_8 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =8
+                      );
+        
+            CREATE TABLE sdgk_rate_11 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =11
+                      );
+        
+            CREATE TABLE sdgk_rate_15 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =15
+                      );
+        
+            CREATE TABLE sdgk_rate_7 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =7
+                      );
+        
+            CREATE TABLE sdgk_rate_6 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =6
+                      );
+        
+            CREATE TABLE sdgk_rate_31 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =31
+                      );
+        
+            CREATE TABLE sdgk_rate_30 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =30
+                      );
+        
+            CREATE TABLE sdgk_rate_5 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =5
+                      );
+        
+            CREATE TABLE sdgk_rate_28 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =28
+                      );
+        
+            CREATE TABLE sdgk_rate_24 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =24
+                      );
+        
+            CREATE TABLE sdgk_rate_26 AS (
+                      	SELECT
+                      		*
+                      	FROM
+                      		sdgk_rate
+                      	WHERE
+                      		province_id =26
+                      );
+        

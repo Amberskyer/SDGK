@@ -7,7 +7,8 @@ module.exports = app => {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     batch_name: {
       type: DataTypes.STRING(255),

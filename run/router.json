@@ -6,8 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate-for-end-2020-222",
-    "regexp": "/^\\/kk\\/load-rate-for-end-2020-222(?:\\/(?=$))?$/",
+    "path": "/sqlTool/addRateProvinceSql",
+    "regexp": "/^\\/sqlTool\\/addRateProvinceSql(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -19,8 +19,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/init-rate-for-end-2020-222",
-    "regexp": "/^\\/kk\\/init-rate-for-end-2020-222(?:\\/(?=$))?$/",
+    "path": "/yzy/init",
+    "regexp": "/^\\/yzy\\/init(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -32,8 +32,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate-for-end-2020-444",
-    "regexp": "/^\\/kk\\/load-rate-for-end-2020-444(?:\\/(?=$))?$/",
+    "path": "/sdgk/init-rate-for-end-by-score",
+    "regexp": "/^\\/sdgk\\/init-rate-for-end-by-score(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -45,21 +45,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/update-res_rate",
-    "regexp": "/^\\/kk\\/update-res_rate(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/kk/check-rate-table-for-2020",
-    "regexp": "/^\\/kk\\/check-rate-table-for-2020(?:\\/(?=$))?$/",
+    "path": "/kk/init-province-id",
+    "regexp": "/^\\/kk\\/init-province-id(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
