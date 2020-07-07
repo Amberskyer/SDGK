@@ -205,10 +205,16 @@ class SqlToolController extends Controller {
       //                     `;
 
       sqlStr = sqlStr + `
-            UPDATE rate_${provinceInfo.pin_yin}
-            SET r_rate=floor(rate*100)
-            WHERE rate is not null;
+            ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}_kk\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}\`;
         `;
+
+      // sqlStr = sqlStr + `
+      //       ALTER TABLE \`sdgk_rate_${provinceInfo.r_province_id}\`
+      //       ADD INDEX \`school_id\` (\`school_id\`) ,
+      //       ADD INDEX \`province_id\` (\`province_id\`) ,
+      //       ADD INDEX \`subject_type\` (\`subject_type\`) ,
+      //       ADD INDEX \`batch_id\` (\`batch_id\`);
+      //   `;
     }
   }
 
