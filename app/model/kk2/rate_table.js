@@ -7,7 +7,8 @@ module.exports = app => {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     school_id: {
       type: DataTypes.INTEGER(11),
@@ -22,6 +23,10 @@ module.exports = app => {
       allowNull: true
     },
     batch: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    batch_two: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -49,7 +54,15 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    low_rank_two: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     low_score: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    low_score_two: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -57,6 +70,48 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: '-1'
+    },
+    r_school_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    r_province_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    r_subject_type: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    r_batch_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    r_batch_id_two: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    rate_two: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    rate_status: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: '-1'
+    },
+    init_status: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: '-1'
+    },
+    html: {
+      type: DataTypes.TEXT,
+      allowNull: true
     }
   }, {
     tableName: 'rate_table'

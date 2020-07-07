@@ -7,7 +7,8 @@ module.exports = app => {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     school_id: {
       type: DataTypes.STRING(36),

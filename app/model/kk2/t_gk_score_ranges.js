@@ -7,7 +7,8 @@ module.exports = app => {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     year: {
       type: DataTypes.INTEGER(11),
@@ -21,11 +22,11 @@ module.exports = app => {
       type: DataTypes.STRING(16),
       allowNull: true
     },
-    score_start: {
+    start: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    score_end: {
+    end: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
@@ -33,7 +34,7 @@ module.exports = app => {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    student_rank: {
+    rank: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     }

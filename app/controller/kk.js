@@ -1,5 +1,4 @@
 'use strict';
-const MD5 = require('md5-node');
 const fs = require('fs');
 const Controller = require('../care/base_controller');
 const SchoolListJson = require('../data/rest.json');

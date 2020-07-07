@@ -18,6 +18,31 @@ class YouzyController extends Controller {
     this.yearArrList = [ 2019, 2018, 2017 ];
   }
 
+  async init() {
+    const { ctx, app } = this;
+    const result = await app.curl('https://apigateway-toci.youzy.cn/Data/TZY/Probability/Get', {
+      method: 'post',
+      dataType: 'json',
+      contentType: 'json',
+      data: { uCode: '42_964_0_0', totalScore: 560, collegeId: 964, course: 0, provinceId: 849, rank: 0, batch: 1 },
+      headers: {
+        YouzyApp_ApiSign: 'LyWVULVLWVlQLYWRyWVrhYyRlLLIyl',
+        YouzyApp_DataSign: 'ITOSTPTEATTIPIPSSSPRAYTTWTAYEAITtEIOOTYWIU',
+        YouzyApp_FromSource: 'iOS-13.46.1',
+        YouzyApp_Sign: 'TCCZTZLZsCLZSBCTODFCsDTfDFEfGtFtTFENNS',
+        YouzyApp_SuperSign: 'CqqLHMZqqHCKZHBqXqQXCNqCCCBNC',
+        'Youzy-CurrentUserId': '14184607',
+        'Youzy-Signature': '138d9ca92a8ea2d38f4962d1d6995ae8',
+        Host: 'apigateway-toci.youzy.cn',
+      },
+    }).then(async res => {
+      return res;
+    }).catch(function() {
+      return [];
+    });
+
+    console.log(result);
+  }
 
   async loadSchool() {
     super.loadSchool();
