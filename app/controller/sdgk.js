@@ -74,7 +74,7 @@ class KKController extends Controller {
     //   initItem(provinceList[i].province_name, provinceList[i].r_province_id);
     // }
 
-    // initItem('湖北', 18);
+    initItem('河南', 17);
 
     async function initItem(location, locationId) {
 
@@ -107,7 +107,7 @@ class KKController extends Controller {
             $in: [ '2222' ],
           },
           rate: {
-            $notIn: [ null ],
+            $ne: null,
           },
           // status: -1,
           r_school_id: sdgkRateTableInfo.school_id,
@@ -146,7 +146,7 @@ class KKController extends Controller {
 
           rateList.forEach((item, index) => {
             if (rateList.length >= 2) {
-              if (index === 0) {
+              if (item.batch === batchValue && index === 0) {
                 _rateLit.push(item);
               } else if (item.batch === batchValue && item.r_rate !== rateList[index - 1].r_rate) {
                 _rateLit.push(item);
@@ -215,7 +215,7 @@ class KKController extends Controller {
 
       } else {
 
-        const sdgkRateList = await ctx.kkModel[`SdgkRate_${locationId}`].findAll({
+        let sdgkRateList = await ctx.kkModel[`SdgkRate_${locationId}`].findAll({
           where: {
             // status: -1,
             school_id: sdgkRateTableInfo.school_id,
@@ -225,7 +225,15 @@ class KKController extends Controller {
           }, // WHERE 条件
           // order: [[ 'probability' ]],
         });
-        await ctx.kkModel[`TbGkRankRates_${locationId}`].bulkCreate(sdgkRateList);
+        if (sdgkRateList && sdgkRateList.length !== 0) {
+          sdgkRateList = sdgkRateList.map(item => {
+            if (item.rank_rate < 50) {
+              item.rank_rate = 0;
+            }
+            return item.rank_rate;
+          });
+          await ctx.kkModel[`TbGkRankRates_${locationId}`].bulkCreate(sdgkRateList);
+        }
 
         // console.log(sdgkRateTableInfo, '2222222222');
 
@@ -240,7 +248,94 @@ class KKController extends Controller {
       }
 
 
-      await initItem(location, locationId);
+      // await initItem(location, locationId);
+    }
+  }
+
+
+  async emptyRateForLow() {
+
+    const { ctx } = this;
+    const provinceList = await ctx.kkModel.Province.findAll({
+      where: {
+        status: {
+          $notIn: [ 404 ],
+        },
+      },
+    });
+    const provinceObj = {};
+    provinceList.forEach(item => {
+      provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
+    });
+
+    for (let i = 0; i < provinceList.length; i++) {
+
+      initItem(provinceList[i].province_name, provinceList[i].r_province_id);
+    }
+
+    // initItem('河南', 17);
+
+    async function initItem(location, locationId) {
+
+
+      const rateTableResult = await ctx.kkModel.SdgkRateTable.findAll({
+        where: {
+          status: {
+            $in: [ 222 ],
+          },
+          province_id: locationId,
+          // id: 250,
+          // probability: rate,
+        }, // WHERE 条件
+        // order: [[ 'probability' ]],
+        limit: 20,
+        // offset: offsetNum,
+      });
+
+      let fatherSum = 0;
+      const idsArr = [];
+      for (let i = 0; i < rateTableResult.length; i++) {
+
+        const sdgkRateTableInfo = rateTableResult[i];
+
+        if (!sdgkRateTableInfo) {
+          console.log('没有哦');
+          return;
+        }
+
+
+        await ctx.kkModel[`TbGkRankRates_${locationId}`].update({
+          rank_rate: 0,
+        }, {
+          where: {
+            school_id: sdgkRateTableInfo.school_id,
+            province_id: sdgkRateTableInfo.province_id,
+            subject_type: sdgkRateTableInfo.subject_type,
+            batch_id: sdgkRateTableInfo.batch_id,
+            rank_rate: {
+              $lt: 50,
+            },
+          },
+        });
+        idsArr.push(sdgkRateTableInfo.id);
+        fatherSum++;
+      }
+
+
+      if (fatherSum && fatherSum === rateTableResult.length) {
+
+        await ctx.kkModel.SdgkRateTable.update({
+          status: 22222,
+        }, {
+          where: {
+            id: {
+              $in: idsArr,
+            },
+          },
+        });
+
+        await initItem(location, locationId);
+      }
     }
   }
 

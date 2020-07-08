@@ -94,7 +94,7 @@ class ZsgkController extends Controller {
     const page = this.page;
     // console.log(schoolListHtml);
     const wmzySql = ctx.app.mysql.get('wmzy');
-    const apiJsonText = fs.readFileSync(`C:\\Users\\Ambersky_keke\\Downloads\\爬虫\\完美志愿\\school\\新建文本文档 - 副本 (${this.page}).txt`, 'utf-8');
+    const apiJsonText = fs.readFileSync(`C:\\Users\\Administrator\\OneDrive\\school\\新建文本文档 - 副本 (${this.page}).txt`, 'utf-8');
 
     const apiJson = JSON.parse(apiJsonText);
     // console.log(apiJson.data.sch_short_info);
@@ -103,6 +103,7 @@ class ZsgkController extends Controller {
         return {
           school_id: item.sch_id,
           school_name: item.sch_name,
+          grad_desc: item.grad_desc,
         };
       });
       console.log(itemArr);

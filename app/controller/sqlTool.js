@@ -179,7 +179,7 @@ class SqlToolController extends Controller {
     }
 
     console.log(sqlStr);
-    fs.writeFileSync('provinceRateUpdateSql.text', Buffer.from(sqlStr), { flag: 'w' });
+    fs.writeFileSync('provinceRateUpdateSql.sql', Buffer.from(sqlStr), { flag: 'w' });
 
 
     // initItem('四川');
@@ -204,9 +204,28 @@ class SqlToolController extends Controller {
       //
       //                     `;
 
+      // sqlStr = sqlStr + `
+      //       ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}_2\`;
+      //   `;
+      // sqlStr = sqlStr + `
+      //       ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}_kk\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}\`;
+      //   `;
+
       sqlStr = sqlStr + `
-            ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}_kk\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}\`;
+            UPDATE tb_gk_rank_rates_${provinceInfo.r_province_id} SET rank_rate=99 WHERE rank_begin=1  and rank_rate<>0;
         `;
+
+      // sqlStr = sqlStr + `
+      //       UPDATE tb_gk_rank_rates_${provinceInfo.r_province_id}
+      //       SET rank_rate=0
+      //       WHERE rank_rate= 45 and batch_id <> 11;
+      //   `;
+
+      // sqlStr = sqlStr + `
+      //       UPDATE seven_province_city
+      //       SET province=\'${provinceInfo.r_province_name}\'
+      //       WHERE province=\'${provinceInfo.province_name}\';
+      //   `;
 
       // sqlStr = sqlStr + `
       //       ALTER TABLE \`sdgk_rate_${provinceInfo.r_province_id}\`
