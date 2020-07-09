@@ -3,12 +3,11 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('tb_gk_rank_rates_32', {
+  const Model = app.model.define('sdgk_rate_20', {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      defaultValue: '0'
     },
     school_id: {
       type: DataTypes.STRING(36),
@@ -38,20 +37,16 @@ module.exports = app => {
       type: DataTypes.INTEGER(10),
       allowNull: true
     },
+    rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     rank_rate: {
-      type: DataTypes.INTEGER(10),
-      allowNull: true
-    },
-    score_begin: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    score_end: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.INTEGER(11),
       allowNull: true
     }
   }, {
-    tableName: 'tb_gk_rank_rates_32'
+    tableName: 'sdgk_rate_20'
   });
 
   Model.associate = function() {

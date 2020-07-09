@@ -6,8 +6,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/init-rate-province_sql",
-    "regexp": "/^\\/kk\\/init-rate-province_sql(?:\\/(?=$))?$/",
+    "path": "/sqlTool/addRateProvinceSql",
+    "regexp": "/^\\/sqlTool\\/addRateProvinceSql(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -19,8 +19,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate-for-end-2020-222",
-    "regexp": "/^\\/kk\\/load-rate-for-end-2020-222(?:\\/(?=$))?$/",
+    "path": "/sdgk/init-rate-for-end",
+    "regexp": "/^\\/sdgk\\/init-rate-for-end(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -32,8 +32,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/init-rate-for-end-2020-222",
-    "regexp": "/^\\/kk\\/init-rate-for-end-2020-222(?:\\/(?=$))?$/",
+    "path": "/sqlTool/init-province-id",
+    "regexp": "/^\\/sqlTool\\/init-province-id(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -45,34 +45,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/kk/load-rate-for-end-2020-444",
-    "regexp": "/^\\/kk\\/load-rate-for-end-2020-444(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/kk/update-res_rate",
-    "regexp": "/^\\/kk\\/update-res_rate(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/kk/check-rate-table-for-2020",
-    "regexp": "/^\\/kk\\/check-rate-table-for-2020(?:\\/(?=$))?$/",
+    "path": "/sqlTool/initProvinceBatchId",
+    "regexp": "/^\\/sqlTool\\/initProvinceBatchId(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

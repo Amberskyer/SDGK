@@ -3,7 +3,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('rate_xin_jiang', {
+  const Model = app.model.define('rate_xin_jiang_2019', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -30,7 +30,7 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    student_rank: {
+    year: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
@@ -38,12 +38,24 @@ module.exports = app => {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    year: {
+    student_rank: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    probability: {
-      type: DataTypes.INTEGER(11),
+    rate: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    risky: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    r_rank: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    r_rate: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     low_rank: {
@@ -58,10 +70,6 @@ module.exports = app => {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: '-1'
-    },
-    rate: {
-      type: DataTypes.STRING(255),
-      allowNull: true
     },
     r_school_id: {
       type: DataTypes.INTEGER(11),
@@ -78,17 +86,9 @@ module.exports = app => {
     r_batch_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true
-    },
-    r_rank: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    r_rate: {
-      type: DataTypes.STRING(255),
-      allowNull: true
     }
   }, {
-    tableName: 'rate_xin_jiang'
+    tableName: 'rate_xin_jiang_2019'
   });
 
   Model.associate = function() {

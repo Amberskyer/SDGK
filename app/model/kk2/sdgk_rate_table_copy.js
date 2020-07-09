@@ -3,7 +3,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.kkModel.define('sdgk_rate_table', {
+  const Model = app.model.define('sdgk_rate_table_copy', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -32,20 +32,15 @@ module.exports = app => {
     },
     status: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
+      defaultValue: '-1'
     },
     count: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    count_two: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.INTEGER(11),
       allowNull: true
     }
   }, {
-    tableName: 'sdgk_rate_table',
-    timestamps: false,
-    freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
+    tableName: 'sdgk_rate_table_copy'
   });
 
   Model.associate = function() {

@@ -69,12 +69,12 @@ class KKController extends Controller {
       provinceObj[item.province_name] = 'Rate' + item.pin_yin_two;
     });
 
-    // for (let i = 0; i < provinceList.length; i++) {
-    //
-    //   initItem(provinceList[i].province_name, provinceList[i].r_province_id);
-    // }
+    for (let i = 0; i < provinceList.length; i++) {
 
-    // initItem('湖北', 18);
+      initItem(provinceList[i].province_name, provinceList[i].r_province_id);
+    }
+
+    // initItem('山西', 5);
 
     async function initItem(location, locationId) {
 
@@ -82,7 +82,7 @@ class KKController extends Controller {
       const rateTableResult = await ctx.kkModel.SdgkRateTable.findAll({
         where: {
           status: {
-            $in: [ -1 ],
+            $in: [ 1 ],
           },
           province_id: locationId,
           // id: 250,
@@ -103,11 +103,14 @@ class KKController extends Controller {
       // const rateList = [];
       const rateList = await ctx.kkModel[provinceObj[location]].findAll({
         where: {
-          status: {
-            $in: [ '2222' ],
+          // status: {
+          // $in: [ '2222', '200' ],
+          // },
+          r_rate: {
+            $ne: null,
           },
-          rate: {
-            $notIn: [ null ],
+          r_batch_id: {
+            $ne: null,
           },
           // status: -1,
           r_school_id: sdgkRateTableInfo.school_id,
@@ -115,9 +118,9 @@ class KKController extends Controller {
           r_subject_type: sdgkRateTableInfo.subject_type,
           // probability: rate,
         }, // WHERE 条件
-        order: [[ 'rate' ]],
+        order: [[ 'score' ]],
         attributes: [ 'id', 'college', 'aos', 'location', 'batch', 'score', 'year', 'student_rank', 'rate', 'r_rate', 'low_rank', 'low_score', 'status', 'r_school_id', 'r_province_id', 'r_subject_type', 'r_batch_id' ],
-        group: [ 'college', 'location', 'aos', 'batch', 'student_rank' ],
+        group: [ 'r_school_id', 'r_province_id', 'r_subject_type', 'r_batch_id', 'student_rank' ],
         // offset: offsetNum,
       });
 
@@ -125,7 +128,7 @@ class KKController extends Controller {
         // console.log(rateList);
 
         const batchArr = rateList.map(item => {
-          return item.batch;
+          return item.r_batch_id;
         });
         const batchSet = new Set(batchArr);
 
@@ -136,7 +139,6 @@ class KKController extends Controller {
           let r_province_id = null;
           let r_subject_type = null;
           let r_batch_id = null;
-          let batch = batchValue;
 
 
           const _batchBeginRateArr = [ ];
@@ -145,16 +147,8 @@ class KKController extends Controller {
           const _rateLit = [];
 
           rateList.forEach((item, index) => {
-            if (rateList.length >= 2) {
-              if (index === 0) {
-                _rateLit.push(item);
-              } else if (item.batch === batchValue && item.r_rate !== rateList[index - 1].r_rate) {
-                _rateLit.push(item);
-              }
-            } else if (rateList.length === 1) {
-              if (item.batch === batchValue) {
-                _rateLit.push(item);
-              }
+            if (item.r_batch_id === batchValue) {
+              _rateLit.push(item);
             }
 
           });
@@ -164,7 +158,6 @@ class KKController extends Controller {
             r_province_id = item.r_province_id;
             r_subject_type = item.r_subject_type;
             r_batch_id = item.r_batch_id;
-            batch = item.batch;
             _batchBeginRateArr.push(item.student_rank + 1);
             _batchEndRateArr.push(item.student_rank);
           });
@@ -180,24 +173,32 @@ class KKController extends Controller {
                 batch_id: r_batch_id,
                 rank_begin: item,
                 rank_end: _batchEndRateArr[index],
-                rank_rate: 0.1,
+                rank_rate: 10,
+                status: 200,
+              });
+            } else if (index === _batchBeginRateArr.length - 1) {
+
+              rateArr.push({
+                school_id: r_school_id,
+                province_id: r_province_id,
+                subject_type: r_subject_type,
+                batch_id: r_batch_id,
+                rank_begin: item,
+                rank_end: _batchEndRateArr[index],
+                rank_rate: 99,
                 status: 200,
               });
             } else {
-              if (index >= 2 && _rateLit[index - 1].r_rate === 99 && _rateLit[index - 2].r_rate === 99) {
-                // ...
-              } else {
-                rateArr.push({
-                  school_id: r_school_id,
-                  province_id: r_province_id,
-                  subject_type: r_subject_type,
-                  batch_id: r_batch_id,
-                  rank_begin: item,
-                  rank_end: _batchEndRateArr[index],
-                  rank_rate: _rateLit[index - 1].r_rate,
-                  status: 200,
-                });
-              }
+              rateArr.push({
+                school_id: r_school_id,
+                province_id: r_province_id,
+                subject_type: r_subject_type,
+                batch_id: r_batch_id,
+                rank_begin: item,
+                rank_end: _batchEndRateArr[index],
+                rank_rate: _rateLit[index - 1].r_rate,
+                status: 200,
+              });
             }
           });
         });
@@ -206,7 +207,7 @@ class KKController extends Controller {
 
         await ctx.kkModel.SdgkRateTable.update({
           status: 200,
-          count: rateArr.length,
+          count_two: rateArr.length,
         }, {
           where: {
             id: sdgkRateTableInfo.id,
@@ -215,9 +216,12 @@ class KKController extends Controller {
 
       } else {
 
-        const sdgkRateList = await ctx.kkModel[`SdgkRate_${locationId}`].findAll({
+        let sdgkRateList = await ctx.kkModel[`SdgkRate_${locationId}`].findAll({
           where: {
             // status: -1,
+            rank_rate: {
+              $ne: null,
+            },
             school_id: sdgkRateTableInfo.school_id,
             province_id: sdgkRateTableInfo.province_id,
             subject_type: sdgkRateTableInfo.subject_type,
@@ -225,13 +229,21 @@ class KKController extends Controller {
           }, // WHERE 条件
           // order: [[ 'probability' ]],
         });
-        await ctx.kkModel[`TbGkRankRates_${locationId}`].bulkCreate(sdgkRateList);
+        if (sdgkRateList && sdgkRateList.length !== 0) {
+          sdgkRateList = sdgkRateList.map(item => {
+            if (item.rank_rate < 50) {
+              item.rank_rate = 0;
+            }
+            return item;
+          });
+          await ctx.kkModel[`TbGkRankRates_${locationId}`].bulkCreate(sdgkRateList);
+        }
 
         // console.log(sdgkRateTableInfo, '2222222222');
 
         await ctx.kkModel.SdgkRateTable.update({
-          status: 222,
-          count: sdgkRateList.length,
+          status: 404,
+          count_two: sdgkRateList.length,
         }, {
           where: {
             id: sdgkRateTableInfo.id,

@@ -1,49 +1,47 @@
 
-            ALTER TABLE `tb_gk_rank_rates_13` RENAME `tb_gk_rank_rates_13_kk`;
+            CREATE TABLE sdgk_rate_13 as ( SELECT * FROM sdgk_rate WHERE province_id=13);
         
-            ALTER TABLE `tb_gk_rank_rates_23` RENAME `tb_gk_rank_rates_23_kk`;
+            CREATE TABLE sdgk_rate_23 as ( SELECT * FROM sdgk_rate WHERE province_id=23);
         
-            ALTER TABLE `tb_gk_rank_rates_14` RENAME `tb_gk_rank_rates_14_kk`;
+            CREATE TABLE sdgk_rate_14 as ( SELECT * FROM sdgk_rate WHERE province_id=14);
         
-            ALTER TABLE `tb_gk_rank_rates_29` RENAME `tb_gk_rank_rates_29_kk`;
+            CREATE TABLE sdgk_rate_29 as ( SELECT * FROM sdgk_rate WHERE province_id=29);
         
-            ALTER TABLE `tb_gk_rank_rates_20` RENAME `tb_gk_rank_rates_20_kk`;
+            CREATE TABLE sdgk_rate_20 as ( SELECT * FROM sdgk_rate WHERE province_id=20);
         
-            ALTER TABLE `tb_gk_rank_rates_21` RENAME `tb_gk_rank_rates_21_kk`;
+            CREATE TABLE sdgk_rate_21 as ( SELECT * FROM sdgk_rate WHERE province_id=21);
         
-            ALTER TABLE `tb_gk_rank_rates_25` RENAME `tb_gk_rank_rates_25_kk`;
+            CREATE TABLE sdgk_rate_25 as ( SELECT * FROM sdgk_rate WHERE province_id=25);
         
-            ALTER TABLE `tb_gk_rank_rates_9` RENAME `tb_gk_rank_rates_9_kk`;
+            CREATE TABLE sdgk_rate_9 as ( SELECT * FROM sdgk_rate WHERE province_id=9);
         
-            ALTER TABLE `tb_gk_rank_rates_4` RENAME `tb_gk_rank_rates_4_kk`;
+            CREATE TABLE sdgk_rate_4 as ( SELECT * FROM sdgk_rate WHERE province_id=4);
         
-            ALTER TABLE `tb_gk_rank_rates_17` RENAME `tb_gk_rank_rates_17_kk`;
+            CREATE TABLE sdgk_rate_17 as ( SELECT * FROM sdgk_rate WHERE province_id=17);
         
-            ALTER TABLE `tb_gk_rank_rates_18` RENAME `tb_gk_rank_rates_18_kk`;
+            CREATE TABLE sdgk_rate_18 as ( SELECT * FROM sdgk_rate WHERE province_id=18);
         
-            ALTER TABLE `tb_gk_rank_rates_19` RENAME `tb_gk_rank_rates_19_kk`;
+            CREATE TABLE sdgk_rate_19 as ( SELECT * FROM sdgk_rate WHERE province_id=19);
         
-            ALTER TABLE `tb_gk_rank_rates_8` RENAME `tb_gk_rank_rates_8_kk`;
+            CREATE TABLE sdgk_rate_8 as ( SELECT * FROM sdgk_rate WHERE province_id=8);
         
-            ALTER TABLE `tb_gk_rank_rates_11` RENAME `tb_gk_rank_rates_11_kk`;
+            CREATE TABLE sdgk_rate_11 as ( SELECT * FROM sdgk_rate WHERE province_id=11);
         
-            ALTER TABLE `tb_gk_rank_rates_15` RENAME `tb_gk_rank_rates_15_kk`;
+            CREATE TABLE sdgk_rate_15 as ( SELECT * FROM sdgk_rate WHERE province_id=15);
         
-            ALTER TABLE `tb_gk_rank_rates_7` RENAME `tb_gk_rank_rates_7_kk`;
+            CREATE TABLE sdgk_rate_7 as ( SELECT * FROM sdgk_rate WHERE province_id=7);
         
-            ALTER TABLE `tb_gk_rank_rates_6` RENAME `tb_gk_rank_rates_6_kk`;
+            CREATE TABLE sdgk_rate_6 as ( SELECT * FROM sdgk_rate WHERE province_id=6);
         
-            ALTER TABLE `tb_gk_rank_rates_31` RENAME `tb_gk_rank_rates_31_kk`;
+            CREATE TABLE sdgk_rate_31 as ( SELECT * FROM sdgk_rate WHERE province_id=31);
         
-            ALTER TABLE `tb_gk_rank_rates_30` RENAME `tb_gk_rank_rates_30_kk`;
+            CREATE TABLE sdgk_rate_30 as ( SELECT * FROM sdgk_rate WHERE province_id=30);
         
-            ALTER TABLE `tb_gk_rank_rates_5` RENAME `tb_gk_rank_rates_5_kk`;
+            CREATE TABLE sdgk_rate_5 as ( SELECT * FROM sdgk_rate WHERE province_id=5);
         
-            ALTER TABLE `tb_gk_rank_rates_28` RENAME `tb_gk_rank_rates_28_kk`;
+            CREATE TABLE sdgk_rate_28 as ( SELECT * FROM sdgk_rate WHERE province_id=28);
         
-            ALTER TABLE `tb_gk_rank_rates_24` RENAME `tb_gk_rank_rates_24_kk`;
+            CREATE TABLE sdgk_rate_24 as ( SELECT * FROM sdgk_rate WHERE province_id=24);
         
-            ALTER TABLE `tb_gk_rank_rates_32` RENAME `tb_gk_rank_rates_32_kk`;
-        
-            ALTER TABLE `tb_gk_rank_rates_26` RENAME `tb_gk_rank_rates_26_kk`;
+            CREATE TABLE sdgk_rate_26 as ( SELECT * FROM sdgk_rate WHERE province_id=26);
         

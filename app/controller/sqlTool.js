@@ -204,10 +204,88 @@ class SqlToolController extends Controller {
       //
       //                     `;
 
+      // sqlStr = sqlStr + `
+      //       ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}_kk\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}\`;
+      //   `;
+
       sqlStr = sqlStr + `
-            ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}_kk\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}\`;
+            CREATE TABLE sdgk_rate_${provinceInfo.r_province_id} as ( SELECT * FROM sdgk_rate WHERE province_id=${provinceInfo.r_province_id});
         `;
 
+      // sqlStr = sqlStr + `
+      //       ALTER TABLE \`sdgk_rate_${provinceInfo.r_province_id}\`
+      //       ADD INDEX \`school_id\` (\`school_id\`) ,
+      //       ADD INDEX \`province_id\` (\`province_id\`) ,
+      //       ADD INDEX \`subject_type\` (\`subject_type\`) ,
+      //       ADD INDEX \`batch_id\` (\`batch_id\`);
+      //   `;
+    }
+  }
+
+
+  async initProvinceBatchId() {
+
+    const { ctx } = this;
+    const provinceList = await ctx.kkModel.Province.findAll({
+      where: {
+        status: {
+          $notIn: [ 404 ],
+        },
+      },
+    });
+
+    const batchList = await ctx.kkModel.Batch.findAll({
+      where: {
+        status: {
+          $ne: null,
+        },
+      },
+    });
+
+
+    let sqlStr = '';
+
+    for (let i = 0; i < provinceList.length; i++) {
+
+      for (let j = 0; j < batchList.length; j++) {
+
+        await initItem(provinceList[i], batchList[j]);
+      }
+    }
+
+    fs.writeFileSync('batchSql.text', Buffer.from(sqlStr), { flag: 'w' });
+
+
+    // initItem('四川');
+
+    async function initItem(provinceInfo, batchInfo) {
+      // sqlStr = sqlStr + `
+      //                   UPDATE \`rate_${provinceInfo.pin_yin}\`
+      //                     SET r_province_id=${provinceInfo.r_province_id}
+      //                     WHERE location='${provinceInfo.province_name}';
+      //                     `;
+
+      // sqlStr = sqlStr + `
+      //                   UPDATE \`rate_${provinceInfo.pin_yin}\`
+      //                     SET r_subject_type = 'LI'
+      //                     WHERE
+      //                     \taos = '理科';
+      //
+      //                     UPDATE \`rate_${provinceInfo.pin_yin}\`
+      //                     SET r_subject_type = 'WEN'
+      //                     WHERE
+      //                     \taos = '文科';
+      //
+      //                     `;
+
+      // sqlStr = sqlStr + `
+      //       ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}_kk\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}\`;
+      //   `;
+
+
+      sqlStr = sqlStr + `UPDATE rate_${provinceInfo.pin_yin}
+                          SET r_batch_id=${batchInfo.r_batch_id}
+                          WHERE batch='${batchInfo.batch_name}';`;
       // sqlStr = sqlStr + `
       //       ALTER TABLE \`sdgk_rate_${provinceInfo.r_province_id}\`
       //       ADD INDEX \`school_id\` (\`school_id\`) ,

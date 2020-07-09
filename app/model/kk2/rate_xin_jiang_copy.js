@@ -3,7 +3,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('rate_xin_jiang', {
+  const Model = app.model.define('rate_xin_jiang_copy', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -88,7 +88,7 @@ module.exports = app => {
       allowNull: true
     }
   }, {
-    tableName: 'rate_xin_jiang'
+    tableName: 'rate_xin_jiang_copy'
   });
 
   Model.associate = function() {
