@@ -204,16 +204,23 @@ class SqlToolController extends Controller {
       //
       //                     `;
 
+      sqlStr = sqlStr + `
+            ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}_0708_last\`;
+        `;
+
       // sqlStr = sqlStr + `
-      //       ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}_2\`;
+      //       UPDATE tb_gk_rank_rates_${provinceInfo.r_province_id}
+      //       SET rank_rate = 0
+      //       WHERE rank_rate = 10;
       //   `;
+
       // sqlStr = sqlStr + `
       //       ALTER TABLE \`tb_gk_rank_rates_${provinceInfo.r_province_id}_kk\` RENAME \`tb_gk_rank_rates_${provinceInfo.r_province_id}\`;
       //   `;
 
-      sqlStr = sqlStr + `
-            UPDATE tb_gk_rank_rates_${provinceInfo.r_province_id} SET rank_rate=99 WHERE rank_begin=1  and rank_rate<>0;
-        `;
+      // sqlStr = sqlStr + `
+      //       UPDATE tb_gk_rank_rates_${provinceInfo.r_province_id} SET rank_rate=99 WHERE rank_begin=1  and rank_rate<>0;
+      //   `;
 
       // sqlStr = sqlStr + `
       //       UPDATE tb_gk_rank_rates_${provinceInfo.r_province_id}

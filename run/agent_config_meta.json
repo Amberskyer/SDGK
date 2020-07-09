@@ -234,6 +234,7 @@
     "private": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
     "dependencies": {
       "cheerio": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "crypto-js": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "egg": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "egg-cors": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "egg-mysql": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
@@ -245,8 +246,10 @@
       "egg-view-vue-ssr": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "formstream": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "fs": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "js-md5": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "jsonwebtoken": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "md5-node": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
+      "moment": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "mysql2": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "node-xlsx": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",
       "path": "C:\\Documents\\GitHub\\AmberEgg\\node_modules\\egg\\config\\config.default.js",

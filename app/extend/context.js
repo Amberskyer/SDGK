@@ -127,7 +127,7 @@ module.exports = {
 
   async baseGet(url = '', data = {}, cookie) {
     const { app } = this;
-    const apiHeader = app.config.apiHeader;
+    const apiHeader = '';
     const result = await app.curl(apiHeader + url, {
       dataType: 'json',
       data,

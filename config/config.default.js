@@ -188,24 +188,42 @@ module.exports = appInfo => {
   /*   (important:)   数据库链接信息  */
   config.sequelize = {
     datasources: [
+      // { delegate: 'zsgkModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/zsgk', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'zsgk',
+      //   username: 'root',
+      //   password: '123456',
+      //   host: '127.0.0.1',
+      //   port: 3306,
+      // },
       { delegate: 'zsgkModel', // load all models to app.model and ctx.model
         baseDir: 'model/zsgk', // load models from `app/model/*.js`
         dialect: 'mysql',
-        database: 'zsgk',
-        username: 'root',
-        password: '123456',
-        host: '127.0.0.1',
+        database: 'sdgk-data-dev',
+        username: 'dev',
+        password: 'yqdev2020??',
+        host: '47.98.141.198',
         port: 3306,
       },
       { delegate: 'youzyModel', // load all models to app.model and ctx.model
         baseDir: 'model/youzy', // load models from `app/model/*.js`
         dialect: 'mysql',
-        database: 'youzy',
-        username: 'root',
-        password: '123456',
-        host: '127.0.0.1',
+        database: 'jzy',
+        username: 'dev',
+        password: 'yqdev2020??',
+        host: '47.98.141.198',
         port: 3306,
       },
+      // { delegate: 'youzyModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/youzy', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'youzy',
+      //   username: 'root',
+      //   password: '123456',
+      //   host: '127.0.0.1',
+      //   port: 3306,
+      // },
       // { delegate: 'sdgkModel', // load all models to app.model and ctx.model
       //   baseDir: 'model/sdgk', // load models from `app/model/*.js`
       //   dialect: 'mysql',
