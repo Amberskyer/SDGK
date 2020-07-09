@@ -242,24 +242,24 @@ module.exports = appInfo => {
       //   host: '127.0.0.1',
       //   port: 3306,
       // },
-      { delegate: 'yggkModel', // load all models to app.model and ctx.model
-        baseDir: 'model/yggk', // load models from `app/model/*.js`
-        dialect: 'mysql',
-        database: 'yggk',
-        username: 'root',
-        password: '123456',
-        host: '127.0.0.1',
-        port: 3306,
-      },
-      { delegate: 'phoneModel', // load all models to app.model and ctx.model
-        baseDir: 'model/phone', // load models from `app/model/*.js`
-        dialect: 'mysql',
-        database: 'phone',
-        username: 'root',
-        password: '123456',
-        host: '127.0.0.1',
-        port: 3306,
-      },
+      // { delegate: 'yggkModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/yggk', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'yggk',
+      //   username: 'root',
+      //   password: '123456',
+      //   host: '127.0.0.1',
+      //   port: 3306,
+      // },
+      // { delegate: 'phoneModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/phone', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'phone',
+      //   username: 'root',
+      //   password: '123456',
+      //   host: '127.0.0.1',
+      //   port: 3306,
+      // },
       // { delegate: 'kkModel', // load all models to app.model and ctx.model
       //   baseDir: 'model/kk', // load models from `app/model/*.js`
       //   dialect: 'mysql',
