@@ -869,11 +869,15 @@ class YouzyController extends Controller {
   async jiemiSchoolData(result) {
     for (let index = 0; index < result.length; index++) {
       const element = result[index];
-      if (element.maxScore !== 0) { element.maxScore = this.showNumber(element.maxScore.substring(0, element.maxScore.length - 1)); }
-      if (element.avgScore !== 0) { element.avgScore = this.showNumber(element.avgScore.substring(0, element.avgScore.length - 1)); }
-      if (element.minScore !== 0) { element.minScore = this.showNumber(element.minScore.substring(0, element.minScore.length - 1)); }
-      if (element.lowSort !== 0) { element.lowSort = this.showNumber(element.lowSort.substring(0, element.lowSort.length - 1)); }
-      if (element.enterNum !== 0) { element.enterNum = this.showNumber(element.enterNum.substring(0, element.enterNum.length - 1)); }
+      // if (element.maxScore !== 0) { element.maxScore = this.showNumber(element.maxScore.substring(0, element.maxScore.length - 1)); }
+      // if (element.avgScore !== 0) { element.avgScore = this.showNumber(element.avgScore.substring(0, element.avgScore.length - 1)); }
+      // if (element.minScore !== 0) { element.minScore = this.showNumber(element.minScore.substring(0, element.minScore.length - 1)); }
+      // if (element.lowSort !== 0) { element.lowSort = this.showNumber(element.lowSort.substring(0, element.lowSort.length - 1)); }
+      // if (element.enterNum !== 0) { element.enterNum = this.showNumber(element.enterNum.substring(0, element.enterNum.length - 1)); }
+      if (element.planNum !== 0) { element.planNum = this.showNumber(element.planNum.substring(0, element.planNum.length - 1)); }
+      if (element.learnYear !== 0) { element.learnYear = this.showNumber(element.learnYear.substring(0, element.learnYear.length - 1)); }
+      // if (element.cost !== 0) { element.cost = this.showNumber(element.cost.substring(0, element.cost.length - 1)); }
+      if (element.cost && element.cost !== '') { element.cost = this.cnDeCrypt(element.cost.substring(0, element.cost.length - 1)); }
       if (element.professionName && element.professionName !== '') { element.professionName = this.cnDeCrypt(element.professionName.substring(0, element.professionName.length - 1)); }
       if (element.professionCode && element.professionCode !== '') { element.professionCode = this.cnDeCrypt(element.professionCode.substring(0, element.professionCode.length - 1)); }
     }
@@ -1258,6 +1262,142 @@ class YouzyController extends Controller {
       this.initSchoolMajorAdmission();
     }
   }
+
+
+  async initMajorAdmissionPlanTable() {
+
+    const { ctx } = this;
+    const schoolList = await ctx.youzyModel.School.findAll({
+      where: {
+        status: {
+          $ne: 404,
+        },
+      },
+    });
+    const provinceList = await ctx.youzyModel.Province.findAll({
+      where: {
+        status: {
+          $ne: 404,
+        },
+      },
+    });
+    const subjectTypeList = this.subjectTypeList;
+    for (let i = 0; i < schoolList.length; i++) {
+      const tableArr = [];
+      const schoolItem = schoolList[i];
+      for (let j = 0; j < provinceList.length; j++) {
+        const provinceItem = provinceList[j];
+        const item = {
+          school_id: schoolItem.school_id,
+          school_name: schoolItem.school_name,
+          r_school_id: schoolItem.r_school_id,
+          province_id: provinceItem.province_id,
+          province_name: provinceItem.province_name,
+          year: 2019,
+        };
+        tableArr.push(item);
+      }
+
+      await ctx.youzyModel.MajorAdmissionPlanTable.bulkCreate(tableArr);
+    }
+  }
+
+
+  async loadMajorAdmissionPlanTable() {
+    const { ctx } = this;
+
+
+    // for (let i = 0; i < 130000; i = i + 20000) {
+    //   await initItem(i);
+    // }
+
+    const _this = this;
+
+    setInterval(function() {
+      initItem(0);
+    }, 1500);
+
+    async function initItem(offsetNum) {
+
+      const majorAdmissionPlanTableList = await ctx.youzyModel.MajorAdmissionPlanTable.findAll({
+        where: {
+          status: -1,
+          // id: {
+          //   $between: [ offsetNum, offsetNum + 100000 ],
+          // },
+          // id: 391480,
+        },
+        limit: 1,
+      });
+
+      let listSum = 0;
+      for (let i = 0; i < majorAdmissionPlanTableList.length; i++) {
+
+        const majorAdmissionPlanTableInfo = majorAdmissionPlanTableList[i];
+        if (!majorAdmissionPlanTableInfo) {
+          return;
+        }
+        const { school_id, province_id, subject_type, batch_id, year } = majorAdmissionPlanTableInfo;
+
+
+        const url = 'https://ia-pv4y.youzy.cn/Data/ScoreLines/Plans/Professions/Query';
+        const data = {
+          year: 2019,
+          ucodes: province_id + '_' + school_id + '_0_0',
+          // collegeId: item.school_id,
+        };
+        const text = JSON.stringify(data);
+        const textBytes = youzyEptService.utils.utf8.toBytes(text);
+        const aesCtr = new youzyEptService.ModeOfOperation.ctr([ 11, 23, 32, 43, 45, 46, 67, 8, 9, 10, 11, 12, 13, 14, 15, 16 ], new youzyEptService.Counter(5));
+        const encryptedBytes = aesCtr.encrypt(textBytes);
+        const encryptedHex = youzyEptService.utils.hex.fromBytes(encryptedBytes);
+        const params = {
+          data: encryptedHex,
+        };
+        // console.log(data);
+        // console.log(encryptedHex);
+        // if (encryptedHex === 'af4f7d5166a14e5b9a61c4587037c6100f350993a48127ccb219e17e4bb32cd3dfe52f6d') {
+        //   console.log('匹配');
+        // }
+        //
+        // return;
+
+        const result = await ctx.basePostForYouzy(url, params);
+
+        // console.log(result);
+
+        if (result.isSuccess === true) {
+          const majorAdmissionPlan = await _this.jiemiSchoolData(result.result.plans);
+          await ctx.youzyModel.MajorAdmissionPlanTable.update({
+            status: 222,
+            html: JSON.stringify(majorAdmissionPlan),
+            count: majorAdmissionPlan.length,
+          }, {
+            where: {
+              id: majorAdmissionPlanTableInfo.id,
+            },
+          });
+        } else {
+          await ctx.youzyModel.MajorAdmissionPlanTable.update({
+            status: 500,
+            html: result.data,
+          }, {
+            where: {
+              id: majorAdmissionPlanTableInfo.id,
+            },
+          });
+        }
+        listSum++;
+      }
+      if (listSum && listSum === majorAdmissionPlanTableList.length) {
+        // await initItem(offsetNum);
+      }
+
+
+    }
+
+  }
+
 }
 
 

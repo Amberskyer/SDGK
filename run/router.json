@@ -6,6 +6,19 @@
       "GET"
     ],
     "paramNames": [],
+    "path": "/wmzy/load-school",
+    "regexp": "/^\\/wmzy\\/load-school(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
     "path": "/sqlTool/addRateProvinceSql",
     "regexp": "/^\\/sqlTool\\/addRateProvinceSql(?:\\/(?=$))?$/",
     "stack": [
@@ -32,21 +45,8 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/sqlTool/init-province-id",
-    "regexp": "/^\\/sqlTool\\/init-province-id(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/sqlTool/initProvinceBatchId",
-    "regexp": "/^\\/sqlTool\\/initProvinceBatchId(?:\\/(?=$))?$/",
+    "path": "/youzy/loadMajorAdmissionPlanTable",
+    "regexp": "/^\\/youzy\\/loadMajorAdmissionPlanTable(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

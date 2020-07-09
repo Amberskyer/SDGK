@@ -3,35 +3,34 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.zsgkModel.define('school', {
+  const Model = app.yggkModel.define('school_topic_table', {
     id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-    },
-    school_id: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true,
     },
     school_name: {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
-    r_school_id: {
-      type: DataTypes.INTEGER(11),
+    topic: {
+      type: DataTypes.STRING(255),
       allowNull: true,
     },
-    r_school_name: {
+    url: {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
     status: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.STRING(255),
       allowNull: true,
-      defaultValue: '-1',
+    },
+    html: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
   }, {
-    tableName: 'school',
+    tableName: 'school_topic_table',
     timestamps: false,
     freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
   });

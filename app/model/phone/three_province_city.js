@@ -3,35 +3,47 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.zsgkModel.define('school', {
+  const Model = app.phoneModel.define('three_province_city', {
     id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
-    school_id: {
-      type: DataTypes.INTEGER(11),
+    yys: {
+      type: DataTypes.TEXT,
       allowNull: true,
     },
-    school_name: {
+    three: {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
-    r_school_id: {
-      type: DataTypes.INTEGER(11),
+    province: {
+      type: DataTypes.STRING(255),
       allowNull: true,
     },
-    r_school_name: {
+    city: {
       type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    city_py: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    url: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    html: {
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     status: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: '-1',
     },
   }, {
-    tableName: 'school',
+    tableName: 'three_province_city',
     timestamps: false,
     freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步
   });
