@@ -102,18 +102,18 @@ module.exports = appInfo => {
       //   // 数据库名
       //   database: 'zhiwang',
       // },
-      wmzy: {
-        // host
-        host: '127.0.0.1',
-        // 端口号
-        port: '3306',
-        // 用户名
-        user: 'root',
-        // 密码
-        password: '123456',
-        // 数据库名
-        database: 'wmzy',
-      },
+      // wmzy: {
+      //   // host
+      //   host: '127.0.0.1',
+      //   // 端口号
+      //   port: '3306',
+      //   // 用户名
+      //   user: 'root',
+      //   // 密码
+      //   password: '123456',
+      //   // 数据库名
+      //   database: 'wmzy',
+      // },
       // bkzy: {
       //   // host
       //   host: '127.0.0.1',
@@ -197,15 +197,15 @@ module.exports = appInfo => {
       //   host: '127.0.0.1',
       //   port: 3306,
       // },
-      { delegate: 'zsgkModel', // load all models to app.model and ctx.model
-        baseDir: 'model/zsgk', // load models from `app/model/*.js`
-        dialect: 'mysql',
-        database: 'sdgk-data-dev',
-        username: 'dev',
-        password: 'yqdev2020??',
-        host: '47.98.141.198',
-        port: 3306,
-      },
+      // { delegate: 'zsgkModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/zsgk', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'sdgk-data-dev',
+      //   username: 'dev',
+      //   password: 'yqdev2020??',
+      //   host: '47.98.141.198',
+      //   port: 3306,
+      // },
       { delegate: 'youzyModel', // load all models to app.model and ctx.model
         baseDir: 'model/youzy', // load models from `app/model/*.js`
         dialect: 'mysql',
@@ -269,15 +269,15 @@ module.exports = appInfo => {
       //   host: '127.0.0.1',
       //   port: 3306,
       // },
-      { delegate: 'kkModel', // load all models to app.model and ctx.model
-        baseDir: 'model/kk', // load models from `app/model/*.js`
-        dialect: 'mysql',
-        database: 'sdgk-data-dev',
-        username: 'dev',
-        password: 'yqdev2020??',
-        host: '47.98.141.198',
-        port: 3306,
-      },
+      // { delegate: 'kkModel', // load all models to app.model and ctx.model
+      //   baseDir: 'model/kk', // load models from `app/model/*.js`
+      //   dialect: 'mysql',
+      //   database: 'sdgk-data-dev',
+      //   username: 'dev',
+      //   password: 'yqdev2020??',
+      //   host: '47.98.141.198',
+      //   port: 3306,
+      // },
       // { delegate: 'youzyModel', // load all models to app.model and ctx.model
       //   baseDir: 'model/youzy', // load models from `app/model/*.js`
       //   dialect: 'mysql',
